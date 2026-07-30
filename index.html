@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>台中東勢林場與山城生態二日遊行程簡章</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #059669;
+            --primary-dark: #047857;
+            --primary-light: #ecfdf5;
+            --text-dark: #064e3b;
+            --text-body: #1e293b;
+            --text-muted: #475569;
+            --border: #a7f3d0;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; background: #f0fdf4; color: var(--text-body); line-height: 1.45; }
+        
+        .no-print-bar { position: sticky; top: 0; z-index: 999; background: #ffffff; border-bottom: 2px solid #d1fae5; padding: 12px 24px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 12px rgba(5,150,105,0.08); }
+        .btn-print { background: #059669; color: white; border: none; padding: 10px 22px; border-radius: 8px; font-size: 1rem; font-weight: 700; cursor: pointer; box-shadow: 0 4px 10px rgba(5,150,105,0.3); transition: all 0.2s; }
+        .btn-print:hover { background: #047857; transform: translateY(-1px); }
+
+        .page-container { max-width: 900px; margin: 20px auto; background: white; border-radius: 16px; box-shadow: 0 10px 30px rgba(5,150,105,0.1); overflow: hidden; padding: 24px; }
+        
+        .header-banner { background: linear-gradient(135deg, #047857, #10b981); color: white; padding: 18px 24px; border-radius: 12px; margin-bottom: 14px; }
+        .header-banner .tag { background: rgba(255,255,255,0.25); padding: 3px 10px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; display: inline-block; margin-bottom: 4px; }
+        .header-banner h1 { font-size: 1.65rem; font-weight: 900; margin: 4px 0 6px 0; letter-spacing: -0.5px; }
+        
+        .meta-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; background: #f0fdf4; padding: 12px 16px; border-radius: 10px; border: 1px solid #a7f3d0; margin-bottom: 16px; }
+        .meta-item { display: flex; flex-direction: column; }
+        .meta-item .lbl { font-size: 0.8rem; color: var(--text-muted); font-weight: 500; }
+        .meta-item .val { font-size: 1rem; font-weight: 700; color: var(--primary-dark); }
+
+        .day-badge { background: var(--primary); color: white; padding: 4px 14px; border-radius: 20px; font-weight: 800; font-size: 0.95rem; display: inline-block; margin-bottom: 10px; }
+
+        .grid-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+        .spot-card { border: 1px solid #d1fae5; border-radius: 10px; overflow: hidden; background: #fff; display: flex; flex-direction: column; }
+        .spot-img-placeholder { height: 100px; width: 100%; background: linear-gradient(135deg, #a7f3d0, #ecfdf5); display: flex; align-items: center; justify-content: center; color: var(--primary-dark); font-weight: bold; font-size: 1rem; }
+        .spot-body { padding: 10px 12px; flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        .spot-time { font-size: 0.78rem; font-weight: 700; color: var(--primary-dark); background: #ecfdf5; padding: 2px 8px; border-radius: 4px; display: inline-block; width: fit-content; margin-bottom: 4px; }
+        .spot-name { font-size: 1rem; font-weight: 700; color: var(--text-dark); margin-bottom: 3px; }
+        .spot-desc { font-size: 0.83rem; color: var(--text-muted); line-height: 1.35; }
+
+        .t-row { display: flex; align-items: center; gap: 10px; background: #f0fdf4; border: 1px solid #a7f3d0; padding: 8px 12px; border-radius: 8px; margin-bottom: 8px; }
+        .t-row .time-pill { font-size: 0.82rem; font-weight: 700; background: var(--primary); color: white; padding: 3px 8px; border-radius: 6px; white-space: nowrap; }
+        .t-row .title-text { font-size: 0.92rem; font-weight: 700; color: var(--text-dark); flex: 1; }
+
+        .footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+        .info-card { background: #f0fdf4; border: 1px solid #a7f3d0; border-radius: 10px; padding: 10px 14px; }
+        .info-card h3 { font-size: 0.92rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 4px; }
+        .info-card ul { padding-left: 16px; font-size: 0.8rem; color: var(--text-muted); }
+        .info-card li { margin-bottom: 2px; }
+
+        /* 🖨️ PERFECT A4 PDF PRINT OVERRIDES (NO BLANK SPACES!) */
+        @media print {
+            @page {
+                size: A4 portrait;
+                margin: 6mm 8mm;
+            }
+            html, body {
+                background: #ffffff !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                font-size: 11px !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            .no-print-bar { display: none !important; }
+            .page-container {
+                max-width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                box-shadow: none !important;
+                border: none !important;
+                border-radius: 0 !important;
+            }
+            .header-banner {
+                padding: 10px 14px !important;
+                margin-bottom: 8px !important;
+            }
+            .header-banner h1 {
+                font-size: 1.3rem !important;
+                margin: 2px 0 4px 0 !important;
+            }
+            .meta-grid {
+                padding: 6px 10px !important;
+                margin-bottom: 8px !important;
+                gap: 4px !important;
+            }
+            .meta-item .lbl { font-size: 0.7rem !important; }
+            .meta-item .val { font-size: 0.82rem !important; }
+            .day-badge {
+                font-size: 0.82rem !important;
+                padding: 2px 10px !important;
+                margin-bottom: 6px !important;
+            }
+            .grid-cards {
+                gap: 6px !important;
+                margin-bottom: 8px !important;
+            }
+            .spot-card {
+                break-inside: avoid !important;
+            }
+            .spot-img-placeholder {
+                height: 70px !important;
+                font-size: 0.88rem !important;
+            }
+            .spot-body {
+                padding: 4px 8px !important;
+            }
+            .spot-name {
+                font-size: 0.88rem !important;
+                margin-bottom: 1px !important;
+            }
+            .spot-desc {
+                font-size: 0.74rem !important;
+                line-height: 1.25 !important;
+            }
+            .t-row {
+                padding: 4px 8px !important;
+                margin-bottom: 4px !important;
+            }
+            .t-row .time-pill { font-size: 0.72rem !important; padding: 2px 5px !important; }
+            .t-row .title-text { font-size: 0.8rem !important; }
+            .footer-grid {
+                gap: 6px !important;
+                margin-top: 8px !important;
+            }
+            .info-card {
+                padding: 6px 10px !important;
+                break-inside: avoid !important;
+            }
+            .info-card h3 { font-size: 0.8rem !important; margin-bottom: 2px !important; }
+            .info-card ul { font-size: 0.72rem !important; padding-left: 14px !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="no-print-bar">
+        <div style="font-weight:700; color:#047857;">🌲 台中東勢林場與山城生態二日遊簡章</div>
+        <button class="btn-print" onclick="window.print()">🖨️ 下載 / 列印 A4 PDF 簡章</button>
+    </div>
+
+    <div class="page-container">
+        
+        <div class="header-banner">
+            <span class="tag">秋日森林漫步・自然養生之旅</span>
+            <h1>台中東勢林場與山城生態二日遊</h1>
+            <p style="font-size:0.85rem; opacity:0.9;">活動日期：民國 115 年 10 月 3 日（六）～ 10 月 4 日（日）</p>
+        </div>
+
+        <div class="meta-grid">
+            <div class="meta-item">
+                <span class="lbl">🚌 集合與發車資訊</span>
+                <span class="val">10/3 07:30 集合發車</span>
+            </div>
+            <div class="meta-item">
+                <span class="lbl">🏨 住宿地點安排</span>
+                <span class="val">東勢林場渡假會館/木屋</span>
+            </div>
+            <div class="meta-item">
+                <span class="lbl">♨️ 四大特色亮點</span>
+                <span class="val">鐵馬綠廊 / 美人湯泡腳 / 生態夜導</span>
+            </div>
+        </div>
+
+        <!-- DAY 1 -->
+        <div>
+            <span class="day-badge">DAY 1：10 月 3 日（星期六）行程重點</span>
+            
+            <div class="grid-cards">
+                <div class="spot-card">
+                    <div class="spot-img-placeholder">🚴 東豐自行車綠廊</div>
+                    <div class="spot-body">
+                        <span class="spot-time">⏱️ 10:00 - 12:00</span>
+                        <div class="spot-name">東豐自行車綠廊 / 后豐鐵馬道</div>
+                        <div class="spot-desc">騎乘單車穿梭於綠意樹林隧道，跨越九號隧道與花樑鋼橋，享受清爽秋風。</div>
+                    </div>
+                </div>
+
+                <div class="spot-card">
+                    <div class="spot-img-placeholder">🍱 新社當季鮮菇饗宴</div>
+                    <div class="spot-body">
+                        <span class="spot-time">⏱️ 12:30 - 14:00</span>
+                        <div class="spot-name">新社當季鮮菇午宴 & 採菇體驗</div>
+                        <div class="spot-desc">前往香菇之鄉新社，享用現採鮮菇養生餐，現場提供手作採菇趣體驗。</div>
+                    </div>
+                </div>
+
+                <div class="spot-card">
+                    <div class="spot-img-placeholder">♨️ 東勢林場濯足園溫泉泡腳</div>
+                    <div class="spot-body">
+                        <span class="spot-time">⏱️ 14:30 - 17:30</span>
+                        <div class="spot-name">Check-in ➔ 楓林步道與泡腳池</div>
+                        <div class="spot-desc">入住東勢林場，漫步楓林小徑，於「濯足園」浸泡天然碳酸氫鈉美人湯。</div>
+                    </div>
+                </div>
+
+                <div class="spot-card">
+                    <div class="spot-img-placeholder">🌌 專人夜間森林生態導覽</div>
+                    <div class="spot-body">
+                        <span class="spot-time">⏱️ 18:00 - 21:00</span>
+                        <div class="spot-name">森林風味晚餐 ➔ 夜間解說尋幽</div>
+                        <div class="spot-desc">享用精緻晚餐後，專人帶領探索森林夜間生態、觀察昆蟲與靜謐山林星空。</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DAY 2 -->
+        <div style="margin-top:10px;">
+            <span class="day-badge" style="background:#047857;">DAY 2：10 月 4 日（星期日）行程重點</span>
+
+            <div class="t-row">
+                <span class="time-pill">07:30 - 11:30</span>
+                <span class="title-text">晨曦森林活力早餐 ➔ 挑戰山林體能訓練場（繩網滑索、大溜滑梯）與芬多精森林浴</span>
+            </div>
+
+            <div class="t-row">
+                <span class="time-pill">12:00 - 14:00</span>
+                <span class="title-text">東勢道地客家特色午餐 ➔ 參觀東勢客家文化園區（舊火車站改建）</span>
+            </div>
+
+            <div class="t-row">
+                <span class="time-pill">14:30 - 18:30</span>
+                <span class="title-text">石岡水壩與 3D 巷弄彩繪村拍照 ➔ 滿載美麗回憶與芬多精快樂賦歸</span>
+            </div>
+        </div>
+
+        <div class="footer-grid">
+            <div class="info-card">
+                <h3>🎒 裝備用品建議</h3>
+                <ul>
+                    <li>輕便運動服飾與防滑運動鞋/健走鞋</li>
+                    <li>小毛巾（泡腳池使用）、替換衣物</li>
+                    <li>防蚊液、遮陽帽、常備藥品與保暖外衣</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3>💡 貼心提醒事項</h3>
+                <ul>
+                    <li>東勢林場園區廣闊，請留意行路安全</li>
+                    <li>濯足園泡腳池為免費溫泉，請保持清潔衛生</li>
+                    <li>夜間觀察請聽從工作人員指引</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
