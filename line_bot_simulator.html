@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💬 LINE 群組到期提醒 Bot - 模擬測試與部署助手</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --line-green: #06c755;
+            --line-dark: #05b34c;
+            --line-bg: #8cabd9;
+            --chat-bubble-user: #a0e75a;
+            --chat-bubble-bot: #ffffff;
+            --dark-bg: #1e1e2d;
+            --card-bg: #ffffff;
+            --text-primary: #2d3748;
+            --text-secondary: #718096;
+            --border-radius: 12px;
+            --shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f9;
+            color: var(--text-primary);
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .header h1 {
+            color: #1a202c;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .header p {
+            color: var(--text-secondary);
+            margin-top: 6px;
+            font-size: 0.95rem;
+        }
+
+        .badge-green {
+            background-color: #e6f4ea;
+            color: #137333;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 900px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* LINE Chat Mockup */
+        .chat-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 600px;
+        }
+
+        .chat-header {
+            background: #273238;
+            color: #ffffff;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .chat-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+
+        .chat-body {
+            background: var(--line-bg);
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .message-group {
+            display: flex;
+            flex-direction: column;
+            max-width: 80%;
+        }
+
+        .message-group.user {
+            align-self: flex-end;
+            align-items: flex-end;
+        }
+
+        .message-group.bot {
+            align-self: flex-start;
+            align-items: flex-start;
+        }
+
+        .sender-name {
+            font-size: 0.75rem;
+            color: #4a5568;
+            margin-bottom: 3px;
+        }
+
+        .chat-bubble {
+            padding: 10px 14px;
+            border-radius: 16px;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            white-space: pre-wrap;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .message-group.user .chat-bubble {
+            background: var(--chat-bubble-user);
+            border-top-right-radius: 2px;
+            color: #000;
+        }
+
+        .message-group.bot .chat-bubble {
+            background: var(--chat-bubble-bot);
+            border-top-left-radius: 2px;
+            color: #1a202c;
+        }
+
+        .chat-input-area {
+            background: #ffffff;
+            padding: 12px;
+            border-top: 1fr solid #e2e8f0;
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-input-area input {
+            flex: 1;
+            padding: 10px 14px;
+            border: 1px solid #cbd5e0;
+            border-radius: 20px;
+            outline: none;
+            font-size: 0.9rem;
+        }
+
+        .chat-input-area button {
+            background: var(--line-green);
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .chat-input-area button:hover {
+            background: var(--line-dark);
+        }
+
+        /* Dashboard & Setup Cards */
+        .side-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .card h2 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #1a202c;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .task-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-height: 230px;
+            overflow-y: auto;
+        }
+
+        .task-item {
+            background: #f7fafc;
+            border-left: 4px solid var(--line-green);
+            padding: 10px 12px;
+            border-radius: 6px;
+            font-size: 0.88rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .task-info strong {
+            color: #2b6cb0;
+        }
+
+        .btn-trigger {
+            background: #3182ce;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 6px;
+            font-size: 0.78rem;
+            cursor: pointer;
+        }
+
+        .btn-trigger:hover {
+            background: #2b6cb0;
+        }
+
+        .quick-presets {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .preset-chip {
+            background: #edf2f7;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            color: #4a5568;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .preset-chip:hover {
+            background: #e2e8f0;
+            color: #1a202c;
+        }
+
+        .step-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            background: #4a5568;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .step-content strong {
+            display: block;
+            font-size: 0.92rem;
+            color: #2d3748;
+        }
+
+        .step-content p {
+            font-size: 0.85rem;
+            color: #718096;
+            margin-top: 2px;
+        }
+
+        .btn-action {
+            display: inline-block;
+            background: var(--line-green);
+            color: white;
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1><i class="fab fa-line" style="color: var(--line-green);"></i> LINE 群組到期提醒 Bot 測試模擬器</h1>
+        <p>直接在下方聊天室模擬發送對話，體驗自動解析關係人、事項與截止時間功能！ <span class="badge-green">截止前 1 小時自動提醒</span></p>
+    </div>
+
+    <div class="main-container">
+        <!-- 聊天室模擬器 -->
+        <div class="chat-card">
+            <div class="chat-header">
+                <div class="chat-title">
+                    <i class="fas fa-users"></i> 公司專案4人群組 (模擬中)
+                </div>
+                <span style="font-size: 0.8rem; opacity: 0.8;">Bot 已在群組內</span>
+            </div>
+
+            <div class="chat-body" id="chatBody">
+                <div class="message-group bot">
+                    <span class="sender-name">提醒小幫手 (Bot)</span>
+                    <div class="chat-bubble">👋 大家好！我是到期提醒 Bot。
+在群組傳送對話（例如：`請 @張三 在 17:00 前完成發票填寫`），我就會自動記錄並於 **到期前 1 小時** 發送提醒通知！</div>
+                </div>
+            </div>
+
+            <div class="quick-presets" style="padding: 10px 15px; background: #edf2f7;">
+                <span style="font-size: 0.8rem; color: #718096; width: 100%;">點擊快速測試情境：</span>
+                <div class="preset-chip" onclick="setInput('請關係人 @張三 在 17:00 前完成銷售月報')">@張三 17:00 銷售月報</div>
+                <div class="preset-chip" onclick="setInput('@小明 16:30 前完成發票用印')">@小明 16:30 發票用印</div>
+                <div class="preset-chip" onclick="setInput('提醒 @王五 1.5小時後 與客戶開會')">@王五 1.5小時後 開會</div>
+            </div>
+
+            <div class="chat-input-area">
+                <input type="text" id="chatInput" placeholder="輸入對話內容... (例: @小明 17:00 前完成簡報)" onkeypress="if(event.key==='Enter') sendMessage()">
+                <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i> 發送</button>
+            </div>
+        </div>
+
+        <!-- 側邊面板：已記錄任務與佈署步驟 -->
+        <div class="side-panel">
+            <!-- 任務儀表板 -->
+            <div class="card">
+                <h2><i class="fas fa-list-check" style="color: #3182ce;"></i> 目前已記錄的提醒事項</h2>
+                <div class="task-list" id="taskList">
+                    <div style="text-align: center; color: #a0aec0; padding: 20px; font-size: 0.9rem;">
+                        尚無任務，請在左側聊天室輸入對話建立提醒
+                    </div>
+                </div>
+            </div>
+
+            <!-- 開發與上線步驟指南 -->
+            <div class="card">
+                <h2><i class="fas fa-rocket" style="color: #e53e3e;"></i> 我幫您上線的 3 步驟指南</h2>
+                <ul class="step-list">
+                    <li class="step-item">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <strong>取得 LINE 官方帳號 Token</strong>
+                            <p>前往 <a href="https://developers.line.biz/" target="_blank">LINE Developers</a> 建立 Messaging API Channel 並生成 Channel Access Token。</p>
+                        </div>
+                    </li>
+                    <li class="step-item">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <strong>貼上 Google Apps Script 腳本</strong>
+                            <p>複製專案中的 <code>line_reminder_gas.js</code> 內容至 Google Apps Script 並發布為 Web App。</p>
+                        </div>
+                    </li>
+                    <li class="step-item">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <strong>將 Bot 邀請加入 4 人群組</strong>
+                            <p>掃描 Bot 的 QR Code 加入好友，並將 Bot 邀請進入您的 4 人群組即可開始使用！</p>
+                        </div>
+                    </li>
+                </ul>
+                <a href="README_LINE_BOT_SETUP.md" class="btn-action" style="width: 100%; display: block; text-align: center;">
+                    <i class="fas fa-book-open"></i> 開啟詳細設定說明文件 (README)
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const tasks = [];
+
+        function setInput(text) {
+            document.getElementById('chatInput').value = text;
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const text = input.value.trim();
+            if (!text) return;
+
+            // 1. 顯示 User 訊息
+            appendMessage('成員 (您)', text, 'user');
+            input.value = '';
+
+            // 2. 模擬 Bot 解析對話
+            setTimeout(() => {
+                const parsed = parseTask(text);
+                if (parsed) {
+                    tasks.push(parsed);
+                    renderTasks();
+
+                    const replyText = 
+                        `✅【已成功為您記錄提醒】\n` +
+                        `----------------------------\n` +
+                        `👤 關係人：${parsed.person}\n` +
+                        `📝 處理事項：${parsed.task}\n` +
+                        `⏳ 截止時間：${parsed.deadlineStr}\n` +
+                        `----------------------------\n` +
+                        `🔔 將於 ${parsed.reminderTimeStr} (到期前 1 小時) 自動發送群組提醒通知！`;
+
+                    appendMessage('提醒小幫手 (Bot)', replyText, 'bot');
+                } else {
+                    appendMessage('提醒小幫手 (Bot)', '💡 未偵測到明確的時間與對話內容，若要設定提醒請包含人名標記與時間（例如：`@小明 17:00 前完成開會`）。', 'bot');
+                }
+            }, 600);
+        }
+
+        function appendMessage(sender, text, type) {
+            const chatBody = document.getElementById('chatBody');
+            const msgGroup = document.createElement('div');
+            msgGroup.className = `message-group ${type}`;
+
+            const senderSpan = document.createElement('span');
+            senderSpan.className = 'sender-name';
+            senderSpan.innerText = sender;
+
+            const bubble = document.createElement('div');
+            bubble.className = 'chat-bubble';
+            bubble.innerText = text;
+
+            msgGroup.appendChild(senderSpan);
+            msgGroup.appendChild(bubble);
+            chatBody.appendChild(msgGroup);
+
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        function parseTask(text) {
+            let person = "@群組成員";
+            const personMatch = text.match(/(?:關係人[:：]\s*|@)([^\s\n,，:：]+)/);
+            if (personMatch) {
+                person = '@' + personMatch[1].replace(/^@/, '');
+            }
+
+            const now = new Date();
+            let deadline = null;
+
+            const fullMatch = text.match(/(\d{4}[\/\-]\d{1,2}[\/\-]\d{1,2}\s+\d{1,2}:\d{2})/);
+            const timeMatch = text.match(/(\d{1,2}:\d{2})/);
+            const hoursMatch = text.match(/(\d+(?:\.\d+)?)\s*(?:個)?小時後/);
+
+            if (fullMatch) {
+                deadline = new Date(fullMatch[1].replace(/\//g, '-'));
+            } else if (timeMatch) {
+                const parts = timeMatch[1].split(':');
+                deadline = new Date(now.getFullYear(), now.getMonth(), now.getDate(), parseInt(parts[0]), parseInt(parts[1]));
+                if (deadline < now) deadline.setDate(deadline.getDate() + 1);
+            } else if (hoursMatch) {
+                const hours = parseFloat(hoursMatch[1]);
+                deadline = new Date(now.getTime() + hours * 60 * 60 * 1000);
+            } else {
+                return null;
+            }
+
+            let task = text
+                .replace(/(?:關係人[:：]\s*|@)[^\s\n,，:：]+/g, '')
+                .replace(/(\d{4}[\/\-]\d{1,2}[\/\-]\d{1,2}\s+\d{1,2}:\d{2})/g, '')
+                .replace(/(\d{1,2}:\d{2})/g, '')
+                .replace(/(\d+(?:\.\d+)?)\s*(?:個)?小時後/g, '')
+                .replace(/(?:提醒|截止|處理事項[:：]|事項[:：]|請在|前|完成|記得)/g, '')
+                .trim();
+
+            if (!task) task = "處理交辦事項";
+
+            const reminderTime = new Date(deadline.getTime() - 60 * 60 * 1000);
+
+            const formatTime = (d) => {
+                const pad = (n) => n.toString().padStart(2, '0');
+                return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
+            };
+
+            const formatHM = (d) => {
+                const pad = (n) => n.toString().padStart(2, '0');
+                return `${pad(d.getHours())}:${pad(d.getMinutes())}`;
+            };
+
+            return {
+                id: Date.now(),
+                person,
+                task,
+                deadline,
+                deadlineStr: formatTime(deadline),
+                reminderTimeStr: formatHM(reminderTime)
+            };
+        }
+
+        function renderTasks() {
+            const list = document.getElementById('taskList');
+            list.innerHTML = '';
+
+            if (tasks.length === 0) {
+                list.innerHTML = '<div style="text-align: center; color: #a0aec0; padding: 20px;">尚無任務</div>';
+                return;
+            }
+
+            tasks.forEach((t) => {
+                const item = document.createElement('div');
+                item.className = 'task-item';
+                item.innerHTML = `
+                    <div class="task-info">
+                        <strong>${t.person}</strong>: ${t.task}<br>
+                        <span style="font-size:0.75rem; color:#718096;">⏳ 截止: ${t.deadlineStr}</span>
+                    </div>
+                    <button class="btn-trigger" onclick="triggerNotification(${t.id})">
+                        <i class="fas fa-bell"></i> 模擬到期前1小時提醒
+                    </button>
+                `;
+                list.appendChild(item);
+            });
+        }
+
+        function triggerNotification(id) {
+            const task = tasks.find(t => t.id === id);
+            if (!task) return;
+
+            const pushText = 
+                `⏰【任務到期提醒 - 剩餘約 60 分鐘】\n` +
+                `----------------------------\n` +
+                `👤 關係人：${task.person}\n` +
+                `📝 處理事項：${task.task}\n` +
+                `⏳ 截止時間：${task.deadlineStr}\n` +
+                `----------------------------\n` +
+                `⚠️ 請 ${task.person} 儘速處理，謝謝！`;
+
+            appendMessage('提醒小幫手 (Bot - 定時發送)', pushText, 'bot');
+        }
+    </script>
+</body>
+</html>

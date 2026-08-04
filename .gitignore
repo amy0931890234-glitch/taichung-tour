@@ -1,0 +1,14 @@
+# Excel & Office temporary or binary data files
+~$*
+*.xlsx
+*.doc
+
+# Lock and build files
+*.lock
+temp_deploy/
+site.zip
+
+# Python / OS generated
+__pycache__/
+*.pyc
+.DS_Store

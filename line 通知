@@ -1,0 +1,18 @@
+# LINE 群組對話監聽與到期提醒通知系統 (免試算表版本)
+
+已依您的指示改為**直接讀取/監聽 LINE 群組對話內容**，無須開啟或維護任何 Google 試算表。
+
+## 運作方式
+1. 成員在 4 人 LINE 群組中傳送含有關係人與時間的訊息（例如：`請關係人 @張三 在 17:00 前完成銷售月報` 或 `提醒 @小明 16:30 發票用印`）。
+2. LINE 機器人 (Webhook) 即時抓取對話，自動識別：
+   - 👤 **關係人** (`@張三` / `@小明`)
+   - 📝 **處理事項** (`完成銷售月報` / `發票用印`)
+   - ⏳ **截止時間** (`17:00` / `16:30`)
+3. 機器人立即在群組回覆：`✅ 已成功為您記錄提醒！將於 16:00 (前 1 小時) 發送通知`。
+4. 到達截止前 1 小時，機器人自動在群組發送 `⏰【任務到期提醒】`！
+
+## 相關檔案
+- [line_reminder_gas.js](file:///c:/Users/ASUS/Desktop/AI/line_reminder_gas.js) - Google Apps Script 免費 Webhook 版本（推薦，不需開著電腦）
+- [line_reminder_python.py](file:///c:/Users/ASUS/Desktop/AI/line_reminder_python.py) - Python FastAPI/SQLite 版本
+- [README_LINE_BOT_SETUP.md](file:///c:/Users/ASUS/Desktop/AI/README_LINE_BOT_SETUP.md) - LINE Bot 設定指南
+- [implementation_plan.md](file:///C:/Users/ASUS/.gemini/antigravity-ide/brain/a1b3430d-5431-4c20-9748-a9b5acb4f8f7/implementation_plan.md) - 完整架構說明與驗證計畫

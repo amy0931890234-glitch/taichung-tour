@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Agent Studio - 打造你的專屬 AI 助理</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Marked.js for Markdown parsing -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    
+    <!-- Sidebar Control Panel -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="brand">
+          <i class="fa-solid fa-brain brand-icon"></i>
+          <h2>AI Agent Studio</h2>
+        </div>
+        <button id="themeToggle" class="icon-btn" title="切換深色/亮色主題">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+      </div>
+
+      <!-- Settings Section -->
+      <div class="sidebar-content">
+        
+        <!-- API Key Setup -->
+        <div class="setting-group">
+          <label for="apiKeyInput">
+            <i class="fa-solid fa-key"></i> Gemini API Key
+          </label>
+          <div class="api-key-wrapper">
+            <input type="password" id="apiKeyInput" placeholder="請貼上 AI Studio API Key..." />
+            <button id="toggleKeyVisibility" class="icon-btn-sm" title="顯示/隱藏">
+              <i class="fa-solid fa-eye"></i>
+            </button>
+          </div>
+          <small class="help-text">金鑰僅存於您的本機瀏覽器 localStorage。</small>
+        </div>
+
+        <!-- Agent Role Selector -->
+        <div class="setting-group">
+          <label><i class="fa-solid fa-user-gear"></i> 選擇 Agent 預設角色</label>
+          <div class="role-grid">
+            <button class="role-card active" data-role="pm">
+              <i class="fa-solid fa-list-check"></i>
+              <span>PM 產品助理</span>
+            </button>
+            <button class="role-card" data-role="cs">
+              <i class="fa-solid fa-headset"></i>
+              <span>電商客服專家</span>
+            </button>
+            <button class="role-card" data-role="marketing">
+              <i class="fa-solid fa-bullhorn"></i>
+              <span>行銷文案大師</span>
+            </button>
+            <button class="role-card" data-role="custom">
+              <i class="fa-solid fa-sliders"></i>
+              <span>自訂 Prompt</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- System Prompt Textarea -->
+        <div class="setting-group">
+          <div class="label-with-action">
+            <label for="systemPrompt"><i class="fa-solid fa-code"></i> System Prompt 指引</label>
+            <button id="resetPromptBtn" class="text-link">重置為預設</button>
+          </div>
+          <textarea id="systemPrompt" rows="7" placeholder="輸入此 AI Agent 的角色身分與規範..."></textarea>
+        </div>
+
+        <!-- Model Parameters -->
+        <div class="setting-group">
+          <div class="label-with-value">
+            <label for="tempSlider"><i class="fa-solid fa-fire"></i> 創意度 (Temperature)</label>
+            <span id="tempValue">0.4</span>
+          </div>
+          <input type="range" id="tempSlider" min="0" max="1" step="0.1" value="0.4" />
+        </div>
+
+        <div class="setting-group">
+          <label for="modelSelect"><i class="fa-solid fa-microchip"></i> Gemini 模型</label>
+          <select id="modelSelect">
+            <option value="gemini-2.5-flash" selected>gemini-2.5-flash (推薦，速度快且聰明)</option>
+            <option value="gemini-2.5-pro">gemini-2.5-pro (推理能力極佳)</option>
+            <option value="gemini-1.5-flash">gemini-1.5-flash (經典高效)</option>
+          </select>
+        </div>
+
+      </div>
+
+      <div class="sidebar-footer">
+        <button id="clearChatBtn" class="btn-secondary danger">
+          <i class="fa-solid fa-trash-can"></i> 清除對話紀錄
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Chat Workspace -->
+    <main class="chat-workspace">
+      
+      <!-- Top Chat Header -->
+      <header class="chat-header">
+        <div class="active-agent-info">
+          <div class="agent-avatar" id="agentAvatar">
+            <i class="fa-solid fa-robot"></i>
+          </div>
+          <div>
+            <h3 id="agentTitle">PM 產品助理 Agent</h3>
+            <p id="agentStatus"><span class="status-dot"></span> Gemini 2.5 API 串接完成</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Messages Stream -->
+      <div class="chat-messages" id="chatMessages">
+        
+        <!-- Welcome Hero Banner -->
+        <div class="welcome-card" id="welcomeCard">
+          <div class="welcome-icon"><i class="fa-solid fa-sparkles"></i></div>
+          <h2>歡迎使用 AI Agent 實戰工作室！</h2>
+          <p>請選擇左側的角色設定，或直接點擊下方範例開始體驗自然語言對話：</p>
+          
+          <div class="starter-suggestions" id="starterSuggestions">
+            <!-- Dynamic Starter Buttons filled by JS -->
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Typing Indicator -->
+      <div class="typing-indicator hidden" id="typingIndicator">
+        <div class="dots">
+          <span></span><span></span><span></span>
+        </div>
+        <span class="typing-text">AI Agent 思考與撰寫中...</span>
+      </div>
+
+      <!-- Input Bar -->
+      <footer class="chat-input-area">
+        <div class="input-box-wrapper">
+          <textarea id="userInput" placeholder="請輸入訊息... (Shift + Enter 換行，Enter 發送)" rows="1"></textarea>
+          <button id="sendBtn" class="btn-primary" title="發送訊息">
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
+        </div>
+        <div class="input-footer-note">
+          <span>AI 輸出的內容僅供參考，請隨時驗證資訊正確性。</span>
+        </div>
+      </footer>
+
+    </main>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
