@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>美東 17 天自然與建築自駕公路旅行地圖</title>
+  <title>美東 17 天自然與建築自駕公路旅行地圖指南</title>
   <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <!-- Google Fonts -->
@@ -16,8 +16,8 @@
   <style>
     :root {
       --bg-dark: #0f172a;
-      --card-bg: rgba(30, 41, 59, 0.85);
-      --card-border: rgba(255, 255, 255, 0.1);
+      --card-bg: rgba(30, 41, 59, 0.9);
+      --card-border: rgba(255, 255, 255, 0.12);
       --accent-color: #38bdf8;
       --accent-gradient: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
       --text-main: #f8fafc;
@@ -36,21 +36,20 @@
       font-family: 'Noto Sans TC', 'Outfit', sans-serif;
       background-color: var(--bg-dark);
       color: var(--text-main);
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      overflow: hidden;
     }
 
     header {
-      background: rgba(15, 23, 42, 0.95);
-      backdrop-filter: blur(12px);
+      background: rgba(15, 23, 42, 0.98);
       border-bottom: 1px solid var(--card-border);
       padding: 1rem 1.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      z-index: 1000;
+      flex-wrap: wrap;
+      gap: 1rem;
     }
 
     header h1 {
@@ -61,85 +60,112 @@
       -webkit-text-fill-color: transparent;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.6rem;
     }
 
-    .badge-container {
+    .nav-tabs {
       display: flex;
-      gap: 0.75rem;
+      background: rgba(30, 41, 59, 0.8);
+      padding: 4px;
+      border-radius: 12px;
+      border: 1px solid var(--card-border);
     }
 
-    .badge {
-      background: rgba(56, 189, 248, 0.15);
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      color: var(--accent-color);
-      padding: 0.35rem 0.75rem;
-      border-radius: 20px;
-      font-size: 0.85rem;
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
       font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
       display: flex;
       align-items: center;
       gap: 0.4rem;
     }
 
-    .app-container {
-      display: flex;
+    .tab-btn.active {
+      background: var(--accent-gradient);
+      color: #0f172a;
+      box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
+    }
+
+    .main-content {
       flex: 1;
       position: relative;
+      display: flex;
       overflow: hidden;
+      min-height: calc(100vh - 70px);
+    }
+
+    /* Tab 1: Interactive Map & Sidebar */
+    .tab-pane {
+      display: none;
+      width: 100%;
+      height: 100%;
+    }
+
+    .tab-pane.active {
+      display: flex;
+    }
+
+    #mapPane {
+      flex-direction: row;
     }
 
     #map {
       flex: 1;
       height: 100%;
+      min-height: 550px;
       background: #1e293b;
     }
 
     .sidebar {
-      width: 420px;
-      background: rgba(15, 23, 42, 0.92);
-      backdrop-filter: blur(16px);
+      width: 400px;
+      background: rgba(15, 23, 42, 0.95);
       border-left: 1px solid var(--card-border);
       display: flex;
       flex-direction: column;
-      z-index: 999;
-      box-shadow: -5px 0 25px rgba(0, 0, 0, 0.5);
+      height: 100%;
+      max-height: calc(100vh - 70px);
     }
 
     .sidebar-header {
-      padding: 1.25rem;
+      padding: 1.2rem;
       border-bottom: 1px solid var(--card-border);
     }
 
     .sidebar-header h2 {
       font-size: 1.1rem;
       color: var(--text-main);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
     }
 
     .stats-row {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 0.5rem;
-      margin-top: 0.75rem;
+      margin-top: 0.6rem;
     }
 
     .stat-card {
-      background: rgba(30, 41, 59, 0.6);
+      background: rgba(30, 41, 59, 0.7);
       border: 1px solid var(--card-border);
       border-radius: 8px;
-      padding: 0.6rem;
+      padding: 0.5rem;
       text-align: center;
     }
 
     .stat-card .val {
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 700;
       color: var(--accent-color);
     }
 
     .stat-card .lbl {
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       color: var(--text-muted);
     }
 
@@ -149,170 +175,238 @@
       padding: 1rem;
       display: flex;
       flex-direction: column;
-      gap: 0.85rem;
+      gap: 0.8rem;
     }
 
     .stop-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
-      border-radius: 12px;
-      padding: 1rem;
+      border-radius: 10px;
+      padding: 0.9rem;
       cursor: pointer;
-      transition: all 0.25s ease;
-      position: relative;
+      transition: all 0.2s ease;
     }
 
     .stop-card:hover, .stop-card.active {
       border-color: var(--accent-color);
       transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(56, 189, 248, 0.15);
-      background: rgba(30, 41, 59, 0.95);
-    }
-
-    .stop-card.active::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 12px;
-      bottom: 12px;
-      width: 4px;
-      background: var(--accent-gradient);
-      border-radius: 0 4px 4px 0;
+      box-shadow: 0 6px 16px rgba(56, 189, 248, 0.15);
+      background: rgba(30, 41, 59, 0.98);
     }
 
     .stop-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.3rem;
     }
 
     .stop-day {
       background: var(--accent-gradient);
       color: #0f172a;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-weight: 700;
-      padding: 0.2rem 0.55rem;
-      border-radius: 12px;
+      padding: 0.2rem 0.5rem;
+      border-radius: 10px;
     }
 
     .stop-drive {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: var(--text-muted);
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
     }
 
     .stop-title {
-      font-size: 1.05rem;
+      font-size: 0.98rem;
       font-weight: 700;
       color: var(--text-main);
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.3rem;
     }
 
-    .stop-highlights {
-      font-size: 0.85rem;
+    .stop-desc {
+      font-size: 0.82rem;
       color: var(--text-muted);
-      line-height: 1.4;
+      line-height: 1.35;
     }
 
     .tag {
-      display: inline-flex;
+      display: inline-block;
+      font-size: 0.7rem;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      margin-top: 0.4rem;
+    }
+    .tag-nature { background: rgba(74, 222, 128, 0.15); color: var(--nature-green); border: 1px solid rgba(74, 222, 128, 0.3); }
+    .tag-archi { background: rgba(251, 191, 36, 0.15); color: var(--archi-gold); border: 1px solid rgba(251, 191, 36, 0.3); }
+
+    /* Tab 2: Image View */
+    #imagePane {
+      flex-direction: column;
       align-items: center;
-      gap: 0.3rem;
-      font-size: 0.72rem;
-      padding: 0.2rem 0.5rem;
-      border-radius: 6px;
-      margin-top: 0.5rem;
+      justify-content: center;
+      padding: 2rem;
+      overflow-y: auto;
+      background: #0b1120;
     }
 
-    .tag-nature {
-      background: rgba(74, 222, 128, 0.15);
-      color: var(--nature-green);
-      border: 1px solid rgba(74, 222, 128, 0.3);
+    .img-container {
+      max-width: 1000px;
+      width: 100%;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      text-align: center;
     }
 
-    .tag-archi {
-      background: rgba(251, 191, 36, 0.15);
-      color: var(--archi-gold);
-      border: 1px solid rgba(251, 191, 36, 0.3);
-    }
-
-    /* Custom Leaflet Map Popup Styling */
-    .leaflet-popup-content-wrapper {
-      background: rgba(15, 23, 42, 0.95);
-      backdrop-filter: blur(10px);
-      color: #f8fafc;
-      border: 1px solid rgba(255, 255, 255, 0.15);
+    .img-container img {
+      max-width: 100%;
+      height: auto;
       border-radius: 12px;
-      padding: 0.5rem;
-    }
-    .leaflet-popup-tip {
-      background: rgba(15, 23, 42, 0.95);
-    }
-    .popup-content h3 {
-      color: #38bdf8;
-      font-size: 1.1rem;
-      margin-bottom: 0.3rem;
-    }
-    .popup-content p {
-      font-size: 0.88rem;
-      color: #cbd5e1;
-      line-height: 1.4;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     }
 
-    @media (max-width: 900px) {
-      .app-container {
-        flex-direction: column-reverse;
-      }
-      .sidebar {
-        width: 100%;
-        height: 45vh;
-      }
-      #map {
-        height: 55vh;
-      }
+    .img-caption {
+      margin-top: 1rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* Tab 3: Timeline SVG Diagram */
+    #timelinePane {
+      padding: 2rem;
+      overflow-y: auto;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .timeline-container {
+      max-width: 850px;
+      width: 100%;
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 1.5rem;
+      position: relative;
+      padding-bottom: 1.8rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 19px;
+      top: 35px;
+      bottom: 0;
+      width: 2px;
+      background: rgba(56, 189, 248, 0.3);
+    }
+
+    .timeline-item:last-child::before {
+      display: none;
+    }
+
+    .timeline-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--accent-gradient);
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.1rem;
+      z-index: 2;
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.5);
+    }
+
+    .timeline-content {
+      flex: 1;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+    }
+
+    .timeline-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--accent-color);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .timeline-time {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: normal;
+    }
+
+    /* Popup style */
+    .leaflet-popup-content-wrapper {
+      background: #0f172a !important;
+      color: #f8fafc !important;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .leaflet-popup-tip { background: #0f172a !important; }
+
+    @media (max-width: 850px) {
+      #mapPane { flex-direction: column-reverse; }
+      .sidebar { width: 100%; height: 45vh; }
+      #map { height: 55vh; min-height: unset; }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1><i class="fa-solid fa-map-location-dot"></i> 美東 17 天自然與建築公路旅行路線地圖</h1>
-    <div class="badge-container">
-      <div class="badge"><i class="fa-solid fa-car"></i> 每日開車 &le; 2.5-3.5 小時</div>
-      <div class="badge"><i class="fa-solid fa-calendar-days"></i> 9/4 - 9/20</div>
+    <h1><i class="fa-solid fa-map-location-dot"></i> 美東 17 天公路旅行路線地圖指南</h1>
+    <div class="nav-tabs">
+      <button class="tab-btn active" onclick="switchTab('mapPane')"><i class="fa-solid fa-map"></i> 互動地圖</button>
+      <button class="tab-btn" onclick="switchTab('imagePane')"><i class="fa-solid fa-image"></i> 精美手繪地圖</button>
+      <button class="tab-btn" onclick="switchTab('timelinePane')"><i class="fa-solid fa-route"></i> 車程與亮點流程</button>
     </div>
   </header>
 
-  <div class="app-container">
-    <!-- Map Container -->
-    <div id="map"></div>
-
-    <!-- Sidebar Container -->
-    <div class="sidebar">
-      <div class="sidebar-header">
-        <h2>🗺️ 站點與行程清單 (點擊切換地圖視角)</h2>
-        <div class="stats-row">
-          <div class="stat-card">
-            <div class="val">17 天</div>
-            <div class="lbl">總天數</div>
-          </div>
-          <div class="stat-card">
-            <div class="val">10 站</div>
-            <div class="lbl">精選雙向主題</div>
-          </div>
-          <div class="stat-card">
-            <div class="val">~2.5h</div>
-            <div class="lbl">平均每日駕駛</div>
+  <div class="main-content">
+    <!-- TAB 1: Leaflet Interactive Map -->
+    <div class="tab-pane active" id="mapPane">
+      <div id="map"></div>
+      <div class="sidebar">
+        <div class="sidebar-header">
+          <h2>📍 行程站點 (點擊定位)</h2>
+          <div class="stats-row">
+            <div class="stat-card">
+              <div class="val">17 天</div>
+              <div class="lbl">總天數</div>
+            </div>
+            <div class="stat-card">
+              <div class="val">10 站</div>
+              <div class="lbl">特色站點</div>
+            </div>
+            <div class="stat-card">
+              <div class="val">&le; 3.5h</div>
+              <div class="lbl">日均開車</div>
+            </div>
           </div>
         </div>
+        <div class="stops-list" id="stopsList"></div>
       </div>
+    </div>
 
-      <div class="stops-list" id="stopsList">
-        <!-- Rendered by JS -->
+    <!-- TAB 2: Hand-drawn / Generated Visual Map Image -->
+    <div class="tab-pane" id="imagePane">
+      <div class="img-container">
+        <h2>🗺️ 美國東岸 17 天公路自駕繪製地圖</h2>
+        <p class="img-caption" style="margin-bottom: 1rem;">起點：華盛頓 D.C. ➔ 北至尼加拉瀑布 ➔ 南至納什維爾 ➔ 返回華盛頓 D.C.</p>
+        <img src="us_east_road_trip_map.png" alt="美東自駕路線繪製地圖" onerror="this.src='us_east_road_trip_map_1785808161979.png'; this.onerror=null;">
       </div>
+    </div>
+
+    <!-- TAB 3: Timeline & Drive Table -->
+    <div class="tab-pane" id="timelinePane">
+      <div class="timeline-container" id="timelineContainer"></div>
     </div>
   </div>
 
@@ -320,218 +414,140 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
   <script>
-    // Stop Data with exact coordinates
     const stopsData = [
-      {
-        id: 'dc1',
-        title: '1. 華盛頓 D.C. (啟程)',
-        dates: '9/4 - 9/5 (Day 1-2)',
-        lat: 38.9072,
-        lng: -77.0369,
-        drive: '0.5 - 1 小時',
-        type: 'archi',
-        typeText: '🏛️ 國家經典建築',
-        desc: '抵達 D.C. 入住，漫步波托馬克河畔 The Wharf、國會大廈、林肯紀念堂與美國國家藝廊。'
-      },
-      {
-        id: 'lancaster',
-        title: '2. 蘭開斯特阿米什 & 沃特金斯峽谷',
-        dates: '9/6 (Day 3)',
-        lat: 42.3806,
-        lng: -76.8733,
-        drive: '2.5 + 2.0 小時',
-        type: 'nature',
-        typeText: '🌾 田園與峽谷瀑布',
-        desc: '探訪 19 世紀無電無車阿米什傳統農莊與覆蓋木橋，隨後走入 Watkins Glen 峽谷 19 座瀑布步道。'
-      },
-      {
-        id: 'niagara',
-        title: '3. 尼加拉瀑布 (Niagara Falls)',
-        dates: '9/7 - 9/8 (Day 4-5)',
-        lat: 43.0962,
-        lng: -79.0377,
-        drive: '2.5 小時',
-        type: 'nature',
-        typeText: '💦 世界級瀑布奇景',
-        desc: '搭乘霧中少女號直衝馬蹄灣瀑布下方，穿雨衣走風之穴木棧道感受震撼水聲與水霧。'
-      },
-      {
-        id: 'pittsburgh',
-        title: '4. 匹茲堡 & 落水山莊 (Fallingwater)',
-        dates: '9/8 - 9/9 (Day 5-6)',
-        lat: 39.9062,
-        lng: -79.4678,
-        drive: '3.5 小時',
-        type: 'archi',
-        typeText: '🏡 世紀有機建築大師作',
-        desc: '搭纜車登上匹茲堡高地，前往法蘭克·勞埃德·萊特的世界遺產傑作【落水山莊】，建築架空於瀑布之上。'
-      },
-      {
-        id: 'shenandoah',
-        title: '5. 仙納度國家公園 (Skyline Drive)',
-        dates: '9/10 (Day 7)',
-        lat: 38.6642,
-        lng: -78.3619,
-        drive: '3.0 小時',
-        type: 'nature',
-        typeText: '⛰️ 天際線景觀公路',
-        desc: '穿越阿帕拉契山脈脊梁，沿途數十個觀景台俯瞰仙納度山谷與初秋林景。'
-      },
-      {
-        id: 'smoky',
-        title: '6. 大煙山國家公園 (Great Smoky)',
-        dates: '9/11 (Day 8)',
-        lat: 35.7143,
-        lng: -83.5102,
-        drive: '3.5 小時',
-        type: 'nature',
-        typeText: '🌫️ 繚繞晨霧與野生動物',
-        desc: '全美訪問量第一國家公園！漫步 Cades Cove 環形小徑觀察黑熊與鹿群，登上 Clingmans Dome 360 度觀景台。'
-      },
-      {
-        id: 'nashville',
-        title: '7. 納什維爾 (Nashville)',
-        dates: '9/12 - 9/13 (Day 9-10)',
-        lat: 36.1627,
-        lng: -86.7816,
-        drive: '3.5 小時',
-        type: 'archi',
-        typeText: '🏛️ 復刻帕德嫩神廟 & 音樂',
-        desc: '參觀全球唯一 1:1 復刻雅典帕德嫩神廟與金碧輝煌雅典娜像，體驗 Broadway 鄉村音樂現場。'
-      },
-      {
-        id: 'mammoth',
-        title: '8. 猛獁洞國家公園 (Mammoth Cave)',
-        dates: '9/14 (Day 11)',
-        lat: 37.1869,
-        lng: -86.1000,
-        drive: '1.5 小時',
-        type: 'nature',
-        typeText: '🦇 世界最大地下洞穴',
-        desc: 'UNESCO 世界遺產，深入地下數十公尺探索千層岩地底鐘乳石巨洞。'
-      },
-      {
-        id: 'newriver',
-        title: '9. 新河峽谷國家公園 & 肯塔基馬場',
-        dates: '9/15 (Day 12)',
-        lat: 38.0700,
-        lng: -81.0800,
-        drive: '3.5 小時',
-        type: 'nature',
-        typeText: '🌉 美國最新國家公園鋼橋',
-        desc: '途經肯塔基綠草千畝馬場，抵達新河峽谷遠眺北美第二高單跨鋼拱橋與深壑絕壁。'
-      },
-      {
-        id: 'monticello',
-        title: '10. 夏洛特鎮蒙蒂塞洛莊園 (Monticello)',
-        dates: '9/16 (Day 13)',
-        lat: 38.0293,
-        lng: -78.4767,
-        drive: '2.5 小時',
-        type: 'archi',
-        typeText: '🏰 傑佛遜世界遺產莊園',
-        desc: '參觀傑佛遜總統親自設計的 Monticello 莊園圓頂建築與維吉尼亞大學學術村。'
-      },
-      {
-        id: 'dc2',
-        title: '11. 華盛頓 D.C. (賦歸)',
-        dates: '9/17 - 9/20 (Day 14-17)',
-        lat: 38.9072,
-        lng: -77.0369,
-        drive: '2.5 小時',
-        type: 'archi',
-        typeText: '🏘️ 喬治城老街 & 圓滿賦歸',
-        desc: '返回 D.C. 逛喬治城鵝卵石運河老街、 Udvar-Hazy 航太館太空梭與華盛頓弗農山莊。'
-      }
+      { id: 'dc1', title: '1. 華盛頓 D.C. (啟程)', dates: '9/4 - 9/5', lat: 38.9072, lng: -77.0369, drive: '0.5 - 1.0 小時', type: 'archi', typeText: '🏛️ 國家經典建築', desc: '抵達 D.C.，漫步波托馬克河畔 The Wharf、國會大廈、林肯紀念堂與國家藝廊。' },
+      { id: 'lancaster', title: '2. 蘭開斯特阿米什 & 沃特金斯峽谷', dates: '9/6', lat: 42.3806, lng: -76.8733, drive: '2.5 + 2.0 小時', type: 'nature', typeText: '🌾 田園與峽谷瀑布', desc: '探訪 19 世紀無電無車阿米什農莊，隨後漫步 Watkins Glen 峽谷 19 座瀑布步道。' },
+      { id: 'niagara', title: '3. 尼加拉瀑布 (Niagara Falls)', dates: '9/7 - 9/8', lat: 43.0962, lng: -79.0377, drive: '2.5 小時', type: 'nature', typeText: '💦 世界級水瀑奇景', desc: '搭乘霧中少女號觀光船直衝馬蹄灣瀑布下方，穿黃色雨衣走風之穴木棧道。' },
+      { id: 'pittsburgh', title: '4. 匹茲堡 & 落水山莊 (Fallingwater)', dates: '9/8 - 9/9', lat: 39.9062, lng: -79.4678, drive: '3.5 小時', type: 'archi', typeText: '🏡 世紀有機建築大師作', desc: '搭纜車登上匹茲堡高地，探訪法蘭克·勞埃德·萊特世界遺產名作【落水山莊】。' },
+      { id: 'shenandoah', title: '5. 仙納度國家公園 (Skyline Drive)', dates: '9/10', lat: 38.6642, lng: -78.3619, drive: '3.0 小時', type: 'nature', typeText: '⛰️ 天際線景觀公路', desc: '穿越阿帕拉契山脈脊梁，沿途數十個觀景台俯瞰仙納度山谷綠林。' },
+      { id: 'smoky', title: '6. 大煙山國家公園 (Great Smoky)', dates: '9/11', lat: 35.7143, lng: -83.5102, drive: '3.5 小時', type: 'nature', typeText: '🌫️ 繚繞晨霧與野生動物', desc: '全美訪問量第一國家公園！Cades Cove 觀察黑熊與鹿群，登上 Clingmans Dome 觀景台。' },
+      { id: 'nashville', title: '7. 納什維爾 (Nashville)', dates: '9/12 - 9/13', lat: 36.1627, lng: -86.7816, drive: '3.5 小時', type: 'archi', typeText: '🏛️ 復刻帕德嫩神廟 & 音樂', desc: '參觀 1:1 復刻雅典帕德嫩神廟與金碧輝煌雅典娜巨像，體驗 Broadway 鄉村音樂。' },
+      { id: 'mammoth', title: '8. 猛獁洞國家公園 (Mammoth Cave)', dates: '9/14', lat: 37.1869, lng: -86.1000, drive: '1.5 小時', type: 'nature', typeText: '🦇 世界最大地下洞穴', desc: 'UNESCO 世界遺產，深入地下探索千層岩地底鐘乳石巨洞。' },
+      { id: 'newriver', title: '9. 新河峽谷國家公園 & 肯塔基馬場', dates: '9/15', lat: 38.0700, lng: -81.0800, drive: '3.5 小時', type: 'nature', typeText: '🌉 最新國家公園單跨鋼橋', desc: '途經肯塔基綠草千畝馬場，遠眺新河峽谷與北美第二高單跨鋼拱橋。' },
+      { id: 'monticello', title: '10. 夏洛特鎮蒙蒂塞洛莊園 (Monticello)', dates: '9/16', lat: 38.0293, lng: -78.4767, drive: '2.5 小時', type: 'archi', typeText: '🏰 傑佛遜世界遺產莊園', desc: '參觀傑佛遜總統親自設計的 Monticello 圓頂莊園與維吉尼亞大學。' },
+      { id: 'dc2', title: '11. 華盛頓 D.C. (圓滿賦歸)', dates: '9/17 - 9/20', lat: 38.9072, lng: -77.0369, drive: '2.5 小時', type: 'archi', typeText: '🏘️ 喬治城老街 & 圓滿賦歸', desc: '返回 D.C. 逛喬治城鵝卵石運河老街、 Udvar-Hazy 航太館太空梭與弗農山莊。' }
     ];
 
-    // Initialize Map with dark tiles
-    const map = L.map('map').setView([39.5, -80.0], 6);
+    let mapInitialized = false;
+    let map;
 
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
-      subdomains: 'abcd',
-      maxZoom: 19
-    }).addTo(map);
+    function initMap() {
+      if (mapInitialized) return;
+      mapInitialized = true;
 
-    // Route coordinates polyline
-    const routeCoords = stopsData.map(s => [s.lat, s.lng]);
-    const polyline = L.polyline(routeCoords, {
-      color: '#38bdf8',
-      weight: 4,
-      dashArray: '8, 8',
-      opacity: 0.85
-    }).addTo(map);
+      map = L.map('map').setView([39.5, -80.0], 6);
 
-    map.fitBounds(polyline.getBounds(), { padding: [50, 50] });
+      // OpenStreetMap Tile Layer (reliable standard)
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+      }).addTo(map);
 
-    const markers = {};
-    const stopsListEl = document.getElementById('stopsList');
+      // Polyline route
+      const routeCoords = stopsData.map(s => [s.lat, s.lng]);
+      const polyline = L.polyline(routeCoords, {
+        color: '#38bdf8',
+        weight: 4,
+        dashArray: '8, 8',
+        opacity: 0.9
+      }).addTo(map);
 
-    // Render Stops in Sidebar & Map Markers
-    stopsData.forEach((stop, index) => {
-      // 1. Create custom marker icon
-      const iconHtml = `<div style="
-        background: ${stop.type === 'nature' ? '#4ade80' : '#fbbf24'};
-        color: #0f172a;
-        width: 28px;
-        height: 28px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-        font-size: 13px;
-        border: 2px solid #ffffff;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-      ">${index + 1}</div>`;
+      map.fitBounds(polyline.getBounds(), { padding: [40, 40] });
 
-      const customIcon = L.divIcon({
-        html: iconHtml,
-        className: 'custom-map-icon',
-        iconSize: [28, 28],
-        iconAnchor: [14, 14]
+      const stopsListEl = document.getElementById('stopsList');
+
+      stopsData.forEach((stop, index) => {
+        const iconHtml = `<div style="
+          background: ${stop.type === 'nature' ? '#4ade80' : '#fbbf24'};
+          color: #0f172a;
+          width: 26px;
+          height: 26px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: bold;
+          font-size: 12px;
+          border: 2px solid #ffffff;
+          box-shadow: 0 3px 8px rgba(0,0,0,0.5);
+        ">${index + 1}</div>`;
+
+        const customIcon = L.divIcon({
+          html: iconHtml,
+          className: 'custom-map-icon',
+          iconSize: [26, 26],
+          iconAnchor: [13, 13]
+        });
+
+        const marker = L.marker([stop.lat, stop.lng], { icon: customIcon }).addTo(map);
+        marker.bindPopup(`
+          <div style="padding: 4px;">
+            <h3 style="color: #38bdf8; font-size: 1rem; margin-bottom: 4px;">${stop.title}</h3>
+            <p style="font-size: 0.82rem; margin-bottom: 2px;"><strong>日期：</strong>${stop.dates}</p>
+            <p style="font-size: 0.82rem; margin-bottom: 4px;"><strong>開車：</strong>${stop.drive}</p>
+            <p style="font-size: 0.82rem; color: #cbd5e1;">${stop.desc}</p>
+          </div>
+        `);
+
+        // Sidebar Card
+        const card = document.createElement('div');
+        card.className = `stop-card ${index === 0 ? 'active' : ''}`;
+        card.innerHTML = `
+          <div class="stop-header">
+            <span class="stop-day">${stop.dates}</span>
+            <span class="stop-drive"><i class="fa-solid fa-car"></i> ${stop.drive}</span>
+          </div>
+          <div class="stop-title">${stop.title}</div>
+          <div class="stop-desc">${stop.desc}</div>
+          <span class="tag ${stop.type === 'nature' ? 'tag-nature' : 'tag-archi'}">${stop.typeText}</span>
+        `;
+
+        card.addEventListener('click', () => {
+          document.querySelectorAll('.stop-card').forEach(c => c.classList.remove('active'));
+          card.classList.add('active');
+          map.flyTo([stop.lat, stop.lng], 9, { duration: 1.2 });
+          marker.openPopup();
+        });
+
+        stopsListEl.appendChild(card);
       });
+    }
 
-      const marker = L.marker([stop.lat, stop.lng], { icon: customIcon }).addTo(map);
-      marker.bindPopup(`
-        <div class="popup-content">
-          <h3>${stop.title}</h3>
-          <p><strong>日期：</strong>${stop.dates}</p>
-          <p><strong>車程：</strong>${stop.drive}</p>
-          <p>${stop.desc}</p>
+    // Render Timeline Tab
+    function renderTimeline() {
+      const container = document.getElementById('timelineContainer');
+      container.innerHTML = stopsData.map((stop, i) => `
+        <div class="timeline-item">
+          <div class="timeline-icon">${i + 1}</div>
+          <div class="timeline-content">
+            <div class="timeline-title">
+              <span>${stop.title}</span>
+              <span class="timeline-time"><i class="fa-solid fa-clock"></i> ${stop.dates} (${stop.drive})</span>
+            </div>
+            <p style="font-size: 0.88rem; color: #cbd5e1; margin-top: 0.4rem; line-height: 1.4;">${stop.desc}</p>
+            <span class="tag ${stop.type === 'nature' ? 'tag-nature' : 'tag-archi'}">${stop.typeText}</span>
+          </div>
         </div>
-      `);
+      `).join('');
+    }
 
-      markers[stop.id] = marker;
+    function switchTab(paneId) {
+      document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
 
-      // 2. Render Sidebar Card
-      const card = document.createElement('div');
-      card.className = `stop-card ${index === 0 ? 'active' : ''}`;
-      card.id = `card-${stop.id}`;
-      card.innerHTML = `
-        <div class="stop-header">
-          <span class="stop-day">${stop.dates}</span>
-          <span class="stop-drive"><i class="fa-solid fa-car"></i> ${stop.drive}</span>
-        </div>
-        <div class="stop-title">${stop.title}</div>
-        <div class="stop-highlights">${stop.desc}</div>
-        <span class="tag ${stop.type === 'nature' ? 'tag-nature' : 'tag-archi'}">
-          ${stop.typeText}
-        </span>
-      `;
+      document.getElementById(paneId).classList.add('active');
+      event.currentTarget.classList.add('active');
 
-      card.addEventListener('click', () => {
-        // Highlight active card
-        document.querySelectorAll('.stop-card').forEach(c => c.classList.remove('active'));
-        card.classList.add('active');
+      if (paneId === 'mapPane') {
+        setTimeout(() => {
+          if (map) map.invalidateSize();
+        }, 100);
+      }
+    }
 
-        // Center map & open popup
-        map.flyTo([stop.lat, stop.lng], 9, { duration: 1.2 });
-        marker.openPopup();
-      });
-
-      stopsListEl.appendChild(card);
+    // Initialize
+    window.addEventListener('DOMContentLoaded', () => {
+      initMap();
+      renderTimeline();
     });
   </script>
 </body>
