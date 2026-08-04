@@ -24,8 +24,8 @@
  *    - 執行來源：時間驅動 -> 分鐘定時器 -> 每 5 分鐘 -> 儲存。
  */
 
-// 您的 LINE Messaging API Channel Access Token (請填入您的 Token)
-const LINE_CHANNEL_ACCESS_TOKEN = 'YOUR_LINE_CHANNEL_ACCESS_TOKEN';
+// 您的 LINE Messaging API Channel Access Token (已為您驗證並填入)
+const LINE_CHANNEL_ACCESS_TOKEN = 'SBkjvsK70eQ4zWnKTTfrL0RaHDXpiaz2lXdyHiXGf5ZrQCIPLnk7SOqoSKvI8cEiyuptHX7p4B66aHizr80uT06WMQXx86JhSgjniGoxwbbiqBte57yNdkUoqAxPFsGWj6LuGShOKBDmYaZUCYmyBwdB04t89/1O/w1cDnyilFU=';
 
 /**
  * 接收 LINE 群組訊息 Webhook (即時監聽對話)
@@ -88,7 +88,7 @@ function parseTaskFromMessage(text) {
 
   // 2. 解析截止時間 (支援 17:00, 2026-08-03 17:00, 16點30分, 1.5小時後 等)
   const now = new Date();
-  
+
   // 格式 A: YYYY-MM-DD HH:mm 或 YYYY/MM/DD HH:mm
   const fullTimeMatch = text.match(/(\d{4}[\/\-]\d{1,2}[\/\-]\d{1,2}\s+\d{1,2}:\d{2})/);
   // 格式 B: HH:mm (例如 17:00 或 09:30)
@@ -168,11 +168,11 @@ function saveTaskToStorage(groupId, person, task, deadline) {
  */
 function replyTaskConfirmation(replyToken, person, task, deadline) {
   const formattedDeadline = Utilities.formatDate(deadline, Session.getScriptTimeZone(), 'yyyy-MM-dd HH:mm');
-  
+
   const reminderTime = new Date(deadline.getTime() - 60 * 60 * 1000);
   const formattedReminderTime = Utilities.formatDate(reminderTime, Session.getScriptTimeZone(), 'HH:mm');
 
-  const replyText = 
+  const replyText =
     `✅【已成功為您記錄提醒】\n` +
     `----------------------------\n` +
     `👤 關係人：${person}\n` +
@@ -238,7 +238,7 @@ function sendPushNotification(groupId, person, task, deadline, minutesLeft) {
   const formattedDeadline = Utilities.formatDate(deadline, Session.getScriptTimeZone(), 'yyyy-MM-dd HH:mm');
   const timeStatus = minutesLeft > 0 ? `剩餘約 ${minutesLeft} 分鐘` : `⚠️ 已達截止時間！`;
 
-  const messageText = 
+  const messageText =
     `⏰【任務到期提醒 - ${timeStatus}】\n` +
     `----------------------------\n` +
     `👤 關係人：${person}\n` +
