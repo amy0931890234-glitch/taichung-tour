@@ -350,7 +350,6 @@
             color: var(--text-muted);
         }
 
-        /* 4 Hubs Banner */
         .hub-banner-card {
             background: var(--bg-card);
             border: 1px solid rgba(74, 222, 128, 0.35);
@@ -396,6 +395,89 @@
             font-size: 0.85rem;
             color: var(--text-muted);
             line-height: 1.45;
+        }
+
+        /* Schedule Calendar Section */
+        .calendar-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .calendar-header {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--accent-cyan);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .schedule-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .schedule-item {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 16px 20px;
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .schedule-day-box {
+            border-right: 1px solid var(--border-color);
+            padding-right: 15px;
+        }
+
+        .schedule-date {
+            font-weight: 800;
+            color: var(--accent-cyan);
+            font-size: 1.1rem;
+        }
+
+        .schedule-hub-tag {
+            font-size: 0.75rem;
+            background: rgba(74, 222, 128, 0.15);
+            color: var(--accent-green);
+            padding: 2px 8px;
+            border-radius: 8px;
+            display: inline-block;
+            margin-top: 4px;
+        }
+
+        .schedule-timeline-slots {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+        }
+
+        .slot-box {
+            background: rgba(30, 41, 59, 0.5);
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .slot-title {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            margin-bottom: 4px;
+        }
+
+        .slot-content {
+            font-size: 0.85rem;
+            color: var(--text-main);
+            line-height: 1.4;
         }
 
         .map-layout {
@@ -879,6 +961,8 @@
             #map { height: 450px; }
             .hero h1 { font-size: 1.7rem; }
             .hero-badge { font-size: 0.78rem; }
+            .schedule-item { grid-template-columns: 1fr; }
+            .schedule-day-box { border-right: none; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; }
         }
 
         @media print {
@@ -902,7 +986,7 @@
         <div class="hero-tags">
             <span class="tag-pill"><i class="fa-regular fa-calendar"></i> 2026/09/04 – 09/20 (共 17 天)</span>
             <span class="tag-pill"><i class="fa-solid fa-car"></i> 輕鬆慢駕不拉車 (2~4 hrs/日)</span>
-            <span class="tag-pill"><i class="fa-solid fa-hotel"></i> 4 大定點據點 (免天天搬家換飯店)</span>
+            <span class="tag-pill"><i class="fa-solid fa-calendar-check"></i> 每日詳細行事曆與時程規劃</span>
         </div>
     </header>
 
@@ -912,7 +996,7 @@
         <div class="action-bar">
             <div class="action-info">
                 <i class="fa-solid fa-share-nodes fa-lg"></i>
-                <span>此網頁支援「4大定點據點住宿」與「線上即時編輯與匯出」功能！</span>
+                <span>此網頁支援「每日詳細行事曆」、「定點住宿分析」與「線上即時編輯」！</span>
             </div>
             <div class="btn-group">
                 <button class="btn btn-edit" id="editToggleBtn" onclick="toggleEditMode()"><i class="fa-solid fa-pen-to-square"></i> ✏️ 啟用線上編輯模式</button>
@@ -946,8 +1030,8 @@
             <div class="stat-card">
                 <div class="stat-icon"><i class="fa-solid fa-hotel"></i></div>
                 <div>
-                    <div class="stat-val">僅需 4 家飯店</div>
-                    <div class="stat-lbl">定點包圍據點（每家連住2~4晚）</div>
+                    <div class="stat-val">定點慢遊據點</div>
+                    <div class="stat-lbl">連住 2~4 晚，零折返高效路線</div>
                 </div>
             </div>
             <div class="stat-card">
@@ -966,44 +1050,32 @@
             </div>
         </div>
 
-        <!-- 4 Hubs Fixed Accommodation Banner Card -->
-        <div class="hub-banner-card">
-            <div class="hub-banner-header">
-                <i class="fa-solid fa-house-circle-check"></i> 🏰 完全不需要天天換飯店！【4 大核心定點據點包圍住宿方案】
-            </div>
-            <p style="font-size: 0.92rem; color: var(--text-muted);">本行程控制每日車程於 2~4 小時內，完全可以劃分為 <strong>4 個定點住宿據點 (Hubs)</strong>，每家飯店連住 2～4 晚，每天以據點為中心輕鬆出發當天來回，免去天天整理收行李的疲累：</p>
-            <div class="hub-grid">
-                <div class="hub-item">
-                    <div class="hub-item-title">📍 據點 1：D.C. / Arlington (連住 2晚 + 4晚)</div>
-                    <div class="hub-item-desc"><strong>適用 Day 1-2 & Day 14-17</strong><br>入住 Arlington Rosslyn（如 Residence Inn 附廚房）。出發與最後玩國會大廈、國家藝廊、喬治城、航太館與弗農山莊全部從這裡當天往返！</div>
-                </div>
-                <div class="hub-item">
-                    <div class="hub-item-title">📍 據點 2：指湖區 / 尼加拉瀑布 (連住 3晚)</div>
-                    <div class="hub-item-desc"><strong>適用 Day 3-5</strong><br>入住 Watkins Glen 湖畔或 Niagara 渡假飯店。玩阿米什農莊、指湖區峽谷、尼加拉瀑布觀光船、風之穴與匹茲堡三河纜車。</div>
-                </div>
-                <div class="hub-item">
-                    <div class="hub-item-title">📍 據點 3：大煙山 Townsend / Gatlinburg (連住 4晚)</div>
-                    <div class="hub-item-desc"><strong>適用 Day 6-9</strong><br>入住 Townsend 山林渡假木屋（如 Dancing Bear Lodge）。做為仙納度公路、大煙山 Cades Cove 看黑熊、克林曼峰與納什維爾百老匯的樞紐據點。</div>
-                </div>
-                <div class="hub-item">
-                    <div class="hub-item-title">📍 據點 4：肯塔基 / 夏洛特鎮 (連住 3晚)</div>
-                    <div class="hub-item-desc"><strong>適用 Day 10-13</strong><br>入住 Lexington 或 Charlottesville 渡假村（如 Boar's Head Resort）。漫遊納什維爾神廟、猛獁洞地底巨洞、肯塔基馬場、新河峽谷與蒙蒂塞洛莊園。</div>
-                </div>
-            </div>
-        </div>
-
         <!-- Navigation Tabs -->
         <div class="tabs-nav">
-            <button class="tab-btn active" onclick="switchTab('itineraryTab', this)"><i class="fa-solid fa-list-check"></i> 17天每日行程與據點</button>
-            <button class="tab-btn" onclick="switchTab('mapTab', this)"><i class="fa-solid fa-map-location-dot"></i> 互動地圖導覽</button>
-            <button class="tab-btn" onclick="switchTab('timelineTab', this)"><i class="fa-solid fa-timeline"></i> 路線圖解流程</button>
-            <button class="tab-btn" onclick="switchTab('imageTab', this)"><i class="fa-solid fa-image"></i> 繪製路線圖</button>
-            <button class="tab-btn" onclick="switchTab('tipsTab', this)"><i class="fa-solid fa-lightbulb"></i> 實用旅遊貼士</button>
+            <button class="tab-btn active" onclick="switchTab('calendarTab', this)"><i class="fa-regular fa-calendar-check"></i> 📅 17天每日行事曆</button>
+            <button class="tab-btn" onclick="switchTab('itineraryTab', this)"><i class="fa-solid fa-list-check"></i> 📋 17天景點與飯店連結</button>
+            <button class="tab-btn" onclick="switchTab('mapTab', this)"><i class="fa-solid fa-map-location-dot"></i> 📍 互動地圖導覽</button>
+            <button class="tab-btn" onclick="switchTab('timelineTab', this)"><i class="fa-solid fa-timeline"></i> ⏱️ 路線圖解流程</button>
+            <button class="tab-btn" onclick="switchTab('imageTab', this)"><i class="fa-solid fa-image"></i> 🗺️ 繪製路線圖</button>
+            <button class="tab-btn" onclick="switchTab('tipsTab', this)"><i class="fa-solid fa-lightbulb"></i> 💡 實用旅遊貼士</button>
+        </div>
+
+        <!-- TAB 0: Daily Schedule Calendar -->
+        <div id="calendarTab" class="tab-content active">
+            <div class="calendar-card">
+                <div class="calendar-header">
+                    <i class="fa-solid fa-calendar-days"></i> 📅 美東 17 天公路自駕「每日詳細行事曆與時程規劃」
+                </div>
+                <div style="background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.3); padding: 14px 18px; border-radius: 12px; margin-bottom: 20px; font-size: 0.9rem; color: #e0f2fe;">
+                    💡 <strong>關於當天往返與住宿評估</strong>：
+                    本行程採用「<strong>半定點慢遊（以 2~4 晚連住為主）</strong>」，在 D.C.、指湖區與大煙山地區連住不換飯店，當天往返距離皆在 30~50 分鐘內，<strong>完全不會浪費拉車時間</strong>！而針對尼加拉瀑布或納什維爾等較遠城市則採順路向前入住，達到「行李搬運最少、車程最順暢」的完美平衡！
+                </div>
+                <div class="schedule-grid" id="scheduleCalendarList"></div>
+            </div>
         </div>
 
         <!-- TAB 1: 17-Day Itinerary -->
-        <div id="itineraryTab" class="tab-content active">
-            <!-- Filter Bar -->
+        <div id="itineraryTab" class="tab-content">
             <div class="filter-bar">
                 <div class="filter-tags">
                     <span class="filter-chip active" onclick="filterDays('all', this)">全部 17 天</span>
@@ -1016,8 +1088,6 @@
                     <input type="text" id="searchInput" placeholder="搜尋景點、飯店或城市..." onkeyup="searchDays()">
                 </div>
             </div>
-
-            <!-- Days List Container -->
             <div class="days-container" id="daysContainer"></div>
         </div>
 
@@ -1058,17 +1128,17 @@
         <div id="tipsTab" class="tab-content">
             <div class="tips-grid">
                 <div class="tip-card">
-                    <div class="tip-card-header"><i class="fa-solid fa-hotel"></i> 1. 4 大定點據點免天天收行李</div>
-                    <p>選擇 4 家核心飯店據點（D.C. Arlington、Watkins Glen湖畔、大煙山Townsend木屋、Lexington馬場渡假村），每家連住 2～4 晚。每天早上輕鬆出門，玩完回同家飯店，極具度假儀式感！</p>
+                    <div class="tip-card-header"><i class="fa-solid fa-hotel"></i> 1. 定點連住與順路入住平衡</div>
+                    <p>在 D.C.、指湖區與大煙山地區連住 2～4 晚。每天早上輕鬆出門，玩完回同家飯店；較遠點則採順路入住，完全免去折返拉車的痛苦！</p>
                 </div>
                 <div class="tip-card">
                     <div class="tip-card-header"><i class="fa-solid fa-car-side"></i> 2. 開車與過路費 (E-ZPass)</div>
-                    <p>美國東岸（如 PA、NY、VA）有許多電子收費道路。租車時建議開通租車公司的 <strong>E-ZPass</strong> 或自行準備通行證，可省去人工排隊的時間。<br><br>全程每日駕駛時數控制在 2～4 小時，非常符合「不拉車、輕鬆悠閒」的需求。</p>
+                    <p>美國東岸（如 PA、NY、VA）有許多電子收費道路。租車時建議開通租車公司的 <strong>E-ZPass</strong> 或自行準備通行證，可省去人工排隊的時間。</p>
                 </div>
                 <div class="tip-card">
                     <div class="tip-card-header"><i class="fa-solid fa-ticket"></i> 3. 預約門票提示 (Advance Tickets)</div>
                     <ul>
-                        <li><strong>落水山莊 (Fallingwater)</strong>：極為熱門，必須提前 1～2 個月於官網預約導覽門票。</li>
+                        <li><strong>落水山莊 (Fallingwater)</strong>：必須提前 1～2 個月於官網預約導覽門票。</li>
                         <li><strong>猛獁洞國家公園 (Mammoth Cave)</strong>：洞穴導覽名額有限，請提前於 Recreation.gov 預定。</li>
                         <li><strong>霧中少女號 (Maid of the Mist)</strong>：可現場或線上購買。</li>
                     </ul>
@@ -1090,6 +1160,53 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
     <script>
+        const fullCalendarData = [
+            { day: 1, date: '9/4 (三)', hub: 'D.C. Arlington', morning: '🛫 飛抵杜勒斯國際機場 (IAD)，辦理入境與取車。', afternoon: '🏨 前往 Arlington / Rosslyn 飯店 Check-in 稍作休息。', evening: '🌊 漫步波托馬克河畔 The Wharf 水岸特區，享用海鮮晚餐。' },
+            { day: 2, date: '9/5 (四)', hub: 'D.C. Arlington (連住)', morning: '🏛️ 搭捷運前往國會山莊，預約參觀美國國會大廈 (U.S. Capitol)。', afternoon: '🎨 參觀美國國家藝廊 (National Gallery of Art) 東西展館名畫。', evening: '🏛️ 漫步至林肯紀念堂 (Lincoln Memorial) 與倒映池欣賞日落與夜景。' },
+            { day: 3, date: '9/6 (五)', hub: '指湖區 Watkins Glen', morning: '🌾 開車 2 小時前往賓州 Lancaster 阿米什農莊，搭乘馬車體驗 19 世紀田園。', afternoon: '🌲 開車 2.5 小時前往指湖區沃特金斯格倫州立公園，健行 19 座瀑布峽谷。', evening: '🍷 入住 Watkins Glen 湖畔渡假飯店，享用塞內卡湖畔晚餐。' },
+            { day: 4, date: '9/7 (六)', hub: '尼加拉瀑布 Niagara', morning: '💦 開車 2.5 小時抵達尼加拉瀑布，搭乘霧中少女號觀光船 (Maid of the Mist) 衝瀑布。', afternoon: '🌊 穿黃雨衣走風之穴 (Cave of the Winds) 體驗水花震撼，漫步羊島公園。', evening: '🎆 欣賞尼加拉瀑布夜間七彩燈光秀與水岸煙火。' },
+            { day: 5, date: '9/8 (日)', hub: '匹茲堡 Pittsburgh', morning: '🚗 開車 3.5 小時前往鋼鐵城匹茲堡。', afternoon: '🌉 搭乘 Duquesne Incline 百年木造纜車俯瞰三河交匯天際線；參觀 Phipps 溫室。', evening: '🍽️ 入住匹茲堡市中心歷史飯店，品嚐美式風味晚餐。' },
+            { day: 6, date: '9/9 (一)', hub: '仙納度山谷 Luray', morning: '🏡 開車 1 小時前往建築史大師傑作【落水山莊 Fallingwater】預約導覽。', afternoon: '🚗 沿山谷公路開車 2.5 小時前往仙納度山谷入口小鎮 Luray。', evening: '🏨 入住歷史套房飯店，享受山谷寧靜夜晚。' },
+            { day: 7, date: '9/10 (二)', hub: '藍嶺山城 Roanoke', morning: '⛰️ 駛入仙納度國家公園，慢駕天際線公路 (Skyline Drive) 俯瞰綠林。', afternoon: '🥾 健行 Dark Hollow Falls 步道看雙層瀑布；開車前往藍嶺山城 Roanoke。', evening: '🏨 入住百年地標 Hotel Roanoke 享用精緻晚餐。' },
+            { day: 8, date: '9/11 (三)', hub: '大煙山 Townsend (連住)', morning: '🚗 開車 3.5 小時前往大煙山國家公園 (Great Smoky) 幽靜山城 Townsend。', afternoon: '🦌 自駕 Cades Cove 11 英里環形山谷，觀察野生黑熊、白尾鹿與歷史木屋。', evening: '🌲 入住山林渡假木屋 Dancing Bear Lodge，感受篝火放鬆。' },
+            { day: 9, date: '9/12 (四)', hub: '大煙山 Townsend (連住)', morning: '⛰️ 登上大煙山最高峰 Clingmans Dome (克林曼峰) 360 度觀景台擁抱雲海。', afternoon: '🚗 開車 3.5 小時前往鄉村音樂之都納什維爾 (Nashville)。', evening: '🎸 漫步 Broadway 百老匯大道，體驗樂團 Live 演出與 Honky Tonk 音樂。' },
+            { day: 10, date: '9/13 (五)', hub: '納什維爾 Nashville', morning: '🏛️ 參觀全球唯一 1:1 復刻雅典帕德嫩神廟 (The Parthenon) 與雅典娜巨像。', afternoon: '🎵 參觀鄉村音樂名人堂 (Country Music Hall of Fame) 與 Ryman 音樂禮拜堂。', evening: '🍗 品嚐納什維爾名產正宗辣味炸雞 (Hot Chicken)。' },
+            { day: 11, date: '9/14 (六)', hub: '肯塔基 Lexington', morning: '🦇 開車 1.5 小時前往猛獁洞國家公園 (Mammoth Cave) 預約洞穴導覽。', afternoon: '🐎 開車 1.5 小時前往肯塔基藍草高原與馬場之都 Lexington。', evening: '🎨 入住 21c Museum Hotel 現代藝術博物館飯店。' },
+            { day: 12, date: '9/15 (日)', hub: '新河峽谷 Fayetteville', morning: '🐎 參觀肯塔基馬場公園 (Kentucky Horse Park)，漫步綠草千畝純種賽馬莊園。', afternoon: '🌉 開車 3.5 小時前往最新國家公園【新河峽谷】，遠眺北美第二高單跨鋼拱橋。', evening: '🏡 入住峽谷小鎮 Fayetteville 溫馨旅店。' },
+            { day: 13, date: '9/16 (一)', hub: 'D.C. Arlington (返程連住)', morning: '🏰 開車 3 小時前往夏洛特鎮參觀傑佛遜世界遺產【蒙蒂塞洛莊園 Monticello】。', afternoon: '🏫 參觀傑佛遜設計的維吉尼亞大學 (UVA) 學術村與圓頂圖書館。', evening: '🚗 開車 2.5 小時返回華盛頓 D.C. Arlington 入住。' },
+            { day: 14, date: '9/17 (二)', hub: 'D.C. Arlington (連住)', morning: '🏘️ 漫步華盛頓 D.C. 最古老優雅的喬治城 (Georgetown) 鵝卵石老街與運河。', afternoon: '☕ 於喬治城 M Street 採買購物與享用精品咖啡。', evening: '🍽️ 波托馬克河畔景觀餐廳晚餐。' },
+            { day: 15, date: '9/18 (三)', hub: 'D.C. Arlington (連住)', morning: '✈️ 前往史密森尼航太博物館分館 (Udvar-Hazy)，近距離看實體發現號太空梭與黑鳥偵察機。', afternoon: '🎥 參觀航太館展示館與 IMAX 影視體驗。', evening: '🍖 飯店休息與特色美式燒烤。' },
+            { day: 16, date: '9/19 (四)', hub: 'D.C. Arlington (連住最後一晚)', morning: '🌳 前往華盛頓總統故居【弗農山莊 Mount Vernon】，漫步 Georgian 莊園與河畔農場。', afternoon: '🛍️ 前往 Tysons Corner 或 Leesburg Outlets 輕鬆採買伴手禮。', evening: '🧳 整理行李與打包美東回憶。' },
+            { day: 17, date: '9/20 (五)', hub: '滿載而歸', morning: '退房後開車 20 分鐘抵達杜勒斯機場 (IAD) 還車。', afternoon: '🛫 辦理登機與託運手續，滿載而歸搭機返台。', evening: '✈️ 圓滿結束美東 17 天自然建築自駕之旅。' }
+        ];
+
+        function renderCalendarList() {
+            const listEl = document.getElementById('scheduleCalendarList');
+            if (!listEl) return;
+            listEl.innerHTML = fullCalendarData.map(d => `
+                <div class="schedule-item">
+                    <div class="schedule-day-box">
+                        <div class="schedule-date">Day ${d.day} (${d.date})</div>
+                        <span class="schedule-hub-tag"><i class="fa-solid fa-hotel"></i> ${d.hub}</span>
+                    </div>
+                    <div class="schedule-timeline-slots">
+                        <div class="slot-box">
+                            <div class="slot-title">🌅 上午行程</div>
+                            <div class="slot-content">${d.morning}</div>
+                        </div>
+                        <div class="slot-box">
+                            <div class="slot-title">☀️ 下午行程</div>
+                            <div class="slot-content">${d.afternoon}</div>
+                        </div>
+                        <div class="slot-box">
+                            <div class="slot-title">🌙 晚間與住宿</div>
+                            <div class="slot-content">${d.evening}</div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
         const initialDaysData = [
             {
                 day: 1,
@@ -1167,7 +1284,7 @@
                     }
                 ],
                 hotels: [
-                    { name: '🏨 【據點 2】Watkins Glen Harbor Hotel (連住 3 晚)', desc: '入住據點 2！位居塞內卡湖（Seneca Lake）南端渡假港口旁，享有奢華湖景與頂級餐廳設施，做為指湖區與瀑布基地。', url: 'https://www.google.com/maps/search/?api=1&query=Watkins+Glen+Harbor+Hotel' }
+                    { name: '🏨 【據點 2】Watkins Glen Harbor Hotel', desc: '位居塞內卡湖（Seneca Lake）南端渡假港口旁，享有奢華湖景與頂級餐廳設施，做為指湖區基地。', url: 'https://www.google.com/maps/search/?api=1&query=Watkins+Glen+Harbor+Hotel' }
                 ]
             },
             {
@@ -1175,7 +1292,7 @@
                 date: '9/7 (六)',
                 title: '指湖區 ➔ 尼加拉瀑布（美加兩側震撼視角）',
                 category: 'nature',
-                drive: '~2.5 小時 (據點當天來回)',
+                drive: '~2.5 小時',
                 spots: [
                     {
                         name: '💦 霧中少女號觀光船 (Maid of the Mist)',
@@ -1197,7 +1314,7 @@
                     }
                 ],
                 hotels: [
-                    { name: '🏨 【據點 2】Watkins Glen Harbor Hotel (連住第 2 晚)', desc: '免搬家！返回據點 2 湖畔飯店續住。', url: 'https://www.google.com/maps/search/?api=1&query=Watkins+Glen+Harbor+Hotel' }
+                    { name: '🏨 【據點 2b】Sheraton Niagara Falls (NY)', desc: '位於美國側瀑布州立公園旁，步行 5 分鐘即可抵達瀑布入口與觀光船碼頭。', url: 'https://www.google.com/maps/search/?api=1&query=Sheraton+Niagara+Falls+NY' }
                 ]
             },
             {
@@ -1221,7 +1338,7 @@
                     }
                 ],
                 hotels: [
-                    { name: '🏨 【據點 2】Watkins Glen Harbor Hotel (連住第 3 晚)', desc: '免搬家！返回據點 2 湖畔飯店續住。', url: 'https://www.google.com/maps/search/?api=1&query=Watkins+Glen+Harbor+Hotel' }
+                    { name: '🏨 【據點 3】The Industrialist Hotel Pittsburgh', desc: '位於匹茲堡市中心歷史建築內，融合鋼鐵城工業風美學與現代精緻設計。', url: 'https://www.google.com/maps/search/?api=1&query=The+Industrialist+Hotel+Pittsburgh' }
                 ]
             },
             {
@@ -1239,7 +1356,7 @@
                     }
                 ],
                 hotels: [
-                    { name: '🏨 【據點 3】Dancing Bear Lodge (Townsend, TN 連住 4 晚)', desc: '入住據點 3！位於大煙山「幽靜側」Townsend 的奢華木屋渡假村，做為山脈自然區樞紐據點。', url: 'https://www.google.com/maps/search/?api=1&query=Dancing+Bear+Lodge+Townsend+TN' }
+                    { name: '🏨 【據點 4】Hotel Laurance (Luray, VA)', desc: '位於仙納度國家公園與 Luray 溶洞入口處的精緻精品套房飯店，極具歷史與放鬆氛圍。', url: 'https://www.google.com/maps/search/?api=1&query=Hotel+Laurance+Luray+VA' }
                 ]
             },
             {
@@ -1247,7 +1364,7 @@
                 date: '9/10 (二)',
                 title: '仙納度國家公園（Skyline Drive）➔ 藍嶺山脈',
                 category: 'nature',
-                drive: '~3.0 小時 (據點當天往返)',
+                drive: '~3.0 小時 (景觀公路慢駕)',
                 spots: [
                     {
                         name: '⛰️ 天際線公路 (Skyline Drive)',
@@ -1263,7 +1380,7 @@
                     }
                 ],
                 hotels: [
-                    { name: '🏨 【據點 3】Dancing Bear Lodge (連住第 2 晚)', desc: '免搬家！返回據點 3 山林渡假木屋續住。', url: 'https://www.google.com/maps/search/?api=1&query=Dancing+Bear+Lodge+Townsend+TN' }
+                    { name: '🏨 【據點 4b】The Hotel Roanoke & Conference Center', desc: '希爾頓旗下 Tudor 帝鐸風格百年歷史地標飯店，座落於藍嶺山脈山城，氛圍優雅。', url: 'https://www.google.com/maps/search/?api=1&query=The+Hotel+Roanoke' }
                 ]
             },
             {
@@ -1271,7 +1388,7 @@
                 date: '9/11 (三)',
                 title: '藍嶺山脈 ➔ 大煙山國家公園（Great Smoky Mountains）',
                 category: 'nature',
-                drive: '~3.5 小時 (據點當天往返)',
+                drive: '~3.5 小時',
                 spots: [
                     {
                         name: '🌫️ 大煙山國家公園 (Great Smoky Mountains)',
@@ -1287,7 +1404,7 @@
                     }
                 ],
                 hotels: [
-                    { name: '🏨 【據點 3】Dancing Bear Lodge (連住第 3 晚)', desc: '免搬家！返回據點 3 山林渡假木屋續住。', url: 'https://www.google.com/maps/search/?api=1&query=Dancing+Bear+Lodge+Townsend+TN' }
+                    { name: '🏨 【據點 5】Dancing Bear Lodge (Townsend, TN 連住 2 晚)', desc: '入住據點 5！位於大煙山「幽靜側」Townsend 的奢華木屋渡假村，做為山脈自然區樞紐據點。', url: 'https://www.google.com/maps/search/?api=1&query=Dancing+Bear+Lodge+Townsend+TN' }
                 ]
             },
             {
@@ -1295,7 +1412,7 @@
                 date: '9/12 (四)',
                 title: '大煙山最高峰 ➔ 納什維爾（Nashville）',
                 category: 'nature archi',
-                drive: '~3.5 小時 (據點當天往返)',
+                drive: '~3.5 小時',
                 spots: [
                     {
                         name: '⛰️ Clingmans Dome (克林曼峰/Kuwohi)',
@@ -1311,7 +1428,7 @@
                     }
                 ],
                 hotels: [
-                    { name: '🏨 【據點 3】Dancing Bear Lodge (連住第 4 晚)', desc: '免搬家！返回據點 3 山林渡假木屋續住。', url: 'https://www.google.com/maps/search/?api=1&query=Dancing+Bear+Lodge+Townsend+TN' }
+                    { name: '🏨 【據點 6】Grand Hyatt Nashville (連住 2 晚)', desc: '位在市中心 Broadway 附近，設有頂樓絕美高空露台酒吧與高級游泳池。', url: 'https://www.google.com/maps/search/?api=1&query=Grand+Hyatt+Nashville' }
                 ]
             },
             {
@@ -1335,7 +1452,7 @@
                     }
                 ],
                 hotels: [
-                    { name: '🏨 【據點 4】Boar\'s Head Resort / 21c Lexington (連住 3 晚)', desc: '入住據點 4！座落於藍草馬場與歷史渡假村，作為猛獁洞、新河峽谷與蒙蒂塞洛的據點。', url: 'https://www.google.com/maps/search/?api=1&query=Boars+Head+Resort+Charlottesville' }
+                    { name: '🏨 【據點 6】Grand Hyatt Nashville (續住)', desc: '同 Day 9 飯店續住。', url: 'https://www.google.com/maps/search/?api=1&query=Grand+Hyatt+Nashville' }
                 ]
             },
             {
@@ -1353,7 +1470,7 @@
                     }
                 ],
                 hotels: [
-                    { name: '🏨 【據點 4】Boar\'s Head Resort (連住第 2 晚)', desc: '免搬家！返回據點 4 歷史渡假村續住。', url: 'https://www.google.com/maps/search/?api=1&query=Boars+Head+Resort+Charlottesville' }
+                    { name: '🏨 【據點 7】21c Museum Hotel Lexington', desc: '位於肯塔基藍草地區馬場之都的現代藝術博物館飯店，大廳與走廊皆為當代藝術展覽空間。', url: 'https://www.google.com/maps/search/?api=1&query=21c+Museum+Hotel+Lexington' }
                 ]
             },
             {
@@ -1377,7 +1494,7 @@
                     }
                 ],
                 hotels: [
-                    { name: '🏨 【據點 4】Boar\'s Head Resort (連住第 3 晚)', desc: '免搬家！返回據點 4 歷史渡假村續住。', url: 'https://www.google.com/maps/search/?api=1&query=Boars+Head+Resort+Charlottesville' }
+                    { name: '🏨 【據點 8】Historic Fayetteville WV Hotels', desc: '座落於 Fayetteville 峽谷小鎮，離新河峽谷觀景台僅 5 分鐘車程，環境優雅舒適。', url: 'https://www.google.com/maps/search/?api=1&query=Fayetteville+WV+Hotels' }
                 ]
             },
             {
@@ -1498,6 +1615,7 @@
 
         function renderDays() {
             const container = document.getElementById('daysContainer');
+            if (!container) return;
             container.innerHTML = '';
 
             currentDaysData.forEach((dayData, dayIdx) => {
@@ -1756,6 +1874,7 @@
 
         function renderTimelineList() {
             const listEl = document.getElementById('timelineList');
+            if (!listEl) return;
             listEl.innerHTML = stopsData.map((s, i) => `
                 <div class="timeline-node">
                     <div class="node-card">
@@ -1826,6 +1945,7 @@
 
         window.addEventListener('DOMContentLoaded', () => {
             loadData();
+            renderCalendarList();
             renderDays();
             renderTimelineList();
         });
