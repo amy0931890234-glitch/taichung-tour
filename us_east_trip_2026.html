@@ -1136,11 +1136,38 @@
         <div id="tipsTab" class="tab-content">
             <div class="tips-grid">
                 <div class="tip-card">
-                    <div class="tip-card-header"><i class="fa-solid fa-hotel"></i> 1. 定點連住與順路入住平衡</div>
-                    <p>在 D.C.、指湖區與大煙山地區連住 2～4 晚。每天早上輕鬆出門，玩完回同家飯店；較遠點則採順路入住，完全免去折返拉車的痛苦！</p>
+                    <div class="tip-card-header"><i class="fa-solid fa-hotel"></i> 1. 定點連住慢遊</div>
+                    <p>華盛頓 D.C. 連住 4 晚、指湖區連住 3 晚、尼加拉瀑布連住 2 晚！每天輕鬆出門渡假，完全免去天天換飯店拉車的痛苦。</p>
                 </div>
                 <div class="tip-card">
-                 <script>
+                    <div class="tip-card-header"><i class="fa-solid fa-car-side"></i> 2. 開車與過路費 (E-ZPass)</div>
+                    <p>美東（如 PA、NY、VA）有許多電子收費道路。租車時建議開通租車公司的 <strong>E-ZPass</strong> 通行證，省去人工排隊的時間。</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-card-header"><i class="fa-solid fa-ticket"></i> 3. 門票與導覽預約 (Advance Tickets)</div>
+                    <ul>
+                        <li><strong>落水山莊 (Fallingwater)</strong>：必須提前 1～2 個月於官網預約導覽門票。</li>
+                        <li><strong>霧中少女號 (Maid of the Mist)</strong>：可線上預先購票。</li>
+                        <li><strong>美國國會大廈 (U.S. Capitol)</strong>：建議提前於官網預約免費參觀時段。</li>
+                    </ul>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-card-header"><i class="fa-solid fa-id-card"></i> 4. 國家公園通行證 (Pass)</div>
+                    <p>售價 <strong>$80 美金</strong> 的 America the Beautiful Pass 涵蓋仙納度國家公園與此行程聯邦景點，非常划算。</p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>🇺🇸 美國東岸 17 天自然與建築自駕公路慢遊指南 ｜ 2026/09/04 – 09/20</p>
+    </footer>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <script>
         const fullCalendarData = [
             { day: 1, date: '9/4 (三)', hub: 'D.C. Arlington (連住 4 晚)', morning: '🛫 19:30 台北桃園機場 (TPE) 搭機出發。', afternoon: '✈️ 跨太平洋高空飛行，準備抵達美國特區。', evening: '🛬 22:00 飛抵杜勒斯機場 (IAD)，辦理通關取車，入住 Arlington 飯店好眠休息。' },
             { day: 2, date: '9/5 (四)', hub: 'D.C. Arlington (連住)', morning: '🏛️ 搭捷運前往國會山莊，參觀美國國會大廈 (U.S. Capitol)。', afternoon: '🎨 參觀美國國家藝廊 (National Gallery of Art) 東西展館名畫。', evening: '🏛️ 漫步至林肯紀念堂 (Lincoln Memorial) 與倒映池欣賞夕陽夜景。' },
