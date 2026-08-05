@@ -3,31 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🌿 美東九月慢活家庭自然之旅 (2026/09/04 - 09/20)</title>
+    <title>🇺🇸 美國東岸雙向自然與建築巡禮 17 天公路旅行指南 (9/4 - 9/20)</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
     <style>
         :root {
-            --primary: #2d6a4f;
-            --primary-dark: #1b4332;
-            --primary-light: #52b788;
-            --accent: #d4a373;
-            --accent-light: #fefae0;
-            --bg-main: #f8f9fa;
-            --bg-card: #ffffff;
-            --text-main: #2b2d42;
-            --text-muted: #6c757d;
-            --border-color: #e9ecef;
-            --radius-lg: 16px;
-            --radius-md: 10px;
-            --shadow-sm: 0 4px 6px rgba(0,0,0,0.04);
-            --shadow-md: 0 10px 25px rgba(0,0,0,0.08);
-            --shadow-hover: 0 15px 30px rgba(45,106,79,0.15);
+            --bg-dark: #0b132b;
+            --bg-card: rgba(28, 37, 65, 0.85);
+            --bg-card-hover: rgba(40, 53, 90, 0.95);
+            --border-color: rgba(255, 255, 255, 0.12);
+            --accent-cyan: #38bdf8;
+            --accent-green: #4ade80;
+            --accent-gold: #fbbf24;
+            --accent-purple: #c084fc;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --radius-lg: 18px;
+            --radius-md: 12px;
+            --shadow-glow: 0 0 25px rgba(56, 189, 248, 0.18);
         }
 
         * {
@@ -38,56 +38,65 @@
 
         body {
             font-family: 'Noto Sans TC', 'Outfit', sans-serif;
-            background-color: var(--bg-main);
+            background-color: var(--bg-dark);
             color: var(--text-main);
             line-height: 1.6;
             padding-bottom: 60px;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 85% 85%, rgba(192, 132, 252, 0.08) 0%, transparent 40%);
+            background-attachment: fixed;
         }
 
         /* Container */
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        /* Hero Header */
+        /* Header / Hero */
         .hero {
-            background: linear-gradient(135deg, rgba(27,67,50,0.92), rgba(45,106,79,0.85)), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80') center/cover;
-            color: white;
-            padding: 60px 20px 50px;
+            background: linear-gradient(135deg, rgba(11, 19, 43, 0.95), rgba(28, 37, 65, 0.9)), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80') center/cover;
+            padding: 60px 20px 45px;
             text-align: center;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            margin-bottom: 30px;
             border-bottom-left-radius: 30px;
             border-bottom-right-radius: 30px;
-            box-shadow: var(--shadow-md);
-            margin-bottom: 30px;
-            position: relative;
         }
 
         .hero-badge {
-            display: inline-block;
-            background: var(--accent);
-            color: #fff;
-            font-weight: 700;
-            padding: 6px 18px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            color: #0b132b;
+            font-weight: 800;
+            padding: 6px 20px;
             border-radius: 50px;
             font-size: 0.9rem;
             letter-spacing: 1px;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
             text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.4);
         }
 
         .hero h1 {
-            font-size: 2.2rem;
-            font-weight: 700;
+            font-size: 2.3rem;
+            font-weight: 800;
             margin-bottom: 12px;
-            line-height: 1.3;
+            background: linear-gradient(135deg, #ffffff 30%, var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero-subtitle {
             font-size: 1.1rem;
-            opacity: 0.95;
-            max-width: 750px;
+            color: var(--text-muted);
+            max-width: 850px;
             margin: 0 auto 25px;
             font-weight: 300;
         }
@@ -99,459 +108,576 @@
             flex-wrap: wrap;
         }
 
-        .tag {
-            background: rgba(255, 255, 255, 0.18);
-            backdrop-filter: blur(8px);
-            padding: 8px 16px;
+        .tag-pill {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--border-color);
+            padding: 8px 18px;
             border-radius: 20px;
             font-size: 0.9rem;
             display: flex;
             align-items: center;
             gap: 8px;
-            border: 1px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
         }
 
-        /* Action bar for sharing/printing */
+        /* Action Toolbar */
         .action-bar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: white;
-            padding: 18px 25px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 16px 24px;
             border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-sm);
             margin-bottom: 30px;
             flex-wrap: wrap;
             gap: 15px;
-            border-left: 5px solid var(--primary);
+            backdrop-filter: blur(12px);
         }
 
         .action-info {
             display: flex;
             align-items: center;
             gap: 10px;
-            color: var(--primary-dark);
+            color: var(--accent-cyan);
             font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
         }
 
         .btn {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: var(--primary);
-            color: white;
+            background: linear-gradient(135deg, var(--accent-cyan), #0284c7);
+            color: #0b132b;
             padding: 10px 20px;
             border-radius: var(--radius-md);
             text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
+            font-weight: 700;
+            font-size: 0.92rem;
             border: none;
             cursor: pointer;
             transition: all 0.25s ease;
         }
 
         .btn:hover {
-            background: var(--primary-dark);
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(45,106,79,0.3);
+            box-shadow: 0 6px 20px rgba(56, 189, 248, 0.4);
         }
 
         .btn-outline {
             background: transparent;
-            color: var(--primary);
-            border: 1.5px solid var(--primary);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
         }
 
         .btn-outline:hover {
-            background: var(--primary-light);
-            color: white;
-            border-color: var(--primary-light);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
         }
 
-        /* Stats Cards */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 20px;
-            margin-bottom: 35px;
-        }
-
-        .stat-card {
-            background: var(--bg-card);
-            padding: 22px 20px;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-sm);
-            display: flex;
-            align-items: center;
-            gap: 18px;
-            border-left: 5px solid var(--primary);
-            transition: transform 0.2s ease;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .stat-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: var(--accent-light);
-            color: var(--primary-dark);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            flex-shrink: 0;
-        }
-
-        .stat-title {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-bottom: 4px;
-        }
-
-        .stat-value {
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: var(--text-main);
-        }
-
-        /* Tabs Navigation */
-        .tabs {
+        /* Nav Tabs */
+        .tabs-nav {
             display: flex;
             gap: 10px;
-            margin-bottom: 25px;
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 10px;
+            background: rgba(15, 23, 42, 0.7);
+            padding: 6px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+            margin-bottom: 30px;
             overflow-x: auto;
         }
 
         .tab-btn {
-            padding: 10px 22px;
-            background: none;
+            flex: 1;
+            min-width: 140px;
+            padding: 12px 18px;
+            background: transparent;
             border: none;
-            font-size: 1rem;
-            font-weight: 600;
             color: var(--text-muted);
-            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
             border-radius: var(--radius-md);
-            transition: all 0.2s ease;
-            white-space: nowrap;
+            cursor: pointer;
+            transition: all 0.25s ease;
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 8px;
+            white-space: nowrap;
         }
 
         .tab-btn.active {
-            background: var(--primary);
-            color: white;
-            box-shadow: 0 4px 10px rgba(45,106,79,0.25);
+            background: linear-gradient(135deg, var(--accent-cyan), #2563eb);
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
         }
 
         .tab-content {
             display: none;
-            animation: fadeIn 0.3s ease;
         }
 
         .tab-content.active {
             display: block;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(8px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Route Overview Box */
-        .route-visual-box {
-            background: white;
-            border-radius: var(--radius-lg);
-            padding: 30px;
-            box-shadow: var(--shadow-sm);
-            margin-bottom: 30px;
-            border: 1px solid var(--border-color);
-        }
-
-        .route-diagram-svg {
-            width: 100%;
-            max-width: 850px;
-            height: auto;
-            display: block;
-            margin: 20px auto;
-        }
-
-        /* Hubs Grid */
-        .hubs-grid {
+        /* Stats Section */
+        .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
             margin-bottom: 30px;
         }
 
-        .hub-card {
-            background: white;
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.2s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent-cyan);
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(56, 189, 248, 0.15);
+            color: var(--accent-cyan);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+        }
+
+        .stat-val {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--text-main);
+        }
+
+        .stat-lbl {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+        }
+
+        /* Interactive Map Pane */
+        .map-layout {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 20px;
+            height: 600px;
             border-radius: var(--radius-lg);
             overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            transition: all 0.3s ease;
             border: 1px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+
+        #map {
+            width: 100%;
+            height: 100%;
+            background: #1e293b;
+        }
+
+        .map-sidebar {
+            background: var(--bg-card);
             display: flex;
             flex-direction: column;
+            overflow: hidden;
         }
 
-        .hub-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .hub-header {
-            background: var(--primary-dark);
-            color: white;
-            padding: 18px 20px;
-            position: relative;
-        }
-
-        .hub-tag {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: var(--accent);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 0.8rem;
+        .map-sidebar-header {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border-color);
             font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .hub-body {
-            padding: 20px;
-            flex-grow: 1;
+        .map-stops-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 12px;
             display: flex;
             flex-direction: column;
+            gap: 10px;
+        }
+
+        .map-stop-item {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .map-stop-item:hover, .map-stop-item.active {
+            border-color: var(--accent-cyan);
+            background: rgba(56, 189, 248, 0.1);
+        }
+
+        .stop-num {
+            display: inline-block;
+            background: var(--accent-cyan);
+            color: #0b132b;
+            font-weight: 800;
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-right: 6px;
+        }
+
+        .stop-name {
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+
+        .stop-sub {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Days Grid & Search Filters */
+        .filter-bar {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            align-items: center;
             justify-content: space-between;
         }
 
-        .hub-info {
-            font-size: 0.95rem;
-            color: var(--primary-dark);
+        .filter-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .filter-chip {
+            padding: 6px 16px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .filter-chip.active, .filter-chip:hover {
+            background: var(--accent-cyan);
+            color: #0b132b;
+            font-weight: 700;
+            border-color: var(--accent-cyan);
+        }
+
+        .search-box {
+            position: relative;
+            min-width: 250px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 8px 16px 8px 36px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            color: var(--text-main);
+            font-size: 0.9rem;
+            outline: none;
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+        }
+
+        /* Day Card Styles */
+        .days-container {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .day-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            backdrop-filter: blur(12px);
+            transition: all 0.25s ease;
+        }
+
+        .day-card:hover {
+            border-color: rgba(56, 189, 248, 0.4);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .day-header {
+            padding: 18px 24px;
+            background: rgba(15, 23, 42, 0.6);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .day-title-group {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .day-badge {
+            background: linear-gradient(135deg, var(--accent-cyan), #2563eb);
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 0.9rem;
+            padding: 6px 14px;
+            border-radius: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .day-h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .day-drive {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(251, 191, 36, 0.15);
+            color: var(--accent-gold);
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
             font-weight: 600;
+        }
+
+        .day-body {
+            padding: 24px;
+        }
+
+        .spots-section-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
             margin-bottom: 12px;
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        .hotel-box {
-            background: #f8f9fa;
-            border-radius: var(--radius-md);
-            padding: 14px;
-            margin-top: 12px;
-            border-left: 4px solid var(--primary-light);
-        }
-
-        .hotel-name {
-            font-weight: 700;
-            font-size: 0.98rem;
-            color: var(--text-main);
-            margin-bottom: 4px;
-        }
-
-        .hotel-price {
-            font-size: 0.88rem;
-            color: var(--primary-dark);
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .booking-btn {
-            display: inline-block;
-            width: 100%;
-            text-align: center;
-            padding: 9px 12px;
-            background: var(--primary);
-            color: white;
-            border-radius: 6px;
-            font-size: 0.88rem;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background 0.2s;
-        }
-
-        .booking-btn:hover {
-            background: var(--primary-dark);
-        }
-
-        /* Timeline / Daily Itinerary */
-        .timeline {
-            position: relative;
-            padding-left: 30px;
-            margin-top: 20px;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 10px;
-            top: 5px;
-            bottom: 5px;
-            width: 3px;
-            background: var(--primary-light);
-            border-radius: 2px;
-        }
-
-        .day-item {
-            position: relative;
-            background: white;
-            border-radius: var(--radius-md);
-            padding: 20px;
+        .spots-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 16px;
             margin-bottom: 20px;
-            box-shadow: var(--shadow-sm);
+        }
+
+        .spot-item {
+            background: rgba(15, 23, 42, 0.5);
             border: 1px solid var(--border-color);
-            transition: transform 0.2s;
+            border-radius: var(--radius-md);
+            padding: 16px;
+            transition: background 0.2s ease;
         }
 
-        .day-item:hover {
-            transform: translateX(4px);
+        .spot-item:hover {
+            background: rgba(30, 41, 59, 0.8);
         }
 
-        .day-item::before {
-            content: '';
-            position: absolute;
-            left: -26px;
-            top: 24px;
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            background: var(--primary);
-            border: 3px solid white;
-            box-shadow: 0 0 0 2px var(--primary-light);
-        }
-
-        .day-header {
+        .spot-name {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 6px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            margin-bottom: 10px;
-            flex-wrap: wrap;
             gap: 8px;
         }
 
-        .day-date {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--primary-dark);
-        }
-
-        .day-badge {
-            background: var(--accent-light);
-            color: #8a5a00;
-            font-size: 0.8rem;
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-weight: 600;
-        }
-
-        .day-title {
-            font-size: 1.15rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: var(--text-main);
-        }
-
-        .day-desc {
-            font-size: 0.95rem;
-            color: #4a4e69;
-            margin-bottom: 10px;
-        }
-
-        .day-meta {
-            display: flex;
-            gap: 15px;
-            font-size: 0.85rem;
+        .spot-desc {
+            font-size: 0.9rem;
             color: var(--text-muted);
-            padding-top: 10px;
-            border-top: 1px dashed var(--border-color);
-            flex-wrap: wrap;
+            line-height: 1.5;
         }
 
-        /* Photo Gallery Cards */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        .hotel-box {
+            background: rgba(74, 222, 128, 0.08);
+            border: 1px dashed rgba(74, 222, 128, 0.3);
+            padding: 12px 18px;
+            border-radius: var(--radius-md);
+            font-size: 0.9rem;
+            color: #dcfce7;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hotel-box i {
+            color: var(--accent-green);
+        }
+
+        /* Timeline Flowchart Pane */
+        .flow-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .timeline-list {
+            position: relative;
+            padding-left: 30px;
+            display: flex;
+            flex-direction: column;
             gap: 25px;
         }
 
-        .spot-card {
-            background: white;
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
+        .timeline-list::before {
+            content: '';
+            position: absolute;
+            left: 11px;
+            top: 10px;
+            bottom: 10px;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--accent-cyan), var(--accent-purple));
+        }
+
+        .timeline-node {
+            position: relative;
+        }
+
+        .timeline-node::before {
+            content: '';
+            position: absolute;
+            left: -24px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent-cyan);
+            box-shadow: 0 0 10px var(--accent-cyan);
+        }
+
+        .node-card {
+            background: rgba(15, 23, 42, 0.6);
             border: 1px solid var(--border-color);
-        }
-
-        .spot-img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .spot-content {
-            padding: 20px;
-        }
-
-        .spot-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--primary-dark);
-            margin-bottom: 8px;
-        }
-
-        .spot-desc {
-            font-size: 0.92rem;
-            color: var(--text-muted);
-            margin-bottom: 15px;
-        }
-
-        .spot-links {
+            padding: 16px 20px;
+            border-radius: var(--radius-md);
             display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .spot-link {
-            font-size: 0.85rem;
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 4px;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
-        .spot-link:hover {
-            text-decoration: underline;
+        .node-title {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--text-main);
         }
 
-        /* Tips Section */
-        .tip-box {
-            background: white;
+        .node-drive {
+            font-size: 0.85rem;
+            color: var(--accent-gold);
+            background: rgba(251, 191, 36, 0.12);
+            padding: 3px 10px;
+            border-radius: 10px;
+        }
+
+        /* Image Map Pane */
+        .image-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
             border-radius: var(--radius-lg);
-            padding: 25px;
-            margin-bottom: 20px;
-            border-left: 5px solid var(--accent);
-            box-shadow: var(--shadow-sm);
+            padding: 24px;
+            text-align: center;
         }
 
-        .tip-title {
+        .image-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        /* Travel Tips Grid */
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 20px;
+        }
+
+        .tip-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            backdrop-filter: blur(10px);
+        }
+
+        .tip-card-header {
             font-size: 1.15rem;
             font-weight: 700;
-            color: var(--primary-dark);
-            margin-bottom: 10px;
+            color: var(--accent-cyan);
+            margin-bottom: 14px;
             display: flex;
             align-items: center;
             gap: 10px;
+        }
+
+        .tip-card p, .tip-card ul {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .tip-card ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .tip-card li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 18px;
+        }
+
+        .tip-card li::before {
+            content: '•';
+            color: var(--accent-cyan);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
         }
 
         /* Footer */
@@ -559,15 +685,30 @@
             text-align: center;
             margin-top: 50px;
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 0.88rem;
+            padding: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 850px) {
+            .map-layout {
+                grid-template-columns: 1fr;
+                height: 750px;
+            }
+            #map { height: 450px; }
+            .hero h1 { font-size: 1.7rem; }
+            .hero-badge { font-size: 0.78rem; }
         }
 
         /* Print styles */
         @media print {
-            .action-bar, .tabs, .booking-btn { display: none !important; }
+            .action-bar, .tabs-nav, .filter-bar, .map-layout { display: none !important; }
             .tab-content { display: block !important; }
-            body { background: white; }
-            .hero { padding: 30px 0; border-radius: 0; background: var(--primary); }
+            body { background: white; color: black; }
+            .day-card { border: 1px solid #ccc; background: white; margin-bottom: 20px; color: black; }
+            .day-h3, .spot-name { color: black !important; }
+            .spot-desc, .day-drive { color: #333 !important; }
         }
     </style>
 </head>
@@ -575,523 +716,766 @@
 
     <!-- Hero Header -->
     <header class="hero">
-        <div class="hero-badge"><i class="fa-solid fa-compass"></i> 美東慢活家庭自然之旅 2026</div>
-        <h1>馬里蘭．維吉尼亞．西維吉尼亞 17天渡假指南</h1>
-        <p class="hero-subtitle">自然景觀為主 ｜ 步調輕鬆放鬆 ｜ 4大飯店定點據點 ｜ 車程控制 2.5 小時內</p>
+        <div class="hero-badge"><i class="fa-solid fa-route"></i> 美國東岸 17 天自駕公路旅行</div>
+        <h1>🇺🇸 美國東岸雙向自然與建築巡禮</h1>
+        <p class="hero-subtitle">每日控制車程 2～4 小時 ｜ 華盛頓 D.C. ⚡️ 尼加拉瀑布 ⚡️ 納什維爾 ｜ 結合世界級自然奇景與頂級建築美學</p>
         
         <div class="hero-tags">
-            <span class="tag"><i class="fa-regular fa-calendar"></i> 2026 / 09 / 04 – 09 / 20 (17天)</span>
-            <span class="tag"><i class="fa-solid fa-plane-arrival"></i> 長榮航空 華盛頓 IAD 機場</span>
-            <span class="tag"><i class="fa-solid fa-users"></i> 爸爸、媽媽、女兒慢遊同行</span>
+            <span class="tag-pill"><i class="fa-regular fa-calendar"></i> 2026/09/04 – 09/20 (共 17 天)</span>
+            <span class="tag-pill"><i class="fa-solid fa-car"></i> 輕鬆慢駕不拉車 (2~4 hrs/日)</span>
+            <span class="tag-pill"><i class="fa-solid fa-landmark"></i> 落水山莊 & 帕德嫩神廟 & 猛獁洞</span>
         </div>
     </header>
 
     <main class="container">
 
-        <!-- Action Bar for Sharing -->
+        <!-- Action Bar -->
         <div class="action-bar">
             <div class="action-info">
-                <i class="fa-solid fa-file-arrow-down fa-lg"></i>
-                <span>此 HTML 檔案可直接存於手機或電腦點擊開啟，也可以直接列印成 PDF！</span>
+                <i class="fa-solid fa-share-nodes fa-lg"></i>
+                <span>此網頁支援手機與電腦隨時點擊瀏覽，亦可直接分享網址給親友！</span>
             </div>
-            <div style="display: flex; gap: 10px;">
-                <button class="btn btn-outline" onclick="window.print()"><i class="fa-solid fa-print"></i> 列印 / 列印成 PDF</button>
-                <button class="btn" onclick="copyPageUrl()"><i class="fa-solid fa-copy"></i> 複製本頁路徑</button>
+            <div class="btn-group">
+                <button class="btn btn-outline" onclick="window.print()"><i class="fa-solid fa-print"></i> 列印 / 轉 PDF</button>
+                <button class="btn" onclick="copyPageUrl()"><i class="fa-solid fa-link"></i> 複製網頁連結</button>
             </div>
         </div>
 
-        <!-- Highlights Grid -->
-        <section class="stats-grid">
+        <!-- Quick Stats Cards -->
+        <div class="stats-grid">
             <div class="stat-card">
-                <div class="stat-icon"><i class="fa-solid fa-hotel"></i></div>
+                <div class="stat-icon"><i class="fa-solid fa-calendar-day"></i></div>
                 <div>
-                    <div class="stat-title">住宿安排策略</div>
-                    <div class="stat-value">4 大據點 (均 <$200/晚)</div>
+                    <div class="stat-val">17 天</div>
+                    <div class="stat-lbl">旅行總天數 (9/4-9/20)</div>
                 </div>
             </div>
             <div class="stat-card">
-                <div class="stat-icon"><i class="fa-solid fa-car-side"></i></div>
+                <div class="stat-icon"><i class="fa-solid fa-gauge-high"></i></div>
                 <div>
-                    <div class="stat-title">單程車程控制</div>
-                    <div class="stat-value">≤ 2.5 小時輕鬆駕車</div>
+                    <div class="stat-val">2 ~ 4 hrs</div>
+                    <div class="stat-lbl">每日平均舒適開車時數</div>
                 </div>
             </div>
             <div class="stat-card">
-                <div class="stat-icon"><i class="fa-solid fa-ticket"></i></div>
+                <div class="stat-icon"><i class="fa-solid fa-mountain-sun"></i></div>
                 <div>
-                    <div class="stat-title">門票省錢方案</div>
-                    <div class="stat-value">國家公園全用卡 $80/車</div>
+                    <div class="stat-val">4 大國家公園</div>
+                    <div class="stat-lbl">仙納度/大烟山/猛獁洞/新河峽谷</div>
                 </div>
             </div>
             <div class="stat-card">
-                <div class="stat-icon"><i class="fa-solid fa-tree"></i></div>
+                <div class="stat-icon"><i class="fa-solid fa-archway"></i></div>
                 <div>
-                    <div class="stat-title">核心旅遊主題</div>
-                    <div class="stat-value">山谷．溶洞．木馬．瀑布</div>
+                    <div class="stat-val">3 大世界遺產</div>
+                    <div class="stat-lbl">落水山莊/猛獁洞/蒙蒂塞洛莊園</div>
                 </div>
             </div>
-        </section>
+        </div>
 
         <!-- Navigation Tabs -->
-        <nav class="tabs">
-            <button class="tab-btn active" onclick="switchTab('map-tab')"><i class="fa-solid fa-map-location-dot"></i> 路線地圖與 4 大據點</button>
-            <button class="tab-btn" onclick="switchTab('timeline-tab')"><i class="fa-solid fa-calendar-days"></i> 17 天每日行程表</button>
-            <button class="tab-btn" onclick="switchTab('spots-tab')"><i class="fa-solid fa-camera"></i> 景點介紹與照片</button>
-            <button class="tab-btn" onclick="switchTab('tips-tab')"><i class="fa-solid fa-lightbulb"></i> 長者旅遊實用攻略</button>
-        </nav>
+        <div class="tabs-nav">
+            <button class="tab-btn active" onclick="switchTab('itineraryTab', this)"><i class="fa-solid fa-list-check"></i> 17天每日行程</button>
+            <button class="tab-btn" onclick="switchTab('mapTab', this)"><i class="fa-solid fa-map-location-dot"></i> 互動地圖導覽</button>
+            <button class="tab-btn" onclick="switchTab('timelineTab', this)"><i class="fa-solid fa-timeline"></i> 路線圖解流程</button>
+            <button class="tab-btn" onclick="switchTab('imageTab', this)"><i class="fa-solid fa-image"></i> 繪製路線圖</button>
+            <button class="tab-btn" onclick="switchTab('tipsTab', this)"><i class="fa-solid fa-lightbulb"></i> 實用旅遊貼士</button>
+        </div>
 
-        <!-- Tab 1: Route Map & 4 Hubs -->
-        <div id="map-tab" class="tab-content active">
-            
-            <div class="route-visual-box">
-                <h2 style="text-align: center; color: var(--primary-dark);"><i class="fa-solid fa-route"></i> 旅行路線放射狀總覽圖</h2>
-                <p style="text-align: center; color: var(--text-muted); margin-top: 5px;">以華盛頓 IAD 機場與馬里蘭為中心，往四個方向延伸單程 ≤2.5 小時的放射狀微旅行</p>
+        <!-- TAB 1: 17-Day Itinerary -->
+        <div id="itineraryTab" class="tab-content active">
+            <!-- Filter Bar -->
+            <div class="filter-bar">
+                <div class="filter-tags">
+                    <span class="filter-chip active" onclick="filterDays('all', this)">全部 17 天</span>
+                    <span class="filter-chip" onclick="filterDays('nature', this)">🌲 自然景觀主軸</span>
+                    <span class="filter-chip" onclick="filterDays('archi', this)">🏛️ 建築美學主軸</span>
+                    <span class="filter-chip" onclick="filterDays('dc', this)">🏙️ 華盛頓 D.C.</span>
+                </div>
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="searchInput" placeholder="搜尋景點或城市..." onkeyup="searchDays()">
+                </div>
+            </div>
+
+            <!-- Days List -->
+            <div class="days-container" id="daysContainer">
                 
-                <!-- SVG Route Diagram -->
-                <svg class="route-diagram-svg" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
-                    <style>
-                        .hub-center { fill: #1b4332; stroke: #52b788; stroke-width: 4; }
-                        .hub-node { fill: #ffffff; stroke: #2d6a4f; stroke-width: 3; rx: 12; ry: 12; }
-                        .line-path { stroke: #d4a373; stroke-width: 3; stroke-dasharray: 6; }
-                        .node-title { font-family: 'Noto Sans TC', sans-serif; font-weight: bold; font-size: 15px; fill: #1b4332; }
-                        .node-sub { font-family: 'Noto Sans TC', sans-serif; font-size: 12px; fill: #6c757d; }
-                        .center-title { font-family: 'Noto Sans TC', sans-serif; font-weight: bold; font-size: 16px; fill: #ffffff; }
-                        .center-sub { font-family: 'Noto Sans TC', sans-serif; font-size: 12px; fill: #fefae0; }
-                    </style>
+                <!-- Day 1 -->
+                <div class="day-card" data-category="dc archi" data-text="9/4 華盛頓 D.C. 機場 飯店 The Wharf 波托馬克河">
+                    <div class="day-header">
+                        <div class="day-title-group">
+                            <span class="day-badge">Day 1</span>
+                            <h3 class="day-h3">9/4 (三) 抵達華盛頓 D.C. — 輕鬆啟程</h3>
+                        </div>
+                        <span class="day-drive"><i class="fa-solid fa-car"></i> 0.5 – 1.0 小時 (機場至飯店)</span>
+                    </div>
+                    <div class="day-body">
+                        <div class="spots-section-title"><i class="fa-solid fa-star"></i> 行程亮點與活動</div>
+                        <div class="spots-list">
+                            <div class="spot-item">
+                                <div class="spot-name">🛫 抵達 D.C. 機場與取車入住</div>
+                                <div class="spot-desc">飛抵華盛頓特區機場（IAD / DCA），辦理手續取車，前往飯店辦理入住，展開輕鬆慢步調旅程。</div>
+                            </div>
+                            <div class="spot-item">
+                                <div class="spot-name">🌊 波托馬克河畔漫步 (The Wharf)</div>
+                                <div class="spot-desc">晚間前往華盛頓 D.C. 熱門的 The Wharf 水岸碼頭特區，沿河畔步道悠閒散步並享用新鮮海鮮晚餐。</div>
+                            </div>
+                        </div>
+                        <div class="hotel-box">
+                            <i class="fa-solid fa-bed"></i> <strong>住宿建議</strong>：Arlington / Alexandria（維吉尼亞側，停車方便且品質高）或 DuPont Circle。
+                        </div>
+                    </div>
+                </div>
 
-                    <!-- Connecting dashed lines -->
-                    <line x1="400" y1="225" x2="400" y2="70" class="line-path" />
-                    <line x1="400" y1="225" x2="400" y2="380" class="line-path" />
-                    <line x1="400" y1="225" x2="140" y2="225" class="line-path" />
-                    <line x1="400" y1="225" x2="660" y2="225" class="line-path" />
+                <!-- Day 2 -->
+                <div class="day-card" data-category="dc archi" data-text="9/5 華盛頓 D.C. 國會大廈 林肯紀念堂 國家藝廊">
+                    <div class="day-header">
+                        <div class="day-title-group">
+                            <span class="day-badge">Day 2</span>
+                            <h3 class="day-h3">9/5 (四) 華盛頓 D.C. — 國家建築與古典美學巡禮</h3>
+                        </div>
+                        <span class="day-drive"><i class="fa-solid fa-person-walking"></i> 0 小時 (建議搭地鐵或 Uber)</span>
+                    </div>
+                    <div class="day-body">
+                        <div class="spots-section-title"><i class="fa-solid fa-star"></i> 行程亮點與景點</div>
+                        <div class="spots-list">
+                            <div class="spot-item">
+                                <div class="spot-name">🏛️ 美國國會大廈 (U.S. Capitol)</div>
+                                <div class="spot-desc">新古典主義圓頂建築典範，象徵美國聯邦政府的核心標誌。</div>
+                            </div>
+                            <div class="spot-item">
+                                <div class="spot-name">🏛️ 林肯紀念堂 (Lincoln Memorial) & 反映池</div>
+                                <div class="spot-desc">仿古希臘多立克柱式神廟建築，莊嚴雄偉，俯瞰倒映池美景。</div>
+                            </div>
+                            <div class="spot-item">
+                                <div class="spot-name">🎨 美國國家藝廊 (National Gallery of Art)</div>
+                                <div class="spot-desc">東西展館交織古典與貝聿銘現代幾何建築設計，藏品世界頂尖。</div>
+                            </div>
+                        </div>
+                        <div class="hotel-box">
+                            <i class="fa-solid fa-bed"></i> <strong>住宿建議</strong>：同 Day 1。
+                        </div>
+                    </div>
+                </div>
 
-                    <!-- Center Hub (IAD / Maryland) -->
-                    <circle cx="400" cy="225" r="70" class="hub-center" />
-                    <text x="400" y="215" text-anchor="middle" class="center-title">✈️ 華盛頓 IAD</text>
-                    <text x="400" y="238" text-anchor="middle" class="center-sub">🏠 馬里蘭女兒宿舍</text>
+                <!-- Day 3 -->
+                <div class="day-card" data-category="nature" data-text="9/6 賓州 阿米什 農莊 指湖區 峽谷 沃特金斯格倫 Lancaster Watkins Glen">
+                    <div class="day-header">
+                        <div class="day-title-group">
+                            <span class="day-badge">Day 3</span>
+                            <h3 class="day-h3">9/6 (五) D.C. ➔ 賓州阿米什農莊 ➔ 指湖區峽谷</h3>
+                        </div>
+                        <span class="day-drive"><i class="fa-solid fa-car"></i> ~4.5 小時 (D.C.➔Lancaster 2h, Lancaster➔Finger Lakes 2.5h)</span>
+                    </div>
+                    <div class="day-body">
+                        <div class="spots-section-title"><i class="fa-solid fa-star"></i> 行程亮點與景點</div>
+                        <div class="spots-list">
+                            <div class="spot-item">
+                                <div class="spot-name">🌾 Lancaster Amish Country (蘭開斯特)</div>
+                                <div class="spot-desc">探訪保留 19 世紀傳統無電無車生活的阿米什村莊與著名的覆蓋木橋（Covered Bridge）。</div>
+                            </div>
+                            <div class="spot-item">
+                                <div class="spot-name">🌲 Watkins Glen State Park (沃特金斯格倫州立公園)</div>
+                                <div class="spot-desc">著名的 Gorge Trail 峽谷步道，沿途穿越 19 座連綿瀑布與千層奇岩絕壁。</div>
+                            </div>
+                        </div>
+                        <div class="hotel-box">
+                            <i class="fa-solid fa-bed"></i> <strong>住宿建議</strong>：Ithaca 或 Watkins Glen 湖畔渡假旅館。
+                        </div>
+                    </div>
+                </div>
 
-                    <!-- Hub 1: North (Deep Creek Lake) -->
-                    <rect x="270" y="20" width="260" height="70" class="hub-node" />
-                    <text x="400" y="48" text-anchor="middle" class="node-title">🌲 據點四：深溪湖高山瀑布</text>
-                    <text x="400" y="68" text-anchor="middle" class="node-sub">車程 2.5 小時 ｜ 深溪湖 & 泥溪瀑布</text>
+                <!-- Day 4 -->
+                <div class="day-card" data-category="nature" data-text="9/7 指湖區 尼加拉瀑布 霧中少女號 風之穴 羊島 Niagara Falls">
+                    <div class="day-header">
+                        <div class="day-title-group">
+                            <span class="day-badge">Day 4</span>
+                            <h3 class="day-h3">9/7 (六) 指湖區 ➔ 尼加拉瀑布（美加兩側震撼視角）</h3>
+                        </div>
+                        <span class="day-drive"><i class="fa-solid fa-car"></i> ~2.5 小時</span>
+                    </div>
+                    <div class="day-body">
+                        <div class="spots-section-title"><i class="fa-solid fa-star"></i> 行程亮點與景點</div>
+                        <div class="spots-list">
+                            <div class="spot-item">
+                                <div class="spot-name">💦 霧中少女號 (Maid of the Mist)</div>
+                                <div class="spot-desc">搭乘觀光船直衝瀑布馬蹄灣下方，感受萬馬奔騰般的震撼水霧。</div>
+                            </div>
+                            <div class="spot-item">
+                                <div class="spot-name">🌊 風之穴 (Cave of the Winds)</div>
+                                <div class="spot-desc">穿上黃色雨衣走上木棧道，零距離體驗新娘面紗瀑布的水流衝擊。</div>
+                            </div>
+                            <div class="spot-item">
+                                <div class="spot-name">🇨🇦 Goat Island (羊島) & 三姊妹島</div>
+                                <div class="spot-desc">漫步於瀑布頂端綠意盎然的公園，遠眺對岸加拿大側瀑布天際線。</div>
+                            </div>
+                        </div>
+                        <div class="hotel-box">
+                            <i class="fa-solid fa-bed"></i> <strong>住宿建議</strong>：Niagara Falls (NY) 飯店或 Grand Island 渡假飯店。
+                        </div>
+                    </div>
+                </div>
 
-                    <!-- Hub 2: West (Shenandoah & Luray) -->
-                    <rect x="10" y="190" width="250" height="70" class="hub-node" />
-                    <text x="135" y="218" text-anchor="middle" class="node-title">⛰️ 據點一：謝南多亞山谷</text>
-                    <text x="135" y="238" text-anchor="middle" class="node-sub">車程 1.5 小時 ｜ 天際線大道 & 鐘乳石洞</text>
+                <!-- Day 5 -->
+                <div class="day-card" data-category="archi" data-text="9/8 尼加拉瀑布 匹茲堡 鋼鐵城 纜車 溫室 Pittsburgh">
+                    <div class="day-header">
+                        <div class="day-title-group">
+                            <span class="day-badge">Day 5</span>
+                            <h3 class="day-h3">9/8 (日) 尼加拉瀑布 ➔ 匹茲堡（鋼鐵城與文化藝術）</h3>
+                        </div>
+                        <span class="day-drive"><i class="fa-solid fa-car"></i> ~3.5 小時</span>
+                    </div>
+                    <div class="day-body">
+                        <div class="spots-section-title"><i class="fa-solid fa-star"></i> 行程亮點與景點</div>
+                        <div class="spots-list">
+                            <div class="spot-item">
+                                <div class="spot-name">🌉 Duquesne Incline 登山纜車</div>
+                                <div class="spot-desc">搭乘百年木造纜車登上 Mount Washington，俯瞰三河交匯的匹茲堡壯麗天際線與鋼鐵大橋。</div>
+                            </div>
+                            <div class="spot-item">
+                                <div class="spot-name">🌿 Phipps Conservatory 溫室植物園</div>
+                                <div class="spot-desc">典雅的維多利亞時代玻璃溫室建築與精緻罕見的四季植物園藝。</div>
+                            </div>
+                        </div>
+                        <div class="hotel-box">
+                            <i class="fa-solid fa-bed"></i> <strong>住宿建議</strong>：Pittsburgh Downtown 或 Laurel Highlands 鄉村山莊。
+                        </div>
+                    </div>
+                </div>
 
-                    <!-- Hub 3: East (Assateague & Chincoteague) -->
-                    <rect x="540" y="190" width="250" height="70" class="hub-node" />
-                    <text x="665" y="218" text-anchor="middle" class="node-title">🌊 據點三：野生木馬海岸</text>
-                    <text x="665" y="238" text-anchor="middle" class="node-sub">車程 2.5 小時 ｜ 阿薩蒂格島沙灘馬群</text>
+                <!-- Day 6 -->
+                <div class="day-card" data-category="archi" data-text="9/9 匹茲堡 落水山莊 Fallingwater 萊特 世界遺產 仙納度">
+                    <div class="day-header">
+                        <div class="day-title-group">
+                            <span class="day-badge">Day 6</span>
+                            <h3 class="day-h3">9/9 (一) 匹茲堡 ➔ 建築史奇蹟【落水山莊】➔ 仙納度山谷</h3>
+                        </div>
+                        <span class="day-drive"><i class="fa-solid fa-car"></i> ~3.5 小時</span>
+                    </div>
+                    <div class="day-body">
+                        <div class="spots-section-title"><i class="fa-solid fa-star"></i> 行程亮點與景點</div>
+                        <div class="spots-list">
+                            <div class="spot-item">
+                                <div class="spot-name">🏡 落水山莊 (Fallingwater)</div>
+                                <div class="spot-desc">建築大師法蘭克·勞埃德·萊特（Frank Lloyd Wright）的世界遺產傑作。建築懸空架設於溪流瀑布之上，將有機建築與自然融為一體（必須提前預約門票）。</div>
+                            </div>
+                        </div>
+                        <div class="hotel-box">
+                            <i class="fa-solid fa-bed"></i> <strong>住宿建議</strong>：Harrisonburg 或 Luray（仙納度國家公園入口旁）。
+                        </div>
+                    </div>
+                </div>
 
-                    <!-- Hub 4: South/Central (Annapolis) -->
-                    <rect x="270" y="355" width="260" height="70" class="hub-node" />
-                    <text x="400" y="383" text-anchor="middle" class="node-title">🟢 據點二：安納波利斯海港</text>
-                    <text x="400" y="403" text-anchor="middle" class="node-sub">車程 1 小時 ｜ 歷史海港 & 植物園散步</text>
-                </svg>
+                <!-- Day 7 -->
+                <div class="day-card" data-category="nature" data-text="9/10 仙納度國家公園 天際線公路 Skyline Drive 藍嶺山脈 瀑布步道">
+                    <div class="day-header">
+                        <div class="day-title-group">
+                            <span class="day-badge">Day 7</span>
+                            <h3 class="day-h3">9/10 (二) 仙納度國家公園（Skyline Drive）➔ 藍嶺山脈</h3>
+                        </div>
+                        <span class="day-drive"><i class="fa-solid fa-car"></i> ~3.0 小時 (景觀公路慢駕)</span>
+                    </div>
+                    <div class="day-body">
+                        <div class="spots-section-title"><i class="fa-solid fa-star"></i> 行程亮點與景點</div>
+                        <div class="spots-list">
+                            <div class="spot-item">
+                                <div class="spot-name">⛰️ 天際線公路 (Skyline Drive)</div>
+                                <div class="spot-desc">穿越阿帕拉契山脈脊梁，沿途數十個觀景台，俯瞰仙納度山谷壯麗綠林與初秋微紅景致。</div>
+                            </div>
+                            <div class="spot-item">
+                                <div class="spot-name">🥾 Dark Hollow Falls Trail 步道</div>
+                                <div class="spot-desc">短巧舒適的瀑布森林健行步道，沿途溪流潺潺，享受森林負離子。</div>
+                            </div>
+                        </div>
+                        <div class="hotel-box">
+                            <i class="fa-solid fa-bed"></i> <strong>住宿建議</strong>：Roanoke 或 Radford (維吉尼亞山城)。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 8 -->
+                <div class="day-card" data-category="nature" data-text="9/11 大煙山國家公園 Great Smoky Mountains Cades Cove 黑熊 鹿群">
+                    <div class="day-header">
+                        <div class="day-title-group">
+                            <span class="day-badge">Day 8</span>
+                            <h3 class="day-h3">9/11 (三) 藍嶺山脈 ➔ 大煙山國家公園（Great Smoky Mountains）</h3>
+                        </div>
+                        <span class="day-drive"><i class="fa-solid fa-car"></i> ~3.5 小時</span>
+                    </div>
+                    <div class="day-body">
+                        <div class="spots-section-title"><i class="fa-solid fa-star"></i> 行程亮點與景點</div>
+                        <div class="spots-list">
+                            <div class="spot-item">
+                                <div class="spot-name">🌫️ 大煙山國家公園 (Great Smoky Mountains)</div>
+                                <div class="spot-desc">全美訪問量第一的國家公園，以常年繚繞藍藍晨霧的山巒美景著稱。</div>
+                            </div>
+                            <div class="spot-item">
+                                <div class="spot-name">🦌 Cades Cove 自駕環景步道</div>
+                                <div class="spot-desc">開車環形山谷小徑，極高機會近距離觀察野生的黑熊、白尾鹿與野生火雞。</div>
+                            </div>
+                        </div>
+                        <div class="hotel-box">
+                            <i class="fa-solid fa-bed"></i> <strong>住宿建議</strong>：Townsend（幽靜山城，極適合放鬆）或 Gatlinburg。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 9 -->
+                <div class="day-card" data-category="nature archi" data-text="9/12 大煙山 最高峰 克林曼峰 Clingmans Dome 納什維爾 Nashville 百老匯 夜景">
+                    <div class="day-header">
+                        <div class="day-title-group">
+                            <span class="day-badge">Day 9</span>
+                            <h3 class="day-h3">9/12 (四) 大煙山最高峰 ➔ 納什維爾（Nashville）</h3>
+                        </div>
+                        <span class="day-drive"><i class="fa-solid fa-car"></i> ~3.5 小時</span>
+                    </div>
+                    <div class="day-body">
+                        <div class="spots-section-title"><i class="fa-solid fa-star"></i> 行程亮點與景點</div>
+                        <div class="spots-list">
+                            <div class="spot-item">
+                                <div class="spot-name">⛰️ Clingmans Dome (克林曼峰)</div>
+                                <div class="spot-desc">大煙山最高點，站在圓形觀景台上擁有一望無際的 360 度山脈雲海景色。</div>
+                            </div>
+                            <div class="spot-item">
+                                <div class="spot-name">🎸 Nashville Broadway 音樂夜景</div>
+                                <div class="spot-desc">前往鄉村音樂之都納什維爾，體驗 Broadway 熱情放鬆的 Live Music 與美式氛圍。</div>
+                            </div>
+                        </div>
+                        <div class="hotel-box">
+                            <i class="fa-solid fa-bed"></i> <strong>住宿建議</strong>：Nashville Downtown / Music Row 區域。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 10 -->
+                <div class="day-card" data-category="archi" data-text="9/13 納什維爾 帕德嫩神廟 Parthenon 雅典娜 鄉村音樂名人堂 Ryman">
+                    <div class="day-header">
+                        <div class="day-title-group">
+                            <span class="day-badge">Day 10</span>
+                            <h3 class="day-h3">9/13 (五) 納什維爾 — 復刻神廟與音樂文化</h3>
+                        </div>
+                        <span class="day-drive"><i class="fa-solid fa-car"></i> ~0.5 小時 (市區漫遊)</span>
+                    </div>
+                    <div class="day-body">
+                        <div class="spots-section-title"><i class="fa-solid fa-star"></i> 行程亮點與景點</div>
+                        <div class="spots-list">
+                            <div class="spot-item">
+                                <div class="spot-name">🏛️ 納什維爾帕德嫩神廟 (The Parthenon)</div>
+                                <div class="spot-desc">全球唯一 1:1 完全比例復刻的雅典帕德嫩神廟，館內供奉高達 13 公尺金碧輝煌的雅典娜巨像。</div>
+                            </div>
+                            <div class="spot-item">
+                                <div class="spot-name">🎵 Ryman Auditorium & 鄉村音樂名人堂</div>
+                                <div class="spot-desc">美國歷史悠久的音樂教堂建築，記錄著鄉村音樂與美式流行樂的傳奇歷史。</div>
+                            </div>
+                        </div>
+                        <div class="hotel-box">
+                            <i class="fa-solid fa-bed"></i> <strong>住宿建議</strong>：同 Day 9。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 11 -->
+                <div class="day-card" data-category="nature" data-text="9/14 猛獁洞 國家公園 Mammoth Cave 世界遺產 地下洞穴 肯塔基">
+                    <div class="day-header">
+                        <div class="day-title-group">
+                            <span class="day-badge">Day 11</span>
+                            <h3 class="day-h3">9/14 (六) 納什維爾 ➔ 猛獁洞國家公園 ➔ 肯塔基藍草高原</h3>
+                        </div>
+                        <span class="day-drive"><i class="fa-solid fa-car"></i> ~3.0 小時</span>
+                    </div>
+                    <div class="day-body">
+                        <div class="spots-section-title"><i class="fa-solid fa-star"></i> 行程亮點與景點</div>
+                        <div class="spots-list">
+                            <div class="spot-item">
+                                <div class="spot-name">🦇 猛獁洞國家公園 (Mammoth Cave National Park)</div>
+                                <div class="spot-desc">UNESCO 世界遺產，擁有全球已知最長的地下洞穴系統（建議預約 Domes & Dripstones 或 Historic Tour 導覽）。</div>
+                            </div>
+                        </div>
+                        <div class="hotel-box">
+                            <i class="fa-solid fa-bed"></i> <strong>住宿建議</strong>：Lexington (肯塔基州馬場之都，風景極美)。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 12 -->
+                <div class="day-card" data-category="nature archi" data-text="9/15 肯塔基 馬場 新河峽谷 國家公園 New River Gorge 鋼拱橋">
+                    <div class="day-header">
+                        <div class="day-title-group">
+                            <span class="day-badge">Day 12</span>
+                            <h3 class="day-h3">9/15 (日) 肯塔基馬場 ➔ 新河峽谷國家公園（New River Gorge）</h3>
+                        </div>
+                        <span class="day-drive"><i class="fa-solid fa-car"></i> ~3.5 小時</span>
+                    </div>
+                    <div class="day-body">
+                        <div class="spots-section-title"><i class="fa-solid fa-star"></i> 行程亮點與景點</div>
+                        <div class="spots-list">
+                            <div class="spot-item">
+                                <div class="spot-name">🐎 Kentucky Horse Park 馬場莊園</div>
+                                <div class="spot-desc">圍欄綠草千畝的經典肯塔基純種馬場景致。</div>
+                            </div>
+                            <div class="spot-item">
+                                <div class="spot-name">🌉 新河峽谷國家公園 (New River Gorge National Park)</div>
+                                <div class="spot-desc">美國最年輕國家公園之一！擁有北美第二高單跨鋼拱橋（New River Gorge Bridge），絕壁與古老河流相映成趣。</div>
+                            </div>
+                        </div>
+                        <div class="hotel-box">
+                            <i class="fa-solid fa-bed"></i> <strong>住宿建議</strong>：Fayetteville 或 Beckley (西維吉尼亞州)。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 13 -->
+                <div class="day-card" data-category="archi" data-text="9/16 夏洛特鎮 蒙蒂塞洛莊園 Monticello 傑佛遜 維吉尼亞大學 世界遺產">
+                    <div class="day-header">
+                        <div class="day-title-group">
+                            <span class="day-badge">Day 13</span>
+                            <h3 class="day-h3">9/16 (一) 新河峽谷 ➔ 夏洛特鎮（總統府邸與世界遺產）</h3>
+                        </div>
+                        <span class="day-drive"><i class="fa-solid fa-car"></i> ~3.0 小時</span>
+                    </div>
+                    <div class="day-body">
+                        <div class="spots-section-title"><i class="fa-solid fa-star"></i> 行程亮點與景點</div>
+                        <div class="spots-list">
+                            <div class="spot-item">
+                                <div class="spot-name">🏰 蒙蒂塞洛莊園 (Monticello)</div>
+                                <div class="spot-desc">美國開國元勳湯瑪斯·傑佛遜自行設計的莊園，獨特的圓頂與新古典主義建築，名列世界文化遺產。</div>
+                            </div>
+                            <div class="spot-item">
+                                <div class="spot-name">🏫 維吉尼亞大學 (University of Virginia)</div>
+                                <div class="spot-desc">傑佛遜設計的「學術村」（Academical Village）與經典圓頂圖書館。</div>
+                            </div>
+                        </div>
+                        <div class="hotel-box">
+                            <i class="fa-solid fa-bed"></i> <strong>住宿建議</strong>：Charlottesville 歷史中心區。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 14 -->
+                <div class="day-card" data-category="dc archi" data-text="9/17 華盛頓 D.C. 喬治城 Georgetown 波托馬克河 鵝卵石運河">
+                    <div class="day-header">
+                        <div class="day-title-group">
+                            <span class="day-badge">Day 14</span>
+                            <h3 class="day-h3">9/17 (二) 夏洛特鎮 ➔ 華盛頓 D.C.（喬治城與波托馬克河）</h3>
+                        </div>
+                        <span class="day-drive"><i class="fa-solid fa-car"></i> ~2.5 小時</span>
+                    </div>
+                    <div class="day-body">
+                        <div class="spots-section-title"><i class="fa-solid fa-star"></i> 行程亮點與景點</div>
+                        <div class="spots-list">
+                            <div class="spot-item">
+                                <div class="spot-name">🏘️ 喬治城 (Georgetown) 老街</div>
+                                <div class="spot-desc">D.C. 最古老優雅的街區，漫步於鵝卵石街道、古典聯排別墅（Townhouses）與古老運河畔。</div>
+                            </div>
+                        </div>
+                        <div class="hotel-box">
+                            <i class="fa-solid fa-bed"></i> <strong>住宿建議</strong>：Arlington / Alexandria 或 D.C. 市區。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 15 -->
+                <div class="day-card" data-category="dc archi" data-text="9/18 華盛頓 D.C. 史密森尼 航太博物館分館 太空梭 黑鳥偵察機 Udvar-Hazy">
+                    <div class="day-header">
+                        <div class="day-title-group">
+                            <span class="day-badge">Day 15</span>
+                            <h3 class="day-h3">9/18 (三) 華盛頓 D.C. — 航太與自然博物館</h3>
+                        </div>
+                        <span class="day-drive"><i class="fa-solid fa-car"></i> ~0.5 小時</span>
+                    </div>
+                    <div class="day-body">
+                        <div class="spots-section-title"><i class="fa-solid fa-star"></i> 行程亮點與景點</div>
+                        <div class="spots-list">
+                            <div class="spot-item">
+                                <div class="spot-name">✈️ Udvar-Hazy Center (史密森尼航太博物館分館)</div>
+                                <div class="spot-desc">展出昂貴實體的發現號太空梭（Space Shuttle Discovery）與 SR-71 黑鳥超音速偵察機，極度震撼。</div>
+                            </div>
+                        </div>
+                        <div class="hotel-box">
+                            <i class="fa-solid fa-bed"></i> <strong>住宿建議</strong>：同 Day 14。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 16 -->
+                <div class="day-card" data-category="dc archi" data-text="9/19 華盛頓 D.C. 弗農山莊 Mount Vernon 華盛頓故居 波托馬克河">
+                    <div class="day-header">
+                        <div class="day-title-group">
+                            <span class="day-badge">Day 16</span>
+                            <h3 class="day-h3">9/19 (四) 華盛頓 D.C. — 弗農山莊（Mount Vernon）與悠閒購物</h3>
+                        </div>
+                        <span class="day-drive"><i class="fa-solid fa-car"></i> ~1.0 小時</span>
+                    </div>
+                    <div class="day-body">
+                        <div class="spots-section-title"><i class="fa-solid fa-star"></i> 行程亮點與景點</div>
+                        <div class="spots-list">
+                            <div class="spot-item">
+                                <div class="spot-name">🌳 Mount Vernon (華盛頓總統故居)</div>
+                                <div class="spot-desc">坐落於波托馬克河畔的 Georgian 風格莊園，俯瞰美麗河景與綠地公園。</div>
+                            </div>
+                        </div>
+                        <div class="hotel-box">
+                            <i class="fa-solid fa-bed"></i> <strong>住宿建議</strong>：同 Day 14。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 17 -->
+                <div class="day-card" data-category="dc" data-text="9/20 華盛頓 D.C. 機場 返程 還車">
+                    <div class="day-header">
+                        <div class="day-title-group">
+                            <span class="day-badge">Day 17</span>
+                            <h3 class="day-h3">9/20 (五) 華盛頓 D.C. ➔ 滿載而歸（返程）</h3>
+                        </div>
+                        <span class="day-drive"><i class="fa-solid fa-plane-departure"></i> ~0.5 小時至機場</span>
+                    </div>
+                    <div class="day-body">
+                        <div class="spots-section-title"><i class="fa-solid fa-star"></i> 行程亮點與活動</div>
+                        <div class="spots-list">
+                            <div class="spot-item">
+                                <div class="spot-name">🛫 機場還車與辦理登機</div>
+                                <div class="spot-desc">前往機場辦理租車還車、手續與登機，結束充實且不疲累的美東自然建築公路之旅！</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
             </div>
-
-            <h2 style="margin: 30px 0 20px; color: var(--primary-dark);"><i class="fa-solid fa-bed"></i> 4 大定點住宿據點與推薦飯店</h2>
-
-            <div class="hubs-grid">
-                
-                <!-- Hub 1 -->
-                <div class="hub-card">
-                    <div class="hub-header">
-                        <span class="hub-tag">9/4 - 9/8 (4晚)</span>
-                        <h3>據點一：謝南多亞山谷區</h3>
-                        <p style="font-size: 0.85rem; opacity: 0.9;">Front Royal / Luray, VA</p>
-                    </div>
-                    <div class="hub-body">
-                        <div>
-                            <p class="hub-info"><i class="fa-solid fa-mountain"></i> 天際線大道山景、鐘乳石洞、大瀑布</p>
-                            <p style="font-size: 0.9rem; color: #555;">車程約 1 - 1.5 小時，出 IAD 機場後直接入住。</p>
-                        </div>
-                        <div class="hotel-box">
-                            <div class="hotel-name">Baymont by Wyndham Front Royal</div>
-                            <div class="hotel-price">約 $80 - $130 美金 / 晚（含熱早餐）</div>
-                            <a href="https://www.wyndhamhotels.com/baymont/front-royal-virginia/baymont-by-wyndham-front-royal/overview" target="_blank" class="booking-btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> 查看 Wyndham 官網優惠</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Hub 2 -->
-                <div class="hub-card">
-                    <div class="hub-header">
-                        <span class="hub-tag">9/8 - 9/12 (4晚)</span>
-                        <h3>據點二：安納波利斯海港區</h3>
-                        <p style="font-size: 0.85rem; opacity: 0.9;">Annapolis / Columbia, MD</p>
-                    </div>
-                    <div class="hub-body">
-                        <div>
-                            <p class="hub-info"><i class="fa-solid fa-anchor"></i> 歷史海港漫步、切薩皮克灣、植物園</p>
-                            <p style="font-size: 0.9rem; color: #555;">優雅舒適，鄰近女兒公司宿舍區域。</p>
-                        </div>
-                        <div class="hotel-box">
-                            <div class="hotel-name">Country Inn & Suites Annapolis</div>
-                            <div class="hotel-price">約 $115 - $165 美金 / 晚（含熱早餐）</div>
-                            <a href="https://www.choicehotels.com/maryland/annapolis/country-inn-suites-hotels/md158" target="_blank" class="booking-btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> 查看 ChoiceHotels 官網</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Hub 3 -->
-                <div class="hub-card">
-                    <div class="hub-header">
-                        <span class="hub-tag">9/12 - 9/16 (4晚)</span>
-                        <h3>據點三：阿薩蒂格野生馬海岸</h3>
-                        <p style="font-size: 0.85rem; opacity: 0.9;">Chincoteague / Berlin, MD</p>
-                    </div>
-                    <div class="hub-body">
-                        <div>
-                            <p class="hub-info"><i class="fa-solid fa-horse"></i> 大西洋沙灘看野生木馬、柏林小鎮、蒸藍蟹</p>
-                            <p style="font-size: 0.9rem; color: #555;">九月海風涼爽，避開夏季暑假人潮。</p>
-                        </div>
-                        <div class="hotel-box">
-                            <div class="hotel-name">Waterside Inn (Chincoteague)</div>
-                            <div class="hotel-price">約 $130 - $185 美金 / 晚（全海景陽台）</div>
-                            <a href="https://www.watersideinn.biz/" target="_blank" class="booking-btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> 查看 Waterside Inn 官網</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Hub 4 -->
-                <div class="hub-card">
-                    <div class="hub-header">
-                        <span class="hub-tag">9/16 - 9/19 (3晚)</span>
-                        <h3>據點四：深溪湖高山森林區</h3>
-                        <p style="font-size: 0.85rem; opacity: 0.9;">Deep Creek Lake / McHenry, MD</p>
-                    </div>
-                    <div class="hub-body">
-                        <div>
-                            <p class="hub-info"><i class="fa-solid fa-water"></i> 高山湖泊渡假、泥溪瀑布健行、山林芬多精</p>
-                            <p style="font-size: 0.9rem; color: #555;">空氣清新，馬里蘭最高瀑布與冷杉原始林。</p>
-                        </div>
-                        <div class="hotel-box">
-                            <div class="hotel-name">The Lodges at Sunset Village</div>
-                            <div class="hotel-price">約 $140 - $190 美金 / 晚（木馬風渡假村）</div>
-                            <a href="https://www.sunsetvillagemchenry.com/" target="_blank" class="booking-btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> 查看 Sunset Village 官網</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
         </div>
 
-        <!-- Tab 2: 17-Day Detailed Itinerary -->
-        <div id="timeline-tab" class="tab-content">
-            <h2 style="margin-bottom: 20px; color: var(--primary-dark);"><i class="fa-solid fa-clock-rotate-left"></i> 17 天慢步調每日詳細行程表</h2>
-            
-            <div class="timeline">
-
-                <!-- Day 1-3 -->
-                <div class="day-item">
-                    <div class="day-header">
-                        <span class="day-date">9/4 (五) - Day 1</span>
-                        <span class="day-badge">抵達與休息</span>
+        <!-- TAB 2: Interactive Map Pane -->
+        <div id="mapTab" class="tab-content">
+            <div class="map-layout">
+                <div id="map"></div>
+                <div class="map-sidebar">
+                    <div class="map-sidebar-header">
+                        <span>📍 路線站點導覽</span>
+                        <span style="font-size: 0.8rem; color: var(--text-muted);">點擊放大定位</span>
                     </div>
-                    <div class="day-title">長榮班機抵達華盛頓 IAD 機場 ➔ 入住 Front Royal 飯店</div>
-                    <div class="day-desc">女兒前來接機，開車約 1 小時前往 Front Royal 入住飯店，充分休息適應時差。</div>
-                    <div class="day-meta"><span><i class="fa-solid fa-hotel"></i> 宿：Baymont by Wyndham Front Royal</span><span><i class="fa-solid fa-car"></i> 車程：1 小時</span></div>
+                    <div class="map-stops-list" id="mapStopsList"></div>
                 </div>
-
-                <div class="day-item">
-                    <div class="day-header">
-                        <span class="day-date">9/5 (六) - Day 2</span>
-                        <span class="day-badge">近郊自然散步</span>
-                    </div>
-                    <div class="day-title">大瀑布國家公園 (Great Falls Park) 漫步觀瀑</div>
-                    <div class="day-desc">走訪平坦木棧道，三個觀景台輕鬆俯瞰波托馬克河壯麗峽谷瀑布，購買 $80 國家公園萬能通行證。</div>
-                    <div class="day-meta"><span><i class="fa-solid fa-hotel"></i> 宿：Baymont by Wyndham Front Royal</span><span><i class="fa-solid fa-car"></i> 車程：40 分鐘</span></div>
-                </div>
-
-                <div class="day-item">
-                    <div class="day-header">
-                        <span class="day-date">9/6 (日) - Day 3</span>
-                        <span class="day-badge">壯麗山景</span>
-                    </div>
-                    <div class="day-title">謝南多亞天際線大道 (Skyline Drive) 觀景台散步</div>
-                    <div class="day-desc">慢速行駛藍嶺山脈景觀公路，於各展望台停車看風景，體驗平緩好走的 Stony Man 觀景步道。</div>
-                    <div class="day-meta"><span><i class="fa-solid fa-hotel"></i> 宿：Baymont by Wyndham Front Royal</span><span><i class="fa-solid fa-car"></i> 車程：悠閒駕車</span></div>
-                </div>
-
-                <div class="day-item">
-                    <div class="day-header">
-                        <span class="day-date">9/7 (一) - Day 4</span>
-                        <span class="day-badge">地下奇觀</span>
-                    </div>
-                    <div class="day-title">盧雷鐘乳石巨洞 (Luray Caverns) 巡禮</div>
-                    <div class="day-desc">參觀美東最大鐘乳石洞，步道無階梯平坦好走，觀賞驚豔的倒影湖 (Mirror Lake) 與鐘乳石風琴。</div>
-                    <div class="day-meta"><span><i class="fa-solid fa-hotel"></i> 宿：Quality Inn Luray</span><span><i class="fa-solid fa-car"></i> 車程：30 分鐘</span></div>
-                </div>
-
-                <!-- Day 5-8 -->
-                <div class="day-item">
-                    <div class="day-header">
-                        <span class="day-date">9/8 (二) - Day 5</span>
-                        <span class="day-badge">古鎮與據點轉移</span>
-                    </div>
-                    <div class="day-title">Harpers Ferry 雙河交會古鎮 ➔ 移動至安納波利斯飯店</div>
-                    <div class="day-desc">走訪西維吉尼亞歷史古鎮看雙河交會美景，午後輕鬆開車至安納波利斯入住據點二飯店。</div>
-                    <div class="day-meta"><span><i class="fa-solid fa-hotel"></i> 宿：Country Inn & Suites Annapolis</span><span><i class="fa-solid fa-car"></i> 車程：1.5 小時</span></div>
-                </div>
-
-                <div class="day-item">
-                    <div class="day-header">
-                        <span class="day-date">9/9 (三) - Day 6</span>
-                        <span class="day-badge">海港小鎮風情</span>
-                    </div>
-                    <div class="day-title">安納波利斯 (Annapolis) 歷史海港與切薩皮克灣搭船</div>
-                    <div class="day-desc">漫步馬里蘭首府歷史古街、紅磚港口，搭乘平穩遊船觀賞切薩皮克灣海景。</div>
-                    <div class="day-meta"><span><i class="fa-solid fa-hotel"></i> 宿：Country Inn & Suites Annapolis</span><span><i class="fa-solid fa-walk"></i> 輕鬆小鎮散步</span></div>
-                </div>
-
-                <div class="day-item">
-                    <div class="day-header">
-                        <span class="day-date">9/10 (四) - Day 7</span>
-                        <span class="day-badge">花園綠意</span>
-                    </div>
-                    <div class="day-title">Brookside 植物園與 Quiet Waters 水岸公園</div>
-                    <div class="day-desc">走訪 50 英畝的美麗植物園，步道平緩，欣賞溫室花園與水生植物湖泊。</div>
-                    <div class="day-meta"><span><i class="fa-solid fa-hotel"></i> 宿：Country Inn & Suites Annapolis</span><span><i class="fa-solid fa-car"></i> 車程：30 分鐘</span></div>
-                </div>
-
-                <div class="day-item">
-                    <div class="day-header">
-                        <span class="day-date">9/11 (五) - Day 8</span>
-                        <span class="day-badge">家庭休養放鬆</span>
-                    </div>
-                    <div class="day-title">在地農夫市場/美式超市逛街 ➔ 家庭休養放鬆日</div>
-                    <div class="day-desc">陪女兒逛當地特色農夫市場、買水果甜點，午後飯店休養放鬆，享受無壓力家庭時光。</div>
-                    <div class="day-meta"><span><i class="fa-solid fa-hotel"></i> 宿：Country Inn & Suites Annapolis</span><span><i class="fa-solid fa-mug-hot"></i> 慢活休息</span></div>
-                </div>
-
-                <!-- Day 9-12 -->
-                <div class="day-item">
-                    <div class="day-header">
-                        <span class="day-date">9/12 (六) - Day 9</span>
-                        <span class="day-badge">跨海大橋與海岸移動</span>
-                    </div>
-                    <div class="day-title">跨越切薩皮克灣大橋 ➔ 前往 Chincoteague 海岸飯店</div>
-                    <div class="day-desc">開車橫跨壯觀的 Bay Bridge，前往大西洋邊緣的 Chincoteague 島入住海景飯店。</div>
-                    <div class="day-meta"><span><i class="fa-solid fa-hotel"></i> 宿：Waterside Inn Chincoteague</span><span><i class="fa-solid fa-car"></i> 車程：2 小時</span></div>
-                </div>
-
-                <div class="day-item">
-                    <div class="day-header">
-                        <span class="day-date">9/13 (日) - Day 10</span>
-                        <span class="day-badge">野生木馬奇觀</span>
-                    </div>
-                    <div class="day-title">阿薩蒂格國家海岸 (Assateague Island) 看野生木馬</div>
-                    <div class="day-desc">在綿延的海灘與鹽沼散步，親眼看野生木馬在沙灘漫步，海風涼爽無比。</div>
-                    <div class="day-meta"><span><i class="fa-solid fa-hotel"></i> 宿：Waterside Inn Chincoteague</span><span><i class="fa-solid fa-car"></i> 車程：20 分鐘</span></div>
-                </div>
-
-                <div class="day-item">
-                    <div class="day-header">
-                        <span class="day-date">9/14 (一) - Day 11</span>
-                        <span class="day-badge">最美小鎮與美饌</span>
-                    </div>
-                    <div class="day-title">柏林歷史小鎮 (Berlin, MD) 散步 ➔ 品嚐現蒸馬里蘭藍蟹</div>
-                    <div class="day-desc">走訪榮獲「美國最美小鎮」的 Berlin 逛獨立書店與手作店，晚餐享用道地美東現蒸藍蟹。</div>
-                    <div class="day-meta"><span><i class="fa-solid fa-hotel"></i> 宿：Microtel Inn Berlin</span><span><i class="fa-solid fa-utensils"></i> 美饌饗宴</span></div>
-                </div>
-
-                <div class="day-item">
-                    <div class="day-header">
-                        <span class="day-date">9/15 (二) - Day 12</span>
-                        <span class="day-badge">野生動物保護區</span>
-                    </div>
-                    <div class="day-title">契恩柯蒂格野生動物保護區 (Chincoteague Wildlife Refuge)</div>
-                    <div class="day-desc">開車慢遊濕地保護區，觀賞候鳥棲息與海灘夕陽景色。</div>
-                    <div class="day-meta"><span><i class="fa-solid fa-hotel"></i> 宿：Waterside Inn Chincoteague</span><span><i class="fa-solid fa-binoculars"></i> 生態漫遊</span></div>
-                </div>
-
-                <!-- Day 13-17 -->
-                <div class="day-item">
-                    <div class="day-header">
-                        <span class="day-date">9/16 (三) - Day 13</span>
-                        <span class="day-badge">山中渡假勝地</span>
-                    </div>
-                    <div class="day-title">前往馬里蘭西部深溪湖 (Deep Creek Lake) 入住木屋渡假村</div>
-                    <div class="day-desc">一路沿山間公路開車前往深溪湖，入住木屋風格渡假村，感受涼爽山林空氣。</div>
-                    <div class="day-meta"><span><i class="fa-solid fa-hotel"></i> 宿：The Lodges at Sunset Village</span><span><i class="fa-solid fa-car"></i> 車程：3 小時</span></div>
-                </div>
-
-                <div class="day-item">
-                    <div class="day-header">
-                        <span class="day-date">9/17 (四) - Day 14</span>
-                        <span class="day-badge">馬里蘭第一瀑布</span>
-                    </div>
-                    <div class="day-title">燕子瀑布州立公園 (Swallow Falls) 森林瀑布健行</div>
-                    <div class="day-desc">漫步平緩的木棧道，觀賞泥溪瀑布 (Muddy Creek Falls) 與數百年原生冷杉林。</div>
-                    <div class="day-meta"><span><i class="fa-solid fa-hotel"></i> 宿：The Lodges at Sunset Village</span><span><i class="fa-solid fa-tree"></i> 芬多精散步</span></div>
-                </div>
-
-                <div class="day-item">
-                    <div class="day-header">
-                        <span class="day-date">9/18 (五) - Day 15</span>
-                        <span class="day-badge">湖畔早午餐</span>
-                    </div>
-                    <div class="day-title">深溪湖湖畔早午餐 ➔ 悠閒遊船與湖畔散步</div>
-                    <div class="day-desc">在湖畔餐廳享用早餐，欣賞湖光山色，午後搭乘湖上小遊艇悠閒巡航。</div>
-                    <div class="day-meta"><span><i class="fa-solid fa-hotel"></i> 宿：The Lodges at Sunset Village</span><span><i class="fa-solid fa-ship"></i> 湖光山色</span></div>
-                </div>
-
-                <div class="day-item">
-                    <div class="day-header">
-                        <span class="day-date">9/19 (六) - Day 16</span>
-                        <span class="day-badge">機場旁飯店整備</span>
-                    </div>
-                    <div class="day-title">返回華盛頓 IAD 機場旁飯店 ➔ 整理行李與溫馨家庭晚餐</div>
-                    <div class="day-desc">開車約 2.5 小時返回 IAD 機場旁的優質飯店入住，整理行李、輕鬆聚餐，準備明日登機。</div>
-                    <div class="day-meta"><span><i class="fa-solid fa-hotel"></i> 宿：Hyatt House Dulles Airport South</span><span><i class="fa-solid fa-car"></i> 車程：2.5 小時</span></div>
-                </div>
-
-                <div class="day-item">
-                    <div class="day-header">
-                        <span class="day-date">9/20 (日) - Day 17</span>
-                        <span class="day-badge">賦歸</span>
-                    </div>
-                    <div class="day-title">飯店搭免費接駁車 ➔ 華盛頓 IAD 機場搭長榮班機返台</div>
-                    <div class="day-desc">女兒協助辦理登機手續，帶著滿滿的美東自然風光回憶搭乘長榮班機返台。</div>
-                    <div class="day-meta"><span><i class="fa-solid fa-plane-departure"></i> 祝您一路順風，旅途愉快！</span></div>
-                </div>
-
             </div>
         </div>
 
-        <!-- Tab 3: Spot Photos & Details -->
-        <div id="spots-tab" class="tab-content">
-            <h2 style="margin-bottom: 20px; color: var(--primary-dark);"><i class="fa-solid fa-camera-retro"></i> 5 大自然景觀照片與介紹</h2>
-            
-            <div class="gallery-grid">
-
-                <div class="spot-card">
-                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Shenandoah National Park" class="spot-img">
-                    <div class="spot-content">
-                        <h3 class="spot-title">謝南多亞國家公園 (Skyline Drive)</h3>
-                        <p class="spot-desc">延綿百里的藍嶺山脈景觀公路，擁有多處停車展望台，步道坡度平緩好走。</p>
-                        <div class="spot-links">
-                            <a href="https://commons.wikimedia.org/wiki/Category:Skyline_Drive_(Shenandoah_National_Park)" target="_blank" class="spot-link"><i class="fa-solid fa-image"></i> Wikimedia 相片庫</a>
-                            <a href="https://www.nps.gov/shen/index.htm" target="_blank" class="spot-link"><i class="fa-solid fa-globe"></i> NPS 國家公園官網</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="spot-card">
-                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80" alt="Luray Caverns" class="spot-img">
-                    <div class="spot-content">
-                        <h3 class="spot-title">盧雷鐘乳石巨洞 (Luray Caverns)</h3>
-                        <p class="spot-desc">美東最大地下溶洞，全年恆溫 12-14°C，洞內設有無階梯步道與絕美倒影湖。</p>
-                        <div class="spot-links">
-                            <a href="https://commons.wikimedia.org/wiki/Category:Luray_Caverns" target="_blank" class="spot-link"><i class="fa-solid fa-image"></i> 鐘乳石相片庫</a>
-                            <a href="https://luraycaverns.com/" target="_blank" class="spot-link"><i class="fa-solid fa-globe"></i> Luray Caverns 官網</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="spot-card">
-                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80" alt="Assateague Wild Horses" class="spot-img">
-                    <div class="spot-content">
-                        <h3 class="spot-title">阿薩蒂格野生木馬海岸</h3>
-                        <p class="spot-desc">大西洋海岸大自然奇觀，野生木馬在沙灘與鹽沼自由漫步，九月海風涼爽。</p>
-                        <div class="spot-links">
-                            <a href="https://commons.wikimedia.org/wiki/Category:Feral_horses_of_Assateague_Island_National_Seashore" target="_blank" class="spot-link"><i class="fa-solid fa-image"></i> 野生木馬相片庫</a>
-                            <a href="https://www.nps.gov/asis/index.htm" target="_blank" class="spot-link"><i class="fa-solid fa-globe"></i> NPS 國家海岸官網</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="spot-card">
-                    <img src="https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=800&q=80" alt="Great Falls Park" class="spot-img">
-                    <div class="spot-content">
-                        <h3 class="spot-title">大瀑布國家公園 (Great Falls Park)</h3>
-                        <p class="spot-desc">波托馬克河切穿壯麗峽谷，三個觀景台設有木棧道，離 IAD 機場僅 35 分鐘。</p>
-                        <div class="spot-links">
-                            <a href="https://commons.wikimedia.org/wiki/Category:Great_Falls_Park" target="_blank" class="spot-link"><i class="fa-solid fa-image"></i> 大瀑布相片庫</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="spot-card">
-                    <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80" alt="Swallow Falls State Park" class="spot-img">
-                    <div class="spot-content">
-                        <h3 class="spot-title">燕子瀑布州立公園 (Swallow Falls)</h3>
-                        <p class="spot-desc">馬里蘭最高瀑布 (Muddy Creek Falls) 所在地，數百年原生冷杉步道芬多精滿滿。</p>
-                        <div class="spot-links">
-                            <a href="https://commons.wikimedia.org/wiki/Category:Swallow_Falls_State_Park" target="_blank" class="spot-link"><i class="fa-solid fa-image"></i> 燕子瀑布相片庫</a>
-                        </div>
-                    </div>
-                </div>
-
+        <!-- TAB 3: Timeline Flowchart Pane -->
+        <div id="timelineTab" class="tab-content">
+            <div class="flow-container">
+                <h2 style="margin-bottom: 25px; color: var(--accent-cyan); display: flex; align-items: center; gap: 10px;">
+                    <i class="fa-solid fa-route"></i> 17 天公路旅行車程與亮點流程圖
+                </h2>
+                <div class="timeline-list" id="timelineList"></div>
             </div>
         </div>
 
-        <!-- Tab 4: Senior Travel Tips -->
-        <div id="tips-tab" class="tab-content">
-            <h2 style="margin-bottom: 20px; color: var(--primary-dark);"><i class="fa-solid fa-user-shield"></i> 長者家庭旅遊實用注意事項</h2>
-            
-            <div class="tip-box">
-                <div class="tip-title"><i class="fa-solid fa-ticket-simple" style="color: var(--accent);"></i> 1. 購買 $80 美金「美國國家公園全用通行證」 (America the Beautiful Pass)</div>
-                <p style="color: #444; font-size: 0.95rem;">
-                    在抵達第一個國家公園（如 Great Falls 或 Shenandoah）售票口時，直接向工作人員購買 **$80 美金的 Annual Pass**。這張卡以車計費，可涵蓋全車所有人，且不需美國綠卡身分，觀光客皆可使用！在九月走訪數個國家公園與保護區可省下大筆門票費用。
-                </p>
+        <!-- TAB 4: Visual Map Image Pane -->
+        <div id="imageTab" class="tab-content">
+            <div class="image-card">
+                <h2 style="color: var(--accent-cyan); margin-bottom: 10px;"><i class="fa-solid fa-map"></i> 美國東岸自駕繪製地圖</h2>
+                <p style="color: var(--text-muted); margin-bottom: 20px;">華盛頓 D.C. ➔ 北至尼加拉瀑布 ➔ 南至納什維爾 ➔ 返回華盛頓 D.C.</p>
+                <img src="us_east_road_trip_map.png" alt="美東自駕路線繪製地圖" onerror="this.src='https://files.catbox.moe/9p180i.png'; this.onerror=null;">
             </div>
+        </div>
 
-            <div class="tip-box">
-                <div class="tip-title"><i class="fa-solid fa-shirt" style="color: var(--accent);"></i> 2. 氣候與穿著建議（洋蔥式穿法）</div>
-                <p style="color: #444; font-size: 0.95rem;">
-                    美東九月氣候涼爽宜人（白天約 22-26°C），但早晚山區與海邊體感溫度較低（約 14-17°C）。建議準備：
-                    <br>• 薄長袖 + 輕便防風外套（洋蔥式穿法）
-                    <br>• 舒適防滑的休閒鞋或健走鞋
-                    <br>• 進入 Luray Caverns 鐘乳石洞時洞內恆溫 12-14°C，記得穿上外套保暖。
-                </p>
-            </div>
-
-            <div class="tip-box">
-                <div class="tip-title"><i class="fa-solid fa-restroom" style="color: var(--accent);"></i> 3. 開車與休息站安排</div>
-                <p style="color: #444; font-size: 0.95rem;">
-                    美國公路（Interstate & State Routes）每隔 1 – 1.5 小時皆設有 Welcome Center 或 Rest Area，設施乾淨且有洗手間。建議每開車 1 小時就停靠休息 15 分鐘，讓長者下車下腳散步。
-                </p>
-            </div>
-
-            <div class="tip-box">
-                <div class="tip-title"><i class="fa-solid fa-file-signature" style="color: var(--accent);"></i> 4. 飯店預訂彈性</div>
-                <p style="color: #444; font-size: 0.95rem;">
-                    在訂房網站（如 Expedia, Booking.com, ChoiceHotels, Wyndham）預訂時，請選擇 **Free Cancellation（免費取消）** 的選項，方便隨天氣或身體狀況調整住宿。
-                </p>
+        <!-- TAB 5: Travel Tips Pane -->
+        <div id="tipsTab" class="tab-content">
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-card-header"><i class="fa-solid fa-car-side"></i> 1. 開車與過路費 (E-ZPass)</div>
+                    <p>美國東岸（如 PA、NY、VA）有許多電子收費道路。租車時建議開通租車公司的 <strong>E-ZPass</strong> 或自行準備通行證，可省去人工排隊的時間。<br><br>全程每日駕駛時數控制在 2～4 小時，非常符合「不拉車、輕鬆悠閒」的需求。</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-card-header"><i class="fa-solid fa-ticket"></i> 2. 預約門票提示 (Advance Tickets)</div>
+                    <ul>
+                        <li><strong>落水山莊 (Fallingwater)</strong>：極為熱門，必須提前 1～2 個月於官網預約導覽門票。</li>
+                        <li><strong>猛獁洞國家公園 (Mammoth Cave)</strong>：洞穴導覽名額有限，請提前於 Recreation.gov 預定。</li>
+                        <li><strong>霧中少女號 (Maid of the Mist)</strong>：可現場或線上購買。</li>
+                    </ul>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-card-header"><i class="fa-solid fa-id-card"></i> 3. 國家公園通行證 (Pass)</div>
+                    <p>售價 <strong>$80 美金</strong> 的 America the Beautiful Pass，此行程包含仙納度、大煙山（免門票但需停車證）、猛獁洞（入園免門票）、新河峽谷（免費），如規劃其他聯邦景點極為划算。</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-card-header"><i class="fa-solid fa-cloud-sun"></i> 4. 9 月天氣與穿著</div>
+                    <p>9 月初至中旬為夏末秋初，白天氣溫約 20°C–28°C，極為舒適；大煙山與山區夜晚稍涼（12°C–15°C），建議攜帶薄外套與舒適健走鞋。</p>
+                </div>
             </div>
         </div>
 
     </main>
 
     <footer>
-        <div class="container">
-            <p>🌿 祝爸爸媽媽與女兒在馬里蘭與維吉尼亞享受最美好的美東慢活假期！</p>
-            <p style="margin-top: 5px; font-size: 0.8rem; opacity: 0.7;">本行程指南於 2026/07 自動生成，內容供家族行程規劃參考</p>
-        </div>
+        <p>🇺🇸 美國東岸 17 天自然與建築自駕公路旅行指南 ｜ 2026/09/04 – 09/20</p>
     </footer>
 
-    <script>
-        function switchTab(tabId) {
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-            event.currentTarget.classList.add('active');
+    <script>
+        const stopsData = [
+            { id: 'dc1', title: '1. 華盛頓 D.C. (啟程)', dates: '9/4 - 9/5', lat: 38.9072, lng: -77.0369, drive: '0.5 - 1.0 小時', typeText: '🏛️ 國家經典建築', desc: '抵達 D.C.，漫步波托馬克河畔 The Wharf、國會大廈、林肯紀念堂與國家藝廊。' },
+            { id: 'lancaster', title: '2. 蘭開斯特阿米什 & 沃特金斯峽谷', dates: '9/6', lat: 42.3806, lng: -76.8733, drive: '2.5 + 2.0 小時', typeText: '🌾 田園與峽谷瀑布', desc: '探訪 19 世紀無電無車阿米什農莊，隨後漫步 Watkins Glen 峽谷 19 座瀑布步道。' },
+            { id: 'niagara', title: '3. 尼加拉瀑布 (Niagara Falls)', dates: '9/7 - 9/8', lat: 43.0962, lng: -79.0377, drive: '2.5 小時', typeText: '💦 世界級水瀑奇景', desc: '搭乘霧中少女號觀光船直衝馬蹄灣瀑布下方，穿黃色雨衣走風之穴木棧道。' },
+            { id: 'pittsburgh', title: '4. 匹茲堡 & 落水山莊 (Fallingwater)', dates: '9/8 - 9/9', lat: 39.9062, lng: -79.4678, drive: '3.5 小時', typeText: '🏡 世紀有機建築大師作', desc: '搭纜車登上匹茲堡高地，探訪法蘭克·勞埃德·萊特世界遺產名作【落水山莊】。' },
+            { id: 'shenandoah', title: '5. 仙納度國家公園 (Skyline Drive)', dates: '9/10', lat: 38.6642, lng: -78.3619, drive: '3.0 小時', typeText: '⛰️ 天際線景觀公路', desc: '穿越阿帕拉契山脈脊梁，沿途數十個觀景台俯瞰仙納度山谷綠林。' },
+            { id: 'smoky', title: '6. 大煙山國家公園 (Great Smoky)', dates: '9/11', lat: 35.7143, lng: -83.5102, drive: '3.5 小時', typeText: '🌫️ 繚繞晨霧與野生動物', desc: '全美訪問量第一國家公園！Cades Cove 觀察黑熊與鹿群，登上 Clingmans Dome 觀景台。' },
+            { id: 'nashville', title: '7. 納什維爾 (Nashville)', dates: '9/12 - 9/13', lat: 36.1627, lng: -86.7816, drive: '3.5 小時', typeText: '🏛️ 復刻帕德嫩神廟 & 音樂', desc: '參觀 1:1 復刻雅典帕德嫩神廟與金碧輝煌雅典娜巨像，體驗 Broadway 鄉村音樂。' },
+            { id: 'mammoth', title: '8. 猛獁洞國家公園 (Mammoth Cave)', dates: '9/14', lat: 37.1869, lng: -86.1000, drive: '1.5 小時', typeText: '🦇 世界最大地下洞穴', desc: 'UNESCO 世界遺產，深入地下探索千層岩地底鐘乳石巨洞。' },
+            { id: 'newriver', title: '9. 新河峽谷國家公園 & 肯塔基馬場', dates: '9/15', lat: 38.0700, lng: -81.0800, drive: '3.5 小時', typeText: '🌉 最新國家公園單跨鋼橋', desc: '途經肯塔基綠草千畝馬場，遠眺新河峽谷與北美第二高單跨鋼拱橋。' },
+            { id: 'monticello', title: '10. 夏洛特鎮蒙蒂塞洛莊園 (Monticello)', dates: '9/16', lat: 38.0293, lng: -78.4767, drive: '2.5 小時', typeText: '🏰 傑佛遜世界遺產莊園', desc: '參觀傑佛遜總統親自設計的 Monticello 圓頂莊園與維吉尼亞大學。' },
+            { id: 'dc2', title: '11. 華盛頓 D.C. (圓滿賦歸)', dates: '9/17 - 9/20', lat: 38.9072, lng: -77.0369, drive: '2.5 小時', typeText: '🏘️ 喬治城老街 & 圓滿賦歸', desc: '返回 D.C. 逛喬治城鵝卵石運河老街、 Udvar-Hazy 航太館太空梭與弗農山莊。' }
+        ];
+
+        let mapInitialized = false;
+        let map;
+
+        function initMap() {
+            if (mapInitialized) return;
+            mapInitialized = true;
+
+            map = L.map('map').setView([39.5, -80.0], 6);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; OpenStreetMap contributors'
+            }).addTo(map);
+
+            const routeCoords = stopsData.map(s => [s.lat, s.lng]);
+            const polyline = L.polyline(routeCoords, {
+                color: '#38bdf8',
+                weight: 4,
+                dashArray: '8, 8',
+                opacity: 0.9
+            }).addTo(map);
+
+            map.fitBounds(polyline.getBounds(), { padding: [30, 30] });
+
+            const stopsListEl = document.getElementById('mapStopsList');
+
+            stopsData.forEach((stop, index) => {
+                const iconHtml = `<div style="
+                    background: #38bdf8;
+                    color: #0b132b;
+                    width: 26px;
+                    height: 26px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: bold;
+                    font-size: 12px;
+                    border: 2px solid #ffffff;
+                    box-shadow: 0 3px 8px rgba(0,0,0,0.5);
+                ">${index + 1}</div>`;
+
+                const customIcon = L.divIcon({
+                    html: iconHtml,
+                    className: 'custom-map-icon',
+                    iconSize: [26, 26],
+                    iconAnchor: [13, 13]
+                });
+
+                const marker = L.marker([stop.lat, stop.lng], { icon: customIcon }).addTo(map);
+                marker.bindPopup(`
+                    <div style="padding: 4px;">
+                        <h3 style="color: #38bdf8; font-size: 1rem; margin-bottom: 4px;">${stop.title}</h3>
+                        <p style="font-size: 0.82rem; margin-bottom: 2px;"><strong>日期：</strong>${stop.dates}</p>
+                        <p style="font-size: 0.82rem; margin-bottom: 4px;"><strong>開車：</strong>${stop.drive}</p>
+                        <p style="font-size: 0.82rem; color: #cbd5e1;">${stop.desc}</p>
+                    </div>
+                `);
+
+                const item = document.createElement('div');
+                item.className = `map-stop-item ${index === 0 ? 'active' : ''}`;
+                item.innerHTML = `
+                    <div class="stop-name"><span class="stop-num">${index + 1}</span> ${stop.title}</div>
+                    <div class="stop-sub"><i class="fa-regular fa-clock"></i> ${stop.dates} (${stop.drive})</div>
+                `;
+
+                item.addEventListener('click', () => {
+                    document.querySelectorAll('.map-stop-item').forEach(el => el.classList.remove('active'));
+                    item.classList.add('active');
+                    map.flyTo([stop.lat, stop.lng], 9, { duration: 1.2 });
+                    marker.openPopup();
+                });
+
+                stopsListEl.appendChild(item);
+            });
+        }
+
+        function renderTimelineList() {
+            const listEl = document.getElementById('timelineList');
+            listEl.innerHTML = stopsData.map((s, i) => `
+                <div class="timeline-node">
+                    <div class="node-card">
+                        <div>
+                            <div class="node-title">${s.title}</div>
+                            <div style="font-size: 0.88rem; color: #94a3b8; margin-top: 4px;">${s.desc}</div>
+                        </div>
+                        <div style="text-align: right;">
+                            <span class="node-drive"><i class="fa-solid fa-car"></i> ${s.drive}</span>
+                            <div style="font-size: 0.8rem; color: #38bdf8; margin-top: 4px;">${s.dates}</div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function switchTab(tabId, btnEl) {
+            document.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(tb => tb.classList.remove('active'));
+
             document.getElementById(tabId).classList.add('active');
+            btnEl.classList.add('active');
+
+            if (tabId === 'mapTab') {
+                setTimeout(() => {
+                    initMap();
+                    if (map) map.invalidateSize();
+                }, 100);
+            }
+        }
+
+        function filterDays(category, chipEl) {
+            document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+            chipEl.classList.add('active');
+
+            const cards = document.querySelectorAll('.day-card');
+            cards.forEach(card => {
+                const cats = card.getAttribute('data-category');
+                if (category === 'all' || cats.includes(category)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function searchDays() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            const cards = document.querySelectorAll('.day-card');
+
+            cards.forEach(card => {
+                const text = card.getAttribute('data-text').toLowerCase();
+                if (text.includes(query)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
         }
 
         function copyPageUrl() {
             navigator.clipboard.writeText(window.location.href).then(() => {
-                alert('已成功複製本 HTML 檔案的路徑！您可以貼上並傳送給先生與女兒。');
+                alert('已成功複製網頁連結！可以發送給其他人囉！');
             }).catch(() => {
-                alert('已為您顯示檔案路徑。');
+                alert('連結：' + window.location.href);
             });
         }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderTimelineList();
+        });
     </script>
 </body>
 </html>
