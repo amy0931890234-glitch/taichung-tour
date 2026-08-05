@@ -1140,52 +1140,25 @@
                     <p>在 D.C.、指湖區與大煙山地區連住 2～4 晚。每天早上輕鬆出門，玩完回同家飯店；較遠點則採順路入住，完全免去折返拉車的痛苦！</p>
                 </div>
                 <div class="tip-card">
-                    <div class="tip-card-header"><i class="fa-solid fa-car-side"></i> 2. 開車與過路費 (E-ZPass)</div>
-                    <p>美國東岸（如 PA、NY、VA）有許多電子收費道路。租車時建議開通租車公司的 <strong>E-ZPass</strong> 或自行準備通行證，可省去人工排隊的時間。</p>
-                </div>
-                <div class="tip-card">
-                    <div class="tip-card-header"><i class="fa-solid fa-ticket"></i> 3. 預約門票提示 (Advance Tickets)</div>
-                    <ul>
-                        <li><strong>落水山莊 (Fallingwater)</strong>：必須提前 1～2 個月於官網預約導覽門票。</li>
-                        <li><strong>猛獁洞國家公園 (Mammoth Cave)</strong>：洞穴導覽名額有限，請提前於 Recreation.gov 預定。</li>
-                        <li><strong>霧中少女號 (Maid of the Mist)</strong>：可現場或線上購買。</li>
-                    </ul>
-                </div>
-                <div class="tip-card">
-                    <div class="tip-card-header"><i class="fa-solid fa-id-card"></i> 4. 國家公園通行證 (Pass)</div>
-                    <p>售價 <strong>$80 美金</strong> 的 America the Beautiful Pass，此行程包含仙納度、大煙山（免門票但需停車證）、猛獁洞（入園免門票）、新河峽谷（免費），如規劃其他聯邦景點極為划算。</p>
-                </div>
-            </div>
-        </div>
-
-    </main>
-
-    <footer>
-        <p>🇺🇸 美國東岸 17 天自然與建築自駕公路旅行指南 ｜ 2026/09/04 – 09/20</p>
-    </footer>
-
-    <!-- Leaflet JS -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-    <script>
+                 <script>
         const fullCalendarData = [
-            { day: 1, date: '9/4 (三)', hub: 'D.C. Arlington', morning: '🛫 19:30 台北桃園機場 (TPE) 搭機出發。', afternoon: '✈️ 跨太平洋高空飛行，準備抵達美國特區。', evening: '🛬 22:00 飛抵杜勒斯機場 (IAD)，辦理入境通關與取車，入住 Arlington 飯店休息。' },
-            { day: 2, date: '9/5 (四)', hub: 'D.C. Arlington (連住)', morning: '🏛️ 搭捷運前往國會山莊，預約參觀美國國會大廈 (U.S. Capitol)。', afternoon: '🎨 參觀美國國家藝廊 (National Gallery of Art) 東西展館名畫。', evening: '🏛️ 漫步至林肯紀念堂 (Lincoln Memorial) 與倒映池欣賞日落與夜景。' },
-            { day: 3, date: '9/6 (五)', hub: '指湖區 Watkins Glen', morning: '🌾 開車 2 小時前往賓州 Lancaster 阿米什農莊，搭乘馬車體驗 19 世紀田園。', afternoon: '🌲 開車 2.5 小時前往指湖區沃特金斯格倫州立公園，健行 19 座瀑布峽谷。', evening: '🍷 入住 Watkins Glen 湖畔渡假飯店，享用塞內卡湖畔晚餐。' },
-            { day: 4, date: '9/7 (六)', hub: '尼加拉瀑布 Niagara', morning: '💦 開車 2.5 小時抵達尼加拉瀑布，搭乘霧中少女號觀光船 (Maid of the Mist) 衝瀑布。', afternoon: '🌊 穿黃雨衣走風之穴 (Cave of the Winds) 體驗水花震撼，漫步羊島公園。', evening: '🎆 欣賞尼加拉瀑布夜間七彩燈光秀與水岸煙火。' },
-            { day: 5, date: '9/8 (日)', hub: '匹茲堡 Pittsburgh', morning: '🚗 開車 3.5 小時前往鋼鐵城匹茲堡。', afternoon: '🌉 搭乘 Duquesne Incline 百年木造纜車俯瞰三河交匯天際線；參觀 Phipps 溫室。', evening: '🍽️ 入住匹茲堡市中心歷史飯店，品嚐美式風味晚餐。' },
-            { day: 6, date: '9/9 (一)', hub: '仙納度山谷 Luray', morning: '🏡 開車 1 小時前往建築史大師傑作【落水山莊 Fallingwater】預約導覽。', afternoon: '🚗 沿山谷公路開車 2.5 小時前往仙納度山谷入口小鎮 Luray。', evening: '🏨 入住歷史套房飯店，享受山谷寧靜夜晚。' },
-            { day: 7, date: '9/10 (二)', hub: '藍嶺山城 Roanoke', morning: '⛰️ 駛入仙納度國家公園，慢駕天際線公路 (Skyline Drive) 俯瞰綠林。', afternoon: '🥾 健行 Dark Hollow Falls 步道看雙層瀑布；開車前往藍嶺山城 Roanoke。', evening: '🏨 入住百年地標 Hotel Roanoke 享用精緻晚餐。' },
-            { day: 8, date: '9/11 (三)', hub: '大煙山 Townsend (連住)', morning: '🚗 開車 3.5 小時前往大煙山國家公園 (Great Smoky) 幽靜山城 Townsend。', afternoon: '🦌 自駕 Cades Cove 11 英里環形山谷，觀察野生黑熊、白尾鹿與歷史木屋。', evening: '🌲 入住山林渡假木屋 Dancing Bear Lodge，感受篝火放鬆。' },
-            { day: 9, date: '9/12 (四)', hub: '大煙山 Townsend (連住)', morning: '⛰️ 登上大煙山最高峰 Clingmans Dome (克林曼峰) 360 度觀景台擁抱雲海。', afternoon: '🚗 開車 3.5 小時前往鄉村音樂之都納什維爾 (Nashville)。', evening: '🎸 漫步 Broadway 百老匯大道，體驗樂團 Live 演出與 Honky Tonk 音樂。' },
-            { day: 10, date: '9/13 (五)', hub: '納什維爾 Nashville', morning: '🏛️ 參觀全球唯一 1:1 復刻雅典帕德嫩神廟 (The Parthenon) 與雅典娜巨像。', afternoon: '🎵 參觀鄉村音樂名人堂 (Country Music Hall of Fame) 與 Ryman 音樂禮拜堂。', evening: '🍗 品嚐納什維爾名產正宗辣味炸雞 (Hot Chicken)。' },
-            { day: 11, date: '9/14 (六)', hub: '肯塔基 Lexington', morning: '🦇 開車 1.5 小時前往猛獁洞國家公園 (Mammoth Cave) 預約洞穴導覽。', afternoon: '🐎 開車 1.5 小時前往肯塔基藍草高原與馬場之都 Lexington。', evening: '🎨 入住 21c Museum Hotel 現代藝術博物館飯店。' },
-            { day: 12, date: '9/15 (日)', hub: '新河峽谷 Fayetteville', morning: '🐎 參觀肯塔基馬場公園 (Kentucky Horse Park)，漫步綠草千畝純種賽馬莊園。', afternoon: '🌉 開車 3.5 小時前往最新國家公園【新河峽谷】，遠眺北美第二高單跨鋼拱橋。', evening: '🏡 入住峽谷小鎮 Fayetteville 溫馨旅店。' },
-            { day: 13, date: '9/16 (一)', hub: 'D.C. Arlington (返程連住)', morning: '🏰 開車 3 小時前往夏洛特鎮參觀傑佛遜世界遺產【蒙蒂塞洛莊園 Monticello】。', afternoon: '🏫 參觀傑佛遜設計的維吉尼亞大學 (UVA) 學術村與圓頂圖書館。', evening: '🚗 開車 2.5 小時返回華盛頓 D.C. Arlington 入住。' },
-            { day: 14, date: '9/17 (二)', hub: 'D.C. Arlington (連住)', morning: '🏘️ 漫步華盛頓 D.C. 最古老優雅的喬治城 (Georgetown) 鵝卵石老街與運河。', afternoon: '☕ 於喬治城 M Street 採買購物與享用精品咖啡。', evening: '🍽️ 波托馬克河畔景觀餐廳晚餐。' },
-            { day: 15, date: '9/18 (三)', hub: 'D.C. Arlington (連住)', morning: '✈️ 前往史密森尼航太博物館分館 (Udvar-Hazy)，近距離看實體發現號太空梭與黑鳥偵察機。', afternoon: '🎥 參觀航太館展示館與 IMAX 影視體驗。', evening: '🍖 飯店休息與特色美式燒烤。' },
-            { day: 16, date: '9/19 (五)', hub: 'D.C. Arlington (最後一日)', morning: '🌳 前往華盛頓總統故居【弗農山莊 Mount Vernon】，漫步 Georgian 莊園與河畔農場。', afternoon: '🛍️ 前往 Tysons Corner 或 Leesburg Outlets 輕鬆採買伴手禮。', evening: '🍽️ 享用告別晚餐，22:00 前往杜勒斯機場 (IAD) 還車與辦理登機報到。' },
-            { day: 17, date: '9/20(日)~9/21(一)', hub: '滿載而歸', morning: '🛫 9/20 01:15 IAD 班機起飛，展開返航之旅。', afternoon: '✈️ 跨越國際換日線高空飛行。', evening: '🛬 9/21 05:10 飛抵台北桃園機場 (TPE)，圓滿結束美東自駕之旅。' }
+            { day: 1, date: '9/4 (三)', hub: 'D.C. Arlington (連住 4 晚)', morning: '🛫 19:30 台北桃園機場 (TPE) 搭機出發。', afternoon: '✈️ 跨太平洋高空飛行，準備抵達美國特區。', evening: '🛬 22:00 飛抵杜勒斯機場 (IAD)，辦理通關取車，入住 Arlington 飯店好眠休息。' },
+            { day: 2, date: '9/5 (四)', hub: 'D.C. Arlington (連住)', morning: '🏛️ 搭捷運前往國會山莊，參觀美國國會大廈 (U.S. Capitol)。', afternoon: '🎨 參觀美國國家藝廊 (National Gallery of Art) 東西展館名畫。', evening: '🏛️ 漫步至林肯紀念堂 (Lincoln Memorial) 與倒映池欣賞夕陽夜景。' },
+            { day: 3, date: '9/6 (五)', hub: 'D.C. Arlington (連住)', morning: '🌊 漫步波托馬克河畔 The Wharf 水岸特區休閒步道。', afternoon: '🏘️ 逛 D.C. 最古老優雅的喬治城 (Georgetown) 鵝卵石老街與運河。', evening: '☕ 於喬治城 M Street 享用精品咖啡與特色水岸晚餐。' },
+            { day: 4, date: '9/7 (六)', hub: 'D.C. Arlington (連住)', morning: '✈️ 前往史密森尼航太博物館分館 (Udvar-Hazy)，近距離看實體發現號太空梭與黑鳥偵察機。', afternoon: '🏛️ 參觀史密森尼自然歷史博物館或國會圖書館。', evening: '🍽️ 市區特色美式餐廳享用美食。' },
+            { day: 5, date: '9/8 (日)', hub: '賓州 Lancaster', morning: '🌾 開車 2 小時前往賓州 Lancaster 阿米什農莊 (Amish Country)。', afternoon: '🐎 搭乘傳統馬車體驗 19 世紀無電田園生活，品嚐農家手工點心。', evening: '🏡 入住 Lancaster 歷史莊園飯店，感受寧靜鄉村之夜。' },
+            { day: 6, date: '9/9 (一)', hub: '指湖區 Watkins Glen (連住 3 晚)', morning: '🚗 開車 1.5 小時前往參觀康寧玻璃博物館 (Corning Museum of Glass)。', afternoon: '🌲 開車 1 小時抵達指湖區 (Finger Lakes) 沃特金斯格倫州立公園。', evening: '🍷 入住 Watkins Glen 湖畔渡假飯店，享用塞內卡湖畔晚餐。' },
+            { day: 7, date: '9/10 (二)', hub: '指湖區 Watkins Glen (連住)', morning: '🥾 健行 Watkins Glen Gorge Trail 峽谷步道，穿越 19 座連綿瀑布。', afternoon: '🍇 沿塞內卡湖 (Seneca Lake) 葡萄酒之路（Wine Trail）品酒放鬆。', evening: '🌅 湖畔日落漫步與渡假晚餐。' },
+            { day: 8, date: '9/11 (三)', hub: '指湖區 Watkins Glen (連住)', morning: '🌊 前往 Taughannock Falls 州立公園，看落差高達 215 呎的壯麗單體瀑布。', afternoon: '🛶 指湖區湖畔划船或悠閒小鎮漫步採買。', evening: '♨️ 渡假飯店設施放鬆與無壓力晚宴。' },
+            { day: 9, date: '9/12 (四)', hub: '尼加拉瀑布 Niagara (連住 2 晚)', morning: '🚗 輕鬆開車 2.5 小時抵達世界奇景【尼加拉瀑布 Niagara Falls】。', afternoon: '💦 搭乘霧中少女號觀光船 (Maid of the Mist) 衝入馬蹄灣瀑布水霧下方。', evening: '🎆 欣賞尼加拉瀑布夜間七彩燈光秀與水岸煙火。' },
+            { day: 10, date: '9/13 (五)', hub: '尼加拉瀑布 Niagara (連住)', morning: '🌊 穿上黃色雨衣走風之穴 (Cave of the Winds) 颶風平台，感受水花狂暴震撼。', afternoon: '🇨🇦 漫步羊島 (Goat Island) 綠洲公園與三姊妹島，遠眺對岸天際線。', evening: '🍽️ 瀑布景觀餐廳享用高空美景晚餐。' },
+            { day: 11, date: '9/14 (六)', hub: '匹茲堡 Pittsburgh', morning: '🚗 開車 3.5 小時前往鋼鐵城匹茲堡。', afternoon: '🌉 搭乘 Duquesne Incline 百年木造纜車俯瞰三河交匯天際線與黃色鋼鐵大橋。', evening: '🍽️ 入住匹茲堡市中心歷史精品飯店，享用精緻美景晚餐。' },
+            { day: 12, date: '9/15 (日)', hub: '仙納度山谷 Luray (連住 2 晚)', morning: '🏡 開車 1 小時前往建築史大師傑作【落水山莊 Fallingwater】預約導覽。', afternoon: '🚗 沿山谷公路開車 2.5 小時前往仙納度山谷入口小鎮 Luray。', evening: '🏨 入住歷史套房飯店 Hotel Laurance，享受山谷寧靜夜晚。' },
+            { day: 13, date: '9/16 (一)', hub: '仙納度國家公園 Luray (連住)', morning: '⛰️ 駛入仙納度國家公園，慢駕天際線公路 (Skyline Drive) 俯瞰山谷綠林。', afternoon: '🥾 健行 Dark Hollow Falls 步道欣賞雙層森林瀑布。', evening: '🌌 山谷星空漫步與放鬆美餐。' },
+            { day: 14, date: '9/17 (二)', hub: '夏洛特鎮 Charlottesville', morning: '🏰 開車 1.5 小時前往夏洛特鎮參觀傑佛遜世界遺產【蒙蒂塞洛莊園 Monticello】。', afternoon: '🏫 參觀傑佛遜設計的世界遺產維吉尼亞大學 (UVA) 學術村與圓頂圖書館。', evening: '🏨 入住夏洛特鎮歷史莊園飯店。' },
+            { day: 15, date: '9/18 (三)', hub: 'D.C. Arlington (返程連住)', morning: '🌳 開車 2 小時前往華盛頓總統故居【弗農山莊 Mount Vernon】莊園。', afternoon: '🚗 開車返回 D.C. Arlington 據點飯店辦理 Check-in。', evening: '🍖 波托馬克河畔享用特色美式燒烤與享用好眠。' },
+            { day: 16, date: '9/19 (五)', hub: 'D.C. Arlington (最後一日)', morning: '🛍️ 前往 Leesburg Outlets 或 Tysons Corner 輕鬆採買伴手禮與紀念品。', afternoon: '🧳 飯店拿行李與整理美東滿載回憶。', evening: '🍽️ 享用告別晚餐，22:00 前往杜勒斯機場 (IAD) 還車與辦理登機報到。' },
+            { day: 17, date: '9/20(日)~9/21(一)', hub: '滿載而歸', morning: '🛫 9/20 01:15 IAD 班機起飛，展開返航之旅。', afternoon: '✈️ 跨越國際換日線高空飛行。', evening: '🛬 9/21 05:10 飛抵台北桃園機場 (TPE)，圓滿結束美東慢遊之旅。' }
         ];
 
         function renderCalendarList() {
@@ -1237,8 +1210,7 @@
                     }
                 ],
                 hotels: [
-                    { name: '🏨 【據點 1】Residence Inn Arlington Rosslyn (連住 2 晚)', desc: '位於 Rosslyn 捷運站旁，治安極佳、附設完整廚房與免費熱早餐，離 IAD 機場僅 25 分鐘。', url: 'https://www.google.com/maps/search/?api=1&query=Residence+Inn+by+Marriott+Arlington+Rosslyn' },
-                    { name: '🏨 【據點 1 備選】The Dupont Circle Hotel', desc: '座落於 D.C. 人文治安最佳的大使館特區，樹蔭大道環繞，周邊許多高級餐廳與藝廊。', url: 'https://www.google.com/maps/search/?api=1&query=The+Dupont+Circle+Hotel+Washington+DC' }
+                    { name: '🏨 【據點 1】Residence Inn Arlington Rosslyn (連住 4 晚)', desc: '位於 Rosslyn 捷運站旁，治安極佳、附設完整廚房與免費熱早餐，離 IAD 機場僅 25 分鐘。', url: 'https://www.google.com/maps/search/?api=1&query=Residence+Inn+by+Marriott+Arlington+Rosslyn' }
                 ]
             },
             {
@@ -1246,68 +1218,194 @@
                 date: '9/5 (四)',
                 title: '華盛頓 D.C. — 國家建築與古典美學巡禮',
                 category: 'dc archi',
-                drive: '0 小時 (搭乘地鐵或 Uber)',
+                drive: '0 小時 (搭乘地鐵捷運或 Uber)',
                 spots: [
                     {
                         name: '🏛️ 美國國會大廈 (U.S. Capitol)',
-                        desc: '美國新古典主義圓頂建築巔峰，內部擁有金碧輝煌的大圓頂天井壁畫《華盛頓的神化》與國會雕像館，可提前預約導覽。',
+                        desc: '美國新古典主義圓頂建築巔峰，內部擁有金碧輝煌的大圓頂天井壁畫《華盛頓的神化》與國會雕像館，提前預約導覽。',
                         mapUrl: 'https://www.google.com/maps/search/?api=1&query=U.S.+Capitol+Washington+DC',
                         officialUrl: 'https://www.visitthecapitol.gov/'
                     },
                     {
-                        name: '🏛️ 林肯紀念堂 (Lincoln Memorial) & 反映池',
-                        desc: '仿古希臘多立克柱式帕德嫩神廟設計，座落於國家廣場西端，紀念林肯總統並能遠眺倒映池與華盛頓紀念碑。',
-                        mapUrl: 'https://www.google.com/maps/search/?api=1&query=Lincoln+Memorial+Washington+DC',
-                        officialUrl: 'https://www.nps.gov/linc/'
-                    },
-                    {
                         name: '🎨 美國國家藝廊 (National Gallery of Art)',
-                        desc: '古典西展館與貝聿銘設計的現代幾何東展館雙館交織，藏有達文西在西半球唯一畫作《吉內薇拉·班琪》與莫內名作。',
+                        desc: '古典西展館與貝聿銘設計的現代幾何東展館雙館交織，藏有達文西在西半球唯一畫作與莫內名作。',
                         mapUrl: 'https://www.google.com/maps/search/?api=1&query=National+Gallery+of+Art+Washington+DC',
                         officialUrl: 'https://www.nga.gov/'
+                    },
+                    {
+                        name: '🏛️ 林肯紀念堂 (Lincoln Memorial) & 反映池',
+                        desc: '仿古希臘多立克柱式帕德嫩神廟設計，座落於國家廣場西端，紀念林肯總統並遠眺倒映池與華盛頓紀念碑夕陽。',
+                        mapUrl: 'https://www.google.com/maps/search/?api=1&query=Lincoln+Memorial+Washington+DC',
+                        officialUrl: 'https://www.nps.gov/linc/'
                     }
                 ],
                 hotels: [
-                    { name: '🏨 【據點 1】Residence Inn Arlington Rosslyn (連住第 2 晚)', desc: '免換飯店！同據點 1 飯店續住。', url: 'https://www.google.com/maps/search/?api=1&query=Residence+Inn+by+Marriott+Arlington+Rosslyn' }
+                    { name: '🏨 【據點 1】Residence Inn Arlington Rosslyn (連住第 2 晚)', desc: '免換飯店！D.C. 據點 1 飯店續住。', url: 'https://www.google.com/maps/search/?api=1&query=Residence+Inn+by+Marriott+Arlington+Rosslyn' }
                 ]
             },
             {
                 day: 3,
                 date: '9/6 (五)',
-                title: 'D.C. ➔ 賓州阿米什農莊 ➔ 指湖區峽谷',
-                category: 'nature',
-                drive: '~4.5 小時 (D.C.➔Lancaster 2h, Lancaster➔Finger Lakes 2.5h)',
+                title: '華盛頓 D.C. — 水岸特區與喬治城歷史古城',
+                category: 'dc archi',
+                drive: '0.2 小時',
                 spots: [
                     {
-                        name: '🌾 Lancaster Amish Country (蘭開斯特)',
-                        desc: '探訪保持 19 世紀傳統無電、無汽車田園生活的阿米什社群，隨處可見馬車與覆蓋木橋（Covered Bridge），品嚐農家手工起司與點心。',
-                        mapUrl: 'https://www.google.com/maps/search/?api=1&query=Lancaster+Amish+Country+PA',
-                        officialUrl: 'https://www.discoverlancaster.com/'
+                        name: '🌊 華盛頓水岸碼頭特區 (The Wharf)',
+                        desc: '波托馬克河畔最新潮的水岸休閒區，擁有全美最古老連續營運的海鮮露天市場與木棧景觀步道。',
+                        mapUrl: 'https://www.google.com/maps/search/?api=1&query=The+Wharf+Washington+DC',
+                        officialUrl: 'https://www.wharfdc.com/'
                     },
                     {
-                        name: '🌲 Watkins Glen State Park (沃特金斯格倫州立公園)',
-                        desc: '紐約指湖區最著名的 Gorge Trail 峽谷步道，短短 2 英里穿越 19 座連綿瀑布與千年層理岩壁，景色宛如仙境。',
-                        mapUrl: 'https://www.google.com/maps/search/?api=1&query=Watkins+Glen+State+Park',
-                        officialUrl: 'https://parks.ny.gov/parks/watkinsglen/'
+                        name: '🏘️ 喬治城 (Georgetown) 歷史老街',
+                        desc: 'D.C. 最古老的歷史街區，漫步於鵝卵石街道、18 世紀古典聯排別墅（Townhouses）、C&O 運河與精品大道。',
+                        mapUrl: 'https://www.google.com/maps/search/?api=1&query=Georgetown+Washington+DC',
+                        officialUrl: 'https://www.georgetowndc.com/'
                     }
                 ],
                 hotels: [
-                    { name: '🏨 【據點 2】Watkins Glen Harbor Hotel', desc: '位居塞內卡湖（Seneca Lake）南端渡假港口旁，享有奢華湖景與頂級餐廳設施，做為指湖區基地。', url: 'https://www.google.com/maps/search/?api=1&query=Watkins+Glen+Harbor+Hotel' }
+                    { name: '🏨 【據點 1】Residence Inn Arlington Rosslyn (連住第 3 晚)', desc: '免換飯店！D.C. 據點 1 飯店續住。', url: 'https://www.google.com/maps/search/?api=1&query=Residence+Inn+by+Marriott+Arlington+Rosslyn' }
                 ]
             },
             {
                 day: 4,
                 date: '9/7 (六)',
-                title: '指湖區 ➔ 尼加拉瀑布（美加兩側震撼視角）',
+                title: '華盛頓 D.C. — 史密森尼博物館群深度漫遊',
+                category: 'dc archi',
+                drive: '0.3 小時',
+                spots: [
+                    {
+                        name: '✈️ Udvar-Hazy Center (史密森尼航太博物館分館)',
+                        desc: '位於 IAD 機場旁，巨大航空展館實體展出昂貴的發現號太空梭（Space Shuttle Discovery）與 SR-71 黑鳥超音速偵察機。',
+                        mapUrl: 'https://www.google.com/maps/search/?api=1&query=Steven+F.+Udvar-Hazy+Center',
+                        officialUrl: 'https://airandspace.si.edu/udvar-hazy-center'
+                    },
+                    {
+                        name: '🏛️ 國會圖書館 (Library of Congress) & 史密森尼博物館',
+                        desc: '參觀全球最大圖書館美麗的大廳天井與世界名著珍本展覽。',
+                        mapUrl: 'https://www.google.com/maps/search/?api=1&query=Library+of+Congress+Washington+DC',
+                        officialUrl: 'https://www.loc.gov/'
+                    }
+                ],
+                hotels: [
+                    { name: '🏨 【據點 1】Residence Inn Arlington Rosslyn (連住最後 1 晚)', desc: '免換飯店！D.C. 據點 1 飯店連住第 4 晚。', url: 'https://www.google.com/maps/search/?api=1&query=Residence+Inn+by+Marriott+Arlington+Rosslyn' }
+                ]
+            },
+            {
+                day: 5,
+                date: '9/8 (日)',
+                title: 'D.C. ➔ 賓州阿米什農莊田園慢遊',
+                category: 'nature',
+                drive: '~2.0 小時',
+                spots: [
+                    {
+                        name: '🌾 Lancaster Amish Country (蘭開斯特阿米什農莊)',
+                        desc: '探訪保持 19 世紀傳統無電、無汽車田園生活的阿米什社群，搭乘馬車穿越覆蓋木橋（Covered Bridge），品嚐農家手工起司與點心。',
+                        mapUrl: 'https://www.google.com/maps/search/?api=1&query=Lancaster+Amish+Country+PA',
+                        officialUrl: 'https://www.discoverlancaster.com/'
+                    }
+                ],
+                hotels: [
+                    { name: '🏨 【據點 2】The Country Inn at Lancaster', desc: '位於賓州阿米什田園核心區的溫馨莊園飯店，享受寧靜鄉村風格。', url: 'https://www.google.com/maps/search/?api=1&query=Amish+Country+Hotels+Lancaster+PA' }
+                ]
+            },
+            {
+                day: 6,
+                date: '9/9 (一)',
+                title: '賓州 ➔ 康寧玻璃博物館 ➔ 指湖區（Finger Lakes）',
+                category: 'nature archi',
+                drive: '~2.5 小時',
+                spots: [
+                    {
+                        name: '🍷 Corning Museum of Glass (康寧玻璃博物館)',
+                        desc: '全球最大的玻璃藝術與科技博物館，現場觀賞頂級熱玻璃吹製表演與當代玻璃藝術品展覽。',
+                        mapUrl: 'https://www.google.com/maps/search/?api=1&query=Corning+Museum+of+Glass',
+                        officialUrl: 'https://www.cmog.org/'
+                    },
+                    {
+                        name: '🌲 Watkins Glen (沃特金斯格倫湖畔小鎮)',
+                        desc: '抵達紐約指湖區塞內卡湖（Seneca Lake）南端渡假勝地，入住湖畔景觀飯店。',
+                        mapUrl: 'https://www.google.com/maps/search/?api=1&query=Watkins+Glen+NY',
+                        officialUrl: ''
+                    }
+                ],
+                hotels: [
+                    { name: '🏨 【據點 3】Watkins Glen Harbor Hotel (連住 3 晚)', desc: '位居塞內卡湖南端渡假港口旁，享有奢華湖景與頂級餐廳設施，做為指湖區定點渡假基地。', url: 'https://www.google.com/maps/search/?api=1&query=Watkins+Glen+Harbor+Hotel' }
+                ]
+            },
+            {
+                day: 7,
+                date: '9/10 (二)',
+                title: '指湖區 — Watkins Glen 峽谷瀑布與酒莊之路',
+                category: 'nature',
+                drive: '~0.5 小時 (周邊慢遊)',
+                spots: [
+                    {
+                        name: '🌲 Watkins Glen State Park (沃特金斯格倫州立公園)',
+                        desc: '紐約指湖區最著名的 Gorge Trail 峽谷步道，短短 2 英里穿越 19 座連綿瀑布與千年層理岩壁，景色宛如仙境。',
+                        mapUrl: 'https://www.google.com/maps/search/?api=1&query=Watkins+Glen+State+Park',
+                        officialUrl: 'https://parks.ny.gov/parks/watkinsglen/'
+                    },
+                    {
+                        name: '🍇 Seneca Lake Wine Trail (塞內卡湖酒莊品酒)',
+                        desc: '指湖區為全美著名的麗絲玲（Riesling）白葡萄酒產區，漫步於湖畔莊園酒莊品酒放賞。',
+                        mapUrl: 'https://www.google.com/maps/search/?api=1&query=Seneca+Lake+Wine+Trail',
+                        officialUrl: 'https://www.senecalakewine.com/'
+                    }
+                ],
+                hotels: [
+                    { name: '🏨 【據點 3】Watkins Glen Harbor Hotel (連住第 2 晚)', desc: '同據點 3 飯店續住。', url: 'https://www.google.com/maps/search/?api=1&query=Watkins+Glen+Harbor+Hotel' }
+                ]
+            },
+            {
+                day: 8,
+                date: '9/11 (三)',
+                title: '指湖區 — Taughannock 巨型瀑布與湖畔放鬆',
+                category: 'nature',
+                drive: '~0.5 小時',
+                spots: [
+                    {
+                        name: '🌊 Taughannock Falls State Park (托格漢諾克瀑布)',
+                        desc: '擁有落差高達 215 呎的單體瀑布（甚至比尼加拉瀑布落差還高！），步道平緩輕鬆，直達瀑布景觀池。',
+                        mapUrl: 'https://www.google.com/maps/search/?api=1&query=Taughannock+Falls+State+Park',
+                        officialUrl: 'https://parks.ny.gov/parks/taughannockfalls/'
+                    }
+                ],
+                hotels: [
+                    { name: '🏨 【據點 3】Watkins Glen Harbor Hotel (連住最後 1 晚)', desc: '同據點 3 飯店連住第 3 晚。', url: 'https://www.google.com/maps/search/?api=1&query=Watkins+Glen+Harbor+Hotel' }
+                ]
+            },
+            {
+                day: 9,
+                date: '9/12 (四)',
+                title: '指湖區 ➔ 尼加拉瀑布（雷霆萬鈞自然奇景）',
                 category: 'nature',
                 drive: '~2.5 小時',
                 spots: [
                     {
                         name: '💦 霧中少女號觀光船 (Maid of the Mist)',
-                        desc: '全美最著名觀光船，穿上藍色雨衣直衝馬蹄灣瀑布（Horseshoe Falls）正下方，近距離感受雷霆萬鈞的水霧衝擊。',
+                        desc: '全美最著名觀光船，穿上藍色雨衣直衝馬蹄灣瀑布（Horseshoe Falls）正下方，近距離感受水霧衝擊。',
                         mapUrl: 'https://www.google.com/maps/search/?api=1&query=Maid+of+the+Mist+Niagara+Falls',
                         officialUrl: 'https://www.maidofthemist.com/'
                     },
+                    {
+                        name: '🎆 尼加拉瀑布夜間燈光秀與水岸煙火',
+                        desc: '夜幕低垂後，巨大瀑布被七彩燈光打亮，並施放絢麗水岸煙火。',
+                        mapUrl: 'https://www.google.com/maps/search/?api=1&query=Niagara+Falls+State+Park',
+                        officialUrl: ''
+                    }
+                ],
+                hotels: [
+                    { name: '🏨 【據點 4】Sheraton Niagara Falls NY (連住 2 晚)', desc: '位於美國側瀑布州立公園旁，步行 5 分鐘即可抵達瀑布入口與觀光船碼頭。', url: 'https://www.google.com/maps/search/?api=1&query=Sheraton+Niagara+Falls+NY' }
+                ]
+            },
+            {
+                day: 10,
+                date: '9/13 (五)',
+                title: '尼加拉瀑布 — 風之穴與羊島深遊',
+                category: 'nature',
+                drive: '~0.2 小時',
+                spots: [
                     {
                         name: '🌊 風之穴 (Cave of the Winds)',
                         desc: '穿上黃色雨衣沿著木棧道一路走至新娘面紗瀑布（Bridal Veil Falls）下方「颶風平台」，感受零距離水花狂暴震撼。',
@@ -1315,20 +1413,20 @@
                         officialUrl: 'https://www.niagarafallsstatepark.com/attractions-and-tours/cave-of-the-winds'
                     },
                     {
-                        name: '🇨🇦 Goat Island (羊島) & 三姊妹島',
+                        name: '🇨🇦 Goat Island (羊島) & 三姊妹島漫步',
                         desc: '隔開美國瀑布與馬蹄灣瀑布的中央綠洲公園，步道輕鬆舒適，遠眺加拿大端天際線最佳點。',
                         mapUrl: 'https://www.google.com/maps/search/?api=1&query=Goat+Island+Niagara+Falls',
                         officialUrl: ''
                     }
                 ],
                 hotels: [
-                    { name: '🏨 【據點 2b】Sheraton Niagara Falls (NY)', desc: '位於美國側瀑布州立公園旁，步行 5 分鐘即可抵達瀑布入口與觀光船碼頭。', url: 'https://www.google.com/maps/search/?api=1&query=Sheraton+Niagara+Falls+NY' }
+                    { name: '🏨 【據點 4】Sheraton Niagara Falls NY (續住)', desc: '同據點 4 飯店續住第 2 晚。', url: 'https://www.google.com/maps/search/?api=1&query=Sheraton+Niagara+Falls+NY' }
                 ]
             },
             {
-                day: 5,
-                date: '9/8 (日)',
-                title: '尼加拉瀑布 ➔ 匹茲堡（鋼鐵城與文化藝術）',
+                day: 11,
+                date: '9/14 (六)',
+                title: '尼加拉瀑布 ➔ 匹茲堡（鋼鐵城天際線與纜車）',
                 category: 'archi',
                 drive: '~3.5 小時',
                 spots: [
@@ -1337,46 +1435,40 @@
                         desc: '建於 1877 年的百年木造登山纜車，乘坐登上 Mount Washington 高地，俯瞰三河交匯的匹茲堡壯麗天際線與黃色鋼鐵大橋。',
                         mapUrl: 'https://www.google.com/maps/search/?api=1&query=Duquesne+Incline+Pittsburgh',
                         officialUrl: 'https://www.duquesneincline.org/'
-                    },
-                    {
-                        name: '🌿 Phipps Conservatory 溫室植物園',
-                        desc: '1893 年建成的維多利亞風格宏偉玻璃溫室，展出極致優雅的四季花卉與玻璃藝術。',
-                        mapUrl: 'https://www.google.com/maps/search/?api=1&query=Phipps+Conservatory+and+Botanical+Gardens',
-                        officialUrl: 'https://www.phipps.conservatory.org/'
                     }
                 ],
                 hotels: [
-                    { name: '🏨 【據點 3】The Industrialist Hotel Pittsburgh', desc: '位於匹茲堡市中心歷史建築內，融合鋼鐵城工業風美學與現代精緻設計。', url: 'https://www.google.com/maps/search/?api=1&query=The+Industrialist+Hotel+Pittsburgh' }
+                    { name: '🏨 【據點 5】The Industrialist Hotel Pittsburgh', desc: '位於匹茲堡市中心歷史建築內，融合鋼鐵城工業風美學與現代精緻設計。', url: 'https://www.google.com/maps/search/?api=1&query=The+Industrialist+Hotel+Pittsburgh' }
                 ]
             },
             {
-                day: 6,
-                date: '9/9 (一)',
+                day: 12,
+                date: '9/15 (日)',
                 title: '匹茲堡 ➔ 建築史奇蹟【落水山莊】➔ 仙納度山谷',
                 category: 'archi',
                 drive: '~3.5 小時',
                 spots: [
                     {
                         name: '🏡 落水山莊 (Fallingwater)',
-                        desc: '建築大師法蘭克·勞埃德·萊特（Frank Lloyd Wright）名列世界遺產的代表作！建築巧妙懸空架設於熊溪瀑布之上，完美演繹有機建築與大自然融為一體的奇蹟（必須提前 1~2 個月預約門票）。',
+                        desc: '建築大師法蘭克·勞埃德·萊特（Frank Lloyd Wright）名列世界遺產的代表作！建築巧妙懸空架設於熊溪瀑布之上，完美演繹有機建築與大自然融為一體的奇蹟（提前 1~2 個月預約）。',
                         mapUrl: 'https://www.google.com/maps/search/?api=1&query=Fallingwater+Frank+Lloyd+Wright',
                         officialUrl: 'https://www.fallingwater.org/'
                     }
                 ],
                 hotels: [
-                    { name: '🏨 【據點 4】Hotel Laurance (Luray, VA)', desc: '位於仙納度國家公園與 Luray 溶洞入口處的精緻精品套房飯店，極具歷史與放鬆氛圍。', url: 'https://www.google.com/maps/search/?api=1&query=Hotel+Laurance+Luray+VA' }
+                    { name: '🏨 【據點 6】Hotel Laurance (Luray, VA 連住 2 晚)', desc: '位於仙納度國家公園與 Luray 溶洞入口處的精緻精品套房飯店，極具歷史與放鬆氛圍。', url: 'https://www.google.com/maps/search/?api=1&query=Hotel+Laurance+Luray+VA' }
                 ]
             },
             {
-                day: 7,
-                date: '9/10 (二)',
-                title: '仙納度國家公園（Skyline Drive）➔ 藍嶺山脈',
+                day: 13,
+                date: '9/16 (一)',
+                title: '仙納度國家公園（Skyline Drive 天際線公路）',
                 category: 'nature',
-                drive: '~3.0 小時 (景觀公路慢駕)',
+                drive: '~1.5 小時 (景觀公路慢駕)',
                 spots: [
                     {
                         name: '⛰️ 天際線公路 (Skyline Drive)',
-                        desc: '全長 105 英里穿越阿帕拉契山脈脊梁的國家景觀公路，沿途擁有 75 個觀景台，俯瞰仙納度山谷的壯麗綠林與初秋景致。',
+                        desc: '穿越阿帕拉契山脈脊梁的國家景觀公路，沿途擁有數十個觀景台，俯瞰仙納度山谷的壯麗綠林。',
                         mapUrl: 'https://www.google.com/maps/search/?api=1&query=Skyline+Drive+Shenandoah+National+Park',
                         officialUrl: 'https://www.nps.gov/shen/'
                     },
@@ -1388,91 +1480,98 @@
                     }
                 ],
                 hotels: [
-                    { name: '🏨 【據點 4b】The Hotel Roanoke & Conference Center', desc: '希爾頓旗下 Tudor 帝鐸風格百年歷史地標飯店，座落於藍嶺山脈山城，氛圍優雅。', url: 'https://www.google.com/maps/search/?api=1&query=The+Hotel+Roanoke' }
+                    { name: '🏨 【據點 6】Hotel Laurance (Luray, VA 續住)', desc: '同據點 6 飯店續住第 2 晚。', url: 'https://www.google.com/maps/search/?api=1&query=Hotel+Laurance+Luray+VA' }
                 ]
             },
             {
-                day: 8,
-                date: '9/11 (三)',
-                title: '藍嶺山脈 ➔ 大煙山國家公園（Great Smoky Mountains）',
-                category: 'nature',
-                drive: '~3.5 小時',
-                spots: [
-                    {
-                        name: '🌫️ 大煙山國家公園 (Great Smoky Mountains)',
-                        desc: '全美訪問量第一的聯合國世界自然遺產，常年繚繞著藍色薄霧的山巒與古老原生森林。',
-                        mapUrl: 'https://www.google.com/maps/search/?api=1&query=Great+Smoky+Mountains+National+Park',
-                        officialUrl: 'https://www.nps.gov/grsm/'
-                    },
-                    {
-                        name: '🦌 Cades Cove 景觀環狀自駕道',
-                        desc: '11 英里單向環形山谷小徑，沿途保留 19 世紀墾荒木屋與教堂，有極高機會近距離觀察野生的美洲黑熊、白尾鹿與火雞。',
-                        mapUrl: 'https://www.google.com/maps/search/?api=1&query=Cades+Cove+Great+Smoky+Mountains',
-                        officialUrl: ''
-                    }
-                ],
-                hotels: [
-                    { name: '🏨 【據點 5】Dancing Bear Lodge (Townsend, TN 連住 2 晚)', desc: '入住據點 5！位於大煙山「幽靜側」Townsend 的奢華木屋渡假村，做為山脈自然區樞紐據點。', url: 'https://www.google.com/maps/search/?api=1&query=Dancing+Bear+Lodge+Townsend+TN' }
-                ]
-            },
-            {
-                day: 9,
-                date: '9/12 (四)',
-                title: '大煙山最高峰 ➔ 納什維爾（Nashville）',
-                category: 'nature archi',
-                drive: '~3.5 小時',
-                spots: [
-                    {
-                        name: '⛰️ Clingmans Dome (克林曼峰/Kuwohi)',
-                        desc: '海拔 6,643 呎為大烟山最高峰，登上飛碟形狀的圓形觀景台可享有 360 度無死角山脈雲海景色。',
-                        mapUrl: 'https://www.google.com/maps/search/?api=1&query=Clingmans+Dome',
-                        officialUrl: ''
-                    },
-                    {
-                        name: '🎸 Nashville Broadway 百老匯音樂夜景',
-                        desc: '鄉村音樂之都的核心不夜城，大道兩旁密佈霓虹閃爍的 Honky Tonk 酒吧與頂尖 Live 樂團現場演出。',
-                        mapUrl: 'https://www.google.com/maps/search/?api=1&query=Broadway+Nashville+TN',
-                        officialUrl: 'https://www.visitmusiccity.com/'
-                    }
-                ],
-                hotels: [
-                    { name: '🏨 【據點 6】Grand Hyatt Nashville (連住 2 晚)', desc: '位在市中心 Broadway 附近，設有頂樓絕美高空露台酒吧與高級游泳池。', url: 'https://www.google.com/maps/search/?api=1&query=Grand+Hyatt+Nashville' }
-                ]
-            },
-            {
-                day: 10,
-                date: '9/13 (五)',
-                title: '納什維爾 — 復刻神廟與音樂文化',
+                day: 14,
+                date: '9/17 (二)',
+                title: '仙納度山谷 ➔ 夏洛特鎮（總統莊園與世界遺產）',
                 category: 'archi',
-                drive: '~0.5 小時',
+                drive: '~1.5 小時',
                 spots: [
                     {
-                        name: '🏛️ 納什維爾帕德嫩神廟 (The Parthenon)',
-                        desc: '全球唯一 1:1 完全比例復刻雅典原版帕德嫩神廟的建築奇蹟，館內供奉高達 13 公尺金碧輝煌的雅典娜巨像。',
-                        mapUrl: 'https://www.google.com/maps/search/?api=1&query=The+Parthenon+Nashville',
-                        officialUrl: 'https://www.nashvilleparthenon.com/'
+                        name: '🏰 蒙蒂塞洛莊園 (Monticello)',
+                        desc: '美國開國元勳湯瑪斯·傑佛遜自行設計的世界文化遺產圓頂莊園，展現新古典主義建築美學。',
+                        mapUrl: 'https://www.google.com/maps/search/?api=1&query=Monticello+Thomas+Jefferson',
+                        officialUrl: 'https://www.monticello.org/'
                     },
                     {
-                        name: '🎵 Country Music Hall of Fame (鄉村音樂名人堂)',
-                        desc: '展示美式鄉村音樂演變史、貓王與巨星珍貴吉他、服裝與金唱片的音樂聖殿。',
-                        mapUrl: 'https://www.google.com/maps/search/?api=1&query=Country+Music+Hall+of+Fame+and+Museum',
-                        officialUrl: 'https://www.countrymusichalloffame.org/'
+                        name: '🏫 維吉尼亞大學 (University of Virginia)',
+                        desc: '傑佛遜設計的世界遺產「學術村」（Academical Village）與經典草坪圓頂圖書館。',
+                        mapUrl: 'https://www.google.com/maps/search/?api=1&query=University+of+Virginia+Rotunda',
+                        officialUrl: 'https://www.virginia.edu/'
                     }
                 ],
                 hotels: [
-                    { name: '🏨 【據點 6】Grand Hyatt Nashville (續住)', desc: '同 Day 9 飯店續住。', url: 'https://www.google.com/maps/search/?api=1&query=Grand+Hyatt+Nashville' }
+                    { name: '🏨 【據點 7】The Boar\'s Head Resort (Charlottesville)', desc: '位於維吉尼亞夏洛特鎮的歷史渡假村飯店，極具古典英倫風格。', url: 'https://www.google.com/maps/search/?api=1&query=Boars+Head+Resort+Charlottesville' }
                 ]
             },
             {
-                day: 11,
-                date: '9/14 (六)',
-                title: '納什維爾 ➔ 猛獁洞國家公園 ➔ 肯塔基藍草高原',
-                category: 'nature',
-                drive: '~3.0 小時',
+                day: 15,
+                date: '9/18 (三)',
+                title: '夏洛特鎮 ➔ 弗農山莊 ➔ 華盛頓 D.C. Arlington',
+                category: 'dc archi',
+                drive: '~2.0 小時',
                 spots: [
                     {
-                        name: '🦇 猛獁洞國家公園 (Mammoth Cave National Park)',
-                        desc: 'UNESCO 世界自然遺產，擁有已知超過 420 英里長的全球最大地下洞穴系統（推薦提前預約 Domes & Dripstones 導覽路線）。',
+                        name: '🌳 Mount Vernon (華盛頓總統故居弗農山莊)',
+                        desc: '喬治·華盛頓總統座落於波托馬克河畔的 Georgian 風格歷史莊園，參觀故居主樓與美麗河景。',
+                        mapUrl: 'https://www.google.com/maps/search/?api=1&query=George+Washingtons+Mount+Vernon',
+                        officialUrl: 'https://www.mountvernon.org/'
+                    }
+                ],
+                hotels: [
+                    { name: '🏨 【據點 1】Residence Inn Arlington Rosslyn (返程入住)', desc: '返回 D.C. 據點 1 飯店辦理入住。', url: 'https://www.google.com/maps/search/?api=1&query=Residence+Inn+by+Marriott+Arlington+Rosslyn' }
+                ]
+            },
+            {
+                day: 16,
+                date: '9/19 (五)',
+                title: '華盛頓 D.C. — 採買購物 ➔ 22:00 機場還車報到',
+                category: 'dc archi',
+                drive: '1.0 小時 (市區至 IAD 機場)',
+                spots: [
+                    {
+                        name: '🛍️ Leesburg Outlets / Tysons Corner 購物採買',
+                        desc: '輕鬆採買美國伴手禮與紀念品，回飯店整理行李。晚餐後開車前往 IAD 機場。',
+                        mapUrl: 'https://www.google.com/maps/search/?api=1&query=Tysons+Corner+Center',
+                        officialUrl: ''
+                    },
+                    {
+                        name: '🚗 22:00 杜勒斯機場 (IAD) 還車與登機報到',
+                        desc: '22:00 前抵達 IAD 機場辦理租車還車、託運行李與安檢，準備搭乘 9/20 凌晨 01:15 班機。',
+                        mapUrl: 'https://www.google.com/maps/search/?api=1&query=Washington+Dulles+International+Airport',
+                        officialUrl: ''
+                    }
+                ],
+                hotels: []
+            },
+            {
+                day: 17,
+                date: '9/20 (日) ~ 9/21 (一)',
+                title: '9/20 01:15 班機起飛 ➔ 9/21 05:10 飛抵台北 (TPE)',
+                category: 'dc',
+                drive: '高空飛行返航',
+                spots: [
+                    {
+                        name: '✈️ 9/20 01:15 IAD 起飛 ➔ 9/21 05:10 抵達 TPE',
+                        desc: '搭乘 01:15 深夜班機起飛，跨越國際換日線高空飛行，於 9/21 凌晨 05:10 平安抵達台北桃園機場，圓滿結束美東慢遊之旅！',
+                        mapUrl: 'https://www.google.com/maps/search/?api=1&query=Taiwan+Taoyuan+International+Airport',
+                        officialUrl: ''
+                    }
+                ],
+                hotels: []
+            }
+        ];
+
+        let currentDaysData = [];
+        let isEditMode = false;
+
+        function loadData() {
+            localStorage.removeItem('us_east_trip_custom_data');
+            currentDaysData = JSON.parse(JSON.stringify(initialDaysData));
+        }系統（推薦提前預約 Domes & Dripstones 導覽路線）。',
                         mapUrl: 'https://www.google.com/maps/search/?api=1&query=Mammoth+Cave+National+Park',
                         officialUrl: 'https://www.recreation.gov/tourPark/258832'
                     }
@@ -1804,17 +1903,14 @@
         let map;
 
         const stopsData = [
-            { id: 'dc1', title: '1. 華盛頓 D.C. (啟程)', dates: '9/4 - 9/5', lat: 38.9072, lng: -77.0369, drive: '0.5 - 1.0 小時', typeText: '🏛️ 國家經典建築', desc: '抵達 D.C.，漫步波托馬克河畔 The Wharf、國會大廈、林肯紀念堂與國家藝廊。' },
-            { id: 'lancaster', title: '2. 蘭開斯特阿米什 & 沃特金斯峽谷', dates: '9/6', lat: 42.3806, lng: -76.8733, drive: '2.5 + 2.0 小時', typeText: '🌾 田園與峽谷瀑布', desc: '探訪 19 世紀無電無車阿米什農莊，隨後漫步 Watkins Glen 峽谷 19 座瀑布步道。' },
-            { id: 'niagara', title: '3. 尼加拉瀑布 (Niagara Falls)', dates: '9/7 - 9/8', lat: 43.0962, lng: -79.0377, drive: '2.5 小時', typeText: '💦 世界級水瀑奇景', desc: '搭乘霧中少女號觀光船直衝馬蹄灣瀑布下方，穿黃色雨衣走風之穴木棧道。' },
-            { id: 'pittsburgh', title: '4. 匹茲堡 & 落水山莊 (Fallingwater)', dates: '9/8 - 9/9', lat: 39.9062, lng: -79.4678, drive: '3.5 小時', typeText: '🏡 世紀有機建築大師作', desc: '搭纜車登上匹茲堡高地，探訪法蘭克·勞埃德·萊特世界遺產名作【落水山莊】。' },
-            { id: 'shenandoah', title: '5. 仙納度國家公園 (Skyline Drive)', dates: '9/10', lat: 38.6642, lng: -78.3619, drive: '3.0 小時', typeText: '⛰️ 天際線景觀公路', desc: '穿越阿帕拉契山脈脊梁，沿途數十個觀景台俯瞰仙納度山谷綠林。' },
-            { id: 'smoky', title: '6. 大煙山國家公園 (Great Smoky)', dates: '9/11', lat: 35.7143, lng: -83.5102, drive: '3.5 小時', typeText: '🌫️ 繚繞晨霧與野生動物', desc: '全美訪問量第一國家公園！Cades Cove 觀察黑熊與鹿群，登上 Clingmans Dome 觀景台。' },
-            { id: 'nashville', title: '7. 納什維爾 (Nashville)', dates: '9/12 - 9/13', lat: 36.1627, lng: -86.7816, drive: '3.5 小時', typeText: '🏛️ 復刻帕德嫩神廟 & 音樂', desc: '參觀 1:1 復刻雅典帕德嫩神廟與金碧輝煌雅典娜巨像，體驗 Broadway 鄉村音樂。' },
-            { id: 'mammoth', title: '8. 猛獁洞國家公園 (Mammoth Cave)', dates: '9/14', lat: 37.1869, lng: -86.1000, drive: '1.5 小時', typeText: '🦇 世界最大地下洞穴', desc: 'UNESCO 世界遺產，深入地下探索千層岩地底鐘乳石巨洞。' },
-            { id: 'newriver', title: '9. 新河峽谷國家公園 & 肯塔基馬場', dates: '9/15', lat: 38.0700, lng: -81.0800, drive: '3.5 小時', typeText: '🌉 最新國家公園單跨鋼橋', desc: '途經肯塔基綠草千畝馬場，遠眺新河峽谷與北美第二高單跨鋼拱橋。' },
-            { id: 'monticello', title: '10. 夏洛特鎮蒙蒂塞洛莊園 (Monticello)', dates: '9/16', lat: 38.0293, lng: -78.4767, drive: '2.5 小時', typeText: '🏰 傑佛遜世界遺產莊園', desc: '參觀傑佛遜總統親自設計的 Monticello 圓頂莊園與維吉尼亞大學。' },
-            { id: 'dc2', title: '11. 華盛頓 D.C. (22:00 機場還車報到)', dates: '9/17 - 9/20', lat: 38.9072, lng: -77.0369, drive: '2.5 小時', typeText: '🏘️ 喬治城老街 & 01:15 返台班機', desc: '逛喬治城鵝卵石運河老街、 Udvar-Hazy 航太館太空梭與弗農山莊，9/19 22:00 IAD 機場還車，9/20 01:15 班機返台。' }
+            { id: 'dc1', title: '1. 華盛頓 D.C. (連住 4 晚深度慢遊)', dates: '9/4 - 9/7', lat: 38.9072, lng: -77.0369, drive: '0.5 小時', typeText: '🏛️ 國家經典建築與藝文', desc: '抵達 D.C.，漫步國會大廈、林肯紀念堂、國家藝廊、航太館與喬治城古城。' },
+            { id: 'lancaster', title: '2. 蘭開斯特阿米什農莊 (Amish Country)', dates: '9/8', lat: 40.0379, lng: -76.3055, drive: '2.0 小時', typeText: '🌾 田園馬車風光', desc: '探訪 19 世紀傳統無電阿米什社群，體驗傳統馬車與農莊糕點。' },
+            { id: 'fingerlakes', title: '3. 指湖區 & 康寧博物館 (Watkins Glen 連住 3 晚)', dates: '9/9 - 9/11', lat: 42.3806, lng: -76.8733, drive: '2.5 小時', typeText: '🍷 峽谷瀑布與葡萄酒之路', desc: '參觀康寧玻璃博物館，漫步 Watkins Glen 19 座瀑布峽谷與 Seneca 湖畔品酒渡假。' },
+            { id: 'niagara', title: '4. 尼加拉瀑布 (Niagara Falls 連住 2 晚)', dates: '9/12 - 9/13', lat: 43.0962, lng: -79.0377, drive: '2.5 小時', typeText: '💦 世界級雷霆瀑布', desc: '搭乘霧中少女號觀光船衝瀑布下方，穿雨衣走風之穴颶風平台與夜間燈光秀。' },
+            { id: 'pittsburgh', title: '5. 匹茲堡 (Pittsburgh)', dates: '9/14', lat: 40.4406, lng: -79.9959, drive: '3.5 小時', typeText: '🌉 百年纜車與鋼鐵城', desc: '搭乘 Duquesne Incline 百年木造纜車俯瞰三河交匯天際線與鋼鐵大橋。' },
+            { id: 'fallingwater', title: '6. 落水山莊 & 仙納度國家公園 (Luray 連住 2 晚)', dates: '9/15 - 9/16', lat: 39.9062, lng: -79.4678, drive: '1.0 + 2.5 小時', typeText: '🏡 萊特名作與天際線公路', desc: '預約導覽世界遺產【落水山莊】，慢駕仙納度國家公園天際線公路。' },
+            { id: 'monticello', title: '7. 夏洛特鎮蒙蒂塞洛莊園 (Monticello)', dates: '9/17', lat: 38.0293, lng: -78.4767, drive: '1.5 小時', typeText: '🏰 傑佛遜世界遺產別墅', desc: '參觀傑佛遜總統親自設計的 Monticello 圓頂莊園與維吉尼亞大學。' },
+            { id: 'dc2', title: '8. 華盛頓 D.C. (弗農山莊 & 返台)', dates: '9/18 - 9/20', lat: 38.9072, lng: -77.0369, drive: '2.0 小時', typeText: '🛍️ 弗農山莊 & 機場還車報到', desc: '參觀華盛頓故居弗農山莊，Outlets 輕鬆購物，9/19 22:00 IAD 還車，9/20 01:15 班機返台。' }
         ];
 
         function initMap() {
