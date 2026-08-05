@@ -1169,7 +1169,7 @@
 
     <script>
         const fullCalendarData = [
-            { day: 1, date: '9/4 (三)', hub: 'D.C. Arlington', morning: '🛫 飛抵杜勒斯國際機場 (IAD)，辦理入境與取車。', afternoon: '🏨 前往 Arlington / Rosslyn 飯店 Check-in 稍作休息。', evening: '🌊 漫步波托馬克河畔 The Wharf 水岸特區，享用海鮮晚餐。' },
+            { day: 1, date: '9/4 (三)', hub: 'D.C. Arlington', morning: '🛫 19:30 台北桃園機場 (TPE) 搭機出發。', afternoon: '✈️ 跨太平洋高空飛行，準備抵達美國特區。', evening: '🛬 22:00 飛抵杜勒斯機場 (IAD)，辦理入境通關與取車，入住 Arlington 飯店休息。' },
             { day: 2, date: '9/5 (四)', hub: 'D.C. Arlington (連住)', morning: '🏛️ 搭捷運前往國會山莊，預約參觀美國國會大廈 (U.S. Capitol)。', afternoon: '🎨 參觀美國國家藝廊 (National Gallery of Art) 東西展館名畫。', evening: '🏛️ 漫步至林肯紀念堂 (Lincoln Memorial) 與倒映池欣賞日落與夜景。' },
             { day: 3, date: '9/6 (五)', hub: '指湖區 Watkins Glen', morning: '🌾 開車 2 小時前往賓州 Lancaster 阿米什農莊，搭乘馬車體驗 19 世紀田園。', afternoon: '🌲 開車 2.5 小時前往指湖區沃特金斯格倫州立公園，健行 19 座瀑布峽谷。', evening: '🍷 入住 Watkins Glen 湖畔渡假飯店，享用塞內卡湖畔晚餐。' },
             { day: 4, date: '9/7 (六)', hub: '尼加拉瀑布 Niagara', morning: '💦 開車 2.5 小時抵達尼加拉瀑布，搭乘霧中少女號觀光船 (Maid of the Mist) 衝瀑布。', afternoon: '🌊 穿黃雨衣走風之穴 (Cave of the Winds) 體驗水花震撼，漫步羊島公園。', evening: '🎆 欣賞尼加拉瀑布夜間七彩燈光秀與水岸煙火。' },
@@ -1184,8 +1184,8 @@
             { day: 13, date: '9/16 (一)', hub: 'D.C. Arlington (返程連住)', morning: '🏰 開車 3 小時前往夏洛特鎮參觀傑佛遜世界遺產【蒙蒂塞洛莊園 Monticello】。', afternoon: '🏫 參觀傑佛遜設計的維吉尼亞大學 (UVA) 學術村與圓頂圖書館。', evening: '🚗 開車 2.5 小時返回華盛頓 D.C. Arlington 入住。' },
             { day: 14, date: '9/17 (二)', hub: 'D.C. Arlington (連住)', morning: '🏘️ 漫步華盛頓 D.C. 最古老優雅的喬治城 (Georgetown) 鵝卵石老街與運河。', afternoon: '☕ 於喬治城 M Street 採買購物與享用精品咖啡。', evening: '🍽️ 波托馬克河畔景觀餐廳晚餐。' },
             { day: 15, date: '9/18 (三)', hub: 'D.C. Arlington (連住)', morning: '✈️ 前往史密森尼航太博物館分館 (Udvar-Hazy)，近距離看實體發現號太空梭與黑鳥偵察機。', afternoon: '🎥 參觀航太館展示館與 IMAX 影視體驗。', evening: '🍖 飯店休息與特色美式燒烤。' },
-            { day: 16, date: '9/19 (四)', hub: 'D.C. Arlington (連住最後一晚)', morning: '🌳 前往華盛頓總統故居【弗農山莊 Mount Vernon】，漫步 Georgian 莊園與河畔農場。', afternoon: '🛍️ 前往 Tysons Corner 或 Leesburg Outlets 輕鬆採買伴手禮。', evening: '🧳 整理行李與打包美東回憶。' },
-            { day: 17, date: '9/20 (五)', hub: '滿載而歸', morning: '退房後開車 20 分鐘抵達杜勒斯機場 (IAD) 還車。', afternoon: '🛫 辦理登機與託運手續，滿載而歸搭機返台。', evening: '✈️ 圓滿結束美東 17 天自然建築自駕之旅。' }
+            { day: 16, date: '9/19 (五)', hub: 'D.C. Arlington (最後一日)', morning: '🌳 前往華盛頓總統故居【弗農山莊 Mount Vernon】，漫步 Georgian 莊園與河畔農場。', afternoon: '🛍️ 前往 Tysons Corner 或 Leesburg Outlets 輕鬆採買伴手禮。', evening: '🍽️ 享用告別晚餐，22:00 前往杜勒斯機場 (IAD) 還車與辦理登機報到。' },
+            { day: 17, date: '9/20(日)~9/21(一)', hub: '滿載而歸', morning: '🛫 9/20 01:15 IAD 班機起飛，展開返航之旅。', afternoon: '✈️ 跨越國際換日線高空飛行。', evening: '🛬 9/21 05:10 飛抵台北桃園機場 (TPE)，圓滿結束美東自駕之旅。' }
         ];
 
         function renderCalendarList() {
@@ -1219,25 +1219,25 @@
             {
                 day: 1,
                 date: '9/4 (三)',
-                title: '抵達華盛頓 D.C. — 輕鬆啟程',
+                title: '台北啟程 ➔ 22:00 飛抵華盛頓 D.C. (IAD)',
                 category: 'dc archi',
-                drive: '0.5 – 1.0 小時 (機場至飯店)',
+                drive: '0.5 小時 (機場至 Arlington 飯店)',
                 spots: [
                     {
-                        name: '🛫 華盛頓杜勒斯國際機場 (IAD)',
-                        desc: '華盛頓特區主要國際門戶，主航廈建築由著名建築大師埃羅·沙里寧（Eero Saarinen）設計，具流線飛翼幾何美感。抵達後辦理取車與入住。',
+                        name: '🛫 19:30 台北桃園機場 (TPE) ➔ 22:00 華盛頓杜勒斯機場 (IAD)',
+                        desc: '19:30 自 TPE 起飛，同天 22:00 飛抵華盛頓 IAD 機場。入境通關後前往租車中心辦理取車手續。主航廈由建築大師埃羅·沙里寧（Eero Saarinen）設計。',
                         mapUrl: 'https://www.google.com/maps/search/?api=1&query=Washington+Dulles+International+Airport',
                         officialUrl: 'https://www.flydulles.com/'
                     },
                     {
-                        name: '🌊 華盛頓水岸碼頭特區 (The Wharf)',
-                        desc: '波托馬克河畔最新潮的水岸休閒區，擁有全美最古老連續營運的海鮮露天市場、木棧景觀步道與海鮮餐廳，傍晚散步極致舒服。',
-                        mapUrl: 'https://www.google.com/maps/search/?api=1&query=The+Wharf+Washington+DC',
-                        officialUrl: 'https://www.wharfdc.com/'
+                        name: '🏨 Arlington Rosslyn 飯店 Check-in 入住休息',
+                        desc: '取車後輕鬆開車 25 分鐘前往 Rosslyn 飯店辦理入住，享受好眠恢復時差。',
+                        mapUrl: 'https://www.google.com/maps/search/?api=1&query=Residence+Inn+by+Marriott+Arlington+Rosslyn',
+                        officialUrl: ''
                     }
                 ],
                 hotels: [
-                    { name: '🏨 【據點 1】Residence Inn Arlington Rosslyn (連住 2 晚)', desc: '位於維吉尼亞側Rosslyn捷運站旁，治安極佳、附設完整廚房與免費熱早餐，銀線捷運直達機場與市區。', url: 'https://www.google.com/maps/search/?api=1&query=Residence+Inn+by+Marriott+Arlington+Rosslyn' },
+                    { name: '🏨 【據點 1】Residence Inn Arlington Rosslyn (連住 2 晚)', desc: '位於 Rosslyn 捷運站旁，治安極佳、附設完整廚房與免費熱早餐，離 IAD 機場僅 25 分鐘。', url: 'https://www.google.com/maps/search/?api=1&query=Residence+Inn+by+Marriott+Arlington+Rosslyn' },
                     { name: '🏨 【據點 1 備選】The Dupont Circle Hotel', desc: '座落於 D.C. 人文治安最佳的大使館特區，樹蔭大道環繞，周邊許多高級餐廳與藝廊。', url: 'https://www.google.com/maps/search/?api=1&query=The+Dupont+Circle+Hotel+Washington+DC' }
                 ]
             },
@@ -1567,33 +1567,43 @@
             },
             {
                 day: 16,
-                date: '9/19 (四)',
-                title: '華盛頓 D.C. — 弗農山莊（Mount Vernon）與悠閒購物',
+                date: '9/19 (五)',
+                title: '華盛頓 D.C. — 弗農山莊、採買購物 ➔ 22:00 機場還車報到',
                 category: 'dc archi',
-                drive: '~1.0 小時',
+                drive: '1.0 小時 (市區至 IAD 機場)',
                 spots: [
                     {
                         name: '🌳 Mount Vernon (華盛頓總統故居弗農山莊)',
-                        desc: '喬治·華盛頓總統座落於波托馬克河畔的 Georgian 風格歷史莊園，可參觀故居主樓、花園農場與俯瞰美麗河景。',
+                        desc: '喬治·華盛頓總統座落於波托馬克河畔的 Georgian 風格歷史莊園，參觀故居主樓、花園農場與美麗河景。',
                         mapUrl: 'https://www.google.com/maps/search/?api=1&query=George+Washingtons+Mount+Vernon',
                         officialUrl: 'https://www.mountvernon.org/'
+                    },
+                    {
+                        name: '🛍️ Leesburg Outlets / Tysons Corner 購物採買',
+                        desc: '輕鬆採買美國伴手禮與紀念品，回飯店整理行李。晚餐後開車前往 IAD 機場。',
+                        mapUrl: 'https://www.google.com/maps/search/?api=1&query=Tysons+Corner+Center',
+                        officialUrl: ''
+                    },
+                    {
+                        name: '🚗 22:00 杜勒斯機場 (IAD) 還車與登機報到',
+                        desc: '22:00 前抵達 IAD 機場辦理租車還車、託運行李與安檢，準備搭乘 9/20 凌晨 01:15 班機。',
+                        mapUrl: 'https://www.google.com/maps/search/?api=1&query=Washington+Dulles+International+Airport',
+                        officialUrl: ''
                     }
                 ],
-                hotels: [
-                    { name: '🏨 【據點 1】Residence Inn Arlington Rosslyn (續住最後 1 晚)', desc: '免搬家！D.C. 據點 1 飯店續住最後一晚。', url: 'https://www.google.com/maps/search/?api=1&query=Residence+Inn+by+Marriott+Arlington+Rosslyn' }
-                ]
+                hotels: []
             },
             {
                 day: 17,
-                date: '9/20 (五)',
-                title: '華盛頓 D.C. ➔ 滿載而歸（返程）',
+                date: '9/20 (日) ~ 9/21 (一)',
+                title: '9/20 01:15 班機起飛 ➔ 9/21 05:10 飛抵台北 (TPE)',
                 category: 'dc',
-                drive: '~0.5 小時至機場',
+                drive: '高空飛行返航',
                 spots: [
                     {
-                        name: '🛫 D.C. 機場還車與離境',
-                        desc: '辦理租車還車手續與登機，結束充實不疲累的美東雙向自然建築 17 天公路之旅！',
-                        mapUrl: 'https://www.google.com/maps/search/?api=1&query=Washington+Dulles+International+Airport',
+                        name: '✈️ 9/20 01:15 IAD 起飛 ➔ 9/21 05:10 抵達 TPE',
+                        desc: '搭乘 01:15 深夜班機起飛，跨越國際換日線高空飛行，於 9/21 凌晨 05:10 平安抵達台北桃園機場，圓滿結束美東 17 天公路之旅！',
+                        mapUrl: 'https://www.google.com/maps/search/?api=1&query=Taiwan+Taoyuan+International+Airport',
                         officialUrl: ''
                     }
                 ],
@@ -1804,7 +1814,7 @@
             { id: 'mammoth', title: '8. 猛獁洞國家公園 (Mammoth Cave)', dates: '9/14', lat: 37.1869, lng: -86.1000, drive: '1.5 小時', typeText: '🦇 世界最大地下洞穴', desc: 'UNESCO 世界遺產，深入地下探索千層岩地底鐘乳石巨洞。' },
             { id: 'newriver', title: '9. 新河峽谷國家公園 & 肯塔基馬場', dates: '9/15', lat: 38.0700, lng: -81.0800, drive: '3.5 小時', typeText: '🌉 最新國家公園單跨鋼橋', desc: '途經肯塔基綠草千畝馬場，遠眺新河峽谷與北美第二高單跨鋼拱橋。' },
             { id: 'monticello', title: '10. 夏洛特鎮蒙蒂塞洛莊園 (Monticello)', dates: '9/16', lat: 38.0293, lng: -78.4767, drive: '2.5 小時', typeText: '🏰 傑佛遜世界遺產莊園', desc: '參觀傑佛遜總統親自設計的 Monticello 圓頂莊園與維吉尼亞大學。' },
-            { id: 'dc2', title: '11. 華盛頓 D.C. (圓滿賦歸)', dates: '9/17 - 9/20', lat: 38.9072, lng: -77.0369, drive: '2.5 小時', typeText: '🏘️ 喬治城老街 & 圓滿賦歸', desc: '返回 D.C. 逛喬治城鵝卵石運河老街、 Udvar-Hazy 航太館太空梭與弗農山莊。' }
+            { id: 'dc2', title: '11. 華盛頓 D.C. (22:00 機場還車報到)', dates: '9/17 - 9/20', lat: 38.9072, lng: -77.0369, drive: '2.5 小時', typeText: '🏘️ 喬治城老街 & 01:15 返台班機', desc: '逛喬治城鵝卵石運河老街、 Udvar-Hazy 航太館太空梭與弗農山莊，9/19 22:00 IAD 機場還車，9/20 01:15 班機返台。' }
         ];
 
         function initMap() {
