@@ -307,7 +307,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 20px;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         .stat-card {
@@ -348,6 +348,54 @@
         .stat-lbl {
             font-size: 0.82rem;
             color: var(--text-muted);
+        }
+
+        /* 4 Hubs Banner */
+        .hub-banner-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(74, 222, 128, 0.35);
+            border-radius: var(--radius-lg);
+            padding: 25px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(12px);
+            border-left: 6px solid var(--accent-green);
+        }
+
+        .hub-banner-header {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--accent-green);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hub-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 14px;
+            margin-top: 15px;
+        }
+
+        .hub-item {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--border-color);
+            padding: 16px;
+            border-radius: var(--radius-md);
+        }
+
+        .hub-item-title {
+            font-weight: 700;
+            color: var(--accent-cyan);
+            font-size: 0.98rem;
+            margin-bottom: 6px;
+        }
+
+        .hub-item-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.45;
         }
 
         .map-layout {
@@ -854,7 +902,7 @@
         <div class="hero-tags">
             <span class="tag-pill"><i class="fa-regular fa-calendar"></i> 2026/09/04 – 09/20 (共 17 天)</span>
             <span class="tag-pill"><i class="fa-solid fa-car"></i> 輕鬆慢駕不拉車 (2~4 hrs/日)</span>
-            <span class="tag-pill"><i class="fa-solid fa-landmark"></i> 落水山莊 & 帕德嫩神廟 & 猛獁洞</span>
+            <span class="tag-pill"><i class="fa-solid fa-hotel"></i> 4 大定點據點 (免天天搬家換飯店)</span>
         </div>
     </header>
 
@@ -864,7 +912,7 @@
         <div class="action-bar">
             <div class="action-info">
                 <i class="fa-solid fa-share-nodes fa-lg"></i>
-                <span>此網頁支援「線上即時編輯」！修改後可直接儲存或下載分享檔給親友！</span>
+                <span>此網頁支援「4大定點據點住宿」與「線上即時編輯與匯出」功能！</span>
             </div>
             <div class="btn-group">
                 <button class="btn btn-edit" id="editToggleBtn" onclick="toggleEditMode()"><i class="fa-solid fa-pen-to-square"></i> ✏️ 啟用線上編輯模式</button>
@@ -896,6 +944,13 @@
                 </div>
             </div>
             <div class="stat-card">
+                <div class="stat-icon"><i class="fa-solid fa-hotel"></i></div>
+                <div>
+                    <div class="stat-val">僅需 4 家飯店</div>
+                    <div class="stat-lbl">定點包圍據點（每家連住2~4晚）</div>
+                </div>
+            </div>
+            <div class="stat-card">
                 <div class="stat-icon"><i class="fa-solid fa-gauge-high"></i></div>
                 <div>
                     <div class="stat-val">2 ~ 4 hrs</div>
@@ -909,18 +964,37 @@
                     <div class="stat-lbl">仙納度/大烟山/猛獁洞/新河峽谷</div>
                 </div>
             </div>
-            <div class="stat-card">
-                <div class="stat-icon"><i class="fa-solid fa-archway"></i></div>
-                <div>
-                    <div class="stat-val">3 大世界遺產</div>
-                    <div class="stat-lbl">落水山莊/猛獁洞/蒙蒂塞洛莊園</div>
+        </div>
+
+        <!-- 4 Hubs Fixed Accommodation Banner Card -->
+        <div class="hub-banner-card">
+            <div class="hub-banner-header">
+                <i class="fa-solid fa-house-circle-check"></i> 🏰 完全不需要天天換飯店！【4 大核心定點據點包圍住宿方案】
+            </div>
+            <p style="font-size: 0.92rem; color: var(--text-muted);">本行程控制每日車程於 2~4 小時內，完全可以劃分為 <strong>4 個定點住宿據點 (Hubs)</strong>，每家飯店連住 2～4 晚，每天以據點為中心輕鬆出發當天來回，免去天天整理收行李的疲累：</p>
+            <div class="hub-grid">
+                <div class="hub-item">
+                    <div class="hub-item-title">📍 據點 1：D.C. / Arlington (連住 2晚 + 4晚)</div>
+                    <div class="hub-item-desc"><strong>適用 Day 1-2 & Day 14-17</strong><br>入住 Arlington Rosslyn（如 Residence Inn 附廚房）。出發與最後玩國會大廈、國家藝廊、喬治城、航太館與弗農山莊全部從這裡當天往返！</div>
+                </div>
+                <div class="hub-item">
+                    <div class="hub-item-title">📍 據點 2：指湖區 / 尼加拉瀑布 (連住 3晚)</div>
+                    <div class="hub-item-desc"><strong>適用 Day 3-5</strong><br>入住 Watkins Glen 湖畔或 Niagara 渡假飯店。玩阿米什農莊、指湖區峽谷、尼加拉瀑布觀光船、風之穴與匹茲堡三河纜車。</div>
+                </div>
+                <div class="hub-item">
+                    <div class="hub-item-title">📍 據點 3：大煙山 Townsend / Gatlinburg (連住 4晚)</div>
+                    <div class="hub-item-desc"><strong>適用 Day 6-9</strong><br>入住 Townsend 山林渡假木屋（如 Dancing Bear Lodge）。做為仙納度公路、大煙山 Cades Cove 看黑熊、克林曼峰與納什維爾百老匯的樞紐據點。</div>
+                </div>
+                <div class="hub-item">
+                    <div class="hub-item-title">📍 據點 4：肯塔基 / 夏洛特鎮 (連住 3晚)</div>
+                    <div class="hub-item-desc"><strong>適用 Day 10-13</strong><br>入住 Lexington 或 Charlottesville 渡假村（如 Boar's Head Resort）。漫遊納什維爾神廟、猛獁洞地底巨洞、肯塔基馬場、新河峽谷與蒙蒂塞洛莊園。</div>
                 </div>
             </div>
         </div>
 
         <!-- Navigation Tabs -->
         <div class="tabs-nav">
-            <button class="tab-btn active" onclick="switchTab('itineraryTab', this)"><i class="fa-solid fa-list-check"></i> 17天每日行程與連結</button>
+            <button class="tab-btn active" onclick="switchTab('itineraryTab', this)"><i class="fa-solid fa-list-check"></i> 17天每日行程與據點</button>
             <button class="tab-btn" onclick="switchTab('mapTab', this)"><i class="fa-solid fa-map-location-dot"></i> 互動地圖導覽</button>
             <button class="tab-btn" onclick="switchTab('timelineTab', this)"><i class="fa-solid fa-timeline"></i> 路線圖解流程</button>
             <button class="tab-btn" onclick="switchTab('imageTab', this)"><i class="fa-solid fa-image"></i> 繪製路線圖</button>
@@ -984,11 +1058,15 @@
         <div id="tipsTab" class="tab-content">
             <div class="tips-grid">
                 <div class="tip-card">
-                    <div class="tip-card-header"><i class="fa-solid fa-car-side"></i> 1. 開車與過路費 (E-ZPass)</div>
+                    <div class="tip-card-header"><i class="fa-solid fa-hotel"></i> 1. 4 大定點據點免天天收行李</div>
+                    <p>選擇 4 家核心飯店據點（D.C. Arlington、Watkins Glen湖畔、大煙山Townsend木屋、Lexington馬場渡假村），每家連住 2～4 晚。每天早上輕鬆出門，玩完回同家飯店，極具度假儀式感！</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-card-header"><i class="fa-solid fa-car-side"></i> 2. 開車與過路費 (E-ZPass)</div>
                     <p>美國東岸（如 PA、NY、VA）有許多電子收費道路。租車時建議開通租車公司的 <strong>E-ZPass</strong> 或自行準備通行證，可省去人工排隊的時間。<br><br>全程每日駕駛時數控制在 2～4 小時，非常符合「不拉車、輕鬆悠閒」的需求。</p>
                 </div>
                 <div class="tip-card">
-                    <div class="tip-card-header"><i class="fa-solid fa-ticket"></i> 2. 預約門票提示 (Advance Tickets)</div>
+                    <div class="tip-card-header"><i class="fa-solid fa-ticket"></i> 3. 預約門票提示 (Advance Tickets)</div>
                     <ul>
                         <li><strong>落水山莊 (Fallingwater)</strong>：極為熱門，必須提前 1～2 個月於官網預約導覽門票。</li>
                         <li><strong>猛獁洞國家公園 (Mammoth Cave)</strong>：洞穴導覽名額有限，請提前於 Recreation.gov 預定。</li>
@@ -996,12 +1074,8 @@
                     </ul>
                 </div>
                 <div class="tip-card">
-                    <div class="tip-card-header"><i class="fa-solid fa-id-card"></i> 3. 國家公園通行證 (Pass)</div>
+                    <div class="tip-card-header"><i class="fa-solid fa-id-card"></i> 4. 國家公園通行證 (Pass)</div>
                     <p>售價 <strong>$80 美金</strong> 的 America the Beautiful Pass，此行程包含仙納度、大煙山（免門票但需停車證）、猛獁洞（入園免門票）、新河峽谷（免費），如規劃其他聯邦景點極為划算。</p>
-                </div>
-                <div class="tip-card">
-                    <div class="tip-card-header"><i class="fa-solid fa-cloud-sun"></i> 4. 9 月天氣與穿著</div>
-                    <p>9 月初至中旬為夏末秋初，白天氣溫約 20°C–28°C，極為舒適；大煙山與山區夜晚稍涼（12°C–15°C），建議攜帶薄外套與舒適健走鞋。</p>
                 </div>
             </div>
         </div>
@@ -1038,8 +1112,8 @@
                     }
                 ],
                 hotels: [
-                    { name: '🏨 Residence Inn Arlington Rosslyn', desc: '位於維吉尼亞側Rosslyn捷運站旁，治安極佳、附設完整廚房與免費熱早餐，銀線捷運直達機場與市區。', url: 'https://www.google.com/maps/search/?api=1&query=Residence+Inn+by+Marriott+Arlington+Rosslyn' },
-                    { name: '🏨 The Dupont Circle Hotel', desc: '座落於 D.C. 人文治安最佳的大使館特區，樹蔭大道環繞，周邊許多高級餐廳與藝廊。', url: 'https://www.google.com/maps/search/?api=1&query=The+Dupont+Circle+Hotel+Washington+DC' }
+                    { name: '🏨 【據點 1】Residence Inn Arlington Rosslyn (連住 2 晚)', desc: '位於維吉尼亞側Rosslyn捷運站旁，治安極佳、附設完整廚房與免費熱早餐，銀線捷運直達機場與市區。', url: 'https://www.google.com/maps/search/?api=1&query=Residence+Inn+by+Marriott+Arlington+Rosslyn' },
+                    { name: '🏨 【據點 1 備選】The Dupont Circle Hotel', desc: '座落於 D.C. 人文治安最佳的大使館特區，樹蔭大道環繞，周邊許多高級餐廳與藝廊。', url: 'https://www.google.com/maps/search/?api=1&query=The+Dupont+Circle+Hotel+Washington+DC' }
                 ]
             },
             {
@@ -1069,7 +1143,7 @@
                     }
                 ],
                 hotels: [
-                    { name: '🏨 Residence Inn Arlington Rosslyn (續住)', desc: '同 Day 1 飯店續住。', url: 'https://www.google.com/maps/search/?api=1&query=Residence+Inn+by+Marriott+Arlington+Rosslyn' }
+                    { name: '🏨 【據點 1】Residence Inn Arlington Rosslyn (連住第 2 晚)', desc: '免換飯店！同據點 1 飯店續住。', url: 'https://www.google.com/maps/search/?api=1&query=Residence+Inn+by+Marriott+Arlington+Rosslyn' }
                 ]
             },
             {
@@ -1093,7 +1167,7 @@
                     }
                 ],
                 hotels: [
-                    { name: '🏨 Watkins Glen Harbor Hotel', desc: '位居塞內卡湖（Seneca Lake）南端渡假港口旁，享有奢華湖景與頂級餐廳設施。', url: 'https://www.google.com/maps/search/?api=1&query=Watkins+Glen+Harbor+Hotel' }
+                    { name: '🏨 【據點 2】Watkins Glen Harbor Hotel (連住 3 晚)', desc: '入住據點 2！位居塞內卡湖（Seneca Lake）南端渡假港口旁，享有奢華湖景與頂級餐廳設施，做為指湖區與瀑布基地。', url: 'https://www.google.com/maps/search/?api=1&query=Watkins+Glen+Harbor+Hotel' }
                 ]
             },
             {
@@ -1101,7 +1175,7 @@
                 date: '9/7 (六)',
                 title: '指湖區 ➔ 尼加拉瀑布（美加兩側震撼視角）',
                 category: 'nature',
-                drive: '~2.5 小時',
+                drive: '~2.5 小時 (據點當天來回)',
                 spots: [
                     {
                         name: '💦 霧中少女號觀光船 (Maid of the Mist)',
@@ -1123,7 +1197,7 @@
                     }
                 ],
                 hotels: [
-                    { name: '🏨 Sheraton Niagara Falls (NY)', desc: '位於美國側瀑布州立公園旁，步行 5 分鐘即可抵達瀑布入口與觀光船碼頭。', url: 'https://www.google.com/maps/search/?api=1&query=Sheraton+Niagara+Falls+NY' }
+                    { name: '🏨 【據點 2】Watkins Glen Harbor Hotel (連住第 2 晚)', desc: '免搬家！返回據點 2 湖畔飯店續住。', url: 'https://www.google.com/maps/search/?api=1&query=Watkins+Glen+Harbor+Hotel' }
                 ]
             },
             {
@@ -1147,7 +1221,7 @@
                     }
                 ],
                 hotels: [
-                    { name: '🏨 The Industrialist Hotel Pittsburgh', desc: '位於匹茲堡市中心歷史建築內，融合鋼鐵城工業風美學與現代精緻設計。', url: 'https://www.google.com/maps/search/?api=1&query=The+Industrialist+Hotel+Pittsburgh' }
+                    { name: '🏨 【據點 2】Watkins Glen Harbor Hotel (連住第 3 晚)', desc: '免搬家！返回據點 2 湖畔飯店續住。', url: 'https://www.google.com/maps/search/?api=1&query=Watkins+Glen+Harbor+Hotel' }
                 ]
             },
             {
@@ -1165,7 +1239,7 @@
                     }
                 ],
                 hotels: [
-                    { name: '🏨 Hotel Laurance (Luray, VA)', desc: '位於仙納度國家公園與 Luray 溶洞入口處的精緻精品套房飯店，極具歷史與放鬆氛圍。', url: 'https://www.google.com/maps/search/?api=1&query=Hotel+Laurance+Luray+VA' }
+                    { name: '🏨 【據點 3】Dancing Bear Lodge (Townsend, TN 連住 4 晚)', desc: '入住據點 3！位於大煙山「幽靜側」Townsend 的奢華木屋渡假村，做為山脈自然區樞紐據點。', url: 'https://www.google.com/maps/search/?api=1&query=Dancing+Bear+Lodge+Townsend+TN' }
                 ]
             },
             {
@@ -1173,7 +1247,7 @@
                 date: '9/10 (二)',
                 title: '仙納度國家公園（Skyline Drive）➔ 藍嶺山脈',
                 category: 'nature',
-                drive: '~3.0 小時 (景觀公路慢駕)',
+                drive: '~3.0 小時 (據點當天往返)',
                 spots: [
                     {
                         name: '⛰️ 天際線公路 (Skyline Drive)',
@@ -1189,7 +1263,7 @@
                     }
                 ],
                 hotels: [
-                    { name: '🏨 The Hotel Roanoke & Conference Center', desc: '希爾頓旗下 Tudor 帝鐸風格百年歷史地標飯店，座落於藍嶺山脈山城，氛圍優雅。', url: 'https://www.google.com/maps/search/?api=1&query=The+Hotel+Roanoke' }
+                    { name: '🏨 【據點 3】Dancing Bear Lodge (連住第 2 晚)', desc: '免搬家！返回據點 3 山林渡假木屋續住。', url: 'https://www.google.com/maps/search/?api=1&query=Dancing+Bear+Lodge+Townsend+TN' }
                 ]
             },
             {
@@ -1197,7 +1271,7 @@
                 date: '9/11 (三)',
                 title: '藍嶺山脈 ➔ 大煙山國家公園（Great Smoky Mountains）',
                 category: 'nature',
-                drive: '~3.5 小時',
+                drive: '~3.5 小時 (據點當天往返)',
                 spots: [
                     {
                         name: '🌫️ 大煙山國家公園 (Great Smoky Mountains)',
@@ -1213,7 +1287,7 @@
                     }
                 ],
                 hotels: [
-                    { name: '🏨 Dancing Bear Lodge (Townsend, TN)', desc: '位於大煙山「幽靜側（Quiet Side of the Smokies）」Townsend 的奢華木屋渡假村，安靜舒服極能放鬆。', url: 'https://www.google.com/maps/search/?api=1&query=Dancing+Bear+Lodge+Townsend+TN' }
+                    { name: '🏨 【據點 3】Dancing Bear Lodge (連住第 3 晚)', desc: '免搬家！返回據點 3 山林渡假木屋續住。', url: 'https://www.google.com/maps/search/?api=1&query=Dancing+Bear+Lodge+Townsend+TN' }
                 ]
             },
             {
@@ -1221,7 +1295,7 @@
                 date: '9/12 (四)',
                 title: '大煙山最高峰 ➔ 納什維爾（Nashville）',
                 category: 'nature archi',
-                drive: '~3.5 小時',
+                drive: '~3.5 小時 (據點當天往返)',
                 spots: [
                     {
                         name: '⛰️ Clingmans Dome (克林曼峰/Kuwohi)',
@@ -1237,7 +1311,7 @@
                     }
                 ],
                 hotels: [
-                    { name: '🏨 Grand Hyatt Nashville', desc: '位在市中心 Broadway 附近，設有頂樓絕美高空露台酒吧與高級游泳池。', url: 'https://www.google.com/maps/search/?api=1&query=Grand+Hyatt+Nashville' }
+                    { name: '🏨 【據點 3】Dancing Bear Lodge (連住第 4 晚)', desc: '免搬家！返回據點 3 山林渡假木屋續住。', url: 'https://www.google.com/maps/search/?api=1&query=Dancing+Bear+Lodge+Townsend+TN' }
                 ]
             },
             {
@@ -1245,7 +1319,7 @@
                 date: '9/13 (五)',
                 title: '納什維爾 — 復刻神廟與音樂文化',
                 category: 'archi',
-                drive: '~0.5 小時 (市區漫遊)',
+                drive: '~0.5 小時',
                 spots: [
                     {
                         name: '🏛️ 納什維爾帕德嫩神廟 (The Parthenon)',
@@ -1261,7 +1335,7 @@
                     }
                 ],
                 hotels: [
-                    { name: '🏨 Grand Hyatt Nashville (續住)', desc: '同 Day 9 飯店續住。', url: 'https://www.google.com/maps/search/?api=1&query=Grand+Hyatt+Nashville' }
+                    { name: '🏨 【據點 4】Boar\'s Head Resort / 21c Lexington (連住 3 晚)', desc: '入住據點 4！座落於藍草馬場與歷史渡假村，作為猛獁洞、新河峽谷與蒙蒂塞洛的據點。', url: 'https://www.google.com/maps/search/?api=1&query=Boars+Head+Resort+Charlottesville' }
                 ]
             },
             {
@@ -1279,7 +1353,7 @@
                     }
                 ],
                 hotels: [
-                    { name: '🏨 21c Museum Hotel Lexington', desc: '位於肯塔基藍草地區馬場之都的現代藝術博物館飯店，大廳與走廊皆為當代藝術展覽空間。', url: 'https://www.google.com/maps/search/?api=1&query=21c+Museum+Hotel+Lexington' }
+                    { name: '🏨 【據點 4】Boar\'s Head Resort (連住第 2 晚)', desc: '免搬家！返回據點 4 歷史渡假村續住。', url: 'https://www.google.com/maps/search/?api=1&query=Boars+Head+Resort+Charlottesville' }
                 ]
             },
             {
@@ -1303,7 +1377,7 @@
                     }
                 ],
                 hotels: [
-                    { name: '🏨 Historic Fayetteville WV Hotels', desc: '座落於 Fayetteville 峽谷小鎮，離新河峽谷觀景台僅 5 分鐘車程，環境優雅舒適。', url: 'https://www.google.com/maps/search/?api=1&query=Fayetteville+WV+Hotels' }
+                    { name: '🏨 【據點 4】Boar\'s Head Resort (連住第 3 晚)', desc: '免搬家！返回據點 4 歷史渡假村續住。', url: 'https://www.google.com/maps/search/?api=1&query=Boars+Head+Resort+Charlottesville' }
                 ]
             },
             {
@@ -1327,7 +1401,7 @@
                     }
                 ],
                 hotels: [
-                    { name: '🏨 Boar\'s Head Resort (Charlottesville)', desc: '維吉尼亞大學擁有的四星級渡假村，設有私人湖泊、高爾夫球場與精緻水療SPA。', url: 'https://www.google.com/maps/search/?api=1&query=Boars+Head+Resort+Charlottesville' }
+                    { name: '🏨 【據點 1】Residence Inn Arlington Rosslyn (返回連住 4 晚)', desc: '返回 D.C. Arlington 據點 1 飯店辦理連住 4 晚。', url: 'https://www.google.com/maps/search/?api=1&query=Residence+Inn+by+Marriott+Arlington+Rosslyn' }
                 ]
             },
             {
@@ -1345,7 +1419,7 @@
                     }
                 ],
                 hotels: [
-                    { name: '🏨 Residence Inn Arlington Rosslyn (續住)', desc: '同 Day 1 飯店續住。', url: 'https://www.google.com/maps/search/?api=1&query=Residence+Inn+by+Marriott+Arlington+Rosslyn' }
+                    { name: '🏨 【據點 1】Residence Inn Arlington Rosslyn (續住)', desc: '免搬家！D.C. 據點 1 飯店續住。', url: 'https://www.google.com/maps/search/?api=1&query=Residence+Inn+by+Marriott+Arlington+Rosslyn' }
                 ]
             },
             {
@@ -1363,7 +1437,7 @@
                     }
                 ],
                 hotels: [
-                    { name: '🏨 Residence Inn Arlington Rosslyn (續住)', desc: '同 Day 1 飯店續住。', url: 'https://www.google.com/maps/search/?api=1&query=Residence+Inn+by+Marriott+Arlington+Rosslyn' }
+                    { name: '🏨 【據點 1】Residence Inn Arlington Rosslyn (續住)', desc: '免搬家！D.C. 據點 1 飯店續住。', url: 'https://www.google.com/maps/search/?api=1&query=Residence+Inn+by+Marriott+Arlington+Rosslyn' }
                 ]
             },
             {
@@ -1381,7 +1455,7 @@
                     }
                 ],
                 hotels: [
-                    { name: '🏨 Residence Inn Arlington Rosslyn (續住)', desc: '同 Day 1 飯店續住。', url: 'https://www.google.com/maps/search/?api=1&query=Residence+Inn+by+Marriott+Arlington+Rosslyn' }
+                    { name: '🏨 【據點 1】Residence Inn Arlington Rosslyn (續住最後 1 晚)', desc: '免搬家！D.C. 據點 1 飯店續住最後一晚。', url: 'https://www.google.com/maps/search/?api=1&query=Residence+Inn+by+Marriott+Arlington+Rosslyn' }
                 ]
             },
             {
