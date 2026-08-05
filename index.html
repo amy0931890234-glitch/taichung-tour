@@ -48,14 +48,12 @@
             background-attachment: fixed;
         }
 
-        /* Container */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        /* Header / Hero */
         .hero {
             background: linear-gradient(135deg, rgba(11, 19, 43, 0.95), rgba(28, 37, 65, 0.9)), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80') center/cover;
             padding: 60px 20px 45px;
@@ -120,7 +118,6 @@
             backdrop-filter: blur(10px);
         }
 
-        /* Action Toolbar */
         .action-bar {
             display: flex;
             justify-content: space-between;
@@ -182,7 +179,6 @@
             color: var(--accent-cyan);
         }
 
-        /* Nav Tabs */
         .tabs-nav {
             display: flex;
             gap: 10px;
@@ -227,7 +223,6 @@
             display: block;
         }
 
-        /* Stats Section */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -275,7 +270,6 @@
             color: var(--text-muted);
         }
 
-        /* Interactive Map Pane */
         .map-layout {
             display: grid;
             grid-template-columns: 1fr 380px;
@@ -354,7 +348,6 @@
             color: var(--text-muted);
         }
 
-        /* Days Grid & Search Filters */
         .filter-bar {
             display: flex;
             gap: 12px;
@@ -412,7 +405,6 @@
             color: var(--text-muted);
         }
 
-        /* Day Card Styles */
         .days-container {
             display: flex;
             flex-direction: column;
@@ -487,7 +479,7 @@
             font-size: 0.95rem;
             font-weight: 700;
             color: var(--accent-cyan);
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -495,7 +487,7 @@
 
         .spots-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 16px;
             margin-bottom: 20px;
         }
@@ -504,12 +496,16 @@
             background: rgba(15, 23, 42, 0.5);
             border: 1px solid var(--border-color);
             border-radius: var(--radius-md);
-            padding: 16px;
+            padding: 18px;
             transition: background 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .spot-item:hover {
-            background: rgba(30, 41, 59, 0.8);
+            background: rgba(30, 41, 59, 0.85);
+            border-color: rgba(56, 189, 248, 0.3);
         }
 
         .spot-name {
@@ -526,25 +522,84 @@
             font-size: 0.9rem;
             color: var(--text-muted);
             line-height: 1.5;
+            margin-bottom: 12px;
         }
 
-        .hotel-box {
+        .spot-links {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: auto;
+        }
+
+        .spot-link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.78rem;
+            color: var(--accent-cyan);
+            background: rgba(56, 189, 248, 0.12);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            padding: 4px 10px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .spot-link-btn:hover {
+            background: var(--accent-cyan);
+            color: #0b132b;
+            font-weight: 700;
+        }
+
+        .hotel-container {
             background: rgba(74, 222, 128, 0.08);
-            border: 1px dashed rgba(74, 222, 128, 0.3);
-            padding: 12px 18px;
+            border: 1px dashed rgba(74, 222, 128, 0.35);
+            padding: 16px;
             border-radius: var(--radius-md);
             font-size: 0.9rem;
             color: #dcfce7;
+        }
+
+        .hotel-title {
+            font-weight: 700;
+            color: var(--accent-green);
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
-        .hotel-box i {
-            color: var(--accent-green);
+        .hotel-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 12px;
         }
 
-        /* Timeline Flowchart Pane */
+        .hotel-card {
+            background: rgba(15, 23, 42, 0.4);
+            border: 1px solid rgba(74, 222, 128, 0.2);
+            padding: 10px 14px;
+            border-radius: 10px;
+        }
+
+        .hotel-name {
+            font-weight: 700;
+            font-size: 0.92rem;
+            color: #ffffff;
+            margin-bottom: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .hotel-desc {
+            font-size: 0.83rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
         .flow-container {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
@@ -613,7 +668,6 @@
             border-radius: 10px;
         }
 
-        /* Image Map Pane */
         .image-card {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
@@ -630,7 +684,6 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        /* Travel Tips Grid */
         .tips-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
@@ -680,7 +733,6 @@
             left: 0;
         }
 
-        /* Footer */
         footer {
             text-align: center;
             margin-top: 50px;
@@ -690,7 +742,6 @@
             border-top: 1px solid var(--border-color);
         }
 
-        /* Responsive */
         @media (max-width: 850px) {
             .map-layout {
                 grid-template-columns: 1fr;
@@ -701,7 +752,6 @@
             .hero-badge { font-size: 0.78rem; }
         }
 
-        /* Print styles */
         @media print {
             .action-bar, .tabs-nav, .filter-bar, .map-layout { display: none !important; }
             .tab-content { display: block !important; }
@@ -733,7 +783,7 @@
         <div class="action-bar">
             <div class="action-info">
                 <i class="fa-solid fa-share-nodes fa-lg"></i>
-                <span>此網頁支援手機與電腦隨時點擊瀏覽，亦可直接分享網址給親友！</span>
+                <span>此網頁包含所有景點與飯店官方連結及 Google 地圖導航！</span>
             </div>
             <div class="btn-group">
                 <button class="btn btn-outline" onclick="window.print()"><i class="fa-solid fa-print"></i> 列印 / 轉 PDF</button>
@@ -775,7 +825,7 @@
 
         <!-- Navigation Tabs -->
         <div class="tabs-nav">
-            <button class="tab-btn active" onclick="switchTab('itineraryTab', this)"><i class="fa-solid fa-list-check"></i> 17天每日行程</button>
+            <button class="tab-btn active" onclick="switchTab('itineraryTab', this)"><i class="fa-solid fa-list-check"></i> 17天每日行程與連結</button>
             <button class="tab-btn" onclick="switchTab('mapTab', this)"><i class="fa-solid fa-map-location-dot"></i> 互動地圖導覽</button>
             <button class="tab-btn" onclick="switchTab('timelineTab', this)"><i class="fa-solid fa-timeline"></i> 路線圖解流程</button>
             <button class="tab-btn" onclick="switchTab('imageTab', this)"><i class="fa-solid fa-image"></i> 繪製路線圖</button>
@@ -794,7 +844,7 @@
                 </div>
                 <div class="search-box">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" id="searchInput" placeholder="搜尋景點或城市..." onkeyup="searchDays()">
+                    <input type="text" id="searchInput" placeholder="搜尋景點、飯店或城市..." onkeyup="searchDays()">
                 </div>
             </div>
 
@@ -802,7 +852,7 @@
             <div class="days-container" id="daysContainer">
                 
                 <!-- Day 1 -->
-                <div class="day-card" data-category="dc archi" data-text="9/4 華盛頓 D.C. 機場 飯店 The Wharf 波托馬克河">
+                <div class="day-card" data-category="dc archi" data-text="9/4 華盛頓 D.C. 機場 飯店 The Wharf 波托馬克河 Rosslyn Dupont Circle">
                     <div class="day-header">
                         <div class="day-title-group">
                             <span class="day-badge">Day 1</span>
@@ -811,56 +861,97 @@
                         <span class="day-drive"><i class="fa-solid fa-car"></i> 0.5 – 1.0 小時 (機場至飯店)</span>
                     </div>
                     <div class="day-body">
-                        <div class="spots-section-title"><i class="fa-solid fa-star"></i> 行程亮點與活動</div>
+                        <div class="spots-section-title"><i class="fa-solid fa-location-dot"></i> 景點與活動介紹（含地圖與官網連結）</div>
                         <div class="spots-list">
                             <div class="spot-item">
-                                <div class="spot-name">🛫 抵達 D.C. 機場與取車入住</div>
-                                <div class="spot-desc">飛抵華盛頓特區機場（IAD / DCA），辦理手續取車，前往飯店辦理入住，展開輕鬆慢步調旅程。</div>
+                                <div>
+                                    <div class="spot-name">🛫 華盛頓杜勒斯國際機場 (IAD)</div>
+                                    <div class="spot-desc">華盛頓特區主要國際門戶，主航廈建築由著名建築大師埃羅·沙里寧（Eero Saarinen）設計，具流線飛翼幾何美感。抵達後辦理取車與入住。</div>
+                                </div>
+                                <div class="spot-links">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Washington+Dulles+International+Airport" target="_blank" class="spot-link-btn"><i class="fa-solid fa-map-pin"></i> Google 地圖</a>
+                                    <a href="https://www.flydulles.com/" target="_blank" class="spot-link-btn"><i class="fa-solid fa-globe"></i> 機場官網</a>
+                                </div>
                             </div>
                             <div class="spot-item">
-                                <div class="spot-name">🌊 波托馬克河畔漫步 (The Wharf)</div>
-                                <div class="spot-desc">晚間前往華盛頓 D.C. 熱門的 The Wharf 水岸碼頭特區，沿河畔步道悠閒散步並享用新鮮海鮮晚餐。</div>
+                                <div>
+                                    <div class="spot-name">🌊 華盛頓水岸碼頭特區 (The Wharf)</div>
+                                    <div class="spot-desc">波托馬克河畔最新潮的水岸休閒區，擁有全美最古老連續營運的海鮮露天市場、木棧景觀步道與海鮮餐廳，傍晚散步極致舒服。</div>
+                                </div>
+                                <div class="spot-links">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=The+Wharf+Washington+DC" target="_blank" class="spot-link-btn"><i class="fa-solid fa-map-pin"></i> Google 地圖</a>
+                                    <a href="https://www.wharfdc.com/" target="_blank" class="spot-link-btn"><i class="fa-solid fa-globe"></i> The Wharf 官網</a>
+                                </div>
                             </div>
                         </div>
-                        <div class="hotel-box">
-                            <i class="fa-solid fa-bed"></i> <strong>住宿建議</strong>：Arlington / Alexandria（維吉尼亞側，停車方便且品質高）或 DuPont Circle。
+                        <div class="hotel-container">
+                            <div class="hotel-title"><i class="fa-solid fa-bed"></i> 住宿建議與飯店訂房連結</div>
+                            <div class="hotel-items">
+                                <div class="hotel-card">
+                                    <div class="hotel-name">🏨 Residence Inn Arlington Rosslyn <a href="https://www.google.com/maps/search/?api=1&query=Residence+Inn+by+Marriott+Arlington+Rosslyn" target="_blank" class="spot-link-btn"><i class="fa-solid fa-hotel"></i> 訂房/地圖</a></div>
+                                    <div class="hotel-desc">位於維吉尼亞側Rosslyn捷運站旁，治安極佳、附設完整廚房與免費熱早餐，銀線捷運直達機場與市區。</div>
+                                </div>
+                                <div class="hotel-card">
+                                    <div class="hotel-name">🏨 The Dupont Circle Hotel <a href="https://www.google.com/maps/search/?api=1&query=The+Dupont+Circle+Hotel+Washington+DC" target="_blank" class="spot-link-btn"><i class="fa-solid fa-hotel"></i> 訂房/地圖</a></div>
+                                    <div class="hotel-desc">座落於 D.C. 人文治安最佳的大使館特區，樹蔭大道環繞，周邊許多高級餐廳與藝廊。</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Day 2 -->
-                <div class="day-card" data-category="dc archi" data-text="9/5 華盛頓 D.C. 國會大廈 林肯紀念堂 國家藝廊">
+                <div class="day-card" data-category="dc archi" data-text="9/5 華盛頓 D.C. 國會大廈 林肯紀念堂 國家藝廊 Capitol Lincoln National Gallery">
                     <div class="day-header">
                         <div class="day-title-group">
                             <span class="day-badge">Day 2</span>
                             <h3 class="day-h3">9/5 (四) 華盛頓 D.C. — 國家建築與古典美學巡禮</h3>
                         </div>
-                        <span class="day-drive"><i class="fa-solid fa-person-walking"></i> 0 小時 (建議搭地鐵或 Uber)</span>
+                        <span class="day-drive"><i class="fa-solid fa-person-walking"></i> 0 小時 (搭乘地鐵或 Uber)</span>
                     </div>
                     <div class="day-body">
-                        <div class="spots-section-title"><i class="fa-solid fa-star"></i> 行程亮點與景點</div>
+                        <div class="spots-section-title"><i class="fa-solid fa-location-dot"></i> 景點與活動介紹（含地圖與官網連結）</div>
                         <div class="spots-list">
                             <div class="spot-item">
-                                <div class="spot-name">🏛️ 美國國會大廈 (U.S. Capitol)</div>
-                                <div class="spot-desc">新古典主義圓頂建築典範，象徵美國聯邦政府的核心標誌。</div>
+                                <div>
+                                    <div class="spot-name">🏛️ 美國國會大廈 (U.S. Capitol)</div>
+                                    <div class="spot-desc">美國新古典主義圓頂建築巔峰，內部擁有金碧輝煌的大圓頂天井壁畫《華盛頓的神化》與國會雕像館，可提前預約導覽。</div>
+                                </div>
+                                <div class="spot-links">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=U.S.+Capitol+Washington+DC" target="_blank" class="spot-link-btn"><i class="fa-solid fa-map-pin"></i> Google 地圖</a>
+                                    <a href="https://www.visitthecapitol.gov/" target="_blank" class="spot-link-btn"><i class="fa-solid fa-ticket"></i> 預約導覽官網</a>
+                                </div>
                             </div>
                             <div class="spot-item">
-                                <div class="spot-name">🏛️ 林肯紀念堂 (Lincoln Memorial) & 反映池</div>
-                                <div class="spot-desc">仿古希臘多立克柱式神廟建築，莊嚴雄偉，俯瞰倒映池美景。</div>
+                                <div>
+                                    <div class="spot-name">🏛️ 林肯紀念堂 (Lincoln Memorial) & 反映池</div>
+                                    <div class="spot-desc">仿古希臘多立克柱式帕德嫩神廟設計，座落於國家廣場西端，紀念林肯總統並能遠眺倒映池與華盛頓紀念碑。</div>
+                                </div>
+                                <div class="spot-links">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Lincoln+Memorial+Washington+DC" target="_blank" class="spot-link-btn"><i class="fa-solid fa-map-pin"></i> Google 地圖</a>
+                                    <a href="https://www.nps.gov/linc/" target="_blank" class="spot-link-btn"><i class="fa-solid fa-globe"></i> NPS 國家公園官網</a>
+                                </div>
                             </div>
                             <div class="spot-item">
-                                <div class="spot-name">🎨 美國國家藝廊 (National Gallery of Art)</div>
-                                <div class="spot-desc">東西展館交織古典與貝聿銘現代幾何建築設計，藏品世界頂尖。</div>
+                                <div>
+                                    <div class="spot-name">🎨 美國國家藝廊 (National Gallery of Art)</div>
+                                    <div class="spot-desc">古典西展館與貝聿銘設計的現代幾何東展館雙館交織，藏有達文西在西半球唯一畫作《吉內薇拉·班琪》與莫內名作。</div>
+                                </div>
+                                <div class="spot-links">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=National+Gallery+of+Art+Washington+DC" target="_blank" class="spot-link-btn"><i class="fa-solid fa-map-pin"></i> Google 地圖</a>
+                                    <a href="https://www.nga.gov/" target="_blank" class="spot-link-btn"><i class="fa-solid fa-globe"></i> 藝廊官網</a>
+                                </div>
                             </div>
                         </div>
-                        <div class="hotel-box">
-                            <i class="fa-solid fa-bed"></i> <strong>住宿建議</strong>：同 Day 1。
+                        <div class="hotel-container">
+                            <div class="hotel-title"><i class="fa-solid fa-bed"></i> 住宿建議</div>
+                            <div class="hotel-desc">同 Day 1 (續住 Residence Inn Rosslyn 或 DuPont Circle Hotel)。</div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Day 3 -->
-                <div class="day-card" data-category="nature" data-text="9/6 賓州 阿米什 農莊 指湖區 峽谷 沃特金斯格倫 Lancaster Watkins Glen">
+                <div class="day-card" data-category="nature" data-text="9/6 賓州 阿米什 農莊 指湖區 峽谷 沃特金斯格倫 Lancaster Watkins Glen Finger Lakes">
                     <div class="day-header">
                         <div class="day-title-group">
                             <span class="day-badge">Day 3</span>
@@ -869,25 +960,43 @@
                         <span class="day-drive"><i class="fa-solid fa-car"></i> ~4.5 小時 (D.C.➔Lancaster 2h, Lancaster➔Finger Lakes 2.5h)</span>
                     </div>
                     <div class="day-body">
-                        <div class="spots-section-title"><i class="fa-solid fa-star"></i> 行程亮點與景點</div>
+                        <div class="spots-section-title"><i class="fa-solid fa-location-dot"></i> 景點與活動介紹（含地圖與官網連結）</div>
                         <div class="spots-list">
                             <div class="spot-item">
-                                <div class="spot-name">🌾 Lancaster Amish Country (蘭開斯特)</div>
-                                <div class="spot-desc">探訪保留 19 世紀傳統無電無車生活的阿米什村莊與著名的覆蓋木橋（Covered Bridge）。</div>
+                                <div>
+                                    <div class="spot-name">🌾 Lancaster Amish Country (蘭開斯特)</div>
+                                    <div class="spot-desc">探訪保持 19 世紀傳統無電、無汽車田園生活的阿米什社群，隨處可見馬車與覆蓋木橋（Covered Bridge），品嚐農家手工起司與點心。</div>
+                                </div>
+                                <div class="spot-links">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Lancaster+Amish+Country+PA" target="_blank" class="spot-link-btn"><i class="fa-solid fa-map-pin"></i> Google 地圖</a>
+                                    <a href="https://www.discoverlancaster.com/" target="_blank" class="spot-link-btn"><i class="fa-solid fa-globe"></i> 蘭開斯特旅遊官網</a>
+                                </div>
                             </div>
                             <div class="spot-item">
-                                <div class="spot-name">🌲 Watkins Glen State Park (沃特金斯格倫州立公園)</div>
-                                <div class="spot-desc">著名的 Gorge Trail 峽谷步道，沿途穿越 19 座連綿瀑布與千層奇岩絕壁。</div>
+                                <div>
+                                    <div class="spot-name">🌲 Watkins Glen State Park (沃特金斯格倫州立公園)</div>
+                                    <div class="spot-desc">紐約指湖區最著名的 Gorge Trail 峽谷步道，短短 2 英里穿越 19 座連綿瀑布與千年層理岩壁，景色宛如仙境。</div>
+                                </div>
+                                <div class="spot-links">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Watkins+Glen+State+Park" target="_blank" class="spot-link-btn"><i class="fa-solid fa-map-pin"></i> Google 地圖</a>
+                                    <a href="https://parks.ny.gov/parks/watkinsglen/" target="_blank" class="spot-link-btn"><i class="fa-solid fa-globe"></i> 紐約州立公園官網</a>
+                                </div>
                             </div>
                         </div>
-                        <div class="hotel-box">
-                            <i class="fa-solid fa-bed"></i> <strong>住宿建議</strong>：Ithaca 或 Watkins Glen 湖畔渡假旅館。
+                        <div class="hotel-container">
+                            <div class="hotel-title"><i class="fa-solid fa-bed"></i> 住宿建議與飯店訂房連結</div>
+                            <div class="hotel-items">
+                                <div class="hotel-card">
+                                    <div class="hotel-name">🏨 Watkins Glen Harbor Hotel <a href="https://www.google.com/maps/search/?api=1&query=Watkins+Glen+Harbor+Hotel" target="_blank" class="spot-link-btn"><i class="fa-solid fa-hotel"></i> 訂房/地圖</a></div>
+                                    <div class="hotel-desc">位居塞內卡湖（Seneca Lake）南端渡假港口旁，享有奢華湖景與頂級餐廳設施。</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Day 4 -->
-                <div class="day-card" data-category="nature" data-text="9/7 指湖區 尼加拉瀑布 霧中少女號 風之穴 羊島 Niagara Falls">
+                <div class="day-card" data-category="nature" data-text="9/7 指湖區 尼加拉瀑布 霧中少女號 風之穴 羊島 Niagara Falls Maid of the Mist Cave of the Winds">
                     <div class="day-header">
                         <div class="day-title-group">
                             <span class="day-badge">Day 4</span>
@@ -896,29 +1005,52 @@
                         <span class="day-drive"><i class="fa-solid fa-car"></i> ~2.5 小時</span>
                     </div>
                     <div class="day-body">
-                        <div class="spots-section-title"><i class="fa-solid fa-star"></i> 行程亮點與景點</div>
+                        <div class="spots-section-title"><i class="fa-solid fa-location-dot"></i> 景點與活動介紹（含地圖與官網連結）</div>
                         <div class="spots-list">
                             <div class="spot-item">
-                                <div class="spot-name">💦 霧中少女號 (Maid of the Mist)</div>
-                                <div class="spot-desc">搭乘觀光船直衝瀑布馬蹄灣下方，感受萬馬奔騰般的震撼水霧。</div>
+                                <div>
+                                    <div class="spot-name">💦 霧中少女號觀光船 (Maid of the Mist)</div>
+                                    <div class="spot-desc">全美最著名觀光船，穿上藍色雨衣直衝馬蹄灣瀑布（Horseshoe Falls）正下方，近距離感受雷霆萬鈞的水霧衝擊。</div>
+                                </div>
+                                <div class="spot-links">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Maid+of+the+Mist+Niagara+Falls" target="_blank" class="spot-link-btn"><i class="fa-solid fa-map-pin"></i> Google 地圖</a>
+                                    <a href="https://www.maidofthemist.com/" target="_blank" class="spot-link-btn"><i class="fa-solid fa-ticket"></i> 觀光船官網</a>
+                                </div>
                             </div>
                             <div class="spot-item">
-                                <div class="spot-name">🌊 風之穴 (Cave of the Winds)</div>
-                                <div class="spot-desc">穿上黃色雨衣走上木棧道，零距離體驗新娘面紗瀑布的水流衝擊。</div>
+                                <div>
+                                    <div class="spot-name">🌊 風之穴 (Cave of the Winds)</div>
+                                    <div class="spot-desc">穿上黃色雨衣沿著木棧道一路走至新娘面紗瀑布（Bridal Veil Falls）下方「颶風平台」，感受零距離水花狂暴震撼。</div>
+                                </div>
+                                <div class="spot-links">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Cave+of+the+Winds+Niagara+Falls" target="_blank" class="spot-link-btn"><i class="fa-solid fa-map-pin"></i> Google 地圖</a>
+                                    <a href="https://www.niagarafallsstatepark.com/attractions-and-tours/cave-of-the-winds" target="_blank" class="spot-link-btn"><i class="fa-solid fa-ticket"></i> 風之穴預約官網</a>
+                                </div>
                             </div>
                             <div class="spot-item">
-                                <div class="spot-name">🇨🇦 Goat Island (羊島) & 三姊妹島</div>
-                                <div class="spot-desc">漫步於瀑布頂端綠意盎然的公園，遠眺對岸加拿大側瀑布天際線。</div>
+                                <div>
+                                    <div class="spot-name">🇨🇦 Goat Island (羊島) & 三姊妹島</div>
+                                    <div class="spot-desc">隔開美國瀑布與馬蹄灣瀑布的中央綠洲公園，步道輕鬆舒適，遠眺加拿大端天際線最佳點。</div>
+                                </div>
+                                <div class="spot-links">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Goat+Island+Niagara+Falls" target="_blank" class="spot-link-btn"><i class="fa-solid fa-map-pin"></i> Google 地圖</a>
+                                </div>
                             </div>
                         </div>
-                        <div class="hotel-box">
-                            <i class="fa-solid fa-bed"></i> <strong>住宿建議</strong>：Niagara Falls (NY) 飯店或 Grand Island 渡假飯店。
+                        <div class="hotel-container">
+                            <div class="hotel-title"><i class="fa-solid fa-bed"></i> 住宿建議與飯店訂房連結</div>
+                            <div class="hotel-items">
+                                <div class="hotel-card">
+                                    <div class="hotel-name">🏨 Sheraton Niagara Falls (NY) <a href="https://www.google.com/maps/search/?api=1&query=Sheraton+Niagara+Falls+NY" target="_blank" class="spot-link-btn"><i class="fa-solid fa-hotel"></i> 訂房/地圖</a></div>
+                                    <div class="hotel-desc">位於美國側瀑布州立公園旁，步行 5 分鐘即可抵達瀑布入口與觀光船碼頭。</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Day 5 -->
-                <div class="day-card" data-category="archi" data-text="9/8 尼加拉瀑布 匹茲堡 鋼鐵城 纜車 溫室 Pittsburgh">
+                <div class="day-card" data-category="archi" data-text="9/8 尼加拉瀑布 匹茲堡 鋼鐵城 纜車 溫室 Pittsburgh Duquesne Incline Phipps">
                     <div class="day-header">
                         <div class="day-title-group">
                             <span class="day-badge">Day 5</span>
@@ -927,25 +1059,43 @@
                         <span class="day-drive"><i class="fa-solid fa-car"></i> ~3.5 小時</span>
                     </div>
                     <div class="day-body">
-                        <div class="spots-section-title"><i class="fa-solid fa-star"></i> 行程亮點與景點</div>
+                        <div class="spots-section-title"><i class="fa-solid fa-location-dot"></i> 景點與活動介紹（含地圖與官網連結）</div>
                         <div class="spots-list">
                             <div class="spot-item">
-                                <div class="spot-name">🌉 Duquesne Incline 登山纜車</div>
-                                <div class="spot-desc">搭乘百年木造纜車登上 Mount Washington，俯瞰三河交匯的匹茲堡壯麗天際線與鋼鐵大橋。</div>
+                                <div>
+                                    <div class="spot-name">🌉 Duquesne Incline 登山纜車</div>
+                                    <div class="spot-desc">建於 1877 年的百年木造登山纜車，乘坐登上 Mount Washington 高地，俯瞰三河交匯的匹茲堡壯麗天際線與黃色鋼鐵大橋。</div>
+                                </div>
+                                <div class="spot-links">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Duquesne+Incline+Pittsburgh" target="_blank" class="spot-link-btn"><i class="fa-solid fa-map-pin"></i> Google 地圖</a>
+                                    <a href="https://www.duquesneincline.org/" target="_blank" class="spot-link-btn"><i class="fa-solid fa-globe"></i> 纜車官網</a>
+                                </div>
                             </div>
                             <div class="spot-item">
-                                <div class="spot-name">🌿 Phipps Conservatory 溫室植物園</div>
-                                <div class="spot-desc">典雅的維多利亞時代玻璃溫室建築與精緻罕見的四季植物園藝。</div>
+                                <div>
+                                    <div class="spot-name">🌿 Phipps Conservatory 溫室植物園</div>
+                                    <div class="spot-desc">1893 年建成的維多利亞風格宏偉玻璃溫室，展出極致優雅的四季花卉與玻璃藝術。</div>
+                                </div>
+                                <div class="spot-links">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Phipps+Conservatory+and+Botanical+Gardens" target="_blank" class="spot-link-btn"><i class="fa-solid fa-map-pin"></i> Google 地圖</a>
+                                    <a href="https://www.phipps.conservatory.org/" target="_blank" class="spot-link-btn"><i class="fa-solid fa-globe"></i> 植物園官網</a>
+                                </div>
                             </div>
                         </div>
-                        <div class="hotel-box">
-                            <i class="fa-solid fa-bed"></i> <strong>住宿建議</strong>：Pittsburgh Downtown 或 Laurel Highlands 鄉村山莊。
+                        <div class="hotel-container">
+                            <div class="hotel-title"><i class="fa-solid fa-bed"></i> 住宿建議與飯店訂房連結</div>
+                            <div class="hotel-items">
+                                <div class="hotel-card">
+                                    <div class="hotel-name">🏨 The Industrialist Hotel Pittsburgh <a href="https://www.google.com/maps/search/?api=1&query=The+Industrialist+Hotel+Pittsburgh" target="_blank" class="spot-link-btn"><i class="fa-solid fa-hotel"></i> 訂房/地圖</a></div>
+                                    <div class="hotel-desc">位於匹茲堡市中心歷史建築內，融合鋼鐵城工業風美學與現代精緻設計。</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Day 6 -->
-                <div class="day-card" data-category="archi" data-text="9/9 匹茲堡 落水山莊 Fallingwater 萊特 世界遺產 仙納度">
+                <div class="day-card" data-category="archi" data-text="9/9 匹茲堡 落水山莊 Fallingwater 萊特 世界遺產 仙納度 Luray">
                     <div class="day-header">
                         <div class="day-title-group">
                             <span class="day-badge">Day 6</span>
@@ -954,21 +1104,33 @@
                         <span class="day-drive"><i class="fa-solid fa-car"></i> ~3.5 小時</span>
                     </div>
                     <div class="day-body">
-                        <div class="spots-section-title"><i class="fa-solid fa-star"></i> 行程亮點與景點</div>
+                        <div class="spots-section-title"><i class="fa-solid fa-location-dot"></i> 景點與活動介紹（含地圖與官網連結）</div>
                         <div class="spots-list">
                             <div class="spot-item">
-                                <div class="spot-name">🏡 落水山莊 (Fallingwater)</div>
-                                <div class="spot-desc">建築大師法蘭克·勞埃德·萊特（Frank Lloyd Wright）的世界遺產傑作。建築懸空架設於溪流瀑布之上，將有機建築與自然融為一體（必須提前預約門票）。</div>
+                                <div>
+                                    <div class="spot-name">🏡 落水山莊 (Fallingwater)</div>
+                                    <div class="spot-desc">建築大師法蘭克·勞埃德·萊特（Frank Lloyd Wright）名列世界遺產的代表作！建築巧妙懸空架設於熊溪瀑布之上，完美演繹有機建築與大自然融為一體的奇蹟（必須提前 1~2 個月預約門票）。</div>
+                                </div>
+                                <div class="spot-links">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Fallingwater+Frank+Lloyd+Wright" target="_blank" class="spot-link-btn"><i class="fa-solid fa-map-pin"></i> Google 地圖</a>
+                                    <a href="https://www.fallingwater.org/" target="_blank" class="spot-link-btn"><i class="fa-solid fa-ticket"></i> 落水山莊門票預約官網</a>
+                                </div>
                             </div>
                         </div>
-                        <div class="hotel-box">
-                            <i class="fa-solid fa-bed"></i> <strong>住宿建議</strong>：Harrisonburg 或 Luray（仙納度國家公園入口旁）。
+                        <div class="hotel-container">
+                            <div class="hotel-title"><i class="fa-solid fa-bed"></i> 住宿建議與飯店訂房連結</div>
+                            <div class="hotel-items">
+                                <div class="hotel-card">
+                                    <div class="hotel-name">🏨 Hotel Laurance (Luray, VA) <a href="https://www.google.com/maps/search/?api=1&query=Hotel+Laurance+Luray+VA" target="_blank" class="spot-link-btn"><i class="fa-solid fa-hotel"></i> 訂房/地圖</a></div>
+                                    <div class="hotel-desc">位於仙納度國家公園與 Luray 溶洞入口處的精緻精品套房飯店，極具歷史與放鬆氛圍。</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Day 7 -->
-                <div class="day-card" data-category="nature" data-text="9/10 仙納度國家公園 天際線公路 Skyline Drive 藍嶺山脈 瀑布步道">
+                <div class="day-card" data-category="nature" data-text="9/10 仙納度國家公園 天際線公路 Skyline Drive 藍嶺山脈 瀑布步道 Dark Hollow Roanoke">
                     <div class="day-header">
                         <div class="day-title-group">
                             <span class="day-badge">Day 7</span>
@@ -977,25 +1139,42 @@
                         <span class="day-drive"><i class="fa-solid fa-car"></i> ~3.0 小時 (景觀公路慢駕)</span>
                     </div>
                     <div class="day-body">
-                        <div class="spots-section-title"><i class="fa-solid fa-star"></i> 行程亮點與景點</div>
+                        <div class="spots-section-title"><i class="fa-solid fa-location-dot"></i> 景點與活動介紹（含地圖與官網連結）</div>
                         <div class="spots-list">
                             <div class="spot-item">
-                                <div class="spot-name">⛰️ 天際線公路 (Skyline Drive)</div>
-                                <div class="spot-desc">穿越阿帕拉契山脈脊梁，沿途數十個觀景台，俯瞰仙納度山谷壯麗綠林與初秋微紅景致。</div>
+                                <div>
+                                    <div class="spot-name">⛰️ 天際線公路 (Skyline Drive)</div>
+                                    <div class="spot-desc">全長 105 英里穿越阿帕拉契山脈脊梁的國家景觀公路，沿途擁有 75 個觀景台，俯瞰仙納度山谷的壯麗綠林與初秋景致。</div>
+                                </div>
+                                <div class="spot-links">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Skyline+Drive+Shenandoah+National+Park" target="_blank" class="spot-link-btn"><i class="fa-solid fa-map-pin"></i> Google 地圖</a>
+                                    <a href="https://www.nps.gov/shen/" target="_blank" class="spot-link-btn"><i class="fa-solid fa-globe"></i> 仙納度國家公園官網</a>
+                                </div>
                             </div>
                             <div class="spot-item">
-                                <div class="spot-name">🥾 Dark Hollow Falls Trail 步道</div>
-                                <div class="spot-desc">短巧舒適的瀑布森林健行步道，沿途溪流潺潺，享受森林負離子。</div>
+                                <div>
+                                    <div class="spot-name">🥾 Dark Hollow Falls Trail 瀑布步道</div>
+                                    <div class="spot-desc">國家公園內最受歡迎的短巧步道，沿溪流向下健行 0.7 英里即可抵達 70 呎高的雙層森林瀑布。</div>
+                                </div>
+                                <div class="spot-links">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Dark+Hollow+Falls+Trail" target="_blank" class="spot-link-btn"><i class="fa-solid fa-map-pin"></i> Google 地圖</a>
+                                </div>
                             </div>
                         </div>
-                        <div class="hotel-box">
-                            <i class="fa-solid fa-bed"></i> <strong>住宿建議</strong>：Roanoke 或 Radford (維吉尼亞山城)。
+                        <div class="hotel-container">
+                            <div class="hotel-title"><i class="fa-solid fa-bed"></i> 住宿建議與飯店訂房連結</div>
+                            <div class="hotel-items">
+                                <div class="hotel-card">
+                                    <div class="hotel-name">🏨 The Hotel Roanoke & Conference Center <a href="https://www.google.com/maps/search/?api=1&query=The+Hotel+Roanoke" target="_blank" class="spot-link-btn"><i class="fa-solid fa-hotel"></i> 訂房/地圖</a></div>
+                                    <div class="hotel-desc">希爾頓旗下 Tudor 帝鐸風格百年歷史地標飯店，座落於藍嶺山脈山城，氛圍優雅。</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Day 8 -->
-                <div class="day-card" data-category="nature" data-text="9/11 大煙山國家公園 Great Smoky Mountains Cades Cove 黑熊 鹿群">
+                <div class="day-card" data-category="nature" data-text="9/11 大煙山國家公園 Great Smoky Mountains Cades Cove 黑熊 鹿群 Townsend Gatlinburg">
                     <div class="day-header">
                         <div class="day-title-group">
                             <span class="day-badge">Day 8</span>
@@ -1004,19 +1183,36 @@
                         <span class="day-drive"><i class="fa-solid fa-car"></i> ~3.5 小時</span>
                     </div>
                     <div class="day-body">
-                        <div class="spots-section-title"><i class="fa-solid fa-star"></i> 行程亮點與景點</div>
+                        <div class="spots-section-title"><i class="fa-solid fa-location-dot"></i> 景點與活動介紹（含地圖與官網連結）</div>
                         <div class="spots-list">
                             <div class="spot-item">
-                                <div class="spot-name">🌫️ 大煙山國家公園 (Great Smoky Mountains)</div>
-                                <div class="spot-desc">全美訪問量第一的國家公園，以常年繚繞藍藍晨霧的山巒美景著稱。</div>
+                                <div>
+                                    <div class="spot-name">🌫️ 大煙山國家公園 (Great Smoky Mountains)</div>
+                                    <div class="spot-desc">全美訪問量第一的聯合國世界自然遺產，常年繚繞著藍色薄霧的山巒與古老原生森林。</div>
+                                </div>
+                                <div class="spot-links">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Great+Smoky+Mountains+National+Park" target="_blank" class="spot-link-btn"><i class="fa-solid fa-map-pin"></i> Google 地圖</a>
+                                    <a href="https://www.nps.gov/grsm/" target="_blank" class="spot-link-btn"><i class="fa-solid fa-globe"></i> 大煙山國家公園官網</a>
+                                </div>
                             </div>
                             <div class="spot-item">
-                                <div class="spot-name">🦌 Cades Cove 自駕環景步道</div>
-                                <div class="spot-desc">開車環形山谷小徑，極高機會近距離觀察野生的黑熊、白尾鹿與野生火雞。</div>
+                                <div>
+                                    <div class="spot-name">🦌 Cades Cove 景觀環狀自駕道</div>
+                                    <div class="spot-desc">11 英里單向環形山谷小徑，沿途保留 19 世紀墾荒木屋與教堂，有極高機會近距離觀察野生的美洲黑熊、白尾鹿與火雞。</div>
+                                </div>
+                                <div class="spot-links">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Cades+Cove+Great+Smoky+Mountains" target="_blank" class="spot-link-btn"><i class="fa-solid fa-map-pin"></i> Google 地圖</a>
+                                </div>
                             </div>
                         </div>
-                        <div class="hotel-box">
-                            <i class="fa-solid fa-bed"></i> <strong>住宿建議</strong>：Townsend（幽靜山城，極適合放鬆）或 Gatlinburg。
+                        <div class="hotel-container">
+                            <div class="hotel-title"><i class="fa-solid fa-bed"></i> 住宿建議與飯店訂房連結</div>
+                            <div class="hotel-items">
+                                <div class="hotel-card">
+                                    <div class="hotel-name">🏨 Dancing Bear Lodge (Townsend, TN) <a href="https://www.google.com/maps/search/?api=1&query=Dancing+Bear+Lodge+Townsend+TN" target="_blank" class="spot-link-btn"><i class="fa-solid fa-hotel"></i> 訂房/地圖</a></div>
+                                    <div class="hotel-desc">位於大煙山「幽靜側（Quiet Side of the Smokies）」Townsend 的奢華木屋渡假村，安靜舒服極能放鬆。</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1031,25 +1227,42 @@
                         <span class="day-drive"><i class="fa-solid fa-car"></i> ~3.5 小時</span>
                     </div>
                     <div class="day-body">
-                        <div class="spots-section-title"><i class="fa-solid fa-star"></i> 行程亮點與景點</div>
+                        <div class="spots-section-title"><i class="fa-solid fa-location-dot"></i> 景點與活動介紹（含地圖與官網連結）</div>
                         <div class="spots-list">
                             <div class="spot-item">
-                                <div class="spot-name">⛰️ Clingmans Dome (克林曼峰)</div>
-                                <div class="spot-desc">大煙山最高點，站在圓形觀景台上擁有一望無際的 360 度山脈雲海景色。</div>
+                                <div>
+                                    <div class="spot-name">⛰️ Clingmans Dome (克林曼峰/Kuwohi)</div>
+                                    <div class="spot-desc">海拔 6,643 呎為大烟山最高峰，登上飛碟形狀的圓形觀景台可享有 360 度無死角山脈雲海景色。</div>
+                                </div>
+                                <div class="spot-links">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Clingmans+Dome" target="_blank" class="spot-link-btn"><i class="fa-solid fa-map-pin"></i> Google 地圖</a>
+                                </div>
                             </div>
                             <div class="spot-item">
-                                <div class="spot-name">🎸 Nashville Broadway 音樂夜景</div>
-                                <div class="spot-desc">前往鄉村音樂之都納什維爾，體驗 Broadway 熱情放鬆的 Live Music 與美式氛圍。</div>
+                                <div>
+                                    <div class="spot-name">🎸 Nashville Broadway 百老匯音樂夜景</div>
+                                    <div class="spot-desc">鄉村音樂之都的核心不夜城，大道兩旁密佈霓虹閃爍的 Honky Tonk 酒吧與頂尖 Live 樂團現場演出。</div>
+                                </div>
+                                <div class="spot-links">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Broadway+Nashville+TN" target="_blank" class="spot-link-btn"><i class="fa-solid fa-map-pin"></i> Google 地圖</a>
+                                    <a href="https://www.visitmusiccity.com/" target="_blank" class="spot-link-btn"><i class="fa-solid fa-globe"></i> 納什維爾旅遊官網</a>
+                                </div>
                             </div>
                         </div>
-                        <div class="hotel-box">
-                            <i class="fa-solid fa-bed"></i> <strong>住宿建議</strong>：Nashville Downtown / Music Row 區域。
+                        <div class="hotel-container">
+                            <div class="hotel-title"><i class="fa-solid fa-bed"></i> 住宿建議與飯店訂房連結</div>
+                            <div class="hotel-items">
+                                <div class="hotel-card">
+                                    <div class="hotel-name">🏨 Grand Hyatt Nashville <a href="https://www.google.com/maps/search/?api=1&query=Grand+Hyatt+Nashville" target="_blank" class="spot-link-btn"><i class="fa-solid fa-hotel"></i> 訂房/地圖</a></div>
+                                    <div class="hotel-desc">位在市中心 Broadway 附近，設有頂樓絕美高空露台酒吧與高級游泳池。</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Day 10 -->
-                <div class="day-card" data-category="archi" data-text="9/13 納什維爾 帕德嫩神廟 Parthenon 雅典娜 鄉村音樂名人堂 Ryman">
+                <div class="day-card" data-category="archi" data-text="9/13 納什維爾 帕德嫩神廟 Parthenon 雅典娜 鄉村音樂名人堂 Ryman Country Music Hall of Fame">
                     <div class="day-header">
                         <div class="day-title-group">
                             <span class="day-badge">Day 10</span>
@@ -1058,25 +1271,38 @@
                         <span class="day-drive"><i class="fa-solid fa-car"></i> ~0.5 小時 (市區漫遊)</span>
                     </div>
                     <div class="day-body">
-                        <div class="spots-section-title"><i class="fa-solid fa-star"></i> 行程亮點與景點</div>
+                        <div class="spots-section-title"><i class="fa-solid fa-location-dot"></i> 景點與活動介紹（含地圖與官網連結）</div>
                         <div class="spots-list">
                             <div class="spot-item">
-                                <div class="spot-name">🏛️ 納什維爾帕德嫩神廟 (The Parthenon)</div>
-                                <div class="spot-desc">全球唯一 1:1 完全比例復刻的雅典帕德嫩神廟，館內供奉高達 13 公尺金碧輝煌的雅典娜巨像。</div>
+                                <div>
+                                    <div class="spot-name">🏛️ 納什維爾帕德嫩神廟 (The Parthenon)</div>
+                                    <div class="spot-desc">全球唯一 1:1 完全比例復刻雅典原版帕德嫩神廟的建築奇蹟，館內供奉高達 13 公尺金碧輝煌的雅典娜巨像。</div>
+                                </div>
+                                <div class="spot-links">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=The+Parthenon+Nashville" target="_blank" class="spot-link-btn"><i class="fa-solid fa-map-pin"></i> Google 地圖</a>
+                                    <a href="https://www.nashvilleparthenon.com/" target="_blank" class="spot-link-btn"><i class="fa-solid fa-globe"></i> 神廟官網</a>
+                                </div>
                             </div>
                             <div class="spot-item">
-                                <div class="spot-name">🎵 Ryman Auditorium & 鄉村音樂名人堂</div>
-                                <div class="spot-desc">美國歷史悠久的音樂教堂建築，記錄著鄉村音樂與美式流行樂的傳奇歷史。</div>
+                                <div>
+                                    <div class="spot-name">🎵 Country Music Hall of Fame (鄉村音樂名人堂)</div>
+                                    <div class="spot-desc">展示美式鄉村音樂演變史、貓王與巨星珍貴吉他、服裝與金唱片的音樂聖殿。</div>
+                                </div>
+                                <div class="spot-links">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Country+Music+Hall+of+Fame+and+Museum" target="_blank" class="spot-link-btn"><i class="fa-solid fa-map-pin"></i> Google 地圖</a>
+                                    <a href="https://www.countrymusichalloffame.org/" target="_blank" class="spot-link-btn"><i class="fa-solid fa-ticket"></i> 門票預約官網</a>
+                                </div>
                             </div>
                         </div>
-                        <div class="hotel-box">
-                            <i class="fa-solid fa-bed"></i> <strong>住宿建議</strong>：同 Day 9。
+                        <div class="hotel-container">
+                            <div class="hotel-title"><i class="fa-solid fa-bed"></i> 住宿建議</div>
+                            <div class="hotel-desc">同 Day 9 (續住 Grand Hyatt Nashville)。</div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Day 11 -->
-                <div class="day-card" data-category="nature" data-text="9/14 猛獁洞 國家公園 Mammoth Cave 世界遺產 地下洞穴 肯塔基">
+                <div class="day-card" data-category="nature" data-text="9/14 猛獁洞 國家公園 Mammoth Cave 世界遺產 地下洞穴 肯塔基 Lexington">
                     <div class="day-header">
                         <div class="day-title-group">
                             <span class="day-badge">Day 11</span>
@@ -1085,21 +1311,33 @@
                         <span class="day-drive"><i class="fa-solid fa-car"></i> ~3.0 小時</span>
                     </div>
                     <div class="day-body">
-                        <div class="spots-section-title"><i class="fa-solid fa-star"></i> 行程亮點與景點</div>
+                        <div class="spots-section-title"><i class="fa-solid fa-location-dot"></i> 景點與活動介紹（含地圖與官網連結）</div>
                         <div class="spots-list">
                             <div class="spot-item">
-                                <div class="spot-name">🦇 猛獁洞國家公園 (Mammoth Cave National Park)</div>
-                                <div class="spot-desc">UNESCO 世界遺產，擁有全球已知最長的地下洞穴系統（建議預約 Domes & Dripstones 或 Historic Tour 導覽）。</div>
+                                <div>
+                                    <div class="spot-name">🦇 猛獁洞國家公園 (Mammoth Cave National Park)</div>
+                                    <div class="spot-desc">UNESCO 世界自然遺產，擁有已知超過 420 英里長的全球最大地下洞穴系統（推薦提前預約 Domes & Dripstones 導覽路線）。</div>
+                                </div>
+                                <div class="spot-links">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Mammoth+Cave+National+Park" target="_blank" class="spot-link-btn"><i class="fa-solid fa-map-pin"></i> Google 地圖</a>
+                                    <a href="https://www.recreation.gov/tourPark/258832" target="_blank" class="spot-link-btn"><i class="fa-solid fa-ticket"></i> Recreation.gov 洞穴導覽預約</a>
+                                </div>
                             </div>
                         </div>
-                        <div class="hotel-box">
-                            <i class="fa-solid fa-bed"></i> <strong>住宿建議</strong>：Lexington (肯塔基州馬場之都，風景極美)。
+                        <div class="hotel-container">
+                            <div class="hotel-title"><i class="fa-solid fa-bed"></i> 住宿建議與飯店訂房連結</div>
+                            <div class="hotel-items">
+                                <div class="hotel-card">
+                                    <div class="hotel-name">🏨 21c Museum Hotel Lexington <a href="https://www.google.com/maps/search/?api=1&query=21c+Museum+Hotel+Lexington" target="_blank" class="spot-link-btn"><i class="fa-solid fa-hotel"></i> 訂房/地圖</a></div>
+                                    <div class="hotel-desc">位於肯塔基藍草地區馬場之都的現代藝術博物館飯店，大廳與走廊皆為當代藝術展覽空間。</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Day 12 -->
-                <div class="day-card" data-category="nature archi" data-text="9/15 肯塔基 馬場 新河峽谷 國家公園 New River Gorge 鋼拱橋">
+                <div class="day-card" data-category="nature archi" data-text="9/15 肯塔基 馬場 新河峽谷 國家公園 New River Gorge 鋼拱橋 Fayetteville">
                     <div class="day-header">
                         <div class="day-title-group">
                             <span class="day-badge">Day 12</span>
@@ -1108,25 +1346,43 @@
                         <span class="day-drive"><i class="fa-solid fa-car"></i> ~3.5 小時</span>
                     </div>
                     <div class="day-body">
-                        <div class="spots-section-title"><i class="fa-solid fa-star"></i> 行程亮點與景點</div>
+                        <div class="spots-section-title"><i class="fa-solid fa-location-dot"></i> 景點與活動介紹（含地圖與官網連結）</div>
                         <div class="spots-list">
                             <div class="spot-item">
-                                <div class="spot-name">🐎 Kentucky Horse Park 馬場莊園</div>
-                                <div class="spot-desc">圍欄綠草千畝的經典肯塔基純種馬場景致。</div>
+                                <div>
+                                    <div class="spot-name">🐎 Kentucky Horse Park (肯塔基馬場公園)</div>
+                                    <div class="spot-desc">佔地千畝白欄圍籬的頂級純種賽馬主題莊園，可近距離觀看名馬、馬車與博物館展覽。</div>
+                                </div>
+                                <div class="spot-links">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Kentucky+Horse+Park" target="_blank" class="spot-link-btn"><i class="fa-solid fa-map-pin"></i> Google 地圖</a>
+                                    <a href="https://kyhorsepark.com/" target="_blank" class="spot-link-btn"><i class="fa-solid fa-globe"></i> 馬場官網</a>
+                                </div>
                             </div>
                             <div class="spot-item">
-                                <div class="spot-name">🌉 新河峽谷國家公園 (New River Gorge National Park)</div>
-                                <div class="spot-desc">美國最年輕國家公園之一！擁有北美第二高單跨鋼拱橋（New River Gorge Bridge），絕壁與古老河流相映成趣。</div>
+                                <div>
+                                    <div class="spot-name">🌉 新河峽谷國家公園 (New River Gorge National Park)</div>
+                                    <div class="spot-desc">美國最新的國家公園之一！擁有一億年歷史的古老峽谷河流與北美第二高單跨鋼拱橋（New River Gorge Bridge）。</div>
+                                </div>
+                                <div class="spot-links">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=New+River+Gorge+National+Park+and+Preserve" target="_blank" class="spot-link-btn"><i class="fa-solid fa-map-pin"></i> Google 地圖</a>
+                                    <a href="https://www.nps.gov/neri/" target="_blank" class="spot-link-btn"><i class="fa-solid fa-globe"></i> 新河峽谷 NPS 官網</a>
+                                </div>
                             </div>
                         </div>
-                        <div class="hotel-box">
-                            <i class="fa-solid fa-bed"></i> <strong>住宿建議</strong>：Fayetteville 或 Beckley (西維吉尼亞州)。
+                        <div class="hotel-container">
+                            <div class="hotel-title"><i class="fa-solid fa-bed"></i> 住宿建議與飯店訂房連結</div>
+                            <div class="hotel-items">
+                                <div class="hotel-card">
+                                    <div class="hotel-name">🏨 Historic Fayetteville WV Hotels <a href="https://www.google.com/maps/search/?api=1&query=Fayetteville+WV+Hotels" target="_blank" class="spot-link-btn"><i class="fa-solid fa-hotel"></i> 訂房/地圖</a></div>
+                                    <div class="hotel-desc">座落於 Fayetteville 峽谷小鎮，離新河峽谷觀景台僅 5 分鐘車程，環境優雅舒適。</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Day 13 -->
-                <div class="day-card" data-category="archi" data-text="9/16 夏洛特鎮 蒙蒂塞洛莊園 Monticello 傑佛遜 維吉尼亞大學 世界遺產">
+                <div class="day-card" data-category="archi" data-text="9/16 夏洛特鎮 蒙蒂塞洛莊園 Monticello 傑佛遜 維吉尼亞大學 世界遺產 Charlottesville UVA">
                     <div class="day-header">
                         <div class="day-title-group">
                             <span class="day-badge">Day 13</span>
@@ -1135,19 +1391,37 @@
                         <span class="day-drive"><i class="fa-solid fa-car"></i> ~3.0 小時</span>
                     </div>
                     <div class="day-body">
-                        <div class="spots-section-title"><i class="fa-solid fa-star"></i> 行程亮點與景點</div>
+                        <div class="spots-section-title"><i class="fa-solid fa-location-dot"></i> 景點與活動介紹（含地圖與官網連結）</div>
                         <div class="spots-list">
                             <div class="spot-item">
-                                <div class="spot-name">🏰 蒙蒂塞洛莊園 (Monticello)</div>
-                                <div class="spot-desc">美國開國元勳湯瑪斯·傑佛遜自行設計的莊園，獨特的圓頂與新古典主義建築，名列世界文化遺產。</div>
+                                <div>
+                                    <div class="spot-name">🏰 蒙蒂塞洛莊園 (Monticello)</div>
+                                    <div class="spot-desc">美國開國元勳湯瑪斯·傑佛遜自行設計的世界文化遺產圓頂莊園，展現新古典主義建築美學與傑佛遜的發明才華。</div>
+                                </div>
+                                <div class="spot-links">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Monticello+Thomas+Jefferson" target="_blank" class="spot-link-btn"><i class="fa-solid fa-map-pin"></i> Google 地圖</a>
+                                    <a href="https://www.monticello.org/" target="_blank" class="spot-link-btn"><i class="fa-solid fa-ticket"></i> 莊園門票預約官網</a>
+                                </div>
                             </div>
                             <div class="spot-item">
-                                <div class="spot-name">🏫 維吉尼亞大學 (University of Virginia)</div>
-                                <div class="spot-desc">傑佛遜設計的「學術村」（Academical Village）與經典圓頂圖書館。</div>
+                                <div>
+                                    <div class="spot-name">🏫 維吉尼亞大學 (University of Virginia)</div>
+                                    <div class="spot-desc">傑佛遜設計的世界遺產「學術村」（Academical Village）與經典草坪圓頂圖書館。</div>
+                                </div>
+                                <div class="spot-links">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=University+of+Virginia+Rotunda" target="_blank" class="spot-link-btn"><i class="fa-solid fa-map-pin"></i> Google 地圖</a>
+                                    <a href="https://www.virginia.edu/" target="_blank" class="spot-link-btn"><i class="fa-solid fa-globe"></i> UVA 官網</a>
+                                </div>
                             </div>
                         </div>
-                        <div class="hotel-box">
-                            <i class="fa-solid fa-bed"></i> <strong>住宿建議</strong>：Charlottesville 歷史中心區。
+                        <div class="hotel-container">
+                            <div class="hotel-title"><i class="fa-solid fa-bed"></i> 住宿建議與飯店訂房連結</div>
+                            <div class="hotel-items">
+                                <div class="hotel-card">
+                                    <div class="hotel-name">🏨 Boar's Head Resort (Charlottesville) <a href="https://www.google.com/maps/search/?api=1&query=Boars+Head+Resort+Charlottesville" target="_blank" class="spot-link-btn"><i class="fa-solid fa-hotel"></i> 訂房/地圖</a></div>
+                                    <div class="hotel-desc">維吉尼亞大學擁有的四星級渡假村，設有私人湖泊、高爾夫球場與精緻水療SPA。</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1162,15 +1436,22 @@
                         <span class="day-drive"><i class="fa-solid fa-car"></i> ~2.5 小時</span>
                     </div>
                     <div class="day-body">
-                        <div class="spots-section-title"><i class="fa-solid fa-star"></i> 行程亮點與景點</div>
+                        <div class="spots-section-title"><i class="fa-solid fa-location-dot"></i> 景點與活動介紹（含地圖與官網連結）</div>
                         <div class="spots-list">
                             <div class="spot-item">
-                                <div class="spot-name">🏘️ 喬治城 (Georgetown) 老街</div>
-                                <div class="spot-desc">D.C. 最古老優雅的街區，漫步於鵝卵石街道、古典聯排別墅（Townhouses）與古老運河畔。</div>
+                                <div>
+                                    <div class="spot-name">🏘️ 喬治城 (Georgetown) 歷史老街</div>
+                                    <div class="spot-desc">D.C. 最古老的歷史街區，漫步於鵝卵石街道、18 世紀古典聯排別墅（Townhouses）、C&O 運河與熱鬧品牌大道。</div>
+                                </div>
+                                <div class="spot-links">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Georgetown+Washington+DC" target="_blank" class="spot-link-btn"><i class="fa-solid fa-map-pin"></i> Google 地圖</a>
+                                    <a href="https://www.georgetowndc.com/" target="_blank" class="spot-link-btn"><i class="fa-solid fa-globe"></i> 喬治城旅遊官網</a>
+                                </div>
                             </div>
                         </div>
-                        <div class="hotel-box">
-                            <i class="fa-solid fa-bed"></i> <strong>住宿建議</strong>：Arlington / Alexandria 或 D.C. 市區。
+                        <div class="hotel-container">
+                            <div class="hotel-title"><i class="fa-solid fa-bed"></i> 住宿建議</div>
+                            <div class="hotel-desc">同 Day 1 (返回 Residence Inn Rosslyn 或 D.C. 市區飯店)。</div>
                         </div>
                     </div>
                 </div>
@@ -1185,15 +1466,22 @@
                         <span class="day-drive"><i class="fa-solid fa-car"></i> ~0.5 小時</span>
                     </div>
                     <div class="day-body">
-                        <div class="spots-section-title"><i class="fa-solid fa-star"></i> 行程亮點與景點</div>
+                        <div class="spots-section-title"><i class="fa-solid fa-location-dot"></i> 景點與活動介紹（含地圖與官網連結）</div>
                         <div class="spots-list">
                             <div class="spot-item">
-                                <div class="spot-name">✈️ Udvar-Hazy Center (史密森尼航太博物館分館)</div>
-                                <div class="spot-desc">展出昂貴實體的發現號太空梭（Space Shuttle Discovery）與 SR-71 黑鳥超音速偵察機，極度震撼。</div>
+                                <div>
+                                    <div class="spot-name">✈️ Udvar-Hazy Center (史密森尼航太博物館分館)</div>
+                                    <div class="spot-desc">位於 IAD 機場旁，巨大航空展館實體展出昂貴的發現號太空梭（Space Shuttle Discovery）與 SR-71 黑鳥超音速偵察機，令人極度震撼。</div>
+                                </div>
+                                <div class="spot-links">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Steven+F.+Udvar-Hazy+Center" target="_blank" class="spot-link-btn"><i class="fa-solid fa-map-pin"></i> Google 地圖</a>
+                                    <a href="https://airandspace.si.edu/udvar-hazy-center" target="_blank" class="spot-link-btn"><i class="fa-solid fa-globe"></i> 航太館官網</a>
+                                </div>
                             </div>
                         </div>
-                        <div class="hotel-box">
-                            <i class="fa-solid fa-bed"></i> <strong>住宿建議</strong>：同 Day 14。
+                        <div class="hotel-container">
+                            <div class="hotel-title"><i class="fa-solid fa-bed"></i> 住宿建議</div>
+                            <div class="hotel-desc">同 Day 1 (續住 Residence Inn Rosslyn)。</div>
                         </div>
                     </div>
                 </div>
@@ -1208,15 +1496,22 @@
                         <span class="day-drive"><i class="fa-solid fa-car"></i> ~1.0 小時</span>
                     </div>
                     <div class="day-body">
-                        <div class="spots-section-title"><i class="fa-solid fa-star"></i> 行程亮點與景點</div>
+                        <div class="spots-section-title"><i class="fa-solid fa-location-dot"></i> 景點與活動介紹（含地圖與官網連結）</div>
                         <div class="spots-list">
                             <div class="spot-item">
-                                <div class="spot-name">🌳 Mount Vernon (華盛頓總統故居)</div>
-                                <div class="spot-desc">坐落於波托馬克河畔的 Georgian 風格莊園，俯瞰美麗河景與綠地公園。</div>
+                                <div>
+                                    <div class="spot-name">🌳 Mount Vernon (華盛頓總統故居弗農山莊)</div>
+                                    <div class="spot-desc">喬治·華盛頓總統座落於波托馬克河畔的 Georgian 風格歷史莊園，可參觀故居主樓、花園農場與俯瞰美麗河景。</div>
+                                </div>
+                                <div class="spot-links">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=George+Washingtons+Mount+Vernon" target="_blank" class="spot-link-btn"><i class="fa-solid fa-map-pin"></i> Google 地圖</a>
+                                    <a href="https://www.mountvernon.org/" target="_blank" class="spot-link-btn"><i class="fa-solid fa-ticket"></i> 弗農山莊門票預約官網</a>
+                                </div>
                             </div>
                         </div>
-                        <div class="hotel-box">
-                            <i class="fa-solid fa-bed"></i> <strong>住宿建議</strong>：同 Day 14。
+                        <div class="hotel-container">
+                            <div class="hotel-title"><i class="fa-solid fa-bed"></i> 住宿建議</div>
+                            <div class="hotel-desc">同 Day 1 (續住 Residence Inn Rosslyn)。</div>
                         </div>
                     </div>
                 </div>
@@ -1231,11 +1526,16 @@
                         <span class="day-drive"><i class="fa-solid fa-plane-departure"></i> ~0.5 小時至機場</span>
                     </div>
                     <div class="day-body">
-                        <div class="spots-section-title"><i class="fa-solid fa-star"></i> 行程亮點與活動</div>
+                        <div class="spots-section-title"><i class="fa-solid fa-location-dot"></i> 景點與活動介紹（含地圖與官網連結）</div>
                         <div class="spots-list">
                             <div class="spot-item">
-                                <div class="spot-name">🛫 機場還車與辦理登機</div>
-                                <div class="spot-desc">前往機場辦理租車還車、手續與登機，結束充實且不疲累的美東自然建築公路之旅！</div>
+                                <div>
+                                    <div class="spot-name">🛫 D.C. 機場還車與離境</div>
+                                    <div class="spot-desc">辦理租車還車手續與登機，結束充實不疲累的美東雙向自然建築 17 天公路之旅！</div>
+                                </div>
+                                <div class="spot-links">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Washington+Dulles+International+Airport" target="_blank" class="spot-link-btn"><i class="fa-solid fa-map-pin"></i> Google 地圖</a>
+                                </div>
                             </div>
                         </div>
                     </div>
