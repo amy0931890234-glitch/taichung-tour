@@ -966,12 +966,20 @@
         }
 
         @media print {
-            .action-bar, .tabs-nav, .filter-bar, .map-layout, .edit-notice-bar { display: none !important; }
+            .action-bar, .tabs-nav, .filter-bar, .map-layout, .edit-notice-bar, .add-spot-btn, .delete-spot-btn { display: none !important; }
             .tab-content { display: block !important; }
-            body { background: white; color: black; }
-            .day-card { border: 1px solid #ccc; background: white; margin-bottom: 20px; color: black; }
-            .day-h3, .spot-name { color: black !important; }
-            .spot-desc, .day-drive { color: #333 !important; }
+            body { background: #ffffff !important; color: #0f172a !important; background-image: none !important; }
+            .hero { background: #0b132b !important; color: #ffffff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; padding: 30px 20px 20px; border-radius: 0; }
+            .hero h1 { background: none !important; -webkit-text-fill-color: #ffffff !important; color: #ffffff !important; }
+            .hero-subtitle { color: #cbd5e1 !important; }
+            .tag-pill { background: #1e293b !important; color: #ffffff !important; border: 1px solid #334155; }
+            .calendar-card, .day-card, .flow-container, .tip-card { border: 1px solid #cbd5e1 !important; background: #ffffff !important; margin-bottom: 20px; color: #0f172a !important; box-shadow: none !important; }
+            .calendar-header, .day-h3, .spot-name, .schedule-date, .node-title, .tip-card-header { color: #0f172a !important; }
+            .schedule-item { border: 1px solid #cbd5e1 !important; background: #f8fafc !important; page-break-inside: avoid; break-inside: avoid; grid-template-columns: 130px 1fr !important; }
+            .slot-box { background: #ffffff !important; border: 1px solid #e2e8f0 !important; }
+            .slot-title { color: #0284c7 !important; font-weight: 700; }
+            .slot-content, .spot-desc, .day-drive, .schedule-hub-tag { color: #334155 !important; }
+            .schedule-hub-tag { background: #e2e8f0 !important; color: #0f172a !important; border: 1px solid #cbd5e1; }
         }
     </style>
 </head>
