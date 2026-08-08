@@ -492,6 +492,7 @@
             display: flex;
             gap: 10px;
             margin-top: 10px;
+            flex-wrap: wrap;
         }
 
         .link-btn {
@@ -527,23 +528,65 @@
             background: #fff7ed;
             border: 1px solid #ffedd5;
             border-radius: var(--radius-md);
-            padding: 12px 14px;
-            margin-top: 12px;
+            padding: 14px;
+            margin-top: 14px;
         }
 
         .dining-title {
             font-weight: 700;
             color: #9a3412;
-            font-size: 0.92rem;
-            margin-bottom: 4px;
+            font-size: 0.95rem;
+            margin-bottom: 6px;
             display: flex;
             align-items: center;
             gap: 6px;
         }
 
+        .dining-item {
+            margin-bottom: 10px;
+            padding-bottom: 8px;
+            border-bottom: 1px dashed #fed7aa;
+        }
+
+        .dining-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .dining-name {
+            font-weight: 700;
+            color: #7c2d12;
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
         .dining-desc {
             font-size: 0.85rem;
             color: #431407;
+            margin-top: 2px;
+        }
+
+        .dining-links {
+            display: flex;
+            gap: 8px;
+            margin-top: 4px;
+        }
+
+        .dining-link {
+            color: #c2410c;
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+        }
+
+        .dining-link:hover {
+            text-decoration: underline;
         }
 
         /* Image Side Gallery */
@@ -639,7 +682,7 @@
         <div class="hero-container">
             <span class="badge-tag"><i class="fa-solid fa-plane-arrival"></i> 2026/09/02 ~ 09/21 家庭自駕專屬規劃</span>
             <h1>美東 18 天自然風光與尼加拉瀑布漫活之旅</h1>
-            <p>專為爸媽與女兒規劃：大自然絕景、雪南多亞與 5 大州立公園輕鬆健行、尼加拉瀑布正面景觀、定點 2-3 天放鬆住宿，全程點到點開車嚴格控制在 2.5 小時以內。</p>
+            <p>專為爸媽與女兒規劃：大自然絕景、雪南多亞與 5 大州立公園輕鬆健行、尼加拉瀑布正面景觀、定點 2-3 天放鬆住宿，每日皆提供特選餐館與 Google 地圖連結。</p>
             
             <div class="stats-grid">
                 <div class="stat-card">
@@ -658,9 +701,9 @@
                     <span class="lbl">每 2~3 天換一次住宿</span>
                 </div>
                 <div class="stat-card">
-                    <i class="fa-solid fa-water"></i>
-                    <span class="val">尼加拉瀑布</span>
-                    <span class="lbl">美加雙側 + 霧中少女號</span>
+                    <i class="fa-solid fa-utensils"></i>
+                    <span class="val">每日精選美食</span>
+                    <span class="lbl">每日皆附餐廳推薦與連結</span>
                 </div>
             </div>
         </div>
@@ -774,7 +817,7 @@
         <!-- Timeline / Daily Cards -->
         <div class="timeline-section">
             <div class="section-header">
-                <h2><i class="fa-solid fa-calendar-days"></i> 每日詳細行程與路線指引</h2>
+                <h2><i class="fa-solid fa-calendar-days"></i> 每日詳細行程與美食導航指引</h2>
             </div>
 
             <!-- DAY 1 -->
@@ -812,10 +855,25 @@
                             <div class="hotel-info-card">
                                 <div class="hotel-name">Hyatt Regency Reston / Westin Dulles Airport</div>
                                 <div class="rating-stars">★★★★☆ 4.5/5.0 (2,300+ 評價) &bull; 離機場 15 分鐘，生活機能極佳</div>
-                                <p style="font-size: 0.85rem; color: var(--text-muted);">「房間寬敞乾淨，床鋪極為舒適，周邊 Reston Town Center 步行即可用餐與補給。」</p>
                                 <div class="hotel-links">
                                     <a href="https://www.hyatt.com/hyatt-regency/en-US/restn-hyatt-regency-reston" target="_blank" class="link-btn link-btn-official"><i class="fa-solid fa-globe"></i> 飯店官網</a>
                                     <a href="https://maps.google.com/?q=Hyatt+Regency+Reston" target="_blank" class="link-btn link-btn-maps"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Dining Day 1 -->
+                        <div class="dining-card">
+                            <div class="dining-title"><i class="fa-solid fa-utensils"></i> 每日精選餐館推薦</div>
+                            <div class="dining-item">
+                                <div class="dining-name">
+                                    <span>Silver Diner Reston (美式經典夜宵與熱湯)</span>
+                                    <span style="font-size:0.8rem; color:#f59e0b;">★ 4.5/5 (2,600+評價)</span>
+                                </div>
+                                <div class="dining-desc">營業至凌晨，提供現做熱牛肉湯、熱壓三明治、鬆餅與新鮮美式漢堡，極適合抵達當晚補充體力。</div>
+                                <div class="dining-links">
+                                    <a href="https://www.silverdiner.com/" target="_blank" class="dining-link"><i class="fa-solid fa-globe"></i> 餐廳官網</a>
+                                    <a href="https://maps.google.com/?q=Silver+Diner+Reston" target="_blank" class="dining-link"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
                                 </div>
                             </div>
                         </div>
@@ -866,15 +924,32 @@
                                 <div class="hike-desc">步道全線採用碎石與碎木屑鋪設，極為平緩無陡坡。穿梭於古老鐵杉林、山月桂與壯麗的巨石景緻間，設有無障礙休息椅子，非常適合爸媽輕鬆健行吸氧。</div>
                             </div>
                         </div>
-                        <div class="info-block">
-                            <div class="block-title"><i class="fa-solid fa-tree"></i> 國家公園簡介與評價</div>
-                            <p class="spot-description"><strong>Shenandoah National Park (雪南多亞國家公園)</strong>：沿著藍嶺山脈延綿 169 公里的天際線公路 (Skyline Drive)，擁有超過 75 個俯瞰藍嶺山谷的展望台。<br>
-                            &bull; 官網：<a href="https://www.nps.gov/shen/index.htm" target="_blank">https://www.nps.gov/shen/index.htm</a><br>
-                            &bull; Google 評價：★★★★★ 4.8/5.0 (14,500+ 則最新評價)</p>
-                        </div>
+
+                        <!-- Dining Day 2 -->
                         <div class="dining-card">
-                            <div class="dining-title"><i class="fa-solid fa-utensils"></i> 特色餐廳推薦：Pollock Dining Room at Skyland</div>
-                            <div class="dining-desc">位於公園最高點 Skyland 度假村內，邊用餐邊俯瞰 Shenandoah Valley 山谷絕景。必點招牌「Virginia 黑莓冰淇淋派 (Blackberry Ice Cream Pie)」與香煎溪釣鱒魚。</div>
+                            <div class="dining-title"><i class="fa-solid fa-utensils"></i> 每日精選餐館推薦</div>
+                            <div class="dining-item">
+                                <div class="dining-name">
+                                    <span>午餐：Pollock Dining Room at Skyland</span>
+                                    <span style="font-size:0.8rem; color:#f59e0b;">★ 4.4/5 (850+評價)</span>
+                                </div>
+                                <div class="dining-desc">位於國家公園最高點，邊用餐邊俯瞰山谷美景。必點招牌 Virginia 黑莓冰淇淋派與清蒸/香煎溪釣鱒魚。</div>
+                                <div class="dining-links">
+                                    <a href="https://www.goshenandoah.com/dining/skyland" target="_blank" class="dining-link"><i class="fa-solid fa-globe"></i> 餐廳官網</a>
+                                    <a href="https://maps.google.com/?q=Pollock+Dining+Room+Skyland" target="_blank" class="dining-link"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
+                                </div>
+                            </div>
+                            <div class="dining-item">
+                                <div class="dining-name">
+                                    <span>晚餐：Front Royal Brewing Co.</span>
+                                    <span style="font-size:0.8rem; color:#f59e0b;">★ 4.6/5 (1,100+評價)</span>
+                                </div>
+                                <div class="dining-desc">位於 Front Royal 小鎮溫馨美式餐廳，提供特製精釀麥汁、爐烤肋眼牛排、香脆炸雞與新鮮沙拉。</div>
+                                <div class="dining-links">
+                                    <a href="https://www.frontroyalbrewing.com/" target="_blank" class="dining-link"><i class="fa-solid fa-globe"></i> 餐廳官網</a>
+                                    <a href="https://maps.google.com/?q=Front+Royal+Brewing+Co" target="_blank" class="dining-link"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="day-gallery">
@@ -918,19 +993,37 @@
                             <div class="hike-card">
                                 <div class="hike-head">
                                     <span class="hike-name">Stony Man Trail (國家公園第二高峰全景步道)</span>
-                                    <span class="hike-meta"><span><i class="fa-solid fa-ruler-horizontal"></i> 2.6 km (1.6 mi)往返</span> <span><i class="fa-solid fa-mountain"></i> 緩坡升降 100m</span></span>
+                                    <span class="hike-meta"><span><i class="fa-solid fa-ruler-horizontal"></i> 2.6 km 往返</span> <span><i class="fa-solid fa-mountain"></i> 緩坡升降 100m</span></span>
                                 </div>
-                                <div class="hike-desc">路面為寬闊的土石路，坡度極為緩和。終點登頂至懸崖石台上，可享有無遮蔽的 360 度謝南多亞山谷壯麗視野，非常值得一去！</div>
+                                <div class="hike-desc">路面為寬闊的土石路，坡度極為緩和。終點登頂至懸崖石台上，可享有無遮蔽的 360 度謝南多亞山谷壯麗視野。</div>
                             </div>
                         </div>
-                        <div class="info-block">
-                            <div class="block-title"><i class="fa-solid fa-water"></i> 備選輕鬆步道：Dark Hollow Falls</div>
-                            <p class="spot-description">前往溪谷觀賞 21 公尺高的雙層瀑布 (往返 2.2 km)。溪流沿途樹蔭密布，清涼無比。</p>
-                        </div>
-                        <div class="info-block">
-                            <div class="block-title"><i class="fa-solid fa-bed"></i> 住宿飯店</div>
-                            <p class="spot-description"><strong>Skyland Resort (公園內 Lodge) / Hampton Inn Front Royal</strong><br>
-                            &bull; 評價：★★★★☆ 4.5/5.0 &bull; <a href="https://www.goshenandoah.com/lodging/skyland" target="_blank">預訂與評價網址</a></p>
+
+                        <!-- Dining Day 3 -->
+                        <div class="dining-card">
+                            <div class="dining-title"><i class="fa-solid fa-utensils"></i> 每日精選餐館推薦</div>
+                            <div class="dining-item">
+                                <div class="dining-name">
+                                    <span>午餐：Big Meadows Lodge Spottswood Dining Room</span>
+                                    <span style="font-size:0.8rem; color:#f59e0b;">★ 4.3/5 (650+評價)</span>
+                                </div>
+                                <div class="dining-desc">位於公園中央 Big Meadows，大片景觀窗可觀賞野生鹿群。提供德裔美式烤肉、熱濃湯與手作派。</div>
+                                <div class="dining-links">
+                                    <a href="https://www.goshenandoah.com/dining/big-meadows-lodge" target="_blank" class="dining-link"><i class="fa-solid fa-globe"></i> 餐廳官網</a>
+                                    <a href="https://maps.google.com/?q=Spottswood+Dining+Room+Big+Meadows" target="_blank" class="dining-link"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
+                                </div>
+                            </div>
+                            <div class="dining-item">
+                                <div class="dining-name">
+                                    <span>晚餐：Griffin Tavern (Flint Hill 歷史鄉村餐館)</span>
+                                    <span style="font-size:0.8rem; color:#f59e0b;">★ 4.7/5 (750+評價)</span>
+                                </div>
+                                <div class="dining-desc">距離公園北入口 15 分鐘，1850 年古典建築風格，提供現烤美式肋眼、海鮮燴飯與溫馨家庭氣氛。</div>
+                                <div class="dining-links">
+                                    <a href="https://www.griffintavern.com/" target="_blank" class="dining-link"><i class="fa-solid fa-globe"></i> 餐廳官網</a>
+                                    <a href="https://maps.google.com/?q=Griffin+Tavern+Flint+Hill" target="_blank" class="dining-link"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="day-gallery">
@@ -962,7 +1055,7 @@
                         <div class="drive-box">
                             <div class="drive-info">
                                 <i class="fa-solid fa-route"></i>
-                                <span>Skyland / Front Royal ➔ Luray Caverns (40 km)</span>
+                                <span>Front Royal ➔ Luray Caverns (40 km)</span>
                             </div>
                             <a href="https://www.google.com/maps/dir/Front+Royal,+VA/Luray+Caverns,+Cave+Hill+Road,+Luray,+VA" target="_blank" class="maps-btn">
                                 <i class="fa-solid fa-map-location-dot"></i> Maps 導航 (35分)
@@ -970,13 +1063,34 @@
                         </div>
                         <div class="info-block">
                             <div class="block-title"><i class="fa-solid fa-gem"></i> 景點介紹：Luray Caverns (路雷溶洞)</div>
-                            <p class="spot-description">美東最大且最著名的鐘乳石溶洞，地底步道鋪設完備平整且無階梯負擔。洞內恆溫 12°C，擁有高聳如教堂的石筍柱、夢幻鏡池 (Dream Lake) 與世界唯一的鐘乳石管風琴 (Stalacpipe Organ)。<br>
-                            &bull; 官網：<a href="https://luraycaverns.com/" target="_blank">https://luraycaverns.com/</a><br>
-                            &bull; Google 評價：★★★★★ 4.7/5.0 (22,100+ 則評價)</p>
+                            <p class="spot-description">美東最大且最著名的鐘乳石溶洞，地底步道鋪設完備平整且無階梯負擔。洞內恆溫 12°C，擁有夢幻鏡池 (Dream Lake) 與世界唯一的鐘乳石管風琴 (Stalacpipe Organ)。</p>
                         </div>
+
+                        <!-- Dining Day 4 -->
                         <div class="dining-card">
-                            <div class="dining-title"><i class="fa-solid fa-utensils"></i> 特色餐廳推薦：Gathering Grounds Patisserie & Cafe</div>
-                            <div class="dining-desc">位於 Luray 小鎮溫馨的法式鄉村餐館，提供現做熱壓帕里尼、主廚特製濃湯與手作甜點，深受在地人與遊客喜愛。</div>
+                            <div class="dining-title"><i class="fa-solid fa-utensils"></i> 每日精選餐館推薦</div>
+                            <div class="dining-item">
+                                <div class="dining-name">
+                                    <span>午餐：Gathering Grounds Patisserie & Cafe</span>
+                                    <span style="font-size:0.8rem; color:#f59e0b;">★ 4.7/5 (680+評價)</span>
+                                </div>
+                                <div class="dining-desc">位於 Luray 小鎮溫馨的法式鄉村餐館，提供現做熱壓帕里尼、主廚特製法式濃湯與手作甜點。</div>
+                                <div class="dining-links">
+                                    <a href="https://gatheringgroundscafe.com/" target="_blank" class="dining-link"><i class="fa-solid fa-globe"></i> 餐廳官網</a>
+                                    <a href="https://maps.google.com/?q=Gathering+Grounds+Luray" target="_blank" class="dining-link"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
+                                </div>
+                            </div>
+                            <div class="dining-item">
+                                <div class="dining-name">
+                                    <span>晚餐：Violino Ristorante Italiano (Winchester)</span>
+                                    <span style="font-size:0.8rem; color:#f59e0b;">★ 4.6/5 (820+評價)</span>
+                                </div>
+                                <div class="dining-desc">位於 Winchester 徒步街區的精緻義大利餐廳，手工義大利麵、嫩煎牛排與提拉米蘇非常道地。</div>
+                                <div class="dining-links">
+                                    <a href="https://www.violinoristorante.com/" target="_blank" class="dining-link"><i class="fa-solid fa-globe"></i> 餐廳官網</a>
+                                    <a href="https://maps.google.com/?q=Violino+Ristorante+Italiano+Winchester" target="_blank" class="dining-link"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="day-gallery">
@@ -1016,17 +1130,32 @@
                         </div>
                         <div class="info-block">
                             <div class="block-title"><i class="fa-solid fa-landmark"></i> 景點介紹：Gettysburg National Military Park</div>
-                            <p class="spot-description">廣達數千公頃的自然丘陵公園，設有 24 公里的 Auto Tour 景觀車道。爸媽可輕鬆坐在車上欣賞綠草如茵的斜坡、古老火砲與紀念碑，完全無需徒步走遠。<br>
-                            &bull; 官網：<a href="https://www.nps.gov/gett/index.htm" target="_blank">https://www.nps.gov/gett/index.htm</a><br>
-                            &bull; Google 評價：★★★★★ 4.8/5.0 (11,200+ 則評價)</p>
+                            <p class="spot-description">廣達數千公頃的自然丘陵公園，設有 24 公里的 Auto Tour 景觀車道。爸媽可輕鬆坐在車上欣賞綠草如茵的斜坡與古老紀念碑。</p>
                         </div>
-                        <div class="info-block">
-                            <div class="block-title"><i class="fa-solid fa-bed"></i> Base 2 住宿飯店</div>
-                            <div class="hotel-info-card">
-                                <div class="hotel-name">Hyatt Place State College / Carnegie Inn</div>
-                                <div class="rating-stars">★★★★☆ 4.6/5.0 (1,200+ 評價) &bull; 位於賓州大學城，環境優雅安靜</div>
-                                <div class="hotel-links">
-                                    <a href="https://www.hyatt.com/en-US/hotel/pennsylvania/hyatt-place-state-college/scezs" target="_blank" class="link-btn link-btn-official"><i class="fa-solid fa-globe"></i> 飯店官網</a>
+
+                        <!-- Dining Day 5 -->
+                        <div class="dining-card">
+                            <div class="dining-title"><i class="fa-solid fa-utensils"></i> 每日精選餐館推薦</div>
+                            <div class="dining-item">
+                                <div class="dining-name">
+                                    <span>午餐：Dobbin House Tavern (Gettysburg 1776歷史客棧)</span>
+                                    <span style="font-size:0.8rem; color:#f59e0b;">★ 4.7/5 (3,400+評價)</span>
+                                </div>
+                                <div class="dining-desc">蓋蒂斯堡最古老（1776年興建）古蹟餐廳，服務生穿著古典服飾，提供殖民時期風格牛排與蘋果派。</div>
+                                <div class="dining-links">
+                                    <a href="https://www.dobbinhouse.com/" target="_blank" class="dining-link"><i class="fa-solid fa-globe"></i> 餐廳官網</a>
+                                    <a href="https://maps.google.com/?q=Dobbin+House+Tavern+Gettysburg" target="_blank" class="dining-link"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
+                                </div>
+                            </div>
+                            <div class="dining-item">
+                                <div class="dining-name">
+                                    <span>晚餐：The Field Burger & Tap (State College)</span>
+                                    <span style="font-size:0.8rem; color:#f59e0b;">★ 4.6/5 (1,400+評價)</span>
+                                </div>
+                                <div class="dining-desc">使用賓州在地農場優質熟成牛排與新鮮食材，提供美式農場到餐桌料理與香濃手作奶昔。</div>
+                                <div class="dining-links">
+                                    <a href="https://www.toftrees.com/dining/the-field/" target="_blank" class="dining-link"><i class="fa-solid fa-globe"></i> 餐廳官網</a>
+                                    <a href="https://maps.google.com/?q=The+Field+Burger+State+College" target="_blank" class="dining-link"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
                                 </div>
                             </div>
                         </div>
@@ -1046,7 +1175,7 @@
                     <div class="day-date-box">
                         <div class="day-number">D6</div>
                         <div class="day-title-wrap">
-                            <h3>9/7 (一) Raystown Lake / Bald Eagle 州立公園湖畔放鬆</h3>
+                            <h3>9/7 (一) Bald Eagle 州立公園湖畔放鬆休養</h3>
                             <span class="sub-date">專為長輩安排的休養日：湖畔散步、賞鳥與湖景午餐</span>
                         </div>
                     </div>
@@ -1068,13 +1197,34 @@
                         </div>
                         <div class="info-block">
                             <div class="block-title"><i class="fa-solid fa-water"></i> 自然休閒：Bald Eagle State Park</div>
-                            <p class="spot-description">擁有 1,730 英畝美麗湖泊，環湖設有平坦的水岸木棧道與野餐涼亭。適合在湖邊放慢腳步散步、欣賞湖光山色與白頭海雕棲息。<br>
-                            &bull; 官網：<a href="https://www.dcnr.pa.gov/StateParks/FindAPark/BaldEagleStatePark/Pages/default.aspx" target="_blank">PA DCNR 官方網站</a><br>
-                            &bull; 評價：★★★★☆ 4.7/5.0</p>
+                            <p class="spot-description">擁有 1,730 英畝美麗湖泊，環湖設有平坦的水岸木棧道與野餐涼亭。適合在湖邊放慢腳步散步、欣賞湖光山色。</p>
                         </div>
+
+                        <!-- Dining Day 6 -->
                         <div class="dining-card">
-                            <div class="dining-title"><i class="fa-solid fa-utensils"></i> 特色餐廳：The Field Burger & Tap</div>
-                            <div class="dining-desc">使用賓州在地農場優質牛排與新鮮食材，提供全家喜愛的農場到餐桌美式料理與香濃奶昔。</div>
+                            <div class="dining-title"><i class="fa-solid fa-utensils"></i> 每日精選餐館推薦</div>
+                            <div class="dining-item">
+                                <div class="dining-name">
+                                    <span>午餐：Hublersburg Inn (1827歷史湖區客棧)</span>
+                                    <span style="font-size:0.8rem; color:#f59e0b;">★ 4.7/5 (520+評價)</span>
+                                </div>
+                                <div class="dining-desc">距離公園 10 分鐘，花園露台座位區極具風情，提供新鮮香煎鱒魚、鄉村漢堡與現做沙拉。</div>
+                                <div class="dining-links">
+                                    <a href="https://www.hublersburginn.com/" target="_blank" class="dining-link"><i class="fa-solid fa-globe"></i> 餐廳官網</a>
+                                    <a href="https://maps.google.com/?q=Hublersburg+Inn" target="_blank" class="dining-link"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
+                                </div>
+                            </div>
+                            <div class="dining-item">
+                                <div class="dining-name">
+                                    <span>晚餐：Allen Street Grill (State College)</span>
+                                    <span style="font-size:0.8rem; color:#f59e0b;">★ 4.6/5 (880+評價)</span>
+                                </div>
+                                <div class="dining-desc">位於 State College 市中心古典大樓二樓，景觀窗直面綠意林蔭街區，海鮮與肋眼牛排非常美味。</div>
+                                <div class="dining-links">
+                                    <a href="https://allenstreetgrill.com/" target="_blank" class="dining-link"><i class="fa-solid fa-globe"></i> 餐廳官網</a>
+                                    <a href="https://maps.google.com/?q=Allen+Street+Grill" target="_blank" class="dining-link"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="day-gallery">
@@ -1118,19 +1268,35 @@
                             <div class="hike-card">
                                 <div class="hike-head">
                                     <span class="hike-name">Watkins Glen Gorge Trail (19 座瀑布奇觀峽谷)</span>
-                                    <span class="hike-meta"><span><i class="fa-solid fa-ruler-horizontal"></i> 2.4 km (1.5 mi)</span> <span><i class="fa-solid fa-bus"></i> 設有回程接駁公車</span></span>
+                                    <span class="hike-meta"><span><i class="fa-solid fa-ruler-horizontal"></i> 2.4 km</span> <span><i class="fa-solid fa-bus"></i> 設有接駁公車</span></span>
                                 </div>
-                                <div class="hike-desc">沿石雕步道深入千年流水侵蝕的石灰岩峽谷，步道穿越瀑布後方水簾（Rainbow Falls）。爸媽若不想走回程陡階，步道終點即有公園 Shuttle Bus (每人 $6) 可接送回入口停車場，輕鬆無負擔！</div>
+                                <div class="hike-desc">沿石雕步道深入千年流水侵蝕的石灰岩峽谷，步道穿越瀑布後方水簾。步道終點即有公園 Shuttle Bus (每人 $6) 可接送回入口。</div>
                             </div>
                         </div>
-                        <div class="info-block">
-                            <div class="block-title"><i class="fa-solid fa-bed"></i> Base 3 住宿飯店 (連住 3 晚)</div>
-                            <div class="hotel-info-card">
-                                <div class="hotel-name">Watkins Glen Harbor Hotel (Seneca 湖畔四星級飯店)</div>
-                                <div class="rating-stars">★★★★★ 4.7/5.0 (1,800+ 評價) &bull; 陽台可直接飽覽 Seneca 湖夕陽美景</div>
-                                <div class="hotel-links">
-                                    <a href="https://www.watkinsglenharborhotel.com/" target="_blank" class="link-btn link-btn-official"><i class="fa-solid fa-globe"></i> 飯店官網</a>
-                                    <a href="https://maps.google.com/?q=Watkins+Glen+Harbor+Hotel" target="_blank" class="link-btn link-btn-maps"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
+
+                        <!-- Dining Day 7 -->
+                        <div class="dining-card">
+                            <div class="dining-title"><i class="fa-solid fa-utensils"></i> 每日精選餐館推薦</div>
+                            <div class="dining-item">
+                                <div class="dining-name">
+                                    <span>午餐：Seneca Harbor Station (水岸碼頭餐廳)</span>
+                                    <span style="font-size:0.8rem; color:#f59e0b;">★ 4.5/5 (1,600+評價)</span>
+                                </div>
+                                <div class="dining-desc">位於 Seneca 湖極南端碼頭，在古色古香的木造建築中享用現做炸魚薯條、龍蝦堡與湖景。</div>
+                                <div class="dining-links">
+                                    <a href="https://www.senecaharborstation.com/" target="_blank" class="dining-link"><i class="fa-solid fa-globe"></i> 餐廳官網</a>
+                                    <a href="https://maps.google.com/?q=Seneca+Harbor+Station" target="_blank" class="dining-link"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
+                                </div>
+                            </div>
+                            <div class="dining-item">
+                                <div class="dining-name">
+                                    <span>晚餐：Blue Pointe Grille (Harbor Hotel)</span>
+                                    <span style="font-size:0.8rem; color:#f59e0b;">★ 4.6/5 (720+評價)</span>
+                                </div>
+                                <div class="dining-desc">在飯店 Seneca 湖畔戶外露台享用海鮮濃湯、爐烤紐約客牛排與芬格湖區冰鎮 Riesling 白酒。</div>
+                                <div class="dining-links">
+                                    <a href="https://www.watkinsglenharborhotel.com/dining" target="_blank" class="dining-link"><i class="fa-solid fa-globe"></i> 餐廳官網</a>
+                                    <a href="https://maps.google.com/?q=Blue+Pointe+Grille+Watkins+Glen" target="_blank" class="dining-link"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
                                 </div>
                             </div>
                         </div>
@@ -1176,14 +1342,37 @@
                             <div class="hike-card">
                                 <div class="hike-head">
                                     <span class="hike-name">Taughannock Falls Gorge Trail</span>
-                                    <span class="hike-meta"><span><i class="fa-solid fa-ruler-horizontal"></i> 1.9 km (1.2 mi)往返</span> <span><i class="fa-solid fa-person-walking"></i> 完全平坦碎石道</span></span>
+                                    <span class="hike-meta"><span><i class="fa-solid fa-ruler-horizontal"></i> 1.9 km 往返</span> <span><i class="fa-solid fa-person-walking"></i> 完全平坦</span></span>
                                 </div>
-                                <div class="hike-desc">沿溪谷平坦散步道步行 20 分鐘，即可到達觀景台直面落差達 65 公尺（215 呎）的垂直懸崖瀑布，場面比尼加拉單層瀑布更為陡峭震撼。另外亦有 Overlook 車步直達觀景台。</div>
+                                <div class="hike-desc">沿溪谷平坦散步道步行 20 分鐘，即可到達觀景台直面落差達 65 公尺（215 呎）的垂直懸崖瀑布。</div>
                             </div>
                         </div>
+
+                        <!-- Dining Day 8 -->
                         <div class="dining-card">
-                            <div class="dining-title"><i class="fa-solid fa-utensils"></i> 特色酒莊餐廳：Knapp Winery & Vineyard Restaurant</div>
-                            <div class="dining-desc">在 Cayuga 湖畔葡萄園圍繞下享用新鮮法式-美式農場午餐，搭配芬格湖區最具盛名的 Riesling 白葡萄酒。</div>
+                            <div class="dining-title"><i class="fa-solid fa-utensils"></i> 每日精選餐館推薦</div>
+                            <div class="dining-item">
+                                <div class="dining-name">
+                                    <span>午餐：Knapp Winery & Vineyard Restaurant</span>
+                                    <span style="font-size:0.8rem; color:#f59e0b;">★ 4.6/5 (480+評價)</span>
+                                </div>
+                                <div class="dining-desc">在 Cayuga 湖畔葡萄園圍繞下享用農場到餐桌午餐，搭配芬格湖區最具盛名的 Riesling 白葡萄酒。</div>
+                                <div class="dining-links">
+                                    <a href="https://www.knappwinery.com/" target="_blank" class="dining-link"><i class="fa-solid fa-globe"></i> 餐廳官網</a>
+                                    <a href="https://maps.google.com/?q=Knapp+Winery+and+Vineyard+Restaurant" target="_blank" class="dining-link"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
+                                </div>
+                            </div>
+                            <div class="dining-item">
+                                <div class="dining-name">
+                                    <span>晚餐：The BoatYard Grill (Ithaca 湖畔燒烤餐館)</span>
+                                    <span style="font-size:0.8rem; color:#f59e0b;">★ 4.6/5 (2,200+評價)</span>
+                                </div>
+                                <div class="dining-desc">位於 Ithaca 湖畔，專營柴燒原塊牛排、現烤鮭魚與鮮蝦沙拉，水岸夕陽景致極佳。</div>
+                                <div class="dining-links">
+                                    <a href="https://boatyardgrill.com/" target="_blank" class="dining-link"><i class="fa-solid fa-globe"></i> 餐廳官網</a>
+                                    <a href="https://maps.google.com/?q=The+BoatYard+Grill+Ithaca" target="_blank" class="dining-link"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="day-gallery">
@@ -1223,13 +1412,34 @@
                         </div>
                         <div class="info-block">
                             <div class="block-title"><i class="fa-solid fa-palette"></i> 景點介紹：Corning Museum of Glass</div>
-                            <p class="spot-description">全球規模最大的玻璃藝術與科學博物館，館內舒適涼爽。每半小時舉辦精彩紛呈的 Hot Glass Live 現場熱玻璃吹製秀，極具觀賞價值。<br>
-                            &bull; 官網：<a href="https://www.cmog.org/" target="_blank">https://www.cmog.org/</a><br>
-                            &bull; Google 評價：★★★★★ 4.8/5.0 (9,800+ 則評價)</p>
+                            <p class="spot-description">全球規模最大的玻璃藝術與科學博物館，館內舒適涼爽。每半小時舉辦精彩紛呈的 Hot Glass Live 現場熱玻璃吹製秀。</p>
                         </div>
+
+                        <!-- Dining Day 9 -->
                         <div class="dining-card">
-                            <div class="dining-title"><i class="fa-solid fa-utensils"></i> 特色餐廳推薦：Blue Pointe Grille at Harbor Hotel</div>
-                            <div class="dining-desc">在飯店湖畔露台享用現捕 Seneca 湖鮮魚、龍蝦湯與熟成肋眼牛排，氣氛極佳。</div>
+                            <div class="dining-title"><i class="fa-solid fa-utensils"></i> 每日精選餐館推薦</div>
+                            <div class="dining-item">
+                                <div class="dining-name">
+                                    <span>午餐：The Market Street Brewing Co. (Corning)</span>
+                                    <span style="font-size:0.8rem; color:#f59e0b;">★ 4.5/5 (850+評價)</span>
+                                </div>
+                                <div class="dining-desc">位於康寧歷史老街區，頂樓露天座位區可遠眺鎮景，提供現做海鮮義大利麵與德式披薩。</div>
+                                <div class="dining-links">
+                                    <a href="https://marketstreetbrewing.com/" target="_blank" class="dining-link"><i class="fa-solid fa-globe"></i> 餐廳官網</a>
+                                    <a href="https://maps.google.com/?q=Market+Street+Brewing+Co+Corning" target="_blank" class="dining-link"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
+                                </div>
+                            </div>
+                            <div class="dining-item">
+                                <div class="dining-name">
+                                    <span>晚餐：Sorge's Restaurant (康寧在地老牌義式餐廳)</span>
+                                    <span style="font-size:0.8rem; color:#f59e0b;">★ 4.6/5 (1,100+評價)</span>
+                                </div>
+                                <div class="dining-desc">創立於 1951 年的精緻餐廳，手工義式肉丸麵、焗烤千層麵與主廚特製甜點深受喜愛。</div>
+                                <div class="dining-links">
+                                    <a href="https://www.sorges.com/" target="_blank" class="dining-link"><i class="fa-solid fa-globe"></i> 餐廳官網</a>
+                                    <a href="https://maps.google.com/?q=Sorges+Restaurant+Corning" target="_blank" class="dining-link"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="day-gallery">
@@ -1270,18 +1480,32 @@
                         </div>
                         <div class="info-block">
                             <div class="block-title"><i class="fa-solid fa-mountain"></i> 景點介紹：Letchworth State Park (美東大峽谷)</div>
-                            <p class="spot-description">獲選全美第一州立公園！創生於基因西河 (Genesee River) 穿鑿而出的 170 公尺深峽谷，包含 Upper, Middle, Lower 三座宏偉大瀑布。Inspiration Point 設有無障礙觀景台，可一次飽覽峽谷、鐵路橋與瀑布美景。<br>
-                            &bull; 官網：<a href="https://parks.ny.gov/parks/letchworth/" target="_blank">NY State Parks Letchworth</a><br>
-                            &bull; Google 評價：★★★★★ 4.9/5.0 (12,800+ 則評價)</p>
+                            <p class="spot-description">創生於基因西河穿鑿而出 170 公尺深峽谷，Inspiration Point 設有無障礙觀景台，可一次飽覽峽谷與瀑布美景。</p>
                         </div>
-                        <div class="info-block">
-                            <div class="block-title"><i class="fa-solid fa-bed"></i> Base 4 住宿飯店 (連住 3 晚)</div>
-                            <div class="hotel-info-card">
-                                <div class="hotel-name">Marriott Fallsview Hotel & Spa / Hyatt Place Niagara Falls</div>
-                                <div class="rating-stars">★★★★☆ 4.6/5.0 (4,500+ 評價) &bull; 房間直面馬蹄瀑布全景</div>
-                                <div class="hotel-links">
-                                    <a href="https://www.marriott.com/en-us/hotels/yagmc-marriott-fallsview-hotel-and-spa/overview/" target="_blank" class="link-btn link-btn-official"><i class="fa-solid fa-globe"></i> 飯店官網</a>
-                                    <a href="https://maps.google.com/?q=Marriott+Fallsview+Hotel" target="_blank" class="link-btn link-btn-maps"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
+
+                        <!-- Dining Day 10 -->
+                        <div class="dining-card">
+                            <div class="dining-title"><i class="fa-solid fa-utensils"></i> 每日精選餐館推薦</div>
+                            <div class="dining-item">
+                                <div class="dining-name">
+                                    <span>午餐：Glen Iris Inn (Letchworth 公園內莊園餐廳)</span>
+                                    <span style="font-size:0.8rem; color:#f59e0b;">★ 4.6/5 (1,150+評價)</span>
+                                </div>
+                                <div class="dining-desc">位於 Middle Falls 瀑布正前方 historic 莊園內，邊享用熱壓法式三明治與濃湯邊欣賞瀑布。</div>
+                                <div class="dining-links">
+                                    <a href="https://www.glenirisinn.com/" target="_blank" class="dining-link"><i class="fa-solid fa-globe"></i> 餐廳官網</a>
+                                    <a href="https://maps.google.com/?q=Glen+Iris+Inn" target="_blank" class="dining-link"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
+                                </div>
+                            </div>
+                            <div class="dining-item">
+                                <div class="dining-name">
+                                    <span>晚餐：Table Rock House Restaurant (馬蹄瀑布第一排)</span>
+                                    <span style="font-size:0.8rem; color:#f59e0b;">★ 4.6/5 (2,800+評價)</span>
+                                </div>
+                                <div class="dining-desc">位於加拿大側 Table Rock 中心二樓，大片全景落地窗直面震撼的馬蹄瀑布，精緻加國肋眼與海鮮極佳。</div>
+                                <div class="dining-links">
+                                    <a href="https://www.niagaraparks.com/visit/culinary/table-rock-house-restaurant/" target="_blank" class="dining-link"><i class="fa-solid fa-globe"></i> 餐廳官網</a>
+                                    <a href="https://maps.google.com/?q=Table+Rock+House+Restaurant" target="_blank" class="dining-link"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
                                 </div>
                             </div>
                         </div>
@@ -1323,19 +1547,34 @@
                         </div>
                         <div class="info-block">
                             <div class="block-title"><i class="fa-solid fa-ship"></i> 核心體驗 1：Maid of the Mist (霧中少女號) / Niagara City Cruises</div>
-                            <p class="spot-description">穿上專屬藍色/紅色雨衣，登上雙層觀光船，一路駛入氣勢磅礡的馬蹄瀑布 (Horseshoe Falls) 下方。感受水霧撲面與雷霆萬鈞的咆哮。<br>
-                            &bull; 美國側 Maid of the Mist 官網：<a href="https://www.maidofthemist.com/" target="_blank">https://www.maidofthemist.com/</a><br>
-                            &bull; 加拿大側 City Cruises 官網：<a href="https://www.niagaracitycruises.com/" target="_blank">https://www.niagaracitycruises.com/</a><br>
-                            &bull; Google 評價：★★★★★ 4.8/5.0 (68,000+ 則評價)</p>
+                            <p class="spot-description">穿上雨衣登上雙層觀光船，駛入馬蹄瀑布下方，感受水霧撲面與雷霆萬鈞的咆哮。</p>
                         </div>
-                        <div class="info-block">
-                            <div class="block-title"><i class="fa-solid fa-wind"></i> 核心體驗 2：Cave of the Winds (風之洞)</div>
-                            <p class="spot-description">乘坐搭電梯深入 53 公尺峽谷底部，走在木棧道上直接來到新娘面紗瀑布 (Bridal Veil Falls) 的颶風平台 (Hurricane Deck) 正下方！</p>
-                        </div>
+
+                        <!-- Dining Day 11 -->
                         <div class="dining-card">
-                            <div class="dining-title"><i class="fa-solid fa-utensils"></i> 特別晚餐推薦：Skylon Tower 360 度旋轉景觀餐廳</div>
-                            <div class="dining-desc">在離地 236 公尺的旋轉餐廳享用頂級紐約客牛排與海鮮，每 1 小時旋轉一圈，將夜間投射彩光與煙火的尼加拉瀑布盡收眼底。<br>
-                            &bull; 官網預約：<a href="https://www.skylon.com/" target="_blank">https://www.skylon.com/</a></div>
+                            <div class="dining-title"><i class="fa-solid fa-utensils"></i> 每日精選餐館推薦</div>
+                            <div class="dining-item">
+                                <div class="dining-name">
+                                    <span>午餐：Top of the Falls Restaurant (美國側山羊島)</span>
+                                    <span style="font-size:0.8rem; color:#f59e0b;">★ 4.4/5 (1,200+評價)</span>
+                                </div>
+                                <div class="dining-desc">位於 Goat Island 山羊島極南端，邊享用現做漢堡、沙拉與冷飲邊俯瞰 Terrapin Point 馬蹄瀑布側翼。</div>
+                                <div class="dining-links">
+                                    <a href="https://www.niagarafallsstatepark.com/dining/top-of-the-falls-restaurant" target="_blank" class="dining-link"><i class="fa-solid fa-globe"></i> 餐廳官網</a>
+                                    <a href="https://maps.google.com/?q=Top+of+the+Falls+Restaurant" target="_blank" class="dining-link"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
+                                </div>
+                            </div>
+                            <div class="dining-item">
+                                <div class="dining-name">
+                                    <span>晚餐：Skylon Tower 360 度旋轉景觀餐廳</span>
+                                    <span style="font-size:0.8rem; color:#f59e0b;">★ 4.5/5 (6,200+評價)</span>
+                                </div>
+                                <div class="dining-desc">離地 236 公尺每 1 小時旋轉一圈，享用頂級紐約客牛排與海鮮，將夜間投射彩光與煙火的瀑布全景盡收眼底。</div>
+                                <div class="dining-links">
+                                    <a href="https://www.skylon.com/niagara-falls-dining/revolving-dining-room/" target="_blank" class="dining-link"><i class="fa-solid fa-globe"></i> 餐廳官網</a>
+                                    <a href="https://maps.google.com/?q=Skylon+Tower" target="_blank" class="dining-link"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="day-gallery">
@@ -1375,20 +1614,40 @@
                         </div>
                         <div class="info-block">
                             <div class="block-title"><i class="fa-solid fa-tree"></i> 景點介紹：Niagara-on-the-Lake 湖畔小鎮</div>
-                            <p class="spot-description">曾被評為加拿大最美麗的小鎮，主街充滿了 19 世紀英式建築、精緻花鐘與特色小店。極度適合爸媽悠閒漫步、逛手作甜點店與欣賞安大略湖水天一色。<br>
-                            &bull; 小鎮官網：<a href="https://www.niagaraonthelake.com/" target="_blank">https://www.niagaraonthelake.com/</a><br>
-                            &bull; Google 評價：★★★★★ 4.8/5.0</p>
+                            <p class="spot-description">主街充滿了 19 世紀英式建築、精緻花鐘與特色小店。極度適合爸媽悠閒漫步、逛手作甜點店與欣賞安大略湖。</p>
                         </div>
+
+                        <!-- Dining Day 12 -->
                         <div class="dining-card">
-                            <div class="dining-title"><i class="fa-solid fa-wine-glass"></i> 特色品酒體驗：Inniskillin Winery (雲嶺酒莊)</div>
-                            <div class="dining-desc">全球最出名的加拿大冰酒 (VQA Icewine) 發源地。安排葡萄園導覽與冰酒專屬品嚐（VQA Vidal & Riesling Icewine），甜美濃郁，長輩讚不絕口！<br>
-                            &bull; 官網：<a href="https://www.inniskillin.com/" target="_blank">https://www.inniskillin.com/</a></div>
+                            <div class="dining-title"><i class="fa-solid fa-utensils"></i> 每日精選餐館推薦</div>
+                            <div class="dining-item">
+                                <div class="dining-name">
+                                    <span>午餐：Treadwell Cuisine (古鎮頂級 Farm-to-Table)</span>
+                                    <span style="font-size:0.8rem; color:#f59e0b;">★ 4.7/5 (720+評價)</span>
+                                </div>
+                                <div class="dining-desc">位於古鎮主街，獲選加拿大最佳農場餐廳之一。現捕安大略湖鮮魚、有機蔬菜與頂級冰酒極受推崇。</div>
+                                <div class="dining-links">
+                                    <a href="https://www.treadwellcuisine.com/" target="_blank" class="dining-link"><i class="fa-solid fa-globe"></i> 餐廳官網</a>
+                                    <a href="https://maps.google.com/?q=Treadwell+Cuisine+Niagara-on-the-Lake" target="_blank" class="dining-link"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
+                                </div>
+                            </div>
+                            <div class="dining-item">
+                                <div class="dining-name">
+                                    <span>晚餐：Peller Estates Winery & Restaurant</span>
+                                    <span style="font-size:0.8rem; color:#f59e0b;">★ 4.7/5 (1,500+評價)</span>
+                                </div>
+                                <div class="dining-desc">在葡萄園包圍的豪華莊園中享用主廚特製晚宴，配搭頂級 VQA 冰酒與冰酒吧 (10 Below Icebar) 體驗。</div>
+                                <div class="dining-links">
+                                    <a href="https://www.peller.com/restaurant.html" target="_blank" class="dining-link"><i class="fa-solid fa-globe"></i> 餐廳官網</a>
+                                    <a href="https://maps.google.com/?q=Peller+Estates+Winery" target="_blank" class="dining-link"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="day-gallery">
                         <div class="gallery-img-container">
                             <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=600&q=80" alt="Winery Vineyard">
-                            <div class="gallery-caption">Inniskillin 冰酒葡萄園與陽光大道</div>
+                            <div class="gallery-caption">Inniskillin / Peller Estates 冰酒葡萄園</div>
                         </div>
                     </div>
                 </div>
@@ -1423,17 +1682,31 @@
                         </div>
                         <div class="info-block">
                             <div class="block-title"><i class="fa-solid fa-mountain-sun"></i> 景點介紹：Pine Creek Gorge (賓州大峽谷)</div>
-                            <p class="spot-description">長達 75 公里、深達 300 公尺的綠色大峽谷。Leonard Harrison 州立公園東岸觀景台設有非常平緩的木棧道與 Overlook 平台，可毫不費力俯瞰蜿蜒溪谷與森林景致。<br>
-                            &bull; 官網：<a href="https://www.dcnr.pa.gov/StateParks/FindAPark/LeonardHarrisonStatePark/Pages/default.aspx" target="_blank">PA DCNR 官方網站</a><br>
-                            &bull; Google 評價：★★★★★ 4.8/5.0 (3,200+ 則評價)</p>
+                            <p class="spot-description">長達 75 公里、深達 300 公尺的綠色大峽谷。Leonard Harrison 觀景台設有非常平緩的木棧道可俯瞰蜿蜒溪谷。</p>
                         </div>
-                        <div class="info-block">
-                            <div class="block-title"><i class="fa-solid fa-bed"></i> Base 5 住宿飯店</div>
-                            <div class="hotel-info-card">
-                                <div class="hotel-name">Penn Wells Lodge (Historic Wellsboro)</div>
-                                <div class="rating-stars">★★★★☆ 4.5/5.0 (850+ 評價) &bull; 維多利亞風情精品旅店</div>
-                                <div class="hotel-links">
-                                    <a href="https://www.pennwells.com/" target="_blank" class="link-btn link-btn-official"><i class="fa-solid fa-globe"></i> 飯店官網</a>
+
+                        <!-- Dining Day 13 -->
+                        <div class="dining-card">
+                            <div class="dining-title"><i class="fa-solid fa-utensils"></i> 每日精選餐館推薦</div>
+                            <div class="dining-item">
+                                <div class="dining-name">
+                                    <span>午餐：The Main Street Diner (Wellsboro 懷舊餐館)</span>
+                                    <span style="font-size:0.8rem; color:#f59e0b;">★ 4.6/5 (450+評價)</span>
+                                </div>
+                                <div class="dining-desc">位於 Wellsboro 維多利亞風情小鎮主街，提供現烤俱樂部三明治、熱海鮮湯與手作蘋果派。</div>
+                                <div class="dining-links">
+                                    <a href="https://maps.google.com/?q=The+Main+Street+Diner+Wellsboro" target="_blank" class="dining-link"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
+                                </div>
+                            </div>
+                            <div class="dining-item">
+                                <div class="dining-name">
+                                    <span>晚餐：Penn Wells Historic Dining Room</span>
+                                    <span style="font-size:0.8rem; color:#f59e0b;">★ 4.5/5 (520+評價)</span>
+                                </div>
+                                <div class="dining-desc">於飯店古典餐廳內享用主廚特選 Prime Rib 爐烤肋眼牛排與香煎三文魚，體驗 1920 年代優雅風情。</div>
+                                <div class="dining-links">
+                                    <a href="https://www.pennwells.com/dining/" target="_blank" class="dining-link"><i class="fa-solid fa-globe"></i> 餐廳官網</a>
+                                    <a href="https://maps.google.com/?q=Penn+Wells+Hotel" target="_blank" class="dining-link"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
                                 </div>
                             </div>
                         </div>
@@ -1475,11 +1748,34 @@
                         </div>
                         <div class="info-block">
                             <div class="block-title"><i class="fa-solid fa-bridge-water"></i> 景點介紹：Historic Covered Bridges Drive</div>
-                            <p class="spot-description">賓州擁有全美最多的歷史覆蓋木橋（廊橋）。開車穿梭於優美的綠色農丘與溪流間，經過 19 世紀保存至今的雙孔廊橋，非常適合下車拍照留念。</p>
+                            <p class="spot-description">賓州擁有全美最多的歷史覆蓋木橋（廊橋）。開車穿梭於優美的綠色農丘與溪流間，經過 19 世紀保存至今的雙孔廊橋。</p>
                         </div>
+
+                        <!-- Dining Day 14 -->
                         <div class="dining-card">
-                            <div class="dining-title"><i class="fa-solid fa-utensils"></i> 特色餐廳：The Stonehouse Wood Fired Pizza & Kitchen</div>
-                            <div class="dining-desc">在地手工柴燒窯烤披薩與美式鄉村烤肋排，氣氛溫馨，料理現點現做美味可口。</div>
+                            <div class="dining-title"><i class="fa-solid fa-utensils"></i> 每日精選餐館推薦</div>
+                            <div class="dining-item">
+                                <div class="dining-name">
+                                    <span>午餐：The Stonehouse Wood Fired Pizza & Kitchen</span>
+                                    <span style="font-size:0.8rem; color:#f59e0b;">★ 4.7/5 (780+評價)</span>
+                                </div>
+                                <div class="dining-desc">在地手工柴燒窯烤披薩、美式鄉村烤肋排與鮮蔬沙拉，現點現做美味可口。</div>
+                                <div class="dining-links">
+                                    <a href="https://www.stonehousewoodfired.com/" target="_blank" class="dining-link"><i class="fa-solid fa-globe"></i> 餐廳官網</a>
+                                    <a href="https://maps.google.com/?q=The+Stonehouse+Wood+Fired+Pizza+Williamsport" target="_blank" class="dining-link"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
+                                </div>
+                            </div>
+                            <div class="dining-item">
+                                <div class="dining-name">
+                                    <span>晚餐：The Peter Herdic House (維多利亞大宅高級餐廳)</span>
+                                    <span style="font-size:0.8rem; color:#f59e0b;">★ 4.8/5 (420+評價)</span>
+                                </div>
+                                <div class="dining-desc">位於 Williamsport 歷史街區 1884 年豪華大宅內，提供美東優質牛排、海鮮與精致烘焙。</div>
+                                <div class="dining-links">
+                                    <a href="https://herdichouse.com/" target="_blank" class="dining-link"><i class="fa-solid fa-globe"></i> 餐廳官網</a>
+                                    <a href="https://maps.google.com/?q=Peter+Herdic+House+Williamsport" target="_blank" class="dining-link"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="day-gallery">
@@ -1519,14 +1815,34 @@
                         </div>
                         <div class="info-block">
                             <div class="block-title"><i class="fa-solid fa-tractor"></i> 景點介紹：Lancaster Amish Farm Tour</div>
-                            <p class="spot-description">體驗阿米什人 (Amish) 拒絕現代科技、保持 18 世紀古樸農耕生活的文化。搭乘傳統黑木馬車 (Buggy Ride) 穿梭於風車與綠油油農田間。<br>
-                            &bull; 觀光官網：<a href="https://www.discoverlancaster.com/" target="_blank">https://www.discoverlancaster.com/</a><br>
-                            &bull; Google 評價：★★★★★ 4.7/5.0</p>
+                            <p class="spot-description">體驗阿米什人 (Amish) 保持 18 世紀古樸農耕生活的文化。搭乘傳統黑木馬車 (Buggy Ride) 穿梭於風車與農田間。</p>
                         </div>
+
+                        <!-- Dining Day 15 -->
                         <div class="dining-card">
-                            <div class="dining-title"><i class="fa-solid fa-utensils"></i> 盛宴美食推薦：Shady Maple Smorgasbord</div>
-                            <div class="dining-desc">全美規模最大的包廂 Buffet！長達百公尺的熟食台提供賓州德裔傳統烤牛肉、炸雞、現切爐烤火腿、手作果派與冰淇淋，家人絕對讚不絕口！<br>
-                            &bull; 官網：<a href="https://www.shady-maple.com/smorgasbord" target="_blank">https://www.shady-maple.com/smorgasbord</a> &bull; 評價 4.7/5 (16,800+ 評價)</div>
+                            <div class="dining-title"><i class="fa-solid fa-utensils"></i> 每日精選餐館推薦</div>
+                            <div class="dining-item">
+                                <div class="dining-name">
+                                    <span>午餐：Katie's Kitchen (Strasburg 阿米什家庭料理)</span>
+                                    <span style="font-size:0.8rem; color:#f59e0b;">★ 4.8/5 (1,800+評價)</span>
+                                </div>
+                                <div class="dining-desc">由阿米什家庭親自經營，提供最道地的阿米什燉牛肉、手工麵條與剛出爐的水果派。</div>
+                                <div class="dining-links">
+                                    <a href="https://katieskitchenpa.com/" target="_blank" class="dining-link"><i class="fa-solid fa-globe"></i> 餐廳官網</a>
+                                    <a href="https://maps.google.com/?q=Katies+Kitchen+Strasburg" target="_blank" class="dining-link"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
+                                </div>
+                            </div>
+                            <div class="dining-item">
+                                <div class="dining-name">
+                                    <span>晚餐：Shady Maple Smorgasbord (全美最大 Buffet 盛宴)</span>
+                                    <span style="font-size:0.8rem; color:#f59e0b;">★ 4.7/5 (16,800+評價)</span>
+                                </div>
+                                <div class="dining-desc">長達百公尺熟食台提供賓州德裔傳統烤牛肉、炸雞、現切爐烤火腿、手作果派與冰淇淋。</div>
+                                <div class="dining-links">
+                                    <a href="https://www.shady-maple.com/smorgasbord" target="_blank" class="dining-link"><i class="fa-solid fa-globe"></i> 餐廳官網</a>
+                                    <a href="https://maps.google.com/?q=Shady+Maple+Smorgasbord" target="_blank" class="dining-link"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="day-gallery">
@@ -1572,17 +1888,33 @@
                                     <span class="hike-name">Great Falls Park Boardwalk & River Trail</span>
                                     <span class="hike-meta"><span><i class="fa-solid fa-ruler-horizontal"></i> 1.2 km 平坦木棧道</span> <span><i class="fa-solid fa-tree"></i> NPS 國家公園服務處</span></span>
                                 </div>
-                                <div class="hike-desc">從遊客中心步行僅 5 分鐘木棧道即可到達 Overlook 1 & 2，近距離俯瞰波多馬克河奔騰穿過狹窄岩石峽谷的壯觀巨瀑，步道極為平整。<br>
-                                &bull; 官網：<a href="https://www.nps.gov/grfa/index.htm" target="_blank">https://www.nps.gov/grfa/index.htm</a> &bull; 評價 4.8/5 (8,600+ 評價)</div>
+                                <div class="hike-desc">從遊客中心步行僅 5 分鐘木棧道即可到達 Overlook 1 & 2，近距離俯瞰波多馬克河奔騰穿過狹窄岩石峽谷的壯觀巨瀑。</div>
                             </div>
                         </div>
-                        <div class="info-block">
-                            <div class="block-title"><i class="fa-solid fa-bed"></i> Base 6 住宿地點</div>
-                            <div class="hotel-info-card">
-                                <div class="hotel-name">Hyatt Regency Reston (Reston Town Center)</div>
-                                <div class="rating-stars">★★★★☆ 4.5/5.0 (2,300+ 評價) &bull; 生活機能極佳，步行即達數十家餐廳</div>
-                                <div class="hotel-links">
-                                    <a href="https://www.hyatt.com/hyatt-regency/en-US/restn-hyatt-regency-reston" target="_blank" class="link-btn link-btn-official"><i class="fa-solid fa-globe"></i> 飯店官網</a>
+
+                        <!-- Dining Day 16 -->
+                        <div class="dining-card">
+                            <div class="dining-title"><i class="fa-solid fa-utensils"></i> 每日精選餐館推薦</div>
+                            <div class="dining-item">
+                                <div class="dining-name">
+                                    <span>午餐：The Old Brogue Irish Pub (Great Falls 溫馨酒館)</span>
+                                    <span style="font-size:0.8rem; color:#f59e0b;">★ 4.6/5 (1,100+評價)</span>
+                                </div>
+                                <div class="dining-desc">距離公園入口 5 分鐘，充滿凱爾特溫馨木造風情，炸魚薯條、愛爾蘭燉牛肉與濃湯極佳。</div>
+                                <div class="dining-links">
+                                    <a href="https://oldbrogue.com/" target="_blank" class="dining-link"><i class="fa-solid fa-globe"></i> 餐廳官網</a>
+                                    <a href="https://maps.google.com/?q=The+Old+Brogue+Great+Falls" target="_blank" class="dining-link"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
+                                </div>
+                            </div>
+                            <div class="dining-item">
+                                <div class="dining-name">
+                                    <span>晚餐：PassionFish Reston Town Center (頂級海鮮餐館)</span>
+                                    <span style="font-size:0.8rem; color:#f59e0b;">★ 4.6/5 (1,650+評價)</span>
+                                </div>
+                                <div class="dining-desc">位於 Reston 飯店步行圈內，提供新鮮海鮮拼盤、現切生魚片、煎干貝與蟹肉餅。</div>
+                                <div class="dining-links">
+                                    <a href="https://passionfishreston.com/" target="_blank" class="dining-link"><i class="fa-solid fa-globe"></i> 餐廳官網</a>
+                                    <a href="https://maps.google.com/?q=PassionFish+Reston" target="_blank" class="dining-link"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
                                 </div>
                             </div>
                         </div>
@@ -1624,13 +1956,34 @@
                         </div>
                         <div class="info-block">
                             <div class="block-title"><i class="fa-solid fa-landmark-flag"></i> 景點介紹：National Mall & Smithsonian Museums</div>
-                            <p class="spot-description">漫步於國家廣場綠地，遠眺華盛頓紀念碑與倒影池，參觀林肯紀念堂。下午可自由挑選免費入場的史密森尼國家航空航天博物館 (Air & Space) 或國家藝廊 (National Gallery of Art)。<br>
-                            &bull; 官網：<a href="https://www.nps.gov/nama/index.htm" target="_blank">https://www.nps.gov/nama/index.htm</a><br>
-                            &bull; Google 評價：★★★★★ 4.9/5.0 (45,000+ 則評價)</p>
+                            <p class="spot-description">漫步國家廣場綠地，遠眺華盛頓紀念碑與倒影池，參觀林肯紀念堂。免費入場史密森尼博物館。</p>
                         </div>
+
+                        <!-- Dining Day 17 -->
                         <div class="dining-card">
-                            <div class="dining-title"><i class="fa-solid fa-utensils"></i> 水岸晚餐推薦：Farmers Fishers Bakers (Georgetown Waterfront)</div>
-                            <div class="dining-desc">位於喬治城波多馬克河畔，提供現撈海鮮、美式鄉村美饌與精緻手作冰淇淋甜點，邊用餐邊欣賞水岸夕陽。</div>
+                            <div class="dining-title"><i class="fa-solid fa-utensils"></i> 每日精選餐館推薦</div>
+                            <div class="dining-item">
+                                <div class="dining-name">
+                                    <span>午餐：Mitsitam Cafe (印第安博物館特色美饌) 或 Old Ebbitt Grill</span>
+                                    <span style="font-size:0.8rem; color:#f59e0b;">★ 4.6/5 (12,000+評價)</span>
+                                </div>
+                                <div class="dining-desc">Old Ebbitt Grill 為華盛頓最古老沙龍餐廳（位於白宮旁），提供現剖生蠔、蟹肉餅與菲力牛排。</div>
+                                <div class="dining-links">
+                                    <a href="https://www.ebbitt.com/" target="_blank" class="dining-link"><i class="fa-solid fa-globe"></i> 餐廳官網</a>
+                                    <a href="https://maps.google.com/?q=Old+Ebbitt+Grill" target="_blank" class="dining-link"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
+                                </div>
+                            </div>
+                            <div class="dining-item">
+                                <div class="dining-name">
+                                    <span>晚餐：Farmers Fishers Bakers (Georgetown 水岸餐館)</span>
+                                    <span style="font-size:0.8rem; color:#f59e0b;">★ 4.6/5 (5,800+評價)</span>
+                                </div>
+                                <div class="dining-desc">位於喬治城波多馬克河畔，提供現撈海鮮、美式鄉村美饌與精緻手作冰淇淋甜點，邊用餐邊欣賞水岸夕陽。</div>
+                                <div class="dining-links">
+                                    <a href="https://www.farmersfishersbakers.com/" target="_blank" class="dining-link"><i class="fa-solid fa-globe"></i> 餐廳官網</a>
+                                    <a href="https://maps.google.com/?q=Farmers+Fishers+Bakers" target="_blank" class="dining-link"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="day-gallery">
@@ -1672,12 +2025,35 @@
                             <div class="block-title"><i class="fa-solid fa-bag-shopping"></i> 購物採買：Leesburg Corner Premium Outlets</div>
                             <p class="spot-description">美東著名精品 Outlet，包含 Coach, Polo Ralph Lauren, Tommy Hilfiger, Nike 等品牌，方便購買手信與伴手禮。</p>
                         </div>
+
+                        <!-- Dining Day 18 -->
                         <div class="dining-card">
-                            <div class="dining-title"><i class="fa-solid fa-utensils"></i> 告別晚餐：Clyde's Willow Creek Farm</div>
-                            <div class="dining-desc">由 4 座 18 世紀傳統歷史木造農舍連貫組合而成的夢幻莊園餐廳。環境古典溫馨，享用烤牛排與鮮美海鮮，為美東之旅畫下完美句點。<br>
-                            &bull; 官網預約：<a href="https://www.clydes.com/location/willow-creek-farm/" target="_blank">https://www.clydes.com/location/willow-creek-farm/</a></div>
+                            <div class="dining-title"><i class="fa-solid fa-utensils"></i> 每日精選餐館推薦</div>
+                            <div class="dining-item">
+                                <div class="dining-name">
+                                    <span>午餐：Tuscarora Mill (Leesburg 磨坊歷史餐館)</span>
+                                    <span style="font-size:0.8rem; color:#f59e0b;">★ 4.7/5 (2,100+評價)</span>
+                                </div>
+                                <div class="dining-desc">由 19 世紀穀物磨坊改造而成，獲選維吉尼亞最佳餐廳之一，現烤海鮮、牛排與手作濃湯極為精緻。</div>
+                                <div class="dining-links">
+                                    <a href="https://tuskies.com/" target="_blank" class="dining-link"><i class="fa-solid fa-globe"></i> 餐廳官網</a>
+                                    <a href="https://maps.google.com/?q=Tuscarora+Mill+Leesburg" target="_blank" class="dining-link"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
+                                </div>
+                            </div>
+                            <div class="dining-item">
+                                <div class="dining-name">
+                                    <span>告別晚餐：Clyde's Willow Creek Farm (夢幻莊園餐廳)</span>
+                                    <span style="font-size:0.8rem; color:#f59e0b;">★ 4.6/5 (3,200+評價)</span>
+                                </div>
+                                <div class="dining-desc">由 4 座 18 世紀歷史木造農舍組成的莊園餐廳。享用烤牛排與鮮美海鮮，離機場 15 分鐘，完美結尾。</div>
+                                <div class="dining-links">
+                                    <a href="https://www.clydes.com/location/willow-creek-farm/" target="_blank" class="dining-link"><i class="fa-solid fa-globe"></i> 餐廳官網</a>
+                                    <a href="https://maps.google.com/?q=Clydes+Willow+Creek+Farm" target="_blank" class="dining-link"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="info-block">
+
+                        <div class="info-block" style="margin-top:14px;">
                             <div class="block-title"><i class="fa-solid fa-plane-departure"></i> 航班資訊</div>
                             <p class="spot-description">21:30 抵達 Dulles (IAD) 租車中心還車 ➔ 22:00 辦理登機與行李託運 ➔ 9/20 01:15 AM 班機起飛返回台北。</p>
                         </div>
@@ -1719,7 +2095,7 @@
     <!-- Footer -->
     <footer class="site-footer">
         <p>&copy; 2026 美東 18 天自然風光與尼加拉瀑布漫活家庭之旅行程規劃案</p>
-        <p style="margin-top: 6px; font-size: 0.8rem;">專為爸爸、媽媽、女兒量身打造 &bull; 點到點開車 &le; 2.5 小時 &bull; 2-3 天定點住宿</p>
+        <p style="margin-top: 6px; font-size: 0.8rem;">專為爸爸、媽媽、女兒量身打造 &bull; 點到點開車 &le; 2.5 小時 &bull; 2-3 天定點住宿 &bull; 每日精選美食與地圖連結</p>
     </footer>
 
     <!-- Filter Script -->
