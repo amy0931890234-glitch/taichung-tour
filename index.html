@@ -213,6 +213,7 @@
             display: flex;
             align-items: center;
             gap: 6px;
+            margin-bottom: 8px;
         }
 
         .base-hotel a {
@@ -227,8 +228,10 @@
 
         .base-meta {
             display: flex;
+            align-items: center;
+            justify-content: space-between;
             gap: 12px;
-            font-size: 0.82rem;
+            font-size: 0.85rem;
             color: var(--text-muted);
             margin-top: 8px;
         }
@@ -293,6 +296,7 @@
         .day-tags {
             display: flex;
             gap: 8px;
+            flex-wrap: wrap;
         }
 
         .tag {
@@ -326,6 +330,12 @@
             padding: 14px 18px;
             margin-bottom: 18px;
             display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .drive-top {
+            display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
@@ -344,7 +354,7 @@
         .maps-btn {
             background: #2563eb;
             color: white;
-            padding: 7px 16px;
+            padding: 8px 18px;
             border-radius: 20px;
             font-size: 0.85rem;
             font-weight: 600;
@@ -358,6 +368,21 @@
 
         .maps-btn:hover {
             background: #1d4ed8;
+        }
+
+        .map-embed-container {
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #cbd5e1;
+            box-shadow: inset 0 0 4px rgba(0,0,0,0.05);
+            background: #e2e8f0;
+        }
+
+        .map-embed-container iframe {
+            width: 100%;
+            height: 220px;
+            border: 0;
         }
 
         .info-block {
@@ -416,6 +441,17 @@
             border-radius: var(--radius-md);
             padding: 14px;
             margin-top: 8px;
+        }
+
+        .hotel-stay-tag {
+            display: inline-block;
+            background: #7e22ce;
+            color: white;
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 12px;
+            margin-bottom: 6px;
         }
 
         .hotel-name {
@@ -656,12 +692,12 @@
         <div class="filter-nav">
             <button class="filter-btn active" onclick="filterItinerary('all')">全行程 17 天總覽</button>
             <button class="filter-btn" onclick="filterItinerary('hike')">🌲 國家公園與健行步道</button>
-            <button class="filter-btn" onclick="filterItinerary('base1')">📍 Base 1: 仙納度與路雷溶洞 (9/4-9/7)</button>
-            <button class="filter-btn" onclick="filterItinerary('base2')">📍 Base 2: 阿米什與蓋蒂斯堡 (9/8)</button>
-            <button class="filter-btn" onclick="filterItinerary('base3')">📍 Base 3: 紐約州指湖區 (9/9-9/10)</button>
-            <button class="filter-btn" onclick="filterItinerary('base4')">📍 Base 4: 尼加拉瀑布 (9/11-9/12)</button>
-            <button class="filter-btn" onclick="filterItinerary('base5')">📍 Base 5: 落水山莊與大峽谷 (9/13-9/14)</button>
-            <button class="filter-btn" onclick="filterItinerary('base6')">📍 Base 6: 華盛頓 D.C. 探親 (9/15-9/19)</button>
+            <button class="filter-btn" onclick="filterItinerary('base1')">📍 Base 1: 仙納度與路雷溶洞 (9/4-9/7 - 連住 3 晚)</button>
+            <button class="filter-btn" onclick="filterItinerary('base2')">📍 Base 2: 阿米什與蓋蒂斯堡 (9/8 - 入住 1 晚)</button>
+            <button class="filter-btn" onclick="filterItinerary('base3')">📍 Base 3: 紐約州指湖區 (9/9-9/10 - 連住 2 晚)</button>
+            <button class="filter-btn" onclick="filterItinerary('base4')">📍 Base 4: 尼加拉瀑布 (9/11-9/12 - 連住 2 晚)</button>
+            <button class="filter-btn" onclick="filterItinerary('base5')">📍 Base 5: 落水山莊與大峽谷 (9/13-9/14 - 連住 2 晚)</button>
+            <button class="filter-btn" onclick="filterItinerary('base6')">📍 Base 6: 華盛頓 D.C. 探親 (9/15-9/19 - 連住 4 晚)</button>
         </div>
 
         <!-- 6 Accommodation Bases Overview -->
@@ -671,7 +707,7 @@
 
         <div class="base-summary-grid">
             <div class="base-card">
-                <span class="base-badge">BASE 1 &bull; 9/4 ~ 9/7 (3 晚) &bull; < $300/晚</span>
+                <span class="base-badge">BASE 1 &bull; 9/4 ~ 9/7 (連住 3 晚) &bull; < $300/晚</span>
                 <div class="base-title">雪南多亞國家公園與路雷洞</div>
                 <div class="base-hotel">
                     <i class="fa-solid fa-hotel"></i>
@@ -685,7 +721,7 @@
             </div>
 
             <div class="base-card">
-                <span class="base-badge">BASE 2 &bull; 9/8 (1 晚) &bull; < $300/晚</span>
+                <span class="base-badge">BASE 2 &bull; 9/8 (入住 1 晚) &bull; < $300/晚</span>
                 <div class="base-title">賓州阿米什農莊與蓋蒂斯堡</div>
                 <div class="base-hotel">
                     <i class="fa-solid fa-hotel"></i>
@@ -699,7 +735,7 @@
             </div>
 
             <div class="base-card">
-                <span class="base-badge">BASE 3 &bull; 9/9 ~ 9/10 (2 晚) &bull; < $300/晚</span>
+                <span class="base-badge">BASE 3 &bull; 9/9 ~ 9/10 (連住 2 晚) &bull; < $300/晚</span>
                 <div class="base-title">Finger Lakes 芬格湖峽谷與酒莊</div>
                 <div class="base-hotel">
                     <i class="fa-solid fa-hotel"></i>
@@ -713,7 +749,7 @@
             </div>
 
             <div class="base-card">
-                <span class="base-badge">BASE 4 &bull; 9/11 ~ 9/12 (2 晚) &bull; < $300/晚</span>
+                <span class="base-badge">BASE 4 &bull; 9/11 ~ 9/12 (連住 2 晚) &bull; < $300/晚</span>
                 <div class="base-title">尼加拉瀑布正面全景與古鎮</div>
                 <div class="base-hotel">
                     <i class="fa-solid fa-hotel"></i>
@@ -727,7 +763,7 @@
             </div>
 
             <div class="base-card">
-                <span class="base-badge">BASE 5 &bull; 9/13 ~ 9/14 (2 晚) &bull; < $300/晚</span>
+                <span class="base-badge">BASE 5 &bull; 9/13 ~ 9/14 (連住 2 晚) &bull; < $300/晚</span>
                 <div class="base-title">建築史傑作落水山莊與賓州大峽谷</div>
                 <div class="base-hotel">
                     <i class="fa-solid fa-hotel"></i>
@@ -741,7 +777,7 @@
             </div>
 
             <div class="base-card">
-                <span class="base-badge">BASE 6 &bull; 9/15 ~ 9/19 (4 晚) &bull; < $300/晚</span>
+                <span class="base-badge">BASE 6 &bull; 9/15 ~ 9/19 (連住 4 晚) &bull; < $300/晚</span>
                 <div class="base-title">Monticello 莊園與 D.C. 探親慢遊</div>
                 <div class="base-hotel">
                     <i class="fa-solid fa-hotel"></i>
@@ -773,27 +809,33 @@
                     </div>
                     <div class="day-tags">
                         <span class="tag tag-drive"><i class="fa-solid fa-car"></i> 15 分鐘車程</span>
-                        <span class="tag tag-base">Base 1 (第 1 晚)</span>
+                        <span class="tag tag-base">Base 1 (第 1 晚 / 共 3 晚)</span>
                     </div>
                 </div>
                 <div class="day-body">
                     <div class="day-info">
                         <div class="drive-box">
-                            <div class="drive-info">
-                                <i class="fa-solid fa-route"></i>
-                                <span>IAD 機場租車中心 ➔ Reston 飯店 (12 km)</span>
+                            <div class="drive-top">
+                                <div class="drive-info">
+                                    <i class="fa-solid fa-route"></i>
+                                    <span>IAD 機場租車中心 ➔ Reston 飯店 (12 km, 車程 15 分鐘)</span>
+                                </div>
+                                <a href="https://www.google.com/maps/dir/?api=1&origin=Washington+Dulles+International+Airport&destination=Hyatt+Regency+Reston+VA" target="_blank" class="maps-btn">
+                                    <i class="fa-solid fa-map-location-dot"></i> 開啟 Google 地圖 APP 導航
+                                </a>
                             </div>
-                            <a href="https://www.google.com/maps/dir/?api=1&origin=Washington+Dulles+International+Airport&destination=Hyatt+Regency+Reston+VA" target="_blank" class="maps-btn">
-                                <i class="fa-solid fa-map-location-dot"></i> Maps 導航 (15分)
-                            </a>
+                            <div class="map-embed-container">
+                                <iframe src="https://maps.google.com/maps?saddr=Washington+Dulles+International+Airport&daddr=Hyatt+Regency+Reston+VA&output=embed" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
                         </div>
                         <div class="info-block">
                             <div class="block-title"><i class="fa-solid fa-circle-info"></i> 當晚抵達安排</div>
                             <p class="spot-description">班機於 22:30 抵達 Washington Dulles (IAD) 機場。下機辦理入境通關並提領行李後，搭乘機場免費接駁電車至 Enterprise/Hertz 租車中心取車。車程僅 15 分鐘即可抵達 Reston 飯店入住，好好休息調整時差。</p>
                         </div>
                         <div class="info-block">
-                            <div class="block-title"><i class="fa-solid fa-bed"></i> 住宿推薦 (3人房含稅 < $300/晚)</div>
+                            <div class="block-title"><i class="fa-solid fa-bed"></i> 當晚住宿地點 (Base 1 &bull; 第 1 晚 / 共 3 晚)</div>
                             <div class="hotel-info-card">
+                                <span class="hotel-stay-tag"><i class="fa-solid fa-moon"></i> Base 1 第 1 晚 (連住 3 晚) &bull; 預算 < $300 美金</span>
                                 <div class="hotel-name">Hyatt Regency Reston / Residence Inn Dulles</div>
                                 <div class="rating-stars">★★★★☆ 4.6/5.0 &bull; 2 Queen Beds 雙大床房型 &bull; 離機場 15 分鐘</div>
                                 <div class="hotel-links">
@@ -840,19 +882,24 @@
                     <div class="day-tags">
                         <span class="tag tag-drive"><i class="fa-solid fa-car"></i> 55 分鐘車程</span>
                         <span class="tag tag-hike"><i class="fa-solid fa-person-hiking"></i> 國家公園健行</span>
-                        <span class="tag tag-base">Base 1 (第 2 晚)</span>
+                        <span class="tag tag-base">Base 1 (第 2 晚 / 共 3 晚)</span>
                     </div>
                 </div>
                 <div class="day-body">
                     <div class="day-info">
                         <div class="drive-box">
-                            <div class="drive-info">
-                                <i class="fa-solid fa-route"></i>
-                                <span>Reston ➔ Shenandoah Front Royal 北入口 (85 km)</span>
+                            <div class="drive-top">
+                                <div class="drive-info">
+                                    <i class="fa-solid fa-route"></i>
+                                    <span>Reston ➔ Shenandoah Front Royal 北入口 ➔ Skyland (85 km, 55 分鐘)</span>
+                                </div>
+                                <a href="https://www.google.com/maps/dir/?api=1&origin=Reston+VA&destination=Skyland+Lodge+Shenandoah+VA" target="_blank" class="maps-btn">
+                                    <i class="fa-solid fa-map-location-dot"></i> 開啟 Google 地圖 APP 導航
+                                </a>
                             </div>
-                            <a href="https://www.google.com/maps/dir/?api=1&origin=Reston+VA&destination=Front+Royal+Entrance+Station+Skyline+Drive+VA" target="_blank" class="maps-btn">
-                                <i class="fa-solid fa-map-location-dot"></i> Maps 導航 (55分)
-                            </a>
+                            <div class="map-embed-container">
+                                <iframe src="https://maps.google.com/maps?saddr=Reston+VA&daddr=Skyland+Lodge+Shenandoah+VA&output=embed" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
                         </div>
                         <div class="info-block">
                             <div class="block-title"><i class="fa-solid fa-person-hiking"></i> 精選長輩友善步道：Limberlost Trail</div>
@@ -862,6 +909,19 @@
                                     <span class="hike-meta"><span><i class="fa-solid fa-ruler-horizontal"></i> 2.1 km</span> <span><i class="fa-solid fa-clock"></i> 45~60 分鐘</span></span>
                                 </div>
                                 <div class="hike-desc">步道全線採用碎石與碎木屑鋪設，極為平緩無陡坡。穿梭於古老鐵杉林與巨石景緻間，設有無障礙休息椅子，非常適合輕鬆健行。</div>
+                            </div>
+                        </div>
+
+                        <div class="info-block">
+                            <div class="block-title"><i class="fa-solid fa-bed"></i> 當晚住宿地點 (Base 1 &bull; 第 2 晚 / 共 3 晚)</div>
+                            <div class="hotel-info-card">
+                                <span class="hotel-stay-tag"><i class="fa-solid fa-moon"></i> Base 1 第 2 晚 (連住 3 晚) &bull; 預算 < $300 美金</span>
+                                <div class="hotel-name">Skyland Lodge (公園小木屋) / Residence Inn Reston</div>
+                                <div class="rating-stars">★★★★☆ 4.5/5.0 &bull; 公園最高點 &bull; 享受清晨山林芬多精</div>
+                                <div class="hotel-links">
+                                    <a href="https://www.goshenandoah.com/lodging/skyland" target="_blank" class="link-btn link-btn-official"><i class="fa-solid fa-globe"></i> 飯店官網</a>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Skyland+Lodge+Shenandoah+National+Park+VA" target="_blank" class="link-btn link-btn-maps"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
+                                </div>
                             </div>
                         </div>
 
@@ -913,19 +973,24 @@
                     <div class="day-tags">
                         <span class="tag tag-drive"><i class="fa-solid fa-car"></i> 30 分鐘微景觀駕駛</span>
                         <span class="tag tag-hike"><i class="fa-solid fa-person-hiking"></i> 國家公園健行</span>
-                        <span class="tag tag-base">Base 1 (第 3 晚)</span>
+                        <span class="tag tag-base">Base 1 (第 3 晚 / 共 3 晚)</span>
                     </div>
                 </div>
                 <div class="day-body">
                     <div class="day-info">
                         <div class="drive-box">
-                            <div class="drive-info">
-                                <i class="fa-solid fa-route"></i>
-                                <span>Skyline Drive 景觀道路點對點移動 (每段 15~30 分鐘)</span>
+                            <div class="drive-top">
+                                <div class="drive-info">
+                                    <i class="fa-solid fa-route"></i>
+                                    <span>Skyland ➔ Stony Man ➔ Dark Hollow Falls ➔ Big Meadows</span>
+                                </div>
+                                <a href="https://www.google.com/maps/dir/?api=1&origin=Skyland+Lodge+VA&destination=Big+Meadows+Lodge+Shenandoah+VA" target="_blank" class="maps-btn">
+                                    <i class="fa-solid fa-map-location-dot"></i> 開啟 Google 地圖 APP 導航
+                                </a>
                             </div>
-                            <a href="https://www.google.com/maps/dir/?api=1&origin=Skyland+VA&destination=Stony+Man+Trailhead+Skyline+Drive+VA" target="_blank" class="maps-btn">
-                                <i class="fa-solid fa-map-location-dot"></i> Maps 導航 (20分)
-                            </a>
+                            <div class="map-embed-container">
+                                <iframe src="https://maps.google.com/maps?saddr=Skyland+Lodge+VA&daddr=Big+Meadows+Lodge+Shenandoah+VA&output=embed" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
                         </div>
                         <div class="info-block">
                             <div class="block-title"><i class="fa-solid fa-person-hiking"></i> 精選輕鬆步道：Stony Man Summit Trail</div>
@@ -935,6 +1000,19 @@
                                     <span class="hike-meta"><span><i class="fa-solid fa-ruler-horizontal"></i> 2.6 km 往返</span> <span><i class="fa-solid fa-mountain"></i> 緩坡升降 100m</span></span>
                                 </div>
                                 <div class="hike-desc">路面為寬闊土石路，坡度極為緩和。終點登頂至懸崖石台上，享有無遮蔽的 360 度謝南多亞山谷壯麗視野。</div>
+                            </div>
+                        </div>
+
+                        <div class="info-block">
+                            <div class="block-title"><i class="fa-solid fa-bed"></i> 當晚住宿地點 (Base 1 &bull; 第 3 晚 / 共 3 晚)</div>
+                            <div class="hotel-info-card">
+                                <span class="hotel-stay-tag"><i class="fa-solid fa-moon"></i> Base 1 第 3 晚 (連住 3 晚) &bull; 預算 < $300 美金</span>
+                                <div class="hotel-name">Skyland Lodge / Reston 飯店</div>
+                                <div class="rating-stars">★★★★☆ 4.5/5.0 &bull; 離景點僅 10 分鐘 &bull; 完美結尾公園行程</div>
+                                <div class="hotel-links">
+                                    <a href="https://www.goshenandoah.com/lodging/skyland" target="_blank" class="link-btn link-btn-official"><i class="fa-solid fa-globe"></i> 飯店官網</a>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Skyland+Lodge+Shenandoah+National+Park+VA" target="_blank" class="link-btn link-btn-maps"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
+                                </div>
                             </div>
                         </div>
 
@@ -985,23 +1063,41 @@
                     </div>
                     <div class="day-tags">
                         <span class="tag tag-drive"><i class="fa-solid fa-car"></i> 35 分鐘車程</span>
-                        <span class="tag tag-base">Base 1 (第 4 晚)</span>
+                        <span class="tag tag-base">Base 1 (第 4 晚 - 小鎮中轉)</span>
                     </div>
                 </div>
                 <div class="day-body">
                     <div class="day-info">
                         <div class="drive-box">
-                            <div class="drive-info">
-                                <i class="fa-solid fa-route"></i>
-                                <span>Front Royal ➔ Luray Caverns (40 km)</span>
+                            <div class="drive-top">
+                                <div class="drive-info">
+                                    <i class="fa-solid fa-route"></i>
+                                    <span>Front Royal ➔ Luray Caverns ➔ Winchester (40 km, 35 分鐘)</span>
+                                </div>
+                                <a href="https://www.google.com/maps/dir/?api=1&origin=Front+Royal+VA&destination=Luray+Caverns+Luray+VA" target="_blank" class="maps-btn">
+                                    <i class="fa-solid fa-map-location-dot"></i> 開啟 Google 地圖 APP 導航
+                                </a>
                             </div>
-                            <a href="https://www.google.com/maps/dir/?api=1&origin=Front+Royal+VA&destination=Luray+Caverns+Luray+VA" target="_blank" class="maps-btn">
-                                <i class="fa-solid fa-map-location-dot"></i> Maps 導航 (35分)
-                            </a>
+                            <div class="map-embed-container">
+                                <iframe src="https://maps.google.com/maps?saddr=Front+Royal+VA&daddr=Luray+Caverns+Luray+VA&output=embed" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
                         </div>
                         <div class="info-block">
                             <div class="block-title"><i class="fa-solid fa-gem"></i> 景點介紹：Luray Caverns (路雷溶洞)</div>
                             <p class="spot-description">美東最大且最著名的鐘乳石溶洞，地底步道鋪設完整平整且無階梯。洞內恆溫 12°C，擁有夢幻鏡池 (Dream Lake) 與世界唯一的鐘乳石管風琴 (Stalacpipe Organ)。</p>
+                        </div>
+
+                        <div class="info-block">
+                            <div class="block-title"><i class="fa-solid fa-bed"></i> 當晚住宿地點 (Base 1 延伸中轉 &bull; 預算 < $300 美金)</div>
+                            <div class="hotel-info-card">
+                                <span class="hotel-stay-tag"><i class="fa-solid fa-moon"></i> Winchester / Front Royal 飯店 &bull; 預算 < $300 美金</span>
+                                <div class="hotel-name">George Washington Hotel Winchester / Reston 飯店</div>
+                                <div class="rating-stars">★★★★☆ 4.6/5.0 &bull; 歷史古鎮核心 &bull; 明早輕鬆前往賓州</div>
+                                <div class="hotel-links">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=George+Washington+Hotel+Winchester+VA" target="_blank" class="link-btn link-btn-official"><i class="fa-solid fa-globe"></i> 飯店詳情</a>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=George+Washington+Hotel+Winchester+VA" target="_blank" class="link-btn link-btn-maps"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="dining-card">
@@ -1051,23 +1147,41 @@
                     </div>
                     <div class="day-tags">
                         <span class="tag tag-drive"><i class="fa-solid fa-car"></i> 2.0 小時車程</span>
-                        <span class="tag tag-base">Base 2 (第 5 晚)</span>
+                        <span class="tag tag-base">Base 2 (入住 1 晚)</span>
                     </div>
                 </div>
                 <div class="day-body">
                     <div class="day-info">
                         <div class="drive-box">
-                            <div class="drive-info">
-                                <i class="fa-solid fa-route"></i>
-                                <span>Winchester ➔ Gettysburg (80 km) ➔ Lancaster (90 km)</span>
+                            <div class="drive-top">
+                                <div class="drive-info">
+                                    <i class="fa-solid fa-route"></i>
+                                    <span>Winchester ➔ Gettysburg (80 km) ➔ Lancaster (90 km, 2.0 小時)</span>
+                                </div>
+                                <a href="https://www.google.com/maps/dir/?api=1&origin=Winchester+VA&destination=Lancaster+PA&waypoints=Gettysburg+National+Military+Park+PA" target="_blank" class="maps-btn">
+                                    <i class="fa-solid fa-map-location-dot"></i> 開啟 Google 地圖 APP 導航
+                                </a>
                             </div>
-                            <a href="https://www.google.com/maps/dir/?api=1&origin=Winchester+VA&destination=Lancaster+PA&waypoints=Gettysburg+National+Military+Park+PA" target="_blank" class="maps-btn">
-                                <i class="fa-solid fa-map-location-dot"></i> Maps 導航 (2.0小時)
-                            </a>
+                            <div class="map-embed-container">
+                                <iframe src="https://maps.google.com/maps?saddr=Winchester+VA&daddr=Lancaster+PA&output=embed" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
                         </div>
                         <div class="info-block">
                             <div class="block-title"><i class="fa-solid fa-tractor"></i> 景點介紹：Lancaster Amish Country</div>
                             <p class="spot-description">探訪保留 19 世紀傳統無電無車生活的阿米什人聚落，觀察黑頂馬車 (Buggy) 與覆蓋木橋 (Covered Bridge)。搭乘馬車穿梭風車與田園小路，體驗無憂恬靜時光。</p>
+                        </div>
+
+                        <div class="info-block">
+                            <div class="block-title"><i class="fa-solid fa-bed"></i> 當晚住宿地點 (Base 2 &bull; 入住 1 晚 &bull; 預算 < $300 美金)</div>
+                            <div class="hotel-info-card">
+                                <span class="hotel-stay-tag"><i class="fa-solid fa-moon"></i> Base 2 (入住 1 晚) &bull; 預算 < $300 美金</span>
+                                <div class="hotel-name">Hyatt Place State College / DoubleTree Lancaster</div>
+                                <div class="rating-stars">★★★★☆ 4.6/5.0 &bull; 阿米什田園周邊 &bull; 寬闊舒適雙床房</div>
+                                <div class="hotel-links">
+                                    <a href="https://www.hyatt.com/hyatt-place/en-US/scezs-hyatt-place-state-college" target="_blank" class="link-btn link-btn-official"><i class="fa-solid fa-globe"></i> 飯店官網</a>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Hyatt+Place+State+College+PA" target="_blank" class="link-btn link-btn-maps"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="dining-card">
@@ -1107,19 +1221,24 @@
                     <div class="day-tags">
                         <span class="tag tag-drive"><i class="fa-solid fa-car"></i> 2.5 小時車程</span>
                         <span class="tag tag-hike"><i class="fa-solid fa-person-hiking"></i> 峽谷步道</span>
-                        <span class="tag tag-base">Base 3 (第 6 晚)</span>
+                        <span class="tag tag-base">Base 3 (第 1 晚 / 共 2 晚)</span>
                     </div>
                 </div>
                 <div class="day-body">
                     <div class="day-info">
                         <div class="drive-box">
-                            <div class="drive-info">
-                                <i class="fa-solid fa-route"></i>
-                                <span>Lancaster ➔ Watkins Glen State Park, NY (260 km)</span>
+                            <div class="drive-top">
+                                <div class="drive-info">
+                                    <i class="fa-solid fa-route"></i>
+                                    <span>Lancaster ➔ Watkins Glen State Park, NY (260 km, 2.5 小時)</span>
+                                </div>
+                                <a href="https://www.google.com/maps/dir/?api=1&origin=Lancaster+PA&destination=Watkins+Glen+State+Park+NY" target="_blank" class="maps-btn">
+                                    <i class="fa-solid fa-map-location-dot"></i> 開啟 Google 地圖 APP 導航
+                                </a>
                             </div>
-                            <a href="https://www.google.com/maps/dir/?api=1&origin=Lancaster+PA&destination=Watkins+Glen+State+Park+NY" target="_blank" class="maps-btn">
-                                <i class="fa-solid fa-map-location-dot"></i> Maps 導航 (2.5小時)
-                            </a>
+                            <div class="map-embed-container">
+                                <iframe src="https://maps.google.com/maps?saddr=Lancaster+PA&daddr=Watkins+Glen+State+Park+NY&output=embed" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
                         </div>
                         <div class="info-block">
                             <div class="block-title"><i class="fa-solid fa-person-hiking"></i> 景點介紹：Watkins Glen Gorge Trail</div>
@@ -1129,6 +1248,19 @@
                                     <span class="hike-meta"><span><i class="fa-solid fa-ruler-horizontal"></i> 2.4 km</span> <span><i class="fa-solid fa-water"></i> 溪谷瀑布</span></span>
                                 </div>
                                 <div class="hike-desc">沿著兩側千層階梯狀的石灰岩峽谷石階行走，路線穿過瀑布後方水幕與石橋，非常奇幻涼爽。</div>
+                            </div>
+                        </div>
+
+                        <div class="info-block">
+                            <div class="block-title"><i class="fa-solid fa-bed"></i> 當晚住宿地點 (Base 3 &bull; 第 1 晚 / 共 2 晚)</div>
+                            <div class="hotel-info-card">
+                                <span class="hotel-stay-tag"><i class="fa-solid fa-moon"></i> Base 3 第 1 晚 (連住 2 晚) &bull; 預算 < $300 美金</span>
+                                <div class="hotel-name">Watkins Glen Harbor Hotel (湖畔 4 星飯店)</div>
+                                <div class="rating-stars">★★★★☆ 4.7/5.0 &bull; 直面 Seneca 湖景 &bull; 散步 5 分鐘至峽谷公園</div>
+                                <div class="hotel-links">
+                                    <a href="https://www.watkinsglenharborhotel.com/" target="_blank" class="link-btn link-btn-official"><i class="fa-solid fa-globe"></i> 飯店官網</a>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Watkins+Glen+Harbor+Hotel+Watkins+Glen+NY" target="_blank" class="link-btn link-btn-maps"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
+                                </div>
                             </div>
                         </div>
 
@@ -1168,23 +1300,41 @@
                     </div>
                     <div class="day-tags">
                         <span class="tag tag-drive"><i class="fa-solid fa-car"></i> 40 分鐘湖畔慢駕</span>
-                        <span class="tag tag-base">Base 3 (第 7 晚)</span>
+                        <span class="tag tag-base">Base 3 (第 2 晚 / 共 2 晚)</span>
                     </div>
                 </div>
                 <div class="day-body">
                     <div class="day-info">
                         <div class="drive-box">
-                            <div class="drive-info">
-                                <i class="fa-solid fa-route"></i>
-                                <span>Watkins Glen ➔ Taughannock Falls ➔ Ithaca (45 km)</span>
+                            <div class="drive-top">
+                                <div class="drive-info">
+                                    <i class="fa-solid fa-route"></i>
+                                    <span>Watkins Glen ➔ Taughannock Falls ➔ Ithaca 康乃爾 (45 km, 40 分鐘)</span>
+                                </div>
+                                <a href="https://www.google.com/maps/dir/?api=1&origin=Watkins+Glen+NY&destination=Cornell+University+Ithaca+NY&waypoints=Taughannock+Falls+State+Park+NY" target="_blank" class="maps-btn">
+                                    <i class="fa-solid fa-map-location-dot"></i> 開啟 Google 地圖 APP 導航
+                                </a>
                             </div>
-                            <a href="https://www.google.com/maps/dir/?api=1&origin=Watkins+Glen+NY&destination=Cornell+University+Ithaca+NY&waypoints=Taughannock+Falls+State+Park+NY" target="_blank" class="maps-btn">
-                                <i class="fa-solid fa-map-location-dot"></i> Maps 導航 (40分)
-                            </a>
+                            <div class="map-embed-container">
+                                <iframe src="https://maps.google.com/maps?saddr=Watkins+Glen+NY&daddr=Cornell+University+Ithaca+NY&output=embed" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
                         </div>
                         <div class="info-block">
                             <div class="block-title"><i class="fa-solid fa-wine-glass"></i> 景點介紹：Finger Lakes 葡萄園與 Taughannock 瀑布</div>
                             <p class="spot-description">前往全美落差比尼加拉瀑布還高的 Taughannock Falls（高達 65 公尺），輕鬆步行 15 分鐘平坦步道即達觀景台。午後品嚐指湖區名產 Riesling 白葡萄酒。</p>
+                        </div>
+
+                        <div class="info-block">
+                            <div class="block-title"><i class="fa-solid fa-bed"></i> 當晚住宿地點 (Base 3 &bull; 第 2 晚 / 共 2 晚)</div>
+                            <div class="hotel-info-card">
+                                <span class="hotel-stay-tag"><i class="fa-solid fa-moon"></i> Base 3 第 2 晚 (連住 2 晚) &bull; 預算 < $300 美金</span>
+                                <div class="hotel-name">Watkins Glen Harbor Hotel / Ithaca Marriott</div>
+                                <div class="rating-stars">★★★★☆ 4.7/5.0 &bull; 指湖區極優據點 &bull; 享用精緻湖邊早餐</div>
+                                <div class="hotel-links">
+                                    <a href="https://www.watkinsglenharborhotel.com/" target="_blank" class="link-btn link-btn-official"><i class="fa-solid fa-globe"></i> 飯店官網</a>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Watkins+Glen+Harbor+Hotel+Watkins+Glen+NY" target="_blank" class="link-btn link-btn-maps"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="dining-card">
@@ -1223,23 +1373,41 @@
                     </div>
                     <div class="day-tags">
                         <span class="tag tag-drive"><i class="fa-solid fa-car"></i> 2.5 小時車程</span>
-                        <span class="tag tag-base">Base 4 (第 8 晚)</span>
+                        <span class="tag tag-base">Base 4 (第 1 晚 / 共 2 晚)</span>
                     </div>
                 </div>
                 <div class="day-body">
                     <div class="day-info">
                         <div class="drive-box">
-                            <div class="drive-info">
-                                <i class="fa-solid fa-route"></i>
-                                <span>Ithaca ➔ Niagara Falls, NY (240 km)</span>
+                            <div class="drive-top">
+                                <div class="drive-info">
+                                    <i class="fa-solid fa-route"></i>
+                                    <span>Ithaca ➔ Niagara Falls State Park, NY (240 km, 2.5 小時)</span>
+                                </div>
+                                <a href="https://www.google.com/maps/dir/?api=1&origin=Ithaca+NY&destination=Niagara+Falls+State+Park+NY" target="_blank" class="maps-btn">
+                                    <i class="fa-solid fa-map-location-dot"></i> 開啟 Google 地圖 APP 導航
+                                </a>
                             </div>
-                            <a href="https://www.google.com/maps/dir/?api=1&origin=Ithaca+NY&destination=Niagara+Falls+State+Park+NY" target="_blank" class="maps-btn">
-                                <i class="fa-solid fa-map-location-dot"></i> Maps 導航 (2.5小時)
-                            </a>
+                            <div class="map-embed-container">
+                                <iframe src="https://maps.google.com/maps?saddr=Ithaca+NY&daddr=Niagara+Falls+State+Park+NY&output=embed" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
                         </div>
                         <div class="info-block">
                             <div class="block-title"><i class="fa-solid fa-water"></i> 景點介紹：霧中少女號 (Maid of the Mist) & 風之穴</div>
                             <p class="spot-description">穿上黃色雨衣搭乘觀光船衝入馬蹄灣瀑布下方震撼水霧中！接著體驗 Cave of the Winds (風之穴)，走上木棧道感受新娘面紗瀑布衝擊。</p>
+                        </div>
+
+                        <div class="info-block">
+                            <div class="block-title"><i class="fa-solid fa-bed"></i> 當晚住宿地點 (Base 4 &bull; 第 1 晚 / 共 2 晚)</div>
+                            <div class="hotel-info-card">
+                                <span class="hotel-stay-tag"><i class="fa-solid fa-moon"></i> Base 4 第 1 晚 (連住 2 晚) &bull; 預算 < $300 美金</span>
+                                <div class="hotel-name">Hyatt Place Niagara Falls / Marriott Fallsview</div>
+                                <div class="rating-stars">★★★★☆ 4.6/5.0 &bull; 步行 8 分鐘直達觀景步道</div>
+                                <div class="hotel-links">
+                                    <a href="https://www.hyatt.com/hyatt-place/en-US/iagzn-hyatt-place-niagara-falls" target="_blank" class="link-btn link-btn-official"><i class="fa-solid fa-globe"></i> 飯店官網</a>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Hyatt+Place+Niagara+Falls+NY" target="_blank" class="link-btn link-btn-maps"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="dining-card">
@@ -1278,23 +1446,41 @@
                     </div>
                     <div class="day-tags">
                         <span class="tag tag-drive"><i class="fa-solid fa-car"></i> 3.5 小時輕鬆公路駕駛</span>
-                        <span class="tag tag-base">Base 4 (第 9 晚)</span>
+                        <span class="tag tag-base">Base 4 (第 2 晚 / 共 2 晚)</span>
                     </div>
                 </div>
                 <div class="day-body">
                     <div class="day-info">
                         <div class="drive-box">
-                            <div class="drive-info">
-                                <i class="fa-solid fa-route"></i>
-                                <span>Niagara Falls ➔ Pittsburgh, PA (340 km)</span>
+                            <div class="drive-top">
+                                <div class="drive-info">
+                                    <i class="fa-solid fa-route"></i>
+                                    <span>Niagara Falls ➔ Pittsburgh, PA (340 km, 3.5 小時)</span>
+                                </div>
+                                <a href="https://www.google.com/maps/dir/?api=1&origin=Niagara+Falls+NY&destination=Pittsburgh+PA" target="_blank" class="maps-btn">
+                                    <i class="fa-solid fa-map-location-dot"></i> 開啟 Google 地圖 APP 導航
+                                </a>
                             </div>
-                            <a href="https://www.google.com/maps/dir/?api=1&origin=Niagara+Falls+NY&destination=Pittsburgh+PA" target="_blank" class="maps-btn">
-                                <i class="fa-solid fa-map-location-dot"></i> Maps 導航 (3.5小時)
-                            </a>
+                            <div class="map-embed-container">
+                                <iframe src="https://maps.google.com/maps?saddr=Niagara+Falls+NY&daddr=Pittsburgh+PA&output=embed" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
                         </div>
                         <div class="info-block">
                             <div class="block-title"><i class="fa-solid fa-city"></i> 景點介紹：匹茲堡 Mount Washington 夜景</div>
                             <p class="spot-description">抵達匹茲堡後，搭乘百年歷史木造纜車 (Duquesne Incline) 登上 Mount Washington，俯瞰三河交匯的壯麗天際線與鋼鐵大橋夜景。</p>
+                        </div>
+
+                        <div class="info-block">
+                            <div class="block-title"><i class="fa-solid fa-bed"></i> 當晚住宿地點 (Base 4 &bull; 第 2 晚 / 共 2 晚)</div>
+                            <div class="hotel-info-card">
+                                <span class="hotel-stay-tag"><i class="fa-solid fa-moon"></i> Base 4 第 2 晚 (連住 2 晚) &bull; 預算 < $300 美金</span>
+                                <div class="hotel-name">Industrialist Hotel Pittsburgh / Hyatt Place Pittsburgh</div>
+                                <div class="rating-stars">★★★★☆ 4.6/5.0 &bull; 市中心精品飯店 &bull; 纜車 5 分鐘車程</div>
+                                <div class="hotel-links">
+                                    <a href="https://www.marriott.com/en-us/hotels/pitak-the-industrialist-hotel-pittsburgh-autograph-collection/overview/" target="_blank" class="link-btn link-btn-official"><i class="fa-solid fa-globe"></i> 飯店官網</a>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=The+Industrialist+Hotel+Pittsburgh+PA" target="_blank" class="link-btn link-btn-maps"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="dining-card">
@@ -1333,23 +1519,41 @@
                     </div>
                     <div class="day-tags">
                         <span class="tag tag-drive"><i class="fa-solid fa-car"></i> 1.2 小時山林車程</span>
-                        <span class="tag tag-base">Base 5 (第 10 晚)</span>
+                        <span class="tag tag-base">Base 5 (第 1 晚 / 共 2 晚)</span>
                     </div>
                 </div>
                 <div class="day-body">
                     <div class="day-info">
                         <div class="drive-box">
-                            <div class="drive-info">
-                                <i class="fa-solid fa-route"></i>
-                                <span>Pittsburgh ➔ Fallingwater (Mill Run, PA, 90 km)</span>
+                            <div class="drive-top">
+                                <div class="drive-info">
+                                    <i class="fa-solid fa-route"></i>
+                                    <span>Pittsburgh ➔ Fallingwater (Mill Run, PA, 90 km, 1.2 小時)</span>
+                                </div>
+                                <a href="https://www.google.com/maps/dir/?api=1&origin=Pittsburgh+PA&destination=Fallingwater+Mill+Run+PA" target="_blank" class="maps-btn">
+                                    <i class="fa-solid fa-map-location-dot"></i> 開啟 Google 地圖 APP 導航
+                                </a>
                             </div>
-                            <a href="https://www.google.com/maps/dir/?api=1&origin=Pittsburgh+PA&destination=Fallingwater+Mill+Run+PA" target="_blank" class="maps-btn">
-                                <i class="fa-solid fa-map-location-dot"></i> Maps 導航 (1.2小時)
-                            </a>
+                            <div class="map-embed-container">
+                                <iframe src="https://maps.google.com/maps?saddr=Pittsburgh+PA&daddr=Fallingwater+Mill+Run+PA&output=embed" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
                         </div>
                         <div class="info-block">
                             <div class="block-title"><i class="fa-solid fa-house-chimney-window"></i> 景點介紹：Fallingwater (落水山莊)</div>
                             <p class="spot-description">建築大師法蘭克·勞埃德·萊特（Frank Lloyd Wright）的世界遺產傑作。建築懸空架設於溪流與瀑布之上，將有機建築與森林懸崖完美的融為一體。</p>
+                        </div>
+
+                        <div class="info-block">
+                            <div class="block-title"><i class="fa-solid fa-bed"></i> 當晚住宿地點 (Base 5 &bull; 第 1 晚 / 共 2 晚)</div>
+                            <div class="hotel-info-card">
+                                <span class="hotel-stay-tag"><i class="fa-solid fa-moon"></i> Base 5 第 1 晚 (連住 2 晚) &bull; 預算 < $300 美金</span>
+                                <div class="hotel-name">Laurel Highlands Resort / Penn Wells Lodge</div>
+                                <div class="rating-stars">★★★★☆ 4.6/5.0 &bull; 山林漫步飯店 &bull; 清幽自然環境</div>
+                                <div class="hotel-links">
+                                    <a href="https://www.pennwells.com/" target="_blank" class="link-btn link-btn-official"><i class="fa-solid fa-globe"></i> 飯店官網</a>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Penn+Wells+Hotel+Wellsboro+PA" target="_blank" class="link-btn link-btn-maps"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="dining-card">
@@ -1388,23 +1592,41 @@
                     </div>
                     <div class="day-tags">
                         <span class="tag tag-drive"><i class="fa-solid fa-car"></i> 2.0 小時車程</span>
-                        <span class="tag tag-base">Base 5 (第 11 晚)</span>
+                        <span class="tag tag-base">Base 5 (第 2 晚 / 共 2 晚)</span>
                     </div>
                 </div>
                 <div class="day-body">
                     <div class="day-info">
                         <div class="drive-box">
-                            <div class="drive-info">
-                                <i class="fa-solid fa-route"></i>
-                                <span>Laurel Highlands ➔ Leonard Harrison State Park (210 km)</span>
+                            <div class="drive-top">
+                                <div class="drive-info">
+                                    <i class="fa-solid fa-route"></i>
+                                    <span>Laurel Highlands ➔ Leonard Harrison State Park (210 km, 2.0 小時)</span>
+                                </div>
+                                <a href="https://www.google.com/maps/dir/?api=1&origin=Mill+Run+PA&destination=Leonard+Harrison+State+Park+Wellsboro+PA" target="_blank" class="maps-btn">
+                                    <i class="fa-solid fa-map-location-dot"></i> 開啟 Google 地圖 APP 導航
+                                </a>
                             </div>
-                            <a href="https://www.google.com/maps/dir/?api=1&origin=Mill+Run+PA&destination=Leonard+Harrison+State+Park+Wellsboro+PA" target="_blank" class="maps-btn">
-                                <i class="fa-solid fa-map-location-dot"></i> Maps 導航 (2.0小時)
-                            </a>
+                            <div class="map-embed-container">
+                                <iframe src="https://maps.google.com/maps?saddr=Mill+Run+PA&daddr=Leonard+Harrison+State+Park+Wellsboro+PA&output=embed" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
                         </div>
                         <div class="info-block">
                             <div class="block-title"><i class="fa-solid fa-mountain"></i> 景點介紹：Leonard Harrison 觀景台</div>
                             <p class="spot-description">長達 75 公里、深達 300 公尺的綠色大峽谷。Leonard Harrison 觀景台設有非常平緩的木棧道可俯瞰蜿蜒溪谷與森林。</p>
+                        </div>
+
+                        <div class="info-block">
+                            <div class="block-title"><i class="fa-solid fa-bed"></i> 當晚住宿地點 (Base 5 &bull; 第 2 晚 / 共 2 晚)</div>
+                            <div class="hotel-info-card">
+                                <span class="hotel-stay-tag"><i class="fa-solid fa-moon"></i> Base 5 第 2 晚 (連住 2 晚) &bull; 預算 < $300 美金</span>
+                                <div class="hotel-name">Penn Wells Historic Hotel Wellsboro</div>
+                                <div class="rating-stars">★★★★☆ 4.5/5.0 &bull; 1920年代古典風情 &bull; 位於小鎮優雅街道</div>
+                                <div class="hotel-links">
+                                    <a href="https://www.pennwells.com/" target="_blank" class="link-btn link-btn-official"><i class="fa-solid fa-globe"></i> 飯店官網</a>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Penn+Wells+Hotel+Wellsboro+PA" target="_blank" class="link-btn link-btn-maps"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="dining-card">
@@ -1443,23 +1665,41 @@
                     </div>
                     <div class="day-tags">
                         <span class="tag tag-drive"><i class="fa-solid fa-car"></i> 2.5 小時車程</span>
-                        <span class="tag tag-base">Base 6 (第 12 晚)</span>
+                        <span class="tag tag-base">Base 6 (第 1 晚 / 共 4 晚)</span>
                     </div>
                 </div>
                 <div class="day-body">
                     <div class="day-info">
                         <div class="drive-box">
-                            <div class="drive-info">
-                                <i class="fa-solid fa-route"></i>
-                                <span>Wellsboro ➔ Charlottesville, VA (280 km)</span>
+                            <div class="drive-top">
+                                <div class="drive-info">
+                                    <i class="fa-solid fa-route"></i>
+                                    <span>Wellsboro ➔ Charlottesville Monticello (280 km, 2.5 小時)</span>
+                                </div>
+                                <a href="https://www.google.com/maps/dir/?api=1&origin=Wellsboro+PA&destination=Monticello+Charlottesville+VA" target="_blank" class="maps-btn">
+                                    <i class="fa-solid fa-map-location-dot"></i> 開啟 Google 地圖 APP 導航
+                                </a>
                             </div>
-                            <a href="https://www.google.com/maps/dir/?api=1&origin=Wellsboro+PA&destination=Monticello+Charlottesville+VA" target="_blank" class="maps-btn">
-                                <i class="fa-solid fa-map-location-dot"></i> Maps 導航 (2.5小時)
-                            </a>
+                            <div class="map-embed-container">
+                                <iframe src="https://maps.google.com/maps?saddr=Wellsboro+PA&daddr=Monticello+Charlottesville+VA&output=embed" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
                         </div>
                         <div class="info-block">
                             <div class="block-title"><i class="fa-solid fa-landmark"></i> 景點介紹：Monticello (蒙蒂塞洛莊園)</div>
                             <p class="spot-description">美國開國元勳湯瑪斯·傑佛遜自行設計的莊園，名列世界文化遺產。獨特的圓頂與新古典主義建築，俯瞰美麗的山丘景致。</p>
+                        </div>
+
+                        <div class="info-block">
+                            <div class="block-title"><i class="fa-solid fa-bed"></i> 當晚住宿地點 (Base 6 &bull; 第 1 晚 / 共 4 晚)</div>
+                            <div class="hotel-info-card">
+                                <span class="hotel-stay-tag"><i class="fa-solid fa-moon"></i> Base 6 第 1 晚 (連住 4 晚) &bull; 預算 < $300 美金</span>
+                                <div class="hotel-name">Residence Inn Rosslyn / The Draftsman Charlottesville</div>
+                                <div class="rating-stars">★★★★☆ 4.7/5.0 &bull; 大空間公寓式套房 &bull; 含廚房與免費早餐</div>
+                                <div class="hotel-links">
+                                    <a href="https://www.marriott.com/en-us/hotels/wasrr-residence-inn-arlington-rosslyn/overview/" target="_blank" class="link-btn link-btn-official"><i class="fa-solid fa-globe"></i> 飯店官網</a>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Residence+Inn+by+Marriott+Arlington+Rosslyn+VA" target="_blank" class="link-btn link-btn-maps"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="dining-card">
@@ -1498,23 +1738,41 @@
                     </div>
                     <div class="day-tags">
                         <span class="tag tag-drive"><i class="fa-solid fa-car"></i> 1.5 小時車程</span>
-                        <span class="tag tag-base">Base 6 (第 13 晚)</span>
+                        <span class="tag tag-base">Base 6 (第 2 晚 / 共 4 晚)</span>
                     </div>
                 </div>
                 <div class="day-body">
                     <div class="day-info">
                         <div class="drive-box">
-                            <div class="drive-info">
-                                <i class="fa-solid fa-route"></i>
-                                <span>Charlottesville ➔ Great Falls Park ➔ Rosslyn (190 km)</span>
+                            <div class="drive-top">
+                                <div class="drive-info">
+                                    <i class="fa-solid fa-route"></i>
+                                    <span>Charlottesville ➔ Great Falls Park ➔ Rosslyn (190 km, 1.5 小時)</span>
+                                </div>
+                                <a href="https://www.google.com/maps/dir/?api=1&origin=Charlottesville+VA&destination=Residence+Inn+by+Marriott+Arlington+Rosslyn+VA&waypoints=Great+Falls+Park+VA" target="_blank" class="maps-btn">
+                                    <i class="fa-solid fa-map-location-dot"></i> 開啟 Google 地圖 APP 導航
+                                </a>
                             </div>
-                            <a href="https://www.google.com/maps/dir/?api=1&origin=Charlottesville+VA&destination=Residence+Inn+by+Marriott+Arlington+Rosslyn+VA&waypoints=Great+Falls+Park+VA" target="_blank" class="maps-btn">
-                                <i class="fa-solid fa-map-location-dot"></i> Maps 導航 (1.5小時)
-                            </a>
+                            <div class="map-embed-container">
+                                <iframe src="https://maps.google.com/maps?saddr=Charlottesville+VA&daddr=Residence+Inn+by+Marriott+Arlington+Rosslyn+VA&output=embed" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
                         </div>
                         <div class="info-block">
                             <div class="block-title"><i class="fa-solid fa-water"></i> 景點介紹：Great Falls Park (大瀑布國家公園)</div>
                             <p class="spot-description">波托馬克河穿過狹窄岩石峽谷形成壯觀的巨石瀑布，設有無障礙木棧觀景台，步行 5 分鐘即達觀景點。</p>
+                        </div>
+
+                        <div class="info-block">
+                            <div class="block-title"><i class="fa-solid fa-bed"></i> 當晚住宿地點 (Base 6 &bull; 第 2 晚 / 共 4 晚)</div>
+                            <div class="hotel-info-card">
+                                <span class="hotel-stay-tag"><i class="fa-solid fa-moon"></i> Base 6 第 2 晚 (連住 4 晚) &bull; 預算 < $300 美金</span>
+                                <div class="hotel-name">Residence Inn Arlington Rosslyn (華盛頓 D.C. 門戶)</div>
+                                <div class="rating-stars">★★★★☆ 4.7/5.0 &bull; 捷運步行 3 分鐘 &bull; 3人大空間套房</div>
+                                <div class="hotel-links">
+                                    <a href="https://www.marriott.com/en-us/hotels/wasrr-residence-inn-arlington-rosslyn/overview/" target="_blank" class="link-btn link-btn-official"><i class="fa-solid fa-globe"></i> 飯店官網</a>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Residence+Inn+by+Marriott+Arlington+Rosslyn+VA" target="_blank" class="link-btn link-btn-maps"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="dining-card">
@@ -1553,23 +1811,41 @@
                     </div>
                     <div class="day-tags">
                         <span class="tag tag-drive"><i class="fa-solid fa-train"></i> 10 分鐘捷運直達</span>
-                        <span class="tag tag-base">Base 6 (第 14 晚)</span>
+                        <span class="tag tag-base">Base 6 (第 3 晚 / 共 4 晚)</span>
                     </div>
                 </div>
                 <div class="day-body">
                     <div class="day-info">
                         <div class="drive-box">
-                            <div class="drive-info">
-                                <i class="fa-solid fa-route"></i>
-                                <span>Rosslyn 捷運站 ➔ National Mall / Metro Center 站 (10 分鐘)</span>
+                            <div class="drive-top">
+                                <div class="drive-info">
+                                    <i class="fa-solid fa-route"></i>
+                                    <span>Rosslyn 捷運站 ➔ National Mall / Metro Center 站 (10 分鐘)</span>
+                                </div>
+                                <a href="https://www.google.com/maps/dir/?api=1&origin=Rosslyn+Metro+Station+Arlington+VA&destination=National+Mall+Washington+DC" target="_blank" class="maps-btn">
+                                    <i class="fa-solid fa-map-location-dot"></i> 開啟 Google 地圖 APP 導航
+                                </a>
                             </div>
-                            <a href="https://www.google.com/maps/dir/?api=1&origin=Rosslyn+Metro+Station+Arlington+VA&destination=National+Mall+Washington+DC" target="_blank" class="maps-btn">
-                                <i class="fa-solid fa-map-location-dot"></i> Maps 導航
-                            </a>
+                            <div class="map-embed-container">
+                                <iframe src="https://maps.google.com/maps?saddr=Rosslyn+VA&daddr=National+Mall+Washington+DC&output=embed" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
                         </div>
                         <div class="info-block">
                             <div class="block-title"><i class="fa-solid fa-landmark"></i> 景點介紹：國會大廈與國家藝廊</div>
                             <p class="spot-description">造訪美國國會大廈 (U.S. Capitol)、華盛頓紀念碑與林肯紀念堂。下午參觀國家藝廊 (National Gallery of Art)，欣賞達文西與梵谷名畫。</p>
+                        </div>
+
+                        <div class="info-block">
+                            <div class="block-title"><i class="fa-solid fa-bed"></i> 當晚住宿地點 (Base 6 &bull; 第 3 晚 / 共 4 晚)</div>
+                            <div class="hotel-info-card">
+                                <span class="hotel-stay-tag"><i class="fa-solid fa-moon"></i> Base 6 第 3 晚 (連住 4 晚) &bull; 預算 < $300 美金</span>
+                                <div class="hotel-name">Residence Inn Arlington Rosslyn</div>
+                                <div class="rating-stars">★★★★☆ 4.7/5.0 &bull; D.C. 探親第一首選 &bull; 廚房大空間房型</div>
+                                <div class="hotel-links">
+                                    <a href="https://www.marriott.com/en-us/hotels/wasrr-residence-inn-arlington-rosslyn/overview/" target="_blank" class="link-btn link-btn-official"><i class="fa-solid fa-globe"></i> 飯店官網</a>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Residence+Inn+by+Marriott+Arlington+Rosslyn+VA" target="_blank" class="link-btn link-btn-maps"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="dining-card">
@@ -1608,23 +1884,41 @@
                     </div>
                     <div class="day-tags">
                         <span class="tag tag-drive"><i class="fa-solid fa-ship"></i> 水上計程車 / 捷運</span>
-                        <span class="tag tag-base">Base 6 (第 15 晚)</span>
+                        <span class="tag tag-base">Base 6 (第 4 晚 / 共 4 晚)</span>
                     </div>
                 </div>
                 <div class="day-body">
                     <div class="day-info">
                         <div class="drive-box">
-                            <div class="drive-info">
-                                <i class="fa-solid fa-route"></i>
-                                <span>Smithsonian 博物館群 ➔ Georgetown ➔ The Wharf 水岸碼頭</span>
+                            <div class="drive-top">
+                                <div class="drive-info">
+                                    <i class="fa-solid fa-route"></i>
+                                    <span>Smithsonian 博物館群 ➔ Georgetown ➔ The Wharf 水岸碼頭</span>
+                                </div>
+                                <a href="https://www.google.com/maps/dir/?api=1&origin=National+Air+and+Space+Museum+Washington+DC&destination=The+Wharf+Washington+DC" target="_blank" class="maps-btn">
+                                    <i class="fa-solid fa-map-location-dot"></i> 開啟 Google 地圖 APP 導航
+                                </a>
                             </div>
-                            <a href="https://www.google.com/maps/dir/?api=1&origin=National+Air+and+Space+Museum+Washington+DC&destination=The+Wharf+Washington+DC" target="_blank" class="maps-btn">
-                                <i class="fa-solid fa-map-location-dot"></i> Maps 導航
-                            </a>
+                            <div class="map-embed-container">
+                                <iframe src="https://maps.google.com/maps?saddr=National+Air+and+Space+Museum+Washington+DC&daddr=The+Wharf+Washington+DC&output=embed" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
                         </div>
                         <div class="info-block">
                             <div class="block-title"><i class="fa-solid fa-building-columns"></i> 景點介紹：史密森尼博物館群與 The Wharf</div>
                             <p class="spot-description">參觀自然歷史博物館 (Hope Diamond 藍鑽) 與航太博物館。傍晚搭乘 Water Taxi 前往 The Wharf 水岸碼頭漫步。</p>
+                        </div>
+
+                        <div class="info-block">
+                            <div class="block-title"><i class="fa-solid fa-bed"></i> 當晚住宿地點 (Base 6 &bull; 第 4 晚 / 共 4 晚)</div>
+                            <div class="hotel-info-card">
+                                <span class="hotel-stay-tag"><i class="fa-solid fa-moon"></i> Base 6 第 4 晚 (連住 4 晚) &bull; 預算 < $300 美金</span>
+                                <div class="hotel-name">Residence Inn Arlington Rosslyn / Reston 飯店</div>
+                                <div class="rating-stars">★★★★☆ 4.7/5.0 &bull; 明日輕鬆前往機場搭機</div>
+                                <div class="hotel-links">
+                                    <a href="https://www.marriott.com/en-us/hotels/wasrr-residence-inn-arlington-rosslyn/overview/" target="_blank" class="link-btn link-btn-official"><i class="fa-solid fa-globe"></i> 飯店官網</a>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Residence+Inn+by+Marriott+Arlington+Rosslyn+VA" target="_blank" class="link-btn link-btn-maps"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="dining-card">
@@ -1663,23 +1957,37 @@
                     </div>
                     <div class="day-tags">
                         <span class="tag tag-drive"><i class="fa-solid fa-car"></i> 20 分鐘車程</span>
-                        <span class="tag tag-base">Base 6 (第 16 晚)</span>
+                        <span class="tag tag-base">夜間還車班機起飛 (01:15 AM)</span>
                     </div>
                 </div>
                 <div class="day-body">
                     <div class="day-info">
                         <div class="drive-box">
-                            <div class="drive-info">
-                                <i class="fa-solid fa-route"></i>
-                                <span>Reston ➔ Udvar-Hazy Center (15m) ➔ IAD 機場還車 (10m)</span>
+                            <div class="drive-top">
+                                <div class="drive-info">
+                                    <i class="fa-solid fa-route"></i>
+                                    <span>Reston ➔ Udvar-Hazy Center (15m) ➔ IAD 機場還車 (10m)</span>
+                                </div>
+                                <a href="https://www.google.com/maps/dir/?api=1&origin=Reston+VA&destination=Washington+Dulles+International+Airport&waypoints=Steven+F.+Udvar-Hazy+Center+Chantilly+VA" target="_blank" class="maps-btn">
+                                    <i class="fa-solid fa-map-location-dot"></i> 開啟 Google 地圖 APP 導航
+                                </a>
                             </div>
-                            <a href="https://www.google.com/maps/dir/?api=1&origin=Reston+VA&destination=Washington+Dulles+International+Airport&waypoints=Steven+F.+Udvar-Hazy+Center+Chantilly+VA" target="_blank" class="maps-btn">
-                                <i class="fa-solid fa-map-location-dot"></i> Maps 導航
-                            </a>
+                            <div class="map-embed-container">
+                                <iframe src="https://maps.google.com/maps?saddr=Reston+VA&daddr=Washington+Dulles+International+Airport&output=embed" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
                         </div>
                         <div class="info-block">
                             <div class="block-title"><i class="fa-solid fa-shuttle-space"></i> 景點介紹：Udvar-Hazy Center (發現號太空梭)</div>
                             <p class="spot-description">位於 IAD 機場旁，展出震撼實體【發現號太空梭 Space Shuttle Discovery】與 SR-71 黑鳥超音速偵察機。</p>
+                        </div>
+
+                        <div class="info-block">
+                            <div class="block-title"><i class="fa-solid fa-plane-departure"></i> 機場還車與報到提醒 (準備返台)</div>
+                            <div class="hotel-info-card" style="background:#eff6ff; border-color:#bfdbfe;">
+                                <span class="hotel-stay-tag" style="background:#2563eb;"><i class="fa-solid fa-plane"></i> 9/20 01:15 AM 長榮 BR3 起飛</span>
+                                <div class="hotel-name" style="color:#1e40af;">21:30~22:00 抵達 Dulles (IAD) 租車中心還車</div>
+                                <div class="rating-stars" style="color:#1d4ed8;">辦理登機與行李託運 &bull; 圓滿結束 17 天美東自駕之旅</div>
+                            </div>
                         </div>
 
                         <div class="dining-card">
@@ -1695,11 +2003,6 @@
                                     <a href="https://www.google.com/maps/search/?api=1&query=Clydes+Willow+Creek+Farm+Broadlands+VA" target="_blank" class="dining-link"><i class="fa-solid fa-location-dot"></i> Google 地圖</a>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="info-block" style="margin-top:14px;">
-                            <div class="block-title"><i class="fa-solid fa-plane-departure"></i> 機場還車與報到提醒</div>
-                            <p class="spot-description">21:30 - 22:00 抵達 Dulles (IAD) 租車中心還車 ➔ 22:00 辦理登機與行李託運 ➔ 準備搭乘 9/20 01:15 AM 長榮 BR3 班機返回台北。</p>
                         </div>
                     </div>
                     <div class="day-gallery">
