@@ -7,6 +7,8 @@
 *.lock
 temp_deploy/
 site.zip
+site_deploy.zip
+live_url.txt
 
 # Python / OS generated
 __pycache__/

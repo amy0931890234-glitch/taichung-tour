@@ -27,6 +27,20 @@ IAD 機場 ➔ 大瀑布國家公園 ➔ 仙納度國家公園 (Old Rag 攀岩�
 
 ---
 
+## 🏨 16 天大自然健行之旅 $300 美金/晚 住宿規劃表
+
+| 行程階段與地點 | 建議住宿據點與飯店品牌 | 每晚預估未稅房價 | 每晚預估含稅/停車總價 | 住宿亮點與特色 |
+| :--- | :--- | :--- | :--- | :--- |
+| **1. 抵達/返程 IAD 機場** *(Day 1, Day 15)* | **Hyatt Regency Reston**<br>**Homewood Suites Reston** | $150 - $225 | **$172 - $257 /晚** | 離 IAD 機場 15 分鐘，生活機能極佳，可輕鬆打包還車。 |
+| **2. 仙納度國家公園** *(Day 2-4)* | **Skyland Lodge (公園小木屋)**<br>**The Mimslyn Inn (Luray)** | $150 - $220 | **$172 - $252 /晚** | 位於天際線公路，方便挑戰 Old Rag 攀岩峰與最高的兩座瀑布步道。 |
+| **3. 西維吉尼亞山區荒野** *(Day 5-6)* | **Canaan Valley Resort State Park**<br>**The River Inn (Canaan Valley)** | $130 - $200 | **$148 - $228 /晚** | 近 Dolly Sods 與 Seneca Rocks，極具野性荒野風格與星空景緻。 |
+| **4. 新河峽谷國家公園** *(Day 7-9)* | **The Historic Lafayette Hotel**<br>**Quality Inn New River Gorge** | $110 - $170 | **$125 - $195 /晚** | 位於戶外冒險大本營 Fayetteville 小鎮，離 Endless Wall 步道 10 分鐘。 |
+| **5. 藍嶺山脈 & McAfee Knob** *(Day 9-11)* | **Peaks of Otter Lodge (藍嶺)**<br>**Hotel Roanoke (Hilton)** | $150 - $230 | **$172 - $262 /晚** | 坐落於藍嶺公園大道湖畔，清晨看湖光山色，便利挑戰鷹嘴巨石。 |
+| **6. 夏洛特鎮 Charlottesville** *(Day 12)* | **The Draftsman Charlottesville**<br>**Boar's Head Resort** | $170 - $245 | **$195 - $282 /晚** | 參觀美東落差最大瀑布 Crabtree Falls 後放鬆，享受大學城氛圍。 |
+| **7. 華盛頓 D.C. / Rosslyn** *(Day 13-14)* | **Residence Inn Arlington Rosslyn**<br>**Sonder at Dupont Circle** | $180 - $250 | **$208 - $285 /晚** | 安全放鈉首選，附廚房與洗乾衣機，方便逛 REI 旗艦店與自然歷史博物館。 |
+
+---
+
 ## 📅 Day-by-Day 每日詳細行程
 
 ### 【第一階段：大瀑布與仙納度國家公園健行】

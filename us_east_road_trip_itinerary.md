@@ -3,6 +3,25 @@
 **主要站點**：華盛頓特區（Washington D.C.）⚡️ 尼加拉瀑布（Niagara Falls）⚡️ 納什維爾（Nashville）  
 **行程特色**：控制每日開車時數於 **2～4 小時**，絕不拉拉長途車，結合世界級自然景觀（瀑布、國家公園、地下洞穴）與頂級建築美學（古典神廟、落水山莊、新古典主義世界遺產）。
 
+**預算控管**：全程每晚住宿預算嚴格控制於 **$300 美金以內（含稅金與過夜停車費）**。
+
+---
+
+## 🏨 美東自然之旅全行程 $300 美金/晚 住宿總覽表
+
+| 行程站點與分區 | 推薦住宿與飯店品牌 | 每晚預估未稅房價 | 每晚預估含稅/停車總價 | 住宿特色與優勢 |
+| :--- | :--- | :--- | :--- | :--- |
+| **1. 華盛頓 D.C. / Arlington** *(Day 1-2, Day 14-17)* | **Residence Inn Arlington Rosslyn**<br>**Hyatt Centric Arlington** | $180 - $250 | **$215 - $285 /晚** | 捷運 Rosslyn 站口，銀線直達 IAD 機場，附廚房與免費熱早餐。 |
+| **2. 指湖區 Finger Lakes** *(Day 3)* | **Watkins Glen Harbor Hotel**<br>**Ithaca Marriott Downtown** | $170 - $240 | **$195 - $275 /晚** | 位於 Seneca 湖畔或 Ithaca 大學城，漫步峽谷步道極方便。 |
+| **3. 尼加拉瀑布 Niagara Falls** *(Day 4)* | **Hyatt Place Niagara Falls**<br>**Seneca Niagara Resort** | $160 - $235 | **$185 - $270 /晚** | 步行可達霧中少女號觀光船碼頭與風之穴，包含過夜停車。 |
+| **4. 匹茲堡 Pittsburgh** *(Day 5)* | **The Industrialist Hotel**<br>**Kimpton Hotel Monaco** | $160 - $230 | **$188 - $268 /晚** | 市中心頂級精品飯店，近纜車與三河夜景，便利走訪落水山莊。 |
+| **5. 仙納度國家公園 Shenandoah** *(Day 6-7)* | **Skyland Lodge (公園內小木屋)**<br>**The Mimslyn Inn (Luray)** | $150 - $220 | **$172 - $252 /晚** | 位於天際線公路最高處，看無敵山谷夕陽；或入住 Luray 溫馨小鎮。 |
+| **6. 大煙山國家公園 Smoky Mountains** *(Day 8)* | **Peaks of Otter Lodge (藍嶺)**<br>**Highland Manor Inn (Townsend)** | $130 - $200 | **$148 - $228 /晚** | 湖畔野生自然木屋，避開人潮，早晨常有晨霧與野生白尾鹿。 |
+| **7. 納什維爾 Nashville** *(Day 9-10)* | **Hyatt House Nashville Downtown**<br>**Element Nashville Music Row** | $170 - $245 | **$198 - $285 /晚** | 附微波爐與廚房，步行可至帕德嫩神廟與 Broadway 音樂老街。 |
+| **8. 肯塔基藍草 & 猛獁洞** *(Day 11)* | **21c Museum Hotel Lexington**<br>**The Campbell House** | $150 - $220 | **$174 - $254 /晚** | 現代藝術博物館風格飯店，充滿藍草馬場奢華莊園風情。 |
+| **9. 新河峽谷國家公園** *(Day 12)* | **The Lafayette Hotel (Fayetteville)**<br>**Quality Inn New River Gorge** | $110 - $170 | **$125 - $195 /晚** | 位於國家公園大本營 Fayetteville 小鎮，CP 值極高且氛圍放鬆。 |
+| **10. 夏洛特鎮 Charlottesville** *(Day 13)* | **The Draftsman Charlottesville**<br>**Boar's Head Resort** | $170 - $245 | **$195 - $282 /晚** | 維吉尼亞大學旁精品飯店，方便次日造訪蒙蒂塞洛世界遺產莊園。 |
+
 ---
 
 ## 🗺️ 路線總覽圖 (Route Overview)
