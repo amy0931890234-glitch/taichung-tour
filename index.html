@@ -633,6 +633,140 @@
             transition: background 0.2s;
         }
 
+        /* My Maps Custom Banner */
+        .mymaps-banner {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: var(--radius-lg);
+            padding: 24px 28px;
+            margin-bottom: 30px;
+            color: #f8fafc;
+            box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.25);
+        }
+
+        .mymaps-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .mymaps-header h3 {
+            font-size: 1.25rem;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .mymaps-badge {
+            background: rgba(56, 189, 248, 0.15);
+            color: #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            font-weight: 600;
+        }
+
+        .mymaps-desc {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .mymaps-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 22px;
+        }
+
+        .btn-mymaps {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 11px 20px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.92rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .btn-kml {
+            background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
+            color: white;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+        }
+
+        .btn-kml:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
+            color: white;
+        }
+
+        .btn-csv {
+            background: rgba(51, 65, 85, 0.8);
+            color: #e2e8f0;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .btn-csv:hover {
+            background: rgba(71, 85, 105, 1);
+            color: white;
+        }
+
+        .btn-open {
+            background: rgba(16, 185, 129, 0.15);
+            color: #34d399;
+            border: 1px solid rgba(52, 211, 153, 0.3);
+        }
+
+        .btn-open:hover {
+            background: rgba(16, 185, 129, 0.3);
+            color: white;
+        }
+
+        .mymaps-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 14px;
+            background: rgba(15, 23, 42, 0.6);
+            padding: 16px;
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .step-card {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .step-num {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #38bdf8;
+            color: #0f172a;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.95rem;
+            flex-shrink: 0;
+        }
+
+        .step-text {
+            color: #cbd5e1;
+            font-size: 0.88rem;
+            line-height: 1.4;
+        }
+
         .floating-top:hover {
             background: var(--primary-dark);
         }
@@ -686,6 +820,44 @@
                 • <strong>抵達當晚安排</strong>：下機通關取車後僅需 15 分鐘車程即可入住 Reston 飯店休養，調整時差。<br>
                 • <strong>回程 (BR3)</strong>：2026/09/20 (日) 凌晨 01:15 IAD 起飛 ➔ <strong>09/19 (六) 22:00 前需抵達 IAD 機場還車與報到</strong>（9/21 05:10 AM 抵達台北）。
             </p>
+        </div>
+
+        <!-- Google My Maps Import Banner -->
+        <div class="mymaps-banner">
+            <div class="mymaps-content">
+                <div class="mymaps-header">
+                    <h3><i class="fa-solid fa-map-location-dot" style="color: #38bdf8;"></i> 🗺️ Google 我的地圖 (Google My Maps) 17 天全行程匯入與轉存專區</h3>
+                    <span class="mymaps-badge">手機 Google Maps App 隨身同步</span>
+                </div>
+                <p class="mymaps-desc">
+                    已幫您把 17 天全行程的 40+ 個重點景點、飯店、美景與每日自駕據點打包成專屬地圖檔。下載下方 KML 檔匯入至 Google 我的地圖後，即可隨時在手機 Google 地圖開啟與隨身導航！
+                </p>
+                <div class="mymaps-actions">
+                    <a href="us_east_trip_2026_mymaps.kml" download="us_east_trip_2026_mymaps.kml" class="btn-mymaps btn-kml">
+                        <i class="fa-solid fa-file-code"></i> 下載 Google 我的地圖匯入檔 (.KML)
+                    </a>
+                    <a href="us_east_trip_2026_mymaps.csv" download="us_east_trip_2026_mymaps.csv" class="btn-mymaps btn-csv">
+                        <i class="fa-solid fa-file-csv"></i> 下載 CSV 備份資料檔 (.CSV)
+                    </a>
+                    <a href="https://mymaps.google.com/" target="_blank" rel="noopener" class="btn-mymaps btn-open">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> 開啟 Google 我的地圖網站
+                    </a>
+                </div>
+                <div class="mymaps-steps">
+                    <div class="step-card">
+                        <div class="step-num">1</div>
+                        <div class="step-text">點擊上方按鈕下載 <strong>us_east_trip_2026_mymaps.kml</strong></div>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-num">2</div>
+                        <div class="step-text">開啟 <a href="https://mymaps.google.com/" target="_blank" style="color:#38bdf8;text-decoration:underline;">mymaps.google.com</a> 點「建立新地圖」➔ 點「匯入」上傳</div>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-num">3</div>
+                        <div class="step-text">開啟手機 Google Maps ➔「已儲存」➔「地圖」隨時看全行程據點與路線！</div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Filter Navigation -->
