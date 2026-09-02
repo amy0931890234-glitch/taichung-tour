@@ -87,7 +87,7 @@
         .hero-subtitle {
             font-size: 1.1rem;
             opacity: 0.95;
-            max-width: 700px;
+            max-width: 750px;
             margin: 0 auto 25px;
             font-weight: 300;
         }
@@ -117,12 +117,13 @@
             justify-content: space-between;
             align-items: center;
             background: white;
-            padding: 15px 25px;
+            padding: 18px 25px;
             border-radius: var(--radius-lg);
             box-shadow: var(--shadow-sm);
             margin-bottom: 30px;
             flex-wrap: wrap;
             gap: 15px;
+            border-left: 5px solid var(--primary);
         }
 
         .action-info {
@@ -130,7 +131,7 @@
             align-items: center;
             gap: 10px;
             color: var(--primary-dark);
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .btn {
@@ -212,7 +213,7 @@
         }
 
         .stat-value {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 700;
             color: var(--text-main);
         }
@@ -263,23 +264,22 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Map Section */
-        .map-card {
+        /* Route Overview Box */
+        .route-visual-box {
             background: white;
             border-radius: var(--radius-lg);
-            padding: 25px;
+            padding: 30px;
             box-shadow: var(--shadow-sm);
             margin-bottom: 30px;
-            text-align: center;
+            border: 1px solid var(--border-color);
         }
 
-        .map-img {
-            max-width: 100%;
+        .route-diagram-svg {
+            width: 100%;
+            max-width: 850px;
             height: auto;
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-sm);
-            margin-top: 15px;
-            border: 1px solid var(--border-color);
+            display: block;
+            margin: 20px auto;
         }
 
         /* Hubs Grid */
@@ -333,20 +333,14 @@
             justify-content: space-between;
         }
 
-        .hub-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: var(--primary-dark);
-        }
-
         .hub-info {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-bottom: 15px;
+            font-size: 0.95rem;
+            color: var(--primary-dark);
+            font-weight: 600;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
         }
 
         .hotel-box {
@@ -359,29 +353,29 @@
 
         .hotel-name {
             font-weight: 700;
-            font-size: 0.95rem;
+            font-size: 0.98rem;
             color: var(--text-main);
             margin-bottom: 4px;
         }
 
         .hotel-price {
-            font-size: 0.85rem;
+            font-size: 0.88rem;
             color: var(--primary-dark);
             font-weight: 600;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         .booking-btn {
             display: inline-block;
             width: 100%;
             text-align: center;
-            padding: 8px 12px;
+            padding: 9px 12px;
             background: var(--primary);
             color: white;
             border-radius: 6px;
             font-size: 0.88rem;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
             transition: background 0.2s;
         }
 
@@ -479,6 +473,7 @@
             color: var(--text-muted);
             padding-top: 10px;
             border-top: 1px dashed var(--border-color);
+            flex-wrap: wrap;
         }
 
         /* Photo Gallery Cards */
@@ -596,12 +591,12 @@
         <!-- Action Bar for Sharing -->
         <div class="action-bar">
             <div class="action-info">
-                <i class="fa-solid fa-share-nodes fa-lg"></i>
-                <span>此網頁可直接傳送給女兒與先生，在手機或電腦開啟參考！</span>
+                <i class="fa-solid fa-file-arrow-down fa-lg"></i>
+                <span>此 HTML 檔案可直接存於手機或電腦點擊開啟，也可以直接列印成 PDF！</span>
             </div>
             <div style="display: flex; gap: 10px;">
-                <button class="btn btn-outline" onclick="window.print()"><i class="fa-solid fa-print"></i> 列印 / 列印成PDF</button>
-                <button class="btn" onclick="copyPageUrl()"><i class="fa-solid fa-link"></i> 複製分享連結</button>
+                <button class="btn btn-outline" onclick="window.print()"><i class="fa-solid fa-print"></i> 列印 / 列印成 PDF</button>
+                <button class="btn" onclick="copyPageUrl()"><i class="fa-solid fa-copy"></i> 複製本頁路徑</button>
             </div>
         </div>
 
@@ -648,10 +643,54 @@
         <!-- Tab 1: Route Map & 4 Hubs -->
         <div id="map-tab" class="tab-content active">
             
-            <div class="map-card">
-                <h2><i class="fa-solid fa-route"></i> 旅行路線視覺總覽圖</h2>
-                <p style="color: var(--text-muted); margin-top: 5px;">以華盛頓 IAD 機場與馬里蘭為中心，往四個方向延伸的放射狀定點微旅行</p>
-                <img src="maryland_nature_tour_map.png" alt="美東慢活旅行路線圖" class="map-img">
+            <div class="route-visual-box">
+                <h2 style="text-align: center; color: var(--primary-dark);"><i class="fa-solid fa-route"></i> 旅行路線放射狀總覽圖</h2>
+                <p style="text-align: center; color: var(--text-muted); margin-top: 5px;">以華盛頓 IAD 機場與馬里蘭為中心，往四個方向延伸單程 ≤2.5 小時的放射狀微旅行</p>
+                
+                <!-- SVG Route Diagram -->
+                <svg class="route-diagram-svg" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+                    <style>
+                        .hub-center { fill: #1b4332; stroke: #52b788; stroke-width: 4; }
+                        .hub-node { fill: #ffffff; stroke: #2d6a4f; stroke-width: 3; rx: 12; ry: 12; }
+                        .line-path { stroke: #d4a373; stroke-width: 3; stroke-dasharray: 6; }
+                        .node-title { font-family: 'Noto Sans TC', sans-serif; font-weight: bold; font-size: 15px; fill: #1b4332; }
+                        .node-sub { font-family: 'Noto Sans TC', sans-serif; font-size: 12px; fill: #6c757d; }
+                        .center-title { font-family: 'Noto Sans TC', sans-serif; font-weight: bold; font-size: 16px; fill: #ffffff; }
+                        .center-sub { font-family: 'Noto Sans TC', sans-serif; font-size: 12px; fill: #fefae0; }
+                    </style>
+
+                    <!-- Connecting dashed lines -->
+                    <line x1="400" y1="225" x2="400" y2="70" class="line-path" />
+                    <line x1="400" y1="225" x2="400" y2="380" class="line-path" />
+                    <line x1="400" y1="225" x2="140" y2="225" class="line-path" />
+                    <line x1="400" y1="225" x2="660" y2="225" class="line-path" />
+
+                    <!-- Center Hub (IAD / Maryland) -->
+                    <circle cx="400" cy="225" r="70" class="hub-center" />
+                    <text x="400" y="215" text-anchor="middle" class="center-title">✈️ 華盛頓 IAD</text>
+                    <text x="400" y="238" text-anchor="middle" class="center-sub">🏠 馬里蘭女兒宿舍</text>
+
+                    <!-- Hub 1: North (Deep Creek Lake) -->
+                    <rect x="270" y="20" width="260" height="70" class="hub-node" />
+                    <text x="400" y="48" text-anchor="middle" class="node-title">🌲 據點四：深溪湖高山瀑布</text>
+                    <text x="400" y="68" text-anchor="middle" class="node-sub">車程 2.5 小時 ｜ 深溪湖 & 泥溪瀑布</text>
+
+                    <!-- Hub 2: West (Shenandoah & Luray) -->
+                    <rect x="10" y="190" width="250" height="70" class="hub-node" />
+                    <text x="135" y="218" text-anchor="middle" class="node-title">⛰️ 據點一：謝南多亞山谷</text>
+                    <text x="135" y="238" text-anchor="middle" class="node-sub">車程 1.5 小時 ｜ 天際線大道 & 鐘乳石洞</text>
+
+                    <!-- Hub 3: East (Assateague & Chincoteague) -->
+                    <rect x="540" y="190" width="250" height="70" class="hub-node" />
+                    <text x="665" y="218" text-anchor="middle" class="node-title">🌊 據點三：野生木馬海岸</text>
+                    <text x="665" y="238" text-anchor="middle" class="node-sub">車程 2.5 小時 ｜ 阿薩蒂格島沙灘馬群</text>
+
+                    <!-- Hub 4: South/Central (Annapolis) -->
+                    <rect x="270" y="355" width="260" height="70" class="hub-node" />
+                    <text x="400" y="383" text-anchor="middle" class="node-title">🟢 據點二：安納波利斯海港</text>
+                    <text x="400" y="403" text-anchor="middle" class="node-sub">車程 1 小時 ｜ 歷史海港 & 植物園散步</text>
+                </svg>
+
             </div>
 
             <h2 style="margin: 30px 0 20px; color: var(--primary-dark);"><i class="fa-solid fa-bed"></i> 4 大定點住宿據點與推薦飯店</h2>
@@ -932,7 +971,7 @@
             <div class="gallery-grid">
 
                 <div class="spot-card">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Shenandoah_National_Park%2C_VA_-_Skyline_Drive.jpg/800px-Shenandoah_National_Park%2C_VA_-_Skyline_Drive.jpg" alt="Shenandoah National Park" class="spot-img">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Shenandoah National Park" class="spot-img">
                     <div class="spot-content">
                         <h3 class="spot-title">謝南多亞國家公園 (Skyline Drive)</h3>
                         <p class="spot-desc">延綿百里的藍嶺山脈景觀公路，擁有多處停車展望台，步道坡度平緩好走。</p>
@@ -944,7 +983,7 @@
                 </div>
 
                 <div class="spot-card">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Luray_Caverns_Virginia_2012-07-06.jpg/800px-Luray_Caverns_Virginia_2012-07-06.jpg" alt="Luray Caverns" class="spot-img">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80" alt="Luray Caverns" class="spot-img">
                     <div class="spot-content">
                         <h3 class="spot-title">盧雷鐘乳石巨洞 (Luray Caverns)</h3>
                         <p class="spot-desc">美東最大地下溶洞，全年恆溫 12-14°C，洞內設有無階梯步道與絕美倒影湖。</p>
@@ -956,7 +995,7 @@
                 </div>
 
                 <div class="spot-card">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Wild_horses.jpg/800px-Wild_horses.jpg" alt="Assateague Wild Horses" class="spot-img">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80" alt="Assateague Wild Horses" class="spot-img">
                     <div class="spot-content">
                         <h3 class="spot-title">阿薩蒂格野生木馬海岸</h3>
                         <p class="spot-desc">大西洋海岸大自然奇觀，野生木馬在沙灘與鹽沼自由漫步，九月海風涼爽。</p>
@@ -968,7 +1007,7 @@
                 </div>
 
                 <div class="spot-card">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Great_Falls_Park_Virginia_01.jpg/800px-Great_Falls_Park_Virginia_01.jpg" alt="Great Falls Park" class="spot-img">
+                    <img src="https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=800&q=80" alt="Great Falls Park" class="spot-img">
                     <div class="spot-content">
                         <h3 class="spot-title">大瀑布國家公園 (Great Falls Park)</h3>
                         <p class="spot-desc">波托馬克河切穿壯麗峽谷，三個觀景台設有木棧道，離 IAD 機場僅 35 分鐘。</p>
@@ -979,7 +1018,7 @@
                 </div>
 
                 <div class="spot-card">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Muddy_Creek_Falls.jpg/800px-Muddy_Creek_Falls.jpg" alt="Swallow Falls State Park" class="spot-img">
+                    <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80" alt="Swallow Falls State Park" class="spot-img">
                     <div class="spot-content">
                         <h3 class="spot-title">燕子瀑布州立公園 (Swallow Falls)</h3>
                         <p class="spot-desc">馬里蘭最高瀑布 (Muddy Creek Falls) 所在地，數百年原生冷杉步道芬多精滿滿。</p>
@@ -1048,9 +1087,9 @@
 
         function copyPageUrl() {
             navigator.clipboard.writeText(window.location.href).then(() => {
-                alert('已成功複製網頁連結！您可以貼上並傳送給先生與女兒。');
+                alert('已成功複製本 HTML 檔案的路徑！您可以貼上並傳送給先生與女兒。');
             }).catch(() => {
-                alert('請複製瀏覽器網址列的連結傳送給家人。');
+                alert('已為您顯示檔案路徑。');
             });
         }
     </script>
